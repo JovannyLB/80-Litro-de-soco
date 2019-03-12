@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class autoMoveCrate : PhysicsObject{
+public class autoMoveCrate : PhysicsObject
+{
     // Start is called before the first frame update
-    void Start(){
+    void Start()
+    {
+        
     }
 
     // Update is called once per frame

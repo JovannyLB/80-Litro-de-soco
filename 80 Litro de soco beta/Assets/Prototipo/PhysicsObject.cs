@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PhysicsObject : MonoBehaviour{
+
     public float minGroundNormalY = 0.65f;
     public float graityModified = 1f;
 
@@ -31,29 +32,30 @@ public class PhysicsObject : MonoBehaviour{
 
     // Update is called once per frame
     void Update(){
-        //targetVelocity = Vector2.zero;
+        targetVelocity = Vector2.zero;
         ComputeVelocity();
     }
 
     protected virtual void ComputeVelocity(){
+        
     }
 
     void FixedUpdate(){
         velocity += graityModified * Physics2D.gravity * Time.deltaTime;
         velocity.x = targetVelocity.x;
-
+        
         grounded = false;
-
+        
         Vector2 changeInPosition = velocity * Time.deltaTime;
 
         Vector2 moveAlongGround = new Vector2(groundNormal.y, -groundNormal.x);
 
         Vector2 move = moveAlongGround * changeInPosition.x;
-
+        
         Movement(move, false);
-
+        
         move = Vector2.up * changeInPosition.y;
-
+        
         Movement(move, true);
     }
 
@@ -85,8 +87,10 @@ public class PhysicsObject : MonoBehaviour{
                 float modifiedDistance = hitBufferList[i].distance - shellRadius;
                 distance = modifiedDistance < distance ? modifiedDistance : distance;
             }
+            
         }
 
         rb2d.position = rb2d.position + move.normalized * distance;
     }
+
 }
