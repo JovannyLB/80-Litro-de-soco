@@ -5,10 +5,10 @@ using UnityEngine;
 public class PhysicsObject : MonoBehaviour{
     public float minGroundNormalY = 0.65f;
     public float graityModified = 1f;
+    public bool grounded;
+    public Vector2 targetVelocity;
 
-    protected bool grounded;
     protected Vector2 groundNormal;
-    protected Vector2 targetVelocity;
     protected Rigidbody2D rb2d;
     protected Vector2 velocity;
     protected ContactFilter2D contactFilter;
