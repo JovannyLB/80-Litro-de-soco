@@ -27,15 +27,31 @@ public class PhysicsObject : MonoBehaviour{
         contactFilter.useTriggers = false;
         contactFilter.SetLayerMask(Physics2D.GetLayerCollisionMask(gameObject.layer));
         contactFilter.useLayerMask = true;
+        animationStart();
     }
 
     // Update is called once per frame
     void Update(){
         //targetVelocity = Vector2.zero;
+        Controls();
         ComputeVelocity();
+        CoreGameplayUpdate();
+        animationUpdate();
     }
 
     protected virtual void ComputeVelocity(){
+    }
+
+    protected virtual void animationStart(){
+    }
+
+    protected virtual void animationUpdate(){
+    }
+
+    protected virtual void Controls(){
+    }
+
+    protected virtual void CoreGameplayUpdate(){
     }
 
     void FixedUpdate(){

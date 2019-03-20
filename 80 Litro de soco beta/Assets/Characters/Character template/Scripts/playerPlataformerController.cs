@@ -1,13 +1,21 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class playerPlataformerController : PhysicsObject{
+    
+    // Informações gerais
+        // Informações sobre movimetação
     public float jumpTakeOffSpeed = 7;
     public float speed = 7;
     public float dashFrameTotal;
     public float dashSpeed;
+        // Informações sobre os personagens
+    public string CharName;
+    public float health;
 
+    // Atributos de dash
     protected float backTimer = 100;
     protected float frontTimer = 100;
     protected float downTimer = 100;
@@ -21,11 +29,35 @@ public class playerPlataformerController : PhysicsObject{
     private int dashBackward;
     private float dashFrames;
     private bool currentlyDashing;
+    
+    // Cotroles
+    protected bool xButton;
+    protected bool square;
+    protected bool circle;
+    protected bool triangle;
+    protected float moveHRaw;
+    protected float moveVRaw;
+    
+    // Animações e botões
+        // Animator
+    protected Animator animator;
+        // Booleans
+    protected bool standLightPunchCurrently;
+
+    protected override void Controls(){
+        // Analógico
+        moveHRaw = Input.GetAxisRaw("Horizontal");
+        moveVRaw = Input.GetAxisRaw("Vertical");
+        
+        // Botões
+        xButton = Input.GetKey(KeyCode.JoystickButton1);
+        square = Input.GetKey(KeyCode.JoystickButton0);
+        circle = Input.GetKey(KeyCode.JoystickButton2);
+        triangle = Input.GetKey(KeyCode.JoystickButton3);
+    }
 
     protected override void ComputeVelocity(){
         // Pega as inputs do controle
-        float moveHRaw = Input.GetAxisRaw("Horizontal");
-        float moveVRaw = Input.GetAxisRaw("Vertical");
         float moveH = 0;
         float moveV = 0;
 
@@ -69,14 +101,12 @@ public class playerPlataformerController : PhysicsObject{
             dashFrames = dashFrameTotal;
             targetVelocity = new Vector2(1, 0) * -dashSpeed;
             dashBackward = 0;
-            print("Dash back");
         }
 
         if (dashForward >= 1 && grounded && !currentlyDashing){
             dashFrames = dashFrameTotal;
             targetVelocity = new Vector2(1, 0) * dashSpeed;
             dashForward = 0;
-            print("Dash forward");
         }
 
         // Checa os pulos
@@ -151,4 +181,39 @@ public class playerPlataformerController : PhysicsObject{
             canKeyCheck = false;
         }
     }
+    
+    // Animação
+    protected override void animationStart(){
+        animator = GetComponent<Animator>();
+    }
+
+    protected override void animationUpdate(){
+        // Moimento
+        if (grounded){
+            animator.SetFloat("movementSpeed", Math.Abs(targetVelocity.x));
+        }
+        else{
+            animator.SetFloat("movementSpeed", 0);
+        }
+        
+        // Stand light punch
+        animator.SetBool("standLightPunch", standLightPunchCurrently);
+    }
+    
+    // Core gameplay
+    protected override void CoreGameplayUpdate(){
+        // Light punches
+        if (square){
+            StandLightPunch();
+        }
+    }
+
+    protected void StandLightPunch(){
+        standLightPunchCurrently = true;
+    }
+
+    public void StandLightPunchStop(){
+        standLightPunchCurrently = false;
+    }
+
 }
