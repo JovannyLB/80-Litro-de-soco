@@ -260,10 +260,12 @@ MonoBehaviour:
   targetVelocity: {x: 0, y: 0}
   jumpTakeOffSpeed: 10
   speed: 5
-  dashFrameTotal: 15
-  dashSpeed: 10
   CharName: Dummy
   health: 1000
+  dashFrameTotal: 10
+  dashSpeed: 20
+  dashCooldownTotal: 30
+  player1: 1
 --- !u!95 &207671848
 Animator:
   serializedVersion: 3

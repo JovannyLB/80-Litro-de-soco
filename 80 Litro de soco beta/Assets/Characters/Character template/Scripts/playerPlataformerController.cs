@@ -9,8 +9,6 @@ public class playerPlataformerController : PhysicsObject{
         // Informações sobre movimetação
     public float jumpTakeOffSpeed = 7;
     public float speed = 7;
-    public float dashFrameTotal;
-    public float dashSpeed;
         // Informações sobre os personagens
     public string CharName;
     public float health;
@@ -20,6 +18,10 @@ public class playerPlataformerController : PhysicsObject{
     protected float frontTimer = 100;
     protected float downTimer = 100;
     protected bool ableToMove;
+    
+    public float dashFrameTotal;
+    public float dashSpeed;
+    public float dashCooldownTotal;
 
     private bool backTimerBool;
     private bool frontTimerBool;
@@ -29,6 +31,8 @@ public class playerPlataformerController : PhysicsObject{
     private int dashBackward;
     private float dashFrames;
     private bool currentlyDashing;
+    private float dashCooldown;
+    private bool canDash;
     
     // Cotroles
     protected bool xButton;
@@ -37,23 +41,43 @@ public class playerPlataformerController : PhysicsObject{
     protected bool triangle;
     protected float moveHRaw;
     protected float moveVRaw;
+    public bool player1;
     
     // Animações e botões
         // Animator
     protected Animator animator;
         // Booleans
+    protected bool crouching;
+    protected bool currentlyAttacking;
     protected bool standLightPunchCurrently;
+    protected bool standLightKickCurrently;
+    protected bool crouchLightPunchCurrently;
+    protected bool crouchLightKickCurrently;
 
     protected override void Controls(){
         // Analógico
-        moveHRaw = Input.GetAxisRaw("Horizontal");
-        moveVRaw = Input.GetAxisRaw("Vertical");
-        
+        if (player1){
+            moveHRaw = Input.GetAxisRaw("Horizontal");
+            moveVRaw = Input.GetAxisRaw("Vertical");
+        }
+        else{
+            moveHRaw = Input.GetAxisRaw("Horizontal2");
+            moveVRaw = Input.GetAxisRaw("Vertical2");
+        }
+
         // Botões
-        xButton = Input.GetKey(KeyCode.JoystickButton1);
-        square = Input.GetKey(KeyCode.JoystickButton0);
-        circle = Input.GetKey(KeyCode.JoystickButton2);
-        triangle = Input.GetKey(KeyCode.JoystickButton3);
+        if (player1){
+            xButton = Input.GetKeyDown(KeyCode.JoystickButton1);
+            square = Input.GetKeyDown(KeyCode.JoystickButton0);
+            circle = Input.GetKeyDown(KeyCode.JoystickButton2);
+            triangle = Input.GetKeyDown(KeyCode.JoystickButton3);
+        }
+        else{
+            xButton = Input.GetKeyDown(KeyCode.Joystick1Button1);
+            square = Input.GetKeyDown(KeyCode.Joystick1Button0);
+            circle = Input.GetKeyDown(KeyCode.Joystick1Button2);
+            triangle = Input.GetKeyDown(KeyCode.Joystick1Button3);
+        }
     }
 
     protected override void ComputeVelocity(){
@@ -96,27 +120,38 @@ public class playerPlataformerController : PhysicsObject{
             downTimer++;
         }
 
+        // Cooldown
+        if (dashCooldown > 0){
+            canDash = false;
+            dashCooldown--;
+        }
+        else{
+            canDash = true;
+        }
+        
         // Dashes
-        if (dashBackward >= 1 && grounded && !currentlyDashing){
+        if (dashBackward >= 1 && grounded && !currentlyDashing && !crouching && !currentlyAttacking && canDash){
             dashFrames = dashFrameTotal;
             targetVelocity = new Vector2(1, 0) * -dashSpeed;
             dashBackward = 0;
+            dashCooldown = dashCooldownTotal;
         }
 
-        if (dashForward >= 1 && grounded && !currentlyDashing){
+        if (dashForward >= 1 && grounded && !currentlyDashing && !crouching && !currentlyAttacking && canDash){
             dashFrames = dashFrameTotal;
             targetVelocity = new Vector2(1, 0) * dashSpeed;
             dashForward = 0;
+            dashCooldown = dashCooldownTotal;
         }
 
         // Checa os pulos
-        if (moveV > 0.4f && moveH > 0.4f && grounded){
+        if (moveV > 0.4f && moveH > 0.4f && grounded && ableToMove){
             velocity.y = jumpTakeOffSpeed;
         }
-        else if (moveV > 0.4f && moveH < -0.4f && grounded){
+        else if (moveV > 0.4f && moveH < -0.4f && grounded && ableToMove){
             velocity.y = jumpTakeOffSpeed;
         }
-        else if (Input.GetAxis("Vertical") > 0.5f && grounded){
+        else if (moveV > 0.5f && grounded && ableToMove){
             velocity.y = jumpTakeOffSpeed;
         }
 
@@ -127,17 +162,31 @@ public class playerPlataformerController : PhysicsObject{
             currentlyDashing = true;
         }
         else{
-            ableToMove = true;
             currentlyDashing = false;
         }
 
+        // Agachar
+        if (moveVRaw < -0.6f && grounded && !currentlyDashing){
+            crouching = true;
+            ableToMove = false;
+            targetVelocity = Vector2.zero;
+        }
+        else{
+            crouching = false;
+        }
+        
         // Faz o personagem andar
         if (grounded && ableToMove){
             targetVelocity = move * speed;
         }
+
+        if (grounded && !crouching && !currentlyDashing && !currentlyAttacking){
+            ableToMove = true;
+        }
     }
 
     void KeyCheck(float moveH, float moveV){
+        
         // Checa se o jogador deixou o analogico no neutro antes de repetir o movimento (aplica-se apenas para dash)
         if (moveH > -0.5f && moveH < 0.5f && moveV > -0.5f && moveV < 0.5f){
             canKeyCheck = true;
@@ -181,7 +230,7 @@ public class playerPlataformerController : PhysicsObject{
             canKeyCheck = false;
         }
     }
-    
+
     // Animação
     protected override void animationStart(){
         animator = GetComponent<Animator>();
@@ -195,25 +244,85 @@ public class playerPlataformerController : PhysicsObject{
         else{
             animator.SetFloat("movementSpeed", 0);
         }
+
+        animator.SetBool("crouching", crouching);
         
         // Stand light punch
         animator.SetBool("standLightPunch", standLightPunchCurrently);
+        // Stand light kick
+        animator.SetBool("standLightKick", standLightKickCurrently);
+        // Crouch light punch
+        animator.SetBool("crouchLightPunch", crouchLightPunchCurrently);
+        // Crouch light kick
+        animator.SetBool("crouchLightKick", crouchLightKickCurrently);
     }
     
     // Core gameplay
     protected override void CoreGameplayUpdate(){
         // Light punches
-        if (square){
+        if (square && grounded && !crouching && !currentlyAttacking && !currentlyDashing){
             StandLightPunch();
+        }
+        else if (square && grounded && crouching && !currentlyAttacking && !currentlyDashing){
+            CrouchLightPunch();
+        }
+        
+        // Light kick's
+        if (xButton && grounded && !crouching && !currentlyAttacking && !currentlyDashing){
+            StandLightKick();
+        } 
+        else if (xButton && grounded && crouching && !currentlyAttacking && !currentlyDashing){
+            CrouchLightKick();
         }
     }
 
+    protected void CurrentlyAttacking(bool attacking){
+        targetVelocity = Vector2.zero;
+        currentlyAttacking = attacking;
+        ableToMove = !attacking;
+    }
+
+    // Stand light punch
     protected void StandLightPunch(){
+        CurrentlyAttacking(true);
         standLightPunchCurrently = true;
     }
 
     public void StandLightPunchStop(){
+        CurrentlyAttacking(false);
         standLightPunchCurrently = false;
     }
+    
+    // Stand light kick
+    protected void StandLightKick(){
+        CurrentlyAttacking(true);
+        standLightKickCurrently = true;
+    }
 
+    public void StandLightKickStop(){
+        CurrentlyAttacking(false);
+        standLightKickCurrently = false;
+    }
+    
+    // Crouch light punch
+    protected void CrouchLightPunch(){
+        CurrentlyAttacking(true);
+        crouchLightPunchCurrently = true;
+    }
+
+    public void CrouchLightPunchStop(){
+        CurrentlyAttacking(false);
+        crouchLightPunchCurrently = false;
+    }
+    
+    // Crouch light kick
+    protected void CrouchLightKick(){
+        CurrentlyAttacking(true);
+        crouchLightKickCurrently = true;
+    }
+
+    public void CrouchLightKickStop(){
+        CurrentlyAttacking(false);
+        crouchLightKickCurrently = false;
+    }
 }
