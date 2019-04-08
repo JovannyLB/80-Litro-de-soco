@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Floor
+  - Head
+  - Torso
+  - Legs
   layers:
   - Default
   - TransparentFX
@@ -17,8 +20,8 @@ TagManager:
   - Ignore Player
   - Player
   - Resto
-  - 
-  - 
+  - Hitbox
+  - Hurtbox
   - 
   - 
   - 

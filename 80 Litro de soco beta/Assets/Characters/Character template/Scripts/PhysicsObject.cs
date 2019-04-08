@@ -28,6 +28,7 @@ public class PhysicsObject : MonoBehaviour{
         contactFilter.SetLayerMask(Physics2D.GetLayerCollisionMask(gameObject.layer));
         contactFilter.useLayerMask = true;
         animationStart();
+        CoreGameplayStart();
     }
 
     // Update is called once per frame
@@ -49,6 +50,9 @@ public class PhysicsObject : MonoBehaviour{
     }
 
     protected virtual void Controls(){
+    }
+
+    protected virtual void CoreGameplayStart(){
     }
 
     protected virtual void CoreGameplayUpdate(){

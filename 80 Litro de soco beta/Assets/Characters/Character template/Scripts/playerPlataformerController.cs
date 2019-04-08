@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class playerPlataformerController : PhysicsObject{
-    
     // Informações gerais
-        // Informações sobre movimetação
+    // Informações sobre movimetação
     public float jumpTakeOffSpeed = 7;
+
     public float speed = 7;
-        // Informações sobre os personagens
+
+    // Informações sobre os personagens
     public string CharName;
     public float health;
 
@@ -18,7 +19,7 @@ public class playerPlataformerController : PhysicsObject{
     protected float frontTimer = 100;
     protected float downTimer = 100;
     protected bool ableToMove;
-    
+
     public float dashFrameTotal;
     public float dashSpeed;
     public float dashCooldownTotal;
@@ -33,7 +34,7 @@ public class playerPlataformerController : PhysicsObject{
     private bool currentlyDashing;
     private float dashCooldown;
     private bool canDash;
-    
+
     // Cotroles
     protected bool xButton;
     protected bool square;
@@ -42,17 +43,25 @@ public class playerPlataformerController : PhysicsObject{
     protected float moveHRaw;
     protected float moveVRaw;
     public bool player1;
-    
+
     // Animações e botões
-        // Animator
+    // Animator
     protected Animator animator;
-        // Booleans
+
+    // Booleans
     protected bool crouching;
     protected bool currentlyAttacking;
     protected bool standLightPunchCurrently;
     protected bool standLightKickCurrently;
     protected bool crouchLightPunchCurrently;
     protected bool crouchLightKickCurrently;
+    public bool hasHit;
+    public Collider2D enemy;
+
+    // Hurtboxes
+    public Collider2D[] hurtbox;
+    public GameObject hurtBoxes;
+    public GameObject hitBoxes;
 
     protected override void Controls(){
         // Analógico
@@ -67,16 +76,16 @@ public class playerPlataformerController : PhysicsObject{
 
         // Botões
         if (player1){
-            xButton = Input.GetKeyDown(KeyCode.JoystickButton1);
-            square = Input.GetKeyDown(KeyCode.JoystickButton0);
-            circle = Input.GetKeyDown(KeyCode.JoystickButton2);
-            triangle = Input.GetKeyDown(KeyCode.JoystickButton3);
-        }
-        else{
             xButton = Input.GetKeyDown(KeyCode.Joystick1Button1);
             square = Input.GetKeyDown(KeyCode.Joystick1Button0);
             circle = Input.GetKeyDown(KeyCode.Joystick1Button2);
             triangle = Input.GetKeyDown(KeyCode.Joystick1Button3);
+        }
+        else{
+            xButton = Input.GetKeyDown(KeyCode.Joystick2Button1);
+            square = Input.GetKeyDown(KeyCode.Joystick2Button0);
+            circle = Input.GetKeyDown(KeyCode.Joystick2Button2);
+            triangle = Input.GetKeyDown(KeyCode.Joystick2Button3);
         }
     }
 
@@ -128,7 +137,7 @@ public class playerPlataformerController : PhysicsObject{
         else{
             canDash = true;
         }
-        
+
         // Dashes
         if (dashBackward >= 1 && grounded && !currentlyDashing && !crouching && !currentlyAttacking && canDash){
             dashFrames = dashFrameTotal;
@@ -174,7 +183,7 @@ public class playerPlataformerController : PhysicsObject{
         else{
             crouching = false;
         }
-        
+
         // Faz o personagem andar
         if (grounded && ableToMove){
             targetVelocity = move * speed;
@@ -183,10 +192,12 @@ public class playerPlataformerController : PhysicsObject{
         if (grounded && !crouching && !currentlyDashing && !currentlyAttacking){
             ableToMove = true;
         }
+
+        hitBoxes.transform.position = transform.position;
+        hurtBoxes.transform.position = transform.position;
     }
 
     void KeyCheck(float moveH, float moveV){
-        
         // Checa se o jogador deixou o analogico no neutro antes de repetir o movimento (aplica-se apenas para dash)
         if (moveH > -0.5f && moveH < 0.5f && moveV > -0.5f && moveV < 0.5f){
             canKeyCheck = true;
@@ -246,7 +257,7 @@ public class playerPlataformerController : PhysicsObject{
         }
 
         animator.SetBool("crouching", crouching);
-        
+
         // Stand light punch
         animator.SetBool("standLightPunch", standLightPunchCurrently);
         // Stand light kick
@@ -256,9 +267,25 @@ public class playerPlataformerController : PhysicsObject{
         // Crouch light kick
         animator.SetBool("crouchLightKick", crouchLightKickCurrently);
     }
-    
+
     // Core gameplay
+    protected override void CoreGameplayStart(){
+    }
+
     protected override void CoreGameplayUpdate(){
+        if (hasHit && enemy.CompareTag("Head")){
+            print("hurt head lmao");
+            hasHit = false;
+        }
+        else if (hasHit && enemy.CompareTag("Torso")){
+            print("hurt torso lol");
+            hasHit = false;
+        }
+        else if (hasHit && enemy.CompareTag("Legs")){
+            print("hurt leggy :(");
+            hasHit = false;
+        }
+
         // Light punches
         if (square && grounded && !crouching && !currentlyAttacking && !currentlyDashing){
             StandLightPunch();
@@ -266,11 +293,11 @@ public class playerPlataformerController : PhysicsObject{
         else if (square && grounded && crouching && !currentlyAttacking && !currentlyDashing){
             CrouchLightPunch();
         }
-        
+
         // Light kick's
         if (xButton && grounded && !crouching && !currentlyAttacking && !currentlyDashing){
             StandLightKick();
-        } 
+        }
         else if (xButton && grounded && crouching && !currentlyAttacking && !currentlyDashing){
             CrouchLightKick();
         }
@@ -292,7 +319,7 @@ public class playerPlataformerController : PhysicsObject{
         CurrentlyAttacking(false);
         standLightPunchCurrently = false;
     }
-    
+
     // Stand light kick
     protected void StandLightKick(){
         CurrentlyAttacking(true);
@@ -303,7 +330,7 @@ public class playerPlataformerController : PhysicsObject{
         CurrentlyAttacking(false);
         standLightKickCurrently = false;
     }
-    
+
     // Crouch light punch
     protected void CrouchLightPunch(){
         CurrentlyAttacking(true);
@@ -314,7 +341,7 @@ public class playerPlataformerController : PhysicsObject{
         CurrentlyAttacking(false);
         crouchLightPunchCurrently = false;
     }
-    
+
     // Crouch light kick
     protected void CrouchLightKick(){
         CurrentlyAttacking(true);
@@ -325,4 +352,16 @@ public class playerPlataformerController : PhysicsObject{
         CurrentlyAttacking(false);
         crouchLightKickCurrently = false;
     }
+
+    /*private void launchAttack(Collider2D col){
+        Collider2D cols = Physics2D.OverlapBox(col.bounds.center, col.bounds.size, col.transform.rotation.z, LayerMask.GetMask("Hitbox"));
+        if (cols != null){
+            if (cols.transform.root.name != transform.root.name){
+                enemy = cols;
+                print(cols.transform.root.name);
+                hasHit = true;
+            }
+        }
+    }
+    */
 }
