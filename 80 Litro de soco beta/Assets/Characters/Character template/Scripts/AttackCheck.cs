@@ -7,6 +7,7 @@ public class AttackCheck : MonoBehaviour{
     private bool ownPlayer1;
 
     public string lastHit;
+    public int hitStunFrames;
     
     void Start(){
         ownPlayer1 = transform.root.GetChild(0).GetComponent<playerPlataformerController>().player1;
