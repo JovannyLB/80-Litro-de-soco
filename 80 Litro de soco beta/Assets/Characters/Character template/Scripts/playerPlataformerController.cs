@@ -50,6 +50,8 @@ public class playerPlataformerController : PhysicsObject{
     protected Animator animator;
 
     // Booleans
+    public bool flipped;
+    protected bool hasFlipped;
     protected bool crouching;
     protected bool currentlyAttacking;
     protected bool standLightPunchCurrently;
@@ -63,14 +65,10 @@ public class playerPlataformerController : PhysicsObject{
     protected bool jumpingPunchCurrently;
     protected bool jumpingKickCurrently;
     public int lastHitStun;
-    protected bool hitStunFreezeAnim;
+    public bool hitStunFreezeAnim;
     public bool beenHitTorso;
     public bool beenHitHead;
     public bool beenHitLeg;
-    
-    protected bool isHitting;
-    protected bool hasHit;
-    public Collider2D enemy;
 
     // Hurtboxes
     public Collider2D[] hurtbox;
@@ -104,6 +102,12 @@ public class playerPlataformerController : PhysicsObject{
     }
 
     protected override void ComputeVelocity(){
+        // Vira o personagem
+        if (flipped && !hasFlipped){
+            transform.root.localScale = new Vector3(transform.root.localScale.x * -1, transform.root.localScale.y, transform.root.localScale.z);
+            hasFlipped = true;
+        }
+
         // Pega as inputs do controle
         float moveH = 0;
         float moveV = 0;
@@ -206,7 +210,8 @@ public class playerPlataformerController : PhysicsObject{
             targetVelocity = move * speed;
         }
 
-        if (grounded && !crouching && !currentlyDashing && !currentlyAttacking & !beenHitTorso && !beenHitLeg && !beenHitHead){
+        if (grounded && !crouching && !currentlyDashing && !currentlyAttacking & !beenHitTorso && !beenHitLeg &&
+            !beenHitHead){
             ableToMove = true;
         }
 
@@ -274,9 +279,9 @@ public class playerPlataformerController : PhysicsObject{
         }
 
         animator.SetBool("crouching", crouching);
-        
+
         animator.SetBool("jumping", jumping);
-        
+
         // Hit stun animation
         animator.SetInteger("lastHitStun", lastHitStun);
         animator.SetBool("beenHitTorso", beenHitTorso);
@@ -314,17 +319,11 @@ public class playerPlataformerController : PhysicsObject{
             lastHitStun--;
         }
 
-        if (hasHit && enemy.CompareTag("Head")){
-            print("hurt head lmao");
-            hasHit = false;
+        if (lastHitStun == 0){
+            hitStunFreezeAnim = false;
         }
-        else if (hasHit && enemy.CompareTag("Torso")){
-            print("hurt torso lol");
-            hasHit = false;
-        }
-        else if (hasHit && enemy.CompareTag("Legs")){
-            print("hurt leggy :(");
-            hasHit = false;
+        else{
+            hitStunFreezeAnim = true;
         }
 
         // Light punches
@@ -334,7 +333,7 @@ public class playerPlataformerController : PhysicsObject{
         else if (square && grounded && crouching && !currentlyAttacking && !currentlyDashing){
             CrouchLightPunch();
         }
-        
+
         // Hard punches
         if (triangle && grounded && !crouching && !currentlyAttacking && !currentlyDashing){
             StandHardPunch();
@@ -350,7 +349,7 @@ public class playerPlataformerController : PhysicsObject{
         else if (xButton && grounded && crouching && !currentlyAttacking && !currentlyDashing){
             CrouchLightKick();
         }
-        
+
         // Hard kick's
         if (circle && grounded && !crouching && !currentlyAttacking && !currentlyDashing){
             StandHardKick();
@@ -358,14 +357,16 @@ public class playerPlataformerController : PhysicsObject{
         else if (circle && grounded && crouching && !currentlyAttacking && !currentlyDashing){
             CrouchHardKick();
         }
-        
+
         // Jump punch
-        if (square && !grounded && !crouching && !currentlyAttacking && !currentlyDashing || triangle && !grounded && !crouching && !currentlyAttacking && !currentlyDashing){
+        if (square && !grounded && !crouching && !currentlyAttacking && !currentlyDashing ||
+            triangle && !grounded && !crouching && !currentlyAttacking && !currentlyDashing){
             JumpPunch();
         }
-        
+
         // Jump kick
-        if (xButton && !grounded && !crouching && !currentlyAttacking && !currentlyDashing || circle && !grounded && !crouching && !currentlyAttacking && !currentlyDashing){
+        if (xButton && !grounded && !crouching && !currentlyAttacking && !currentlyDashing ||
+            circle && !grounded && !crouching && !currentlyAttacking && !currentlyDashing){
             JumpKick();
         }
     }
@@ -391,7 +392,7 @@ public class playerPlataformerController : PhysicsObject{
         CurrentlyAttacking(false);
         standLightPunchCurrently = false;
     }
-    
+
     // Stand hard punch
     protected void StandHardPunch(){
         CurrentlyAttacking(true);
@@ -413,7 +414,7 @@ public class playerPlataformerController : PhysicsObject{
         CurrentlyAttacking(false);
         standLightKickCurrently = false;
     }
-    
+
     // Stand hard kick
     protected void StandHardKick(){
         CurrentlyAttacking(true);
@@ -435,7 +436,7 @@ public class playerPlataformerController : PhysicsObject{
         CurrentlyAttacking(false);
         crouchLightPunchCurrently = false;
     }
-    
+
     // Crouch hard punch
     protected void CrouchHardPunch(){
         CurrentlyAttacking(true);
@@ -457,7 +458,7 @@ public class playerPlataformerController : PhysicsObject{
         CurrentlyAttacking(false);
         crouchLightKickCurrently = false;
     }
-    
+
     // Crouch hard kick
     protected void CrouchHardKick(){
         CurrentlyAttacking(true);
@@ -468,7 +469,7 @@ public class playerPlataformerController : PhysicsObject{
         CurrentlyAttacking(false);
         crouchHardKickCurrently = false;
     }
-    
+
     // Jump punch
     protected void JumpPunch(){
         CurrentlyJumpAttacking(true);
@@ -479,7 +480,7 @@ public class playerPlataformerController : PhysicsObject{
         CurrentlyJumpAttacking(false);
         jumpingPunchCurrently = false;
     }
-    
+
     // Jump kick
     protected void JumpKick(){
         CurrentlyJumpAttacking(true);
@@ -493,7 +494,7 @@ public class playerPlataformerController : PhysicsObject{
 
     // Hit stun animations
     public void addHitStun(int hitStun){
-        lastHitStun = (hitStun - 10) + 1;
+        lastHitStun = (hitStun - 6) + 1;
     }
 
     public void hitStunStart(){
@@ -511,7 +512,7 @@ public class playerPlataformerController : PhysicsObject{
     public void gotHitTorsoEnd(){
         beenHitTorso = false;
     }
-    
+
     public void gotHitHeadStart(){
         beenHitHead = true;
     }
@@ -519,7 +520,7 @@ public class playerPlataformerController : PhysicsObject{
     public void gotHitHeadEnd(){
         beenHitHead = false;
     }
-    
+
     public void gotHitLegStart(){
         beenHitLeg = true;
     }
@@ -541,15 +542,23 @@ public class playerPlataformerController : PhysicsObject{
         CrouchHardKickStop();
     }
 
-    /*private void launchAttack(Collider2D col){
-        Collider2D cols = Physics2D.OverlapBox(col.bounds.center, col.bounds.size, col.transform.rotation.z, LayerMask.GetMask("Hitbox"));
-        if (cols != null){
-            if (cols.transform.root.name != transform.root.name){
-                enemy = cols;
-                print(cols.transform.root.name);
-                hasHit = true;
-            }
+    public void ActiveFrameStart(int attack){
+        hurtbox[attack].GetComponent<AttackCheck>().IsHittingTrue();
+    }
+
+    public void ActiveFrameStop(int attack){
+        hurtbox[attack].GetComponent<AttackCheck>().IsHittingFalse();
+    }
+
+/*private void launchAttack(Collider2D col){
+    Collider2D cols = Physics2D.OverlapBox(col.bounds.center, col.bounds.size, col.transform.rotation.z, LayerMask.GetMask("Hitbox"));
+    if (cols != null){
+        if (cols.transform.root.name != transform.root.name){
+            enemy = cols;
+            print(cols.transform.root.name);
+            hasHit = true;
         }
     }
-    */
+}
+*/
 }
