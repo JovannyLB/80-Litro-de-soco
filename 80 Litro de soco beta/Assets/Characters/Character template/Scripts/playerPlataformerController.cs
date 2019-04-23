@@ -5,24 +5,27 @@ using UnityEngine;
 
 public class playerPlataformerController : PhysicsObject{
     // Informações gerais
-    // Informações sobre movimetação
-    public float jumpTakeOffSpeed = 7;
 
-    public float speed = 7;
-
+    [Header("Basic character information")]
+    
     // Informações sobre os personagens
-    public string CharName;
+    public string characterName;
     public float health;
 
+    // Informações sobre movimetação
+    private float jumpTakeOffSpeed = 40;
+    private float jumpTakeOffHorizontal = 10;
+    public float walkingSpeed;
+    private float speedTotal;
     // Atributos de dash
     protected float backTimer = 100;
     protected float frontTimer = 100;
     protected float downTimer = 100;
     protected bool ableToMove;
 
-    public float dashFrameTotal;
-    public float dashSpeed;
-    public float dashCooldownTotal;
+    private float dashFrameTotal = 10;
+    private float dashSpeed = 20;
+    private float dashCooldownTotal = 30;
 
     private bool backTimerBool;
     private bool frontTimerBool;
@@ -34,7 +37,7 @@ public class playerPlataformerController : PhysicsObject{
     private bool currentlyDashing;
     private float dashCooldown;
     private bool canDash;
-    public bool jumping;
+    private bool jumping;
 
     // Cotroles
     protected bool xButton;
@@ -43,14 +46,19 @@ public class playerPlataformerController : PhysicsObject{
     protected bool triangle;
     protected float moveHRaw;
     protected float moveVRaw;
-    public bool player1;
+    
+    [Header("Flips between JoyStick 1 and 2")]
+    
+    public bool isPlayer1;
 
     // Animações e botões
     // Animator
     protected Animator animator;
 
+    [Header("Flips the chosen character to the other side")]
+    
     // Booleans
-    public bool flipped;
+    public bool isFlipped;
     protected bool hasFlipped;
     protected bool crouching;
     protected bool currentlyAttacking;
@@ -64,12 +72,14 @@ public class playerPlataformerController : PhysicsObject{
     protected bool crouchHardKickCurrently;
     protected bool jumpingPunchCurrently;
     protected bool jumpingKickCurrently;
-    public int lastHitStun;
-    public bool hitStunFreezeAnim;
-    public bool beenHitTorso;
-    public bool beenHitHead;
-    public bool beenHitLeg;
+    private int lastHitStun;
+    private bool hitStunFreezeAnim;
+    [HideInInspector]public bool beenHitTorso;
+    [HideInInspector]public bool beenHitHead;
+    [HideInInspector]public bool beenHitLeg;
 
+    [Header("Hitboxes and hurtboxes")]
+    
     // Hurtboxes
     public Collider2D[] hurtbox;
     public GameObject hurtBoxes;
@@ -77,7 +87,7 @@ public class playerPlataformerController : PhysicsObject{
 
     protected override void Controls(){
         // Analógico
-        if (player1){
+        if (isPlayer1){
             moveHRaw = Input.GetAxisRaw("Horizontal");
             moveVRaw = Input.GetAxisRaw("Vertical");
         }
@@ -87,7 +97,7 @@ public class playerPlataformerController : PhysicsObject{
         }
 
         // Botões
-        if (player1){
+        if (isPlayer1){
             xButton = Input.GetKeyDown(KeyCode.Joystick1Button1);
             square = Input.GetKeyDown(KeyCode.Joystick1Button0);
             circle = Input.GetKeyDown(KeyCode.Joystick1Button2);
@@ -103,7 +113,7 @@ public class playerPlataformerController : PhysicsObject{
 
     protected override void ComputeVelocity(){
         // Vira o personagem
-        if (flipped && !hasFlipped){
+        if (isFlipped && !hasFlipped){
             transform.root.localScale = new Vector3(transform.root.localScale.x * -1, transform.root.localScale.y, transform.root.localScale.z);
             hasFlipped = true;
         }
@@ -172,14 +182,21 @@ public class playerPlataformerController : PhysicsObject{
         }
 
         // Checa os pulos
-        if (moveV > 0.4f && moveH > 0.4f && grounded && ableToMove){
+        if (moveV > 0.4f && moveH > 0.6f && grounded && ableToMove){
+            dashFrames = 0;
+            walkingSpeed = jumpTakeOffHorizontal;
             velocity.y = jumpTakeOffSpeed;
         }
-        else if (moveV > 0.4f && moveH < -0.4f && grounded && ableToMove){
+        else if (moveV > 0.4f && moveH < -0.6f && grounded && ableToMove){
+            dashFrames = 0;
+            walkingSpeed = jumpTakeOffHorizontal;
             velocity.y = jumpTakeOffSpeed;
         }
         else if (moveV > 0.5f && grounded && ableToMove){
             velocity.y = jumpTakeOffSpeed;
+        }
+        else{
+            walkingSpeed = speedTotal;
         }
 
         if (!grounded) jumping = true;
@@ -207,7 +224,7 @@ public class playerPlataformerController : PhysicsObject{
 
         // Faz o personagem andar
         if (grounded && ableToMove){
-            targetVelocity = move * speed;
+            targetVelocity = move * walkingSpeed;
         }
 
         if (grounded && !crouching && !currentlyDashing && !currentlyAttacking & !beenHitTorso && !beenHitLeg &&
@@ -215,6 +232,7 @@ public class playerPlataformerController : PhysicsObject{
             ableToMove = true;
         }
 
+        // Faz com que as hitboxes sigam o personagem
         hitBoxes.transform.position = transform.position;
         hurtBoxes.transform.position = transform.position;
     }
@@ -270,7 +288,7 @@ public class playerPlataformerController : PhysicsObject{
     }
 
     protected override void animationUpdate(){
-        // Moimento
+        // Movimento
         if (grounded){
             animator.SetFloat("movementSpeed", Math.Abs(targetVelocity.x));
         }
@@ -312,9 +330,11 @@ public class playerPlataformerController : PhysicsObject{
 
     // Core gameplay
     protected override void CoreGameplayStart(){
+        speedTotal = walkingSpeed;
     }
 
     protected override void CoreGameplayUpdate(){
+        // Cria o sistema de hitstun modular
         if (lastHitStun != 0 && hitStunFreezeAnim){
             lastHitStun--;
         }
@@ -372,6 +392,7 @@ public class playerPlataformerController : PhysicsObject{
     }
 
     protected void CurrentlyAttacking(bool attacking){
+        // Se o personagem atacar, ele ira ficar parado
         targetVelocity = Vector2.zero;
         currentlyAttacking = attacking;
         ableToMove = !attacking;
@@ -493,8 +514,9 @@ public class playerPlataformerController : PhysicsObject{
     }
 
     // Hit stun animations
+        // Hitstun baseado nas frames totais
     public void addHitStun(int hitStun){
-        lastHitStun = (hitStun - 6) + 1;
+        lastHitStun = hitStun - 10;
     }
 
     public void hitStunStart(){
@@ -529,6 +551,7 @@ public class playerPlataformerController : PhysicsObject{
         beenHitLeg = false;
     }
 
+    // Para todos ataques atuais
     public void StopAllAttack(){
         JumpPunchStop();
         JumpKickStop();
@@ -542,6 +565,7 @@ public class playerPlataformerController : PhysicsObject{
         CrouchHardKickStop();
     }
 
+    // Faz com que o contador de frames comece ou pare
     public void ActiveFrameStart(int attack){
         hurtbox[attack].GetComponent<AttackCheck>().IsHittingTrue();
     }
@@ -550,15 +574,4 @@ public class playerPlataformerController : PhysicsObject{
         hurtbox[attack].GetComponent<AttackCheck>().IsHittingFalse();
     }
 
-/*private void launchAttack(Collider2D col){
-    Collider2D cols = Physics2D.OverlapBox(col.bounds.center, col.bounds.size, col.transform.rotation.z, LayerMask.GetMask("Hitbox"));
-    if (cols != null){
-        if (cols.transform.root.name != transform.root.name){
-            enemy = cols;
-            print(cols.transform.root.name);
-            hasHit = true;
-        }
-    }
-}
-*/
 }

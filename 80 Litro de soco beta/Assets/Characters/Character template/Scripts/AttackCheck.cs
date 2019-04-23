@@ -19,7 +19,7 @@ public class AttackCheck : MonoBehaviour{
     
     
     void Start(){
-        ownPlayer1 = transform.root.GetChild(0).GetComponent<playerPlataformerController>().player1;
+        ownPlayer1 = transform.root.GetChild(0).GetComponent<playerPlataformerController>().isPlayer1;
     }
 
     void FixedUpdate(){
@@ -43,7 +43,7 @@ public class AttackCheck : MonoBehaviour{
     }
 
     private void OnTriggerStay2D(Collider2D other){
-        if (ownPlayer1 != other.transform.root.GetChild(0).GetComponent<playerPlataformerController>().player1 && isHitting && !hasHit){
+        if (ownPlayer1 != other.transform.root.GetChild(0).GetComponent<playerPlataformerController>().isPlayer1 && isHitting && !hasHit){
             if (other.tag != lastHit){
                 switch (other.tag){
                     case "Head":

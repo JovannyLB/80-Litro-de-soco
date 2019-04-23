@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PhysicsObject : MonoBehaviour{
-    public float minGroundNormalY = 0.65f;
-    public float graityModified = 1f;
-    public bool grounded;
-    public Vector2 targetVelocity;
+    [HideInInspector]public float minGroundNormalY = 0.65f;
+    [HideInInspector]public float graityModified = 1f;
+    [HideInInspector]public bool grounded;
+    [HideInInspector]public Vector2 targetVelocity;
 
     protected Vector2 groundNormal;
     protected Rigidbody2D rb2d;
