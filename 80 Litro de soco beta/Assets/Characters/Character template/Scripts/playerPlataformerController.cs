@@ -39,11 +39,16 @@ public class playerPlataformerController : PhysicsObject{
     private bool canDash;
     private bool jumping;
 
+    [HideInInspector]public bool isBlockingHigh;
+    [HideInInspector]public bool isBlockingLow;
+    private bool currentlyBlockingGeneral;
+
     // Cotroles
     protected bool xButton;
     protected bool square;
     protected bool circle;
     protected bool triangle;
+    protected bool r2;
     protected float moveHRaw;
     protected float moveVRaw;
     
@@ -51,7 +56,6 @@ public class playerPlataformerController : PhysicsObject{
     
     public bool isPlayer1;
 
-    // Animações e botões
     // Animator
     protected Animator animator;
 
@@ -77,6 +81,8 @@ public class playerPlataformerController : PhysicsObject{
     [HideInInspector]public bool beenHitTorso;
     [HideInInspector]public bool beenHitHead;
     [HideInInspector]public bool beenHitLeg;
+    [HideInInspector]public bool blockedHigh;
+    [HideInInspector]public bool blockedLow;
 
     [Header("Hitboxes and hurtboxes")]
     
@@ -102,12 +108,14 @@ public class playerPlataformerController : PhysicsObject{
             square = Input.GetKeyDown(KeyCode.Joystick1Button0);
             circle = Input.GetKeyDown(KeyCode.Joystick1Button2);
             triangle = Input.GetKeyDown(KeyCode.Joystick1Button3);
+            r2 = Input.GetKey(KeyCode.Joystick1Button7);
         }
         else{
             xButton = Input.GetKeyDown(KeyCode.Joystick2Button1);
             square = Input.GetKeyDown(KeyCode.Joystick2Button0);
             circle = Input.GetKeyDown(KeyCode.Joystick2Button2);
             triangle = Input.GetKeyDown(KeyCode.Joystick2Button3);
+            r2 = Input.GetKey(KeyCode.Joystick2Button7);
         }
     }
 
@@ -227,8 +235,7 @@ public class playerPlataformerController : PhysicsObject{
             targetVelocity = move * walkingSpeed;
         }
 
-        if (grounded && !crouching && !currentlyDashing && !currentlyAttacking & !beenHitTorso && !beenHitLeg &&
-            !beenHitHead){
+        if (grounded && !crouching && !currentlyDashing && !currentlyAttacking & !beenHitTorso && !beenHitLeg && !beenHitHead && !currentlyBlockingGeneral){
             ableToMove = true;
         }
 
@@ -344,6 +351,30 @@ public class playerPlataformerController : PhysicsObject{
         }
         else{
             hitStunFreezeAnim = true;
+        }
+        
+        // Blocking
+        if (r2 && !crouching && grounded && !currentlyAttacking && !currentlyDashing){
+            isBlockingHigh = true;
+        }
+        else{
+            isBlockingHigh = false;
+        }
+        
+        if (r2 && crouching && grounded && !currentlyAttacking && !currentlyDashing){
+            isBlockingLow = true;
+        }
+        else{
+            isBlockingLow = false;
+        }
+
+        if (isBlockingHigh || isBlockingLow){
+            currentlyBlockingGeneral = true;
+            ableToMove = false;
+            targetVelocity = Vector2.zero;
+        }
+        else{
+            currentlyBlockingGeneral = false;
         }
 
         // Light punches
@@ -551,6 +582,22 @@ public class playerPlataformerController : PhysicsObject{
         beenHitLeg = false;
     }
 
+    public void gotHitBlockHighStart(){
+        blockedHigh = true;
+    }
+
+    public void gotHitBlockHighEnd(){
+        blockedHigh = false;
+    }
+    
+    public void gotHitBlockLowStart(){
+        blockedLow = true;
+    }
+
+    public void gotHitBlockLowEnd(){
+        blockedLow = false;
+    }
+
     // Para todos ataques atuais
     public void StopAllAttack(){
         JumpPunchStop();
@@ -563,6 +610,11 @@ public class playerPlataformerController : PhysicsObject{
         CrouchHardPunchStop();
         CrouchLightKickStop();
         CrouchHardKickStop();
+    }
+    
+    // Controla a vida do personagem
+    public void changeHealth(int healthChanged){
+        health += healthChanged;
     }
 
     // Faz com que o contador de frames comece ou pare

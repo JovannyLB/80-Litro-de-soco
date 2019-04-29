@@ -10,12 +10,20 @@ public class AttackCheck : MonoBehaviour{
     public int repeatAttackHead;
     public int repeatAttackTorso;
     public int repeatAttackLegs;
+    public int repeatBlockHigh;
+    public int repeatBlockLow;
     
     public string lastHit;
     
     public bool hasHit;
     public bool isHitting;
     public int hitStunFrames;
+    public int blockHitStunFrames;
+
+    public bool overHeadAttack;
+    public bool lowAttack;
+    public int damage;
+    public bool attackDefended;
     
     
     void Start(){
@@ -43,35 +51,150 @@ public class AttackCheck : MonoBehaviour{
     }
 
     private void OnTriggerStay2D(Collider2D other){
-        if (ownPlayer1 != other.transform.root.GetChild(0).GetComponent<playerPlataformerController>().isPlayer1 && isHitting && !hasHit){
+        var otherPlayer = other.transform.root.GetChild(0).GetComponent<playerPlataformerController>();
+        
+        if (ownPlayer1 != otherPlayer.isPlayer1 && isHitting && !hasHit){
             if (other.tag != lastHit){
                 switch (other.tag){
                     case "Head":
-                        other.transform.root.GetChild(0).GetComponent<playerPlataformerController>().gotHitHeadStart();
+                        if (!otherPlayer.isBlockingHigh && !otherPlayer.isBlockingLow){
+                            otherPlayer.gotHitHeadStart();
+                            attackDefended = false;
+                        } else if (otherPlayer.isBlockingLow && overHeadAttack){
+                            otherPlayer.gotHitHeadStart();
+                            attackDefended = false;
+                        } else if (otherPlayer.isBlockingHigh && lowAttack){
+                            otherPlayer.gotHitHeadStart();
+                            attackDefended = false;
+                        }
+                        else{
+                            if (otherPlayer.isBlockingHigh){
+                                otherPlayer.gotHitBlockHighStart();
+                            }
+                            else if (otherPlayer.isBlockingLow){
+                                otherPlayer.gotHitBlockLowStart();
+                            }
+                            attackDefended = true;
+                        }
                         break;
                     case "Torso":
-                        other.transform.root.GetChild(0).GetComponent<playerPlataformerController>().gotHitTorsoStart();
+                        if (!otherPlayer.isBlockingHigh && !otherPlayer.isBlockingLow){
+                            otherPlayer.gotHitTorsoStart();
+                            attackDefended = false;
+                        } else if (otherPlayer.isBlockingLow && overHeadAttack){
+                            otherPlayer.gotHitTorsoStart();
+                            attackDefended = false;
+                        } else if (otherPlayer.isBlockingHigh && lowAttack){
+                            otherPlayer.gotHitTorsoStart();
+                            attackDefended = false;
+                        }
+                        else{
+                            if (otherPlayer.isBlockingHigh){
+                                otherPlayer.gotHitBlockHighStart();
+                            }
+                            else if (otherPlayer.isBlockingLow){
+                                otherPlayer.gotHitBlockLowStart();
+                            }
+                            attackDefended = true;
+                        }
                         break;
                     case "Legs":
-                        other.transform.root.GetChild(0).GetComponent<playerPlataformerController>().gotHitLegStart();
+                        if (!otherPlayer.isBlockingHigh && !otherPlayer.isBlockingLow){
+                            otherPlayer.gotHitLegStart();
+                            attackDefended = false;
+                        } else if (otherPlayer.isBlockingLow && overHeadAttack){
+                            otherPlayer.gotHitLegStart();
+                            attackDefended = false;
+                        } else if (otherPlayer.isBlockingHigh && lowAttack){
+                            otherPlayer.gotHitLegStart();
+                            attackDefended = false;
+                        }
+                        else{
+                            if (otherPlayer.isBlockingHigh){
+                                otherPlayer.gotHitBlockHighStart();
+                            }
+                            else if (otherPlayer.isBlockingLow){
+                                otherPlayer.gotHitBlockLowStart();
+                            }
+                            attackDefended = true;
+                        }
                         break;
                     default:
                         print("Something went wrong");
                         break;
                 }
 
-                other.transform.root.GetChild(0).GetComponent<playerPlataformerController>().addHitStun(hitStunFrames);
+                if (attackDefended){
+                    otherPlayer.addHitStun(blockHitStunFrames);
+                }
+                else{
+                    otherPlayer.addHitStun(hitStunFrames);
+                }
             }
             else{
                 switch (other.tag){
                     case "Head":
-                        repeatAttackHead++;
+                        if (!otherPlayer.isBlockingHigh && !otherPlayer.isBlockingLow){
+                            repeatAttackHead++;
+                            attackDefended = false;
+                        } else if (otherPlayer.isBlockingLow && overHeadAttack){
+                            repeatAttackHead++;
+                            attackDefended = false;
+                        } else if (otherPlayer.isBlockingHigh && lowAttack){
+                            repeatAttackHead++;
+                            attackDefended = false;
+                        }
+                        else{
+                            if (otherPlayer.isBlockingHigh){
+                                otherPlayer.gotHitBlockHighStart();
+                            }
+                            else if (otherPlayer.isBlockingLow){
+                                otherPlayer.gotHitBlockLowStart();
+                            }
+                            attackDefended = true;
+                        }
                         break;
                     case "Torso":
-                        repeatAttackTorso++;
+                        if (!otherPlayer.isBlockingHigh && !otherPlayer.isBlockingLow){
+                            repeatAttackTorso++;
+                            attackDefended = false;
+                        } else if (otherPlayer.isBlockingLow && overHeadAttack){
+                            repeatAttackTorso++;
+                            attackDefended = false;
+                        } else if (otherPlayer.isBlockingHigh && lowAttack){
+                            repeatAttackTorso++;
+                            attackDefended = false;
+                        }
+                        else{
+                            if (otherPlayer.isBlockingHigh){
+                                otherPlayer.gotHitBlockHighStart();
+                            }
+                            else if (otherPlayer.isBlockingLow){
+                                otherPlayer.gotHitBlockLowStart();
+                            }
+                            attackDefended = true;
+                        }
                         break;
                     case "Legs":
-                        repeatAttackLegs++;
+                        if (!otherPlayer.isBlockingHigh && !otherPlayer.isBlockingLow){
+                            repeatAttackLegs++;
+                            attackDefended = false;
+                        } else if (otherPlayer.isBlockingLow && overHeadAttack){
+                            repeatAttackLegs++;
+                            attackDefended = false;
+                        } else if (otherPlayer.isBlockingHigh && lowAttack){
+                            repeatAttackLegs++;
+                            attackDefended = false;
+                        }
+                        else{
+                            if (otherPlayer.isBlockingHigh){
+                                otherPlayer.gotHitBlockHighStart();
+                            }
+                            else if (otherPlayer.isBlockingLow){
+                                otherPlayer.gotHitBlockLowStart();
+                            }
+                            attackDefended = true;
+                        }
                         break;
                     default:
                         print("Something went wrong");
@@ -82,6 +205,14 @@ public class AttackCheck : MonoBehaviour{
             lastHit = other.tag;
             hasHit = true;
             enemy = other.gameObject;
+
+            if (!attackDefended){
+                otherPlayer.changeHealth(-damage);
+            }
+            else{
+                otherPlayer.changeHealth((int) -(damage * 0.1f));
+            }
+
         }
     }
 
