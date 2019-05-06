@@ -17,6 +17,7 @@ public class playerPlataformerController : PhysicsObject{
     private float jumpTakeOffHorizontal = 10;
     public float walkingSpeed;
     private float speedTotal;
+    [HideInInspector]public bool enableControls = true;
     // Atributos de dash
     protected float backTimer = 100;
     protected float frontTimer = 100;
@@ -62,8 +63,8 @@ public class playerPlataformerController : PhysicsObject{
     [Header("Flips the chosen character to the other side")]
     
     // Booleans
-    public bool isFlipped;
-    protected bool hasFlipped;
+    public bool isFlippedSide;
+    protected bool hasFlippedSide;
     protected bool crouching;
     protected bool currentlyAttacking;
     protected bool standLightPunchCurrently;
@@ -92,38 +93,41 @@ public class playerPlataformerController : PhysicsObject{
     public GameObject hitBoxes;
 
     protected override void Controls(){
-        // Analógico
-        if (isPlayer1){
-            moveHRaw = Input.GetAxisRaw("Horizontal");
-            moveVRaw = Input.GetAxisRaw("Vertical");
-        }
-        else{
-            moveHRaw = Input.GetAxisRaw("Horizontal2");
-            moveVRaw = Input.GetAxisRaw("Vertical2");
-        }
+        if (enableControls){
+            // Analógico
+            if (isPlayer1){
+                moveHRaw = Input.GetAxisRaw("Horizontal");
+                moveVRaw = Input.GetAxisRaw("Vertical");
+            }
+            else{
+                moveHRaw = Input.GetAxisRaw("Horizontal");
+                moveVRaw = Input.GetAxisRaw("Vertical");
+            }
 
-        // Botões
-        if (isPlayer1){
-            xButton = Input.GetKeyDown(KeyCode.Joystick1Button1);
-            square = Input.GetKeyDown(KeyCode.Joystick1Button0);
-            circle = Input.GetKeyDown(KeyCode.Joystick1Button2);
-            triangle = Input.GetKeyDown(KeyCode.Joystick1Button3);
-            r2 = Input.GetKey(KeyCode.Joystick1Button7);
-        }
-        else{
-            xButton = Input.GetKeyDown(KeyCode.Joystick2Button1);
-            square = Input.GetKeyDown(KeyCode.Joystick2Button0);
-            circle = Input.GetKeyDown(KeyCode.Joystick2Button2);
-            triangle = Input.GetKeyDown(KeyCode.Joystick2Button3);
-            r2 = Input.GetKey(KeyCode.Joystick2Button7);
+            // Botões
+            if (isPlayer1){
+                xButton = Input.GetKeyDown(KeyCode.Joystick1Button1);
+                square = Input.GetKeyDown(KeyCode.Joystick1Button0);
+                circle = Input.GetKeyDown(KeyCode.Joystick1Button2);
+                triangle = Input.GetKeyDown(KeyCode.Joystick1Button3);
+                r2 = Input.GetKey(KeyCode.Joystick1Button7);
+            }
+            else{
+                xButton = Input.GetKeyDown(KeyCode.Joystick2Button1);
+                square = Input.GetKeyDown(KeyCode.Joystick2Button0);
+                circle = Input.GetKeyDown(KeyCode.Joystick2Button2);
+                triangle = Input.GetKeyDown(KeyCode.Joystick2Button3);
+                r2 = Input.GetKey(KeyCode.Joystick2Button7);
+            }
         }
     }
 
     protected override void ComputeVelocity(){
         // Vira o personagem
-        if (isFlipped && !hasFlipped){
-            transform.root.localScale = new Vector3(transform.root.localScale.x * -1, transform.root.localScale.y, transform.root.localScale.z);
-            hasFlipped = true;
+        if (isFlippedSide && !hasFlippedSide){
+            transform.position = new Vector3(transform.position.x + 20, transform.position.y, transform.position.z);
+            flipCharacter();
+            hasFlippedSide = true;
         }
 
         // Pega as inputs do controle
@@ -221,7 +225,7 @@ public class playerPlataformerController : PhysicsObject{
         }
 
         // Agachar
-        if (moveVRaw < -0.6f && grounded && !currentlyDashing){
+        if (moveVRaw < -0.6f && grounded && !currentlyDashing && !beenHitTorso && !beenHitLeg && !beenHitHead){
             crouching = true;
             ableToMove = false;
             targetVelocity = Vector2.zero;
@@ -231,12 +235,15 @@ public class playerPlataformerController : PhysicsObject{
         }
 
         // Faz o personagem andar
+        if (grounded && !crouching && !currentlyDashing && !currentlyAttacking && !beenHitTorso && !beenHitLeg && !beenHitHead && !currentlyBlockingGeneral){
+            ableToMove = true;
+        }
+        else{
+            ableToMove = false;
+        }
+        
         if (grounded && ableToMove){
             targetVelocity = move * walkingSpeed;
-        }
-
-        if (grounded && !crouching && !currentlyDashing && !currentlyAttacking & !beenHitTorso && !beenHitLeg && !beenHitHead && !currentlyBlockingGeneral){
-            ableToMove = true;
         }
 
         // Faz com que as hitboxes sigam o personagem
@@ -306,6 +313,10 @@ public class playerPlataformerController : PhysicsObject{
         animator.SetBool("crouching", crouching);
 
         animator.SetBool("jumping", jumping);
+        
+        // Blocking
+        animator.SetBool("blockingHigh", isBlockingHigh);
+        animator.SetBool("blockingLow", isBlockingLow);
 
         // Hit stun animation
         animator.SetInteger("lastHitStun", lastHitStun);
@@ -425,6 +436,7 @@ public class playerPlataformerController : PhysicsObject{
     protected void CurrentlyAttacking(bool attacking){
         // Se o personagem atacar, ele ira ficar parado
         targetVelocity = Vector2.zero;
+        velocity.y = 0;
         currentlyAttacking = attacking;
         ableToMove = !attacking;
     }
@@ -560,6 +572,8 @@ public class playerPlataformerController : PhysicsObject{
 
     public void gotHitTorsoStart(){
         beenHitTorso = true;
+        ableToMove = false;
+        targetVelocity = Vector2.zero;
     }
 
     public void gotHitTorsoEnd(){
@@ -568,6 +582,8 @@ public class playerPlataformerController : PhysicsObject{
 
     public void gotHitHeadStart(){
         beenHitHead = true;
+        ableToMove = false;
+        targetVelocity = Vector2.zero;
     }
 
     public void gotHitHeadEnd(){
@@ -576,6 +592,8 @@ public class playerPlataformerController : PhysicsObject{
 
     public void gotHitLegStart(){
         beenHitLeg = true;
+        ableToMove = false;
+        targetVelocity = Vector2.zero;
     }
 
     public void gotHitLegEnd(){
@@ -624,6 +642,12 @@ public class playerPlataformerController : PhysicsObject{
 
     public void ActiveFrameStop(int attack){
         hurtbox[attack].GetComponent<AttackCheck>().IsHittingFalse();
+    }
+
+    public void flipCharacter(){
+        transform.localScale = new Vector3(transform.root.localScale.x * -1, transform.root.localScale.y, transform.root.localScale.z);
+        hurtBoxes.transform.localScale = new Vector3(hurtBoxes.transform.localScale.x * -1, hurtBoxes.transform.localScale.y, hurtBoxes.transform.localScale.z); 
+        hitBoxes.transform.localScale = new Vector3(hitBoxes.transform.localScale.x * -1, hitBoxes.transform.localScale.y, hitBoxes.transform.localScale.z); 
     }
 
 }

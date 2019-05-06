@@ -19,6 +19,9 @@ public class AttackCheck : MonoBehaviour{
     public bool isHitting;
     public int hitStunFrames;
     public int blockHitStunFrames;
+    public int pushBackStrengh = 12;
+    private int pushBackTotal = 1;
+    private int pushBackAtual;
 
     public bool overHeadAttack;
     public bool lowAttack;
@@ -34,19 +37,27 @@ public class AttackCheck : MonoBehaviour{
         if (repeatAttackHead != 0 && !enemy.transform.root.GetChild(0).GetComponent<playerPlataformerController>().beenHitHead){
             enemy.transform.root.GetChild(0).GetComponent<playerPlataformerController>().gotHitHeadStart();
             enemy.transform.root.GetChild(0).GetComponent<playerPlataformerController>().addHitStun(hitStunFrames);
+            setPushBack();
             repeatAttackHead--;
         }
         
         if (repeatAttackTorso != 0 && !enemy.transform.root.GetChild(0).GetComponent<playerPlataformerController>().beenHitTorso){
             enemy.transform.root.GetChild(0).GetComponent<playerPlataformerController>().gotHitTorsoStart();
             enemy.transform.root.GetChild(0).GetComponent<playerPlataformerController>().addHitStun(hitStunFrames);
+            setPushBack();
             repeatAttackTorso--;
         }
         
         if (repeatAttackLegs != 0 && !enemy.transform.root.GetChild(0).GetComponent<playerPlataformerController>().beenHitLeg){
             enemy.transform.root.GetChild(0).GetComponent<playerPlataformerController>().gotHitLegStart();
             enemy.transform.root.GetChild(0).GetComponent<playerPlataformerController>().addHitStun(hitStunFrames);
+            setPushBack();
             repeatAttackLegs--;
+        }
+
+        if (pushBackAtual > 0){
+            enemy.transform.root.GetChild(0).GetComponent<playerPlataformerController>().targetVelocity = new Vector2(1, 0) * pushBackStrengh;
+            pushBackAtual--;
         }
     }
 
@@ -59,12 +70,15 @@ public class AttackCheck : MonoBehaviour{
                     case "Head":
                         if (!otherPlayer.isBlockingHigh && !otherPlayer.isBlockingLow){
                             otherPlayer.gotHitHeadStart();
+                            setPushBack();
                             attackDefended = false;
                         } else if (otherPlayer.isBlockingLow && overHeadAttack){
                             otherPlayer.gotHitHeadStart();
+                            setPushBack();
                             attackDefended = false;
                         } else if (otherPlayer.isBlockingHigh && lowAttack){
                             otherPlayer.gotHitHeadStart();
+                            setPushBack();
                             attackDefended = false;
                         }
                         else{
@@ -80,12 +94,15 @@ public class AttackCheck : MonoBehaviour{
                     case "Torso":
                         if (!otherPlayer.isBlockingHigh && !otherPlayer.isBlockingLow){
                             otherPlayer.gotHitTorsoStart();
+                            setPushBack();
                             attackDefended = false;
                         } else if (otherPlayer.isBlockingLow && overHeadAttack){
                             otherPlayer.gotHitTorsoStart();
+                            setPushBack();
                             attackDefended = false;
                         } else if (otherPlayer.isBlockingHigh && lowAttack){
                             otherPlayer.gotHitTorsoStart();
+                            setPushBack();
                             attackDefended = false;
                         }
                         else{
@@ -101,12 +118,15 @@ public class AttackCheck : MonoBehaviour{
                     case "Legs":
                         if (!otherPlayer.isBlockingHigh && !otherPlayer.isBlockingLow){
                             otherPlayer.gotHitLegStart();
+                            setPushBack();
                             attackDefended = false;
                         } else if (otherPlayer.isBlockingLow && overHeadAttack){
                             otherPlayer.gotHitLegStart();
+                            setPushBack();
                             attackDefended = false;
                         } else if (otherPlayer.isBlockingHigh && lowAttack){
                             otherPlayer.gotHitLegStart();
+                            setPushBack();
                             attackDefended = false;
                         }
                         else{
@@ -223,6 +243,10 @@ public class AttackCheck : MonoBehaviour{
     public void IsHittingFalse(){
         isHitting = false;
         hasHit = false;
+    }
+
+    public void setPushBack(){
+        pushBackAtual = pushBackTotal;
     }
 
 }
