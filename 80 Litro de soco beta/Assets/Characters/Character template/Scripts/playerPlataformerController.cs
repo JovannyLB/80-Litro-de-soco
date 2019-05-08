@@ -77,7 +77,8 @@ public class playerPlataformerController : PhysicsObject{
     protected bool crouchHardKickCurrently;
     protected bool jumpingPunchCurrently;
     protected bool jumpingKickCurrently;
-    public int lastHitStun;
+    protected int lastHitStun;
+    protected int lastHitStunBlock;
     private bool hitStunFreezeAnim;
     [HideInInspector]public bool beenHitTorso;
     [HideInInspector]public bool beenHitHead;
@@ -235,7 +236,7 @@ public class playerPlataformerController : PhysicsObject{
         }
 
         // Faz o personagem andar
-        if (grounded && !crouching && !currentlyDashing && !currentlyAttacking && !beenHitTorso && !beenHitLeg && !beenHitHead && !currentlyBlockingGeneral){
+        if (grounded && !crouching && !currentlyDashing && !currentlyAttacking && !beenHitTorso && !beenHitLeg && !beenHitHead && !currentlyBlockingGeneral && !blockedHigh && !blockedLow){
             ableToMove = true;
         }
         else{
@@ -317,6 +318,11 @@ public class playerPlataformerController : PhysicsObject{
         // Blocking
         animator.SetBool("blockingHigh", isBlockingHigh);
         animator.SetBool("blockingLow", isBlockingLow);
+        
+        animator.SetBool("beenHitBlockHigh", blockedHigh);
+        animator.SetBool("beenHitBlockLow", blockedLow);
+        
+        animator.SetInteger("blockHitStun", lastHitStunBlock);
 
         // Hit stun animation
         animator.SetInteger("lastHitStun", lastHitStun);
@@ -357,14 +363,14 @@ public class playerPlataformerController : PhysicsObject{
             lastHitStun--;
         }
 
-        /*
-        if (lastHitStun == 0){
-            hitStunFreezeAnim = false;
+        if (lastHitStunBlock > 0){
+            lastHitStunBlock--;
         }
-        else{
-            hitStunFreezeAnim = true;
+
+        if (lastHitStunBlock == 0){
+            gotHitBlockHighEnd();
+            gotHitBlockLowEnd();
         }
-        */
         
         // Blocking
         if (r2 && !crouching && grounded && !currentlyAttacking && !currentlyDashing){
@@ -564,14 +570,10 @@ public class playerPlataformerController : PhysicsObject{
         lastHitStun = hitStun;
     }
 
-    public void hitStunStart(){
-        hitStunFreezeAnim = true;
+    public void addHitStunBlock(int hitStun){
+        lastHitStunBlock = hitStun;
     }
-
-    public void hitStunStop(){
-        hitStunFreezeAnim = false;
-    }
-
+    
     public void gotHitTorsoStart(){
         beenHitHead = false;
         beenHitTorso = true;
