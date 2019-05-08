@@ -77,7 +77,7 @@ public class playerPlataformerController : PhysicsObject{
     protected bool crouchHardKickCurrently;
     protected bool jumpingPunchCurrently;
     protected bool jumpingKickCurrently;
-    private int lastHitStun;
+    public int lastHitStun;
     private bool hitStunFreezeAnim;
     [HideInInspector]public bool beenHitTorso;
     [HideInInspector]public bool beenHitHead;
@@ -100,8 +100,8 @@ public class playerPlataformerController : PhysicsObject{
                 moveVRaw = Input.GetAxisRaw("Vertical");
             }
             else{
-                moveHRaw = Input.GetAxisRaw("Horizontal");
-                moveVRaw = Input.GetAxisRaw("Vertical");
+                moveHRaw = Input.GetAxisRaw("Horizontal2");
+                moveVRaw = Input.GetAxisRaw("Vertical2");
             }
 
             // Botões
@@ -353,16 +353,18 @@ public class playerPlataformerController : PhysicsObject{
 
     protected override void CoreGameplayUpdate(){
         // Cria o sistema de hitstun modular
-        if (lastHitStun != 0 && hitStunFreezeAnim){
+        if (lastHitStun > 0){
             lastHitStun--;
         }
 
+        /*
         if (lastHitStun == 0){
             hitStunFreezeAnim = false;
         }
         else{
             hitStunFreezeAnim = true;
         }
+        */
         
         // Blocking
         if (r2 && !crouching && grounded && !currentlyAttacking && !currentlyDashing){
@@ -559,7 +561,7 @@ public class playerPlataformerController : PhysicsObject{
     // Hit stun animations
         // Hitstun baseado nas frames totais
     public void addHitStun(int hitStun){
-        lastHitStun = hitStun - 10;
+        lastHitStun = hitStun;
     }
 
     public void hitStunStart(){
@@ -571,7 +573,9 @@ public class playerPlataformerController : PhysicsObject{
     }
 
     public void gotHitTorsoStart(){
+        beenHitHead = false;
         beenHitTorso = true;
+        beenHitLeg = false;
         ableToMove = false;
         targetVelocity = Vector2.zero;
     }
@@ -582,6 +586,8 @@ public class playerPlataformerController : PhysicsObject{
 
     public void gotHitHeadStart(){
         beenHitHead = true;
+        beenHitTorso = false;
+        beenHitLeg = false;
         ableToMove = false;
         targetVelocity = Vector2.zero;
     }
@@ -591,6 +597,8 @@ public class playerPlataformerController : PhysicsObject{
     }
 
     public void gotHitLegStart(){
+        beenHitHead = false;
+        beenHitTorso = false;
         beenHitLeg = true;
         ableToMove = false;
         targetVelocity = Vector2.zero;

@@ -34,6 +34,7 @@ public class AttackCheck : MonoBehaviour{
     }
 
     void FixedUpdate(){
+        /*
         if (repeatAttackHead != 0 && !enemy.transform.root.GetChild(0).GetComponent<playerPlataformerController>().beenHitHead){
             enemy.transform.root.GetChild(0).GetComponent<playerPlataformerController>().gotHitHeadStart();
             enemy.transform.root.GetChild(0).GetComponent<playerPlataformerController>().addHitStun(hitStunFrames);
@@ -54,6 +55,7 @@ public class AttackCheck : MonoBehaviour{
             setPushBack();
             repeatAttackLegs--;
         }
+        */
 
         if (pushBackAtual > 0){
             enemy.transform.root.GetChild(0).GetComponent<playerPlataformerController>().targetVelocity = new Vector2(1, 0) * pushBackStrengh;
@@ -65,7 +67,7 @@ public class AttackCheck : MonoBehaviour{
         var otherPlayer = other.transform.root.GetChild(0).GetComponent<playerPlataformerController>();
         
         if (ownPlayer1 != otherPlayer.isPlayer1 && isHitting && !hasHit){
-            if (other.tag != lastHit){
+            //if (other.tag != lastHit){
                 switch (other.tag){
                     case "Head":
                         if (!otherPlayer.isBlockingHigh && !otherPlayer.isBlockingLow){
@@ -150,8 +152,8 @@ public class AttackCheck : MonoBehaviour{
                 else{
                     otherPlayer.addHitStun(hitStunFrames);
                 }
-            }
-            else{
+            //}
+            /*else{
                 switch (other.tag){
                     case "Head":
                         if (!otherPlayer.isBlockingHigh && !otherPlayer.isBlockingLow){
@@ -220,7 +222,7 @@ public class AttackCheck : MonoBehaviour{
                         print("Something went wrong");
                         break;
                 }
-            }
+            }*/
 
             lastHit = other.tag;
             hasHit = true;
