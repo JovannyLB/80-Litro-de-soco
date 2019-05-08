@@ -30,11 +30,23 @@ public class AttackCheck : MonoBehaviour{
 
     void FixedUpdate(){
         if (pushBackAtual > 0 && transform.root.GetChild(0).GetComponent<playerPlataformerController>().isLeft){
-            enemy.transform.root.GetChild(0).GetComponent<playerPlataformerController>().targetVelocity = new Vector2(1, 0) * pushBackStrengh;
-            pushBackAtual--;
+            if (enemy.transform.root.GetChild(0).GetComponent<playerPlataformerController>().inCorner){
+                transform.root.GetChild(0).GetComponent<playerPlataformerController>().targetVelocity = new Vector2(1, 0) * -(pushBackStrengh / 2.5f);
+                pushBackAtual--;
+            }
+            else{
+                enemy.transform.root.GetChild(0).GetComponent<playerPlataformerController>().targetVelocity = new Vector2(1, 0) * pushBackStrengh;
+                pushBackAtual--;
+            }
         } else if (pushBackAtual > 0 && !transform.root.GetChild(0).GetComponent<playerPlataformerController>().isLeft){
-            enemy.transform.root.GetChild(0).GetComponent<playerPlataformerController>().targetVelocity = new Vector2(1, 0) * -pushBackStrengh;
-            pushBackAtual--;
+            if (enemy.transform.root.GetChild(0).GetComponent<playerPlataformerController>().inCorner){
+                transform.root.GetChild(0).GetComponent<playerPlataformerController>().targetVelocity = new Vector2(1, 0) * (pushBackStrengh / 2.5f);
+                pushBackAtual--;
+            }
+            else{
+                enemy.transform.root.GetChild(0).GetComponent<playerPlataformerController>().targetVelocity = new Vector2(1, 0) * -pushBackStrengh;
+                pushBackAtual--;
+            }
         }
 
         if (pushBackAtualSelf > 0 && transform.root.GetChild(0).GetComponent<playerPlataformerController>().isLeft){

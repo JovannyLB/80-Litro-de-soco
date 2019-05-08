@@ -8,6 +8,7 @@ TagManager:
   - Head
   - Torso
   - Legs
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - Resto
   - Hitbox
   - Hurtbox
-  - 
+  - Corner Check
   - 
   - 
   - 

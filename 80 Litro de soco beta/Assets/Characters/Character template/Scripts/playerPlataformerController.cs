@@ -66,6 +66,7 @@ public class playerPlataformerController : PhysicsObject{
     public bool isFlippedSide;
     [HideInInspector]public bool isLeft;
     protected bool hasFlippedSide;
+    public bool inCorner;
     protected bool crouching;
     protected bool currentlyAttacking;
     protected bool standLightPunchCurrently;
@@ -115,11 +116,17 @@ public class playerPlataformerController : PhysicsObject{
                 r2 = Input.GetKey(KeyCode.Joystick1Button7);
             }
             else{
-                xButton = Input.GetKeyDown(KeyCode.Joystick2Button1);
+                /*xButton = Input.GetKeyDown(KeyCode.Joystick2Button1);
                 square = Input.GetKeyDown(KeyCode.Joystick2Button0);
                 circle = Input.GetKeyDown(KeyCode.Joystick2Button2);
                 triangle = Input.GetKeyDown(KeyCode.Joystick2Button3);
                 r2 = Input.GetKey(KeyCode.Joystick2Button7);
+                */
+                xButton = Input.GetKeyDown(KeyCode.Z);
+                square = Input.GetKeyDown(KeyCode.X);
+                circle = Input.GetKeyDown(KeyCode.C);
+                triangle = Input.GetKeyDown(KeyCode.V);
+                r2 = Input.GetKey(KeyCode.Space);
             }
         }
     }
