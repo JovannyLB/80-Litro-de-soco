@@ -3607,6 +3607,7 @@ MonoBehaviour:
   - {fileID: 1107735723}
   - {fileID: 733928515}
   - {fileID: 1727062043}
+  - {fileID: 1576927752}
 --- !u!4 &2074335802
 Transform:
   m_ObjectHideFlags: 0
@@ -3655,6 +3656,7 @@ RectTransform:
   - {fileID: 1266769994}
   - {fileID: 196048889}
   - {fileID: 1727062045}
+  - {fileID: 1576927754}
   m_Father: {fileID: 2074335802}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

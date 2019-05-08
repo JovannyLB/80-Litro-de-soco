@@ -16,6 +16,7 @@ public class AttackCheck : MonoBehaviour{
     public int damage;
     private int pushBackTotal = 1;
     private int pushBackAtual;
+    private int pushBackAtualSelf;
 
     [Header("Attack type")]
     public bool overHeadAttack;
@@ -28,9 +29,20 @@ public class AttackCheck : MonoBehaviour{
     }
 
     void FixedUpdate(){
-        if (pushBackAtual > 0){
+        if (pushBackAtual > 0 && transform.root.GetChild(0).GetComponent<playerPlataformerController>().isLeft){
             enemy.transform.root.GetChild(0).GetComponent<playerPlataformerController>().targetVelocity = new Vector2(1, 0) * pushBackStrengh;
             pushBackAtual--;
+        } else if (pushBackAtual > 0 && !transform.root.GetChild(0).GetComponent<playerPlataformerController>().isLeft){
+            enemy.transform.root.GetChild(0).GetComponent<playerPlataformerController>().targetVelocity = new Vector2(1, 0) * -pushBackStrengh;
+            pushBackAtual--;
+        }
+
+        if (pushBackAtualSelf > 0 && transform.root.GetChild(0).GetComponent<playerPlataformerController>().isLeft){
+            transform.root.GetChild(0).GetComponent<playerPlataformerController>().targetVelocity = new Vector2(1, 0) * -(pushBackStrengh / 2.5f);
+            pushBackAtualSelf--;
+        } else if (pushBackAtualSelf > 0 && !transform.root.GetChild(0).GetComponent<playerPlataformerController>().isLeft){
+            transform.root.GetChild(0).GetComponent<playerPlataformerController>().targetVelocity = new Vector2(1, 0) * (pushBackStrengh / 2.5f);
+            pushBackAtualSelf--;
         }
     }
 
@@ -56,9 +68,11 @@ public class AttackCheck : MonoBehaviour{
                     else{
                         if (otherPlayer.isBlockingHigh){
                             otherPlayer.gotHitBlockHighStart();
+                            setPushBackSelf();
                         }
                         else if (otherPlayer.isBlockingLow){
                             otherPlayer.gotHitBlockLowStart();
+                            setPushBackSelf();
                         }
                         attackDefended = true;
                     }
@@ -80,9 +94,11 @@ public class AttackCheck : MonoBehaviour{
                     else{
                         if (otherPlayer.isBlockingHigh){
                             otherPlayer.gotHitBlockHighStart();
+                            setPushBackSelf();
                         }
                         else if (otherPlayer.isBlockingLow){
                             otherPlayer.gotHitBlockLowStart();
+                            setPushBackSelf();
                         }
                         attackDefended = true;
                     }
@@ -104,9 +120,11 @@ public class AttackCheck : MonoBehaviour{
                     else{
                         if (otherPlayer.isBlockingHigh){
                             otherPlayer.gotHitBlockHighStart();
+                            setPushBackSelf();
                         }
                         else if (otherPlayer.isBlockingLow){
                             otherPlayer.gotHitBlockLowStart();
+                            setPushBackSelf();
                         }
                         attackDefended = true;
                     }
@@ -147,6 +165,10 @@ public class AttackCheck : MonoBehaviour{
 
     public void setPushBack(){
         pushBackAtual = pushBackTotal;
+    }
+
+    public void setPushBackSelf(){
+        pushBackAtualSelf = pushBackTotal;
     }
 
 }

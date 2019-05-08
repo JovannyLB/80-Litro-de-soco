@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour{
     protected GameObject rightPlayer;
     protected playerPlataformerController leftPlayerScript;
     protected playerPlataformerController rightPlayerScript;
+    private bool isPaused;
 
     protected GameObject[] players;
 
@@ -36,10 +37,26 @@ public class GameController : MonoBehaviour{
         uiTexts[1].text = rightPlayerScript.characterName;
 
         uiTexts[4].enabled = false;
+        uiTexts[5].enabled = false;
     }
 
     // Update is called once per frame
     void Update(){
+        if (Input.GetKeyDown(KeyCode.JoystickButton9) && !isPaused){
+            isPaused = true;
+        } else if (Input.GetKeyDown(KeyCode.JoystickButton9) && isPaused){
+            isPaused = false;
+        }
+
+        if (isPaused){
+            Time.timeScale = 0;
+            uiTexts[5].enabled = true;
+        }
+        else{
+            Time.timeScale = 1;
+            uiTexts[5].enabled = false;
+        }
+
         uiTexts[2].text = leftPlayerScript.health.ToString();
         uiTexts[3].text = rightPlayerScript.health.ToString();
 
@@ -55,9 +72,13 @@ public class GameController : MonoBehaviour{
             StartCoroutine(endCondition());
         }
 
-        if (leftPlayer.transform.position.x == rightPlayer.transform.position.x){
-            leftPlayerScript.flipCharacter();
-            rightPlayerScript.flipCharacter();
+        if (leftPlayer.transform.position.x < rightPlayer.transform.position.x){
+            leftPlayerScript.isLeft = true;
+            rightPlayerScript.isLeft = false;
+        }
+        else{
+            leftPlayerScript.isLeft = false;
+            rightPlayerScript.isLeft = true;
         }
     }
 

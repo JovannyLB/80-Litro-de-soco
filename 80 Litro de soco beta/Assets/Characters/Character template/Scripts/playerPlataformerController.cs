@@ -13,7 +13,7 @@ public class playerPlataformerController : PhysicsObject{
     public float health;
 
     // Informações sobre movimetação
-    private float jumpTakeOffSpeed = 40;
+    private float jumpTakeOffSpeed = 35;
     private float jumpTakeOffHorizontal = 10;
     public float walkingSpeed;
     private float speedTotal;
@@ -64,6 +64,7 @@ public class playerPlataformerController : PhysicsObject{
     
     // Booleans
     public bool isFlippedSide;
+    [HideInInspector]public bool isLeft;
     protected bool hasFlippedSide;
     protected bool crouching;
     protected bool currentlyAttacking;
