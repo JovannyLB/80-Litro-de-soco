@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour{
 
+    [Header("Controls everything else than the character interactions")]
+    
     protected GameObject leftPlayer;
     protected GameObject rightPlayer;
     protected playerPlataformerController leftPlayerScript;
@@ -12,6 +14,7 @@ public class GameController : MonoBehaviour{
     private bool isPaused;
 
     protected GameObject[] players;
+    private bool flipToggle = true;
 
     public Text[] uiTexts;
     
@@ -30,6 +33,7 @@ public class GameController : MonoBehaviour{
         rightPlayerScript = rightPlayer.transform.root.GetChild(0).GetComponent<playerPlataformerController>();
 
         rightPlayerScript.isFlippedSide = true;
+        leftPlayerScript.isLeft = true;
 
         uiTexts[0].text = leftPlayerScript.characterName;
         uiTexts[1].text = rightPlayerScript.characterName;
@@ -62,22 +66,36 @@ public class GameController : MonoBehaviour{
             stopPlayer();
             uiTexts[4].enabled = true;
             uiTexts[4].text = rightPlayerScript.characterName + " wins";
+            rightPlayerScript.won = true;
+            leftPlayerScript.lost = true;
             StartCoroutine(endCondition());
         } else if (rightPlayerScript.health <= 0){
             stopPlayer();
             uiTexts[4].enabled = true;
             uiTexts[4].text = leftPlayerScript.characterName + " wins";
+            leftPlayerScript.won = true;
+            rightPlayerScript.lost = true;
             StartCoroutine(endCondition());
         }
 
-        if (leftPlayer.transform.position.x < rightPlayer.transform.position.x){
-            leftPlayerScript.isLeft = true;
-            rightPlayerScript.isLeft = false;
-        }
-        else{
+        var onTopLeft = leftPlayer.transform.root.GetChild(2).GetChild(4).GetComponent<jumpOverCheck>().onTop;
+        var onTopRight = rightPlayer.transform.root.GetChild(2).GetChild(4).GetComponent<jumpOverCheck>().onTop;
+        
+        if (leftPlayer.transform.position.x > rightPlayer.transform.position.x && flipToggle && !onTopLeft && !onTopRight){
             leftPlayerScript.isLeft = false;
             rightPlayerScript.isLeft = true;
+            leftPlayerScript.flipCharacterLeft();
+            rightPlayerScript.flipCharacterRight();
+            flipToggle = false;
         }
+        else if (leftPlayer.transform.position.x < rightPlayer.transform.position.x && !flipToggle && !onTopLeft && !onTopRight){
+            leftPlayerScript.isLeft = true;
+            rightPlayerScript.isLeft = false;
+            leftPlayerScript.flipCharacterRight();
+            rightPlayerScript.flipCharacterLeft();
+            flipToggle = true;
+        }
+
     }
 
     IEnumerator endCondition(){

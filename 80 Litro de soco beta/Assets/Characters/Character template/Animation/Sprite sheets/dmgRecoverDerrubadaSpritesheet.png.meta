@@ -1,9 +1,60 @@
 fileFormatVersion: 2
 guid: f7baa1ba001eb0d4d983dd14d3173c98
 TextureImporter:
-  fileIDToRecycleName: {}
+  internalIDToNameTable:
+  - first:
+      213: -1398612395989953026
+    second: dmgRecoverDerrubadaSpritesheet_0
+  - first:
+      213: 4342148013419058624
+    second: dmgRecoverDerrubadaSpritesheet_1
+  - first:
+      213: -4490505309466193216
+    second: dmgRecoverDerrubadaSpritesheet_2
+  - first:
+      213: 8355213922704635125
+    second: dmgRecoverDerrubadaSpritesheet_3
+  - first:
+      213: 535341122103171819
+    second: dmgRecoverDerrubadaSpritesheet_4
+  - first:
+      213: -2772001600976119150
+    second: dmgRecoverDerrubadaSpritesheet_5
+  - first:
+      213: -4101238258912732544
+    second: dmgRecoverDerrubadaSpritesheet_6
+  - first:
+      213: -6607755237441680575
+    second: dmgRecoverDerrubadaSpritesheet_7
+  - first:
+      213: 6338175591826698767
+    second: dmgRecoverDerrubadaSpritesheet_8
+  - first:
+      213: 551324246628879240
+    second: dmgRecoverDerrubadaSpritesheet_9
+  - first:
+      213: -6104683117037669731
+    second: dmgRecoverDerrubadaSpritesheet_10
+  - first:
+      213: 902656217140235494
+    second: dmgRecoverDerrubadaSpritesheet_11
+  - first:
+      213: 1465101466145055877
+    second: dmgRecoverDerrubadaSpritesheet_12
+  - first:
+      213: -1602389574174032008
+    second: dmgRecoverDerrubadaSpritesheet_13
+  - first:
+      213: 3129584838208909290
+    second: dmgRecoverDerrubadaSpritesheet_14
+  - first:
+      213: 2179910145417672534
+    second: dmgRecoverDerrubadaSpritesheet_15
+  - first:
+      213: -8978460399409151697
+    second: dmgRecoverDerrubadaSpritesheet_16
   externalObjects: {}
-  serializedVersion: 9
+  serializedVersion: 10
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -82,15 +133,374 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: dmgRecoverDerrubadaSpritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13c9a1c1325728f40a8c1e76340d9601
+      internalID: -1398612395989953026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dmgRecoverDerrubadaSpritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 1250
+        y: 4500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: defcb2c080454c840853c65fdcff347b
+      internalID: 4342148013419058624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dmgRecoverDerrubadaSpritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 4500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62cdf6d37d557ec4eb8aaed039faf339
+      internalID: -4490505309466193216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dmgRecoverDerrubadaSpritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 3750
+        y: 4500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0486906bb64c8a46b81367d443be32e
+      internalID: 8355213922704635125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dmgRecoverDerrubadaSpritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 5000
+        y: 4500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cfda4dc9a724af4aa69678f2c45417c
+      internalID: 535341122103171819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dmgRecoverDerrubadaSpritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8892cb91155e2f74bb97add2be9554c5
+      internalID: -2772001600976119150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dmgRecoverDerrubadaSpritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 1250
+        y: 3000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a206e9057eb8a104b8ac7d925bee4578
+      internalID: -4101238258912732544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dmgRecoverDerrubadaSpritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 3000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e7b259fb1eb6c24094e5d8172858d25
+      internalID: -6607755237441680575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dmgRecoverDerrubadaSpritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 3750
+        y: 3000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9893c2b50ab9d6f43b4237c9221b49e1
+      internalID: 6338175591826698767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dmgRecoverDerrubadaSpritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 5000
+        y: 3000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bb861885febf2d4eae0e0abd75b8912
+      internalID: 551324246628879240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dmgRecoverDerrubadaSpritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5d5a82ca835c054ab6e5634252f7222
+      internalID: -6104683117037669731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dmgRecoverDerrubadaSpritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 1250
+        y: 1500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9651ccea1e69e7c44b110848be726048
+      internalID: 902656217140235494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dmgRecoverDerrubadaSpritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 1500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d526bdca57f93564dbba48e3fb746f7d
+      internalID: 1465101466145055877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dmgRecoverDerrubadaSpritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 3750
+        y: 1500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b4bc4ce9a06b9845b372e91927c643f
+      internalID: -1602389574174032008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dmgRecoverDerrubadaSpritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 5000
+        y: 1500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c5bbba2e0fc1bd4e9a84f417b9a6b35
+      internalID: 3129584838208909290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dmgRecoverDerrubadaSpritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fe823174f6a0e343933f4a8c22a865f
+      internalID: 2179910145417672534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dmgRecoverDerrubadaSpritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 1250
+        y: 0
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 148a5b646cca853458be288a84bb2e49
+      internalID: -8978460399409151697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
     spriteID: fa6193089dad56744b7e67c488e0913e
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
+    secondaryTextures: []
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

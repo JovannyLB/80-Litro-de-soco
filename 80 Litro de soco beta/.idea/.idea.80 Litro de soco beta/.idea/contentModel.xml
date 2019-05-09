@@ -11,6 +11,7 @@
           <e p="Character template" t="Include">
             <e p="Scripts" t="Include">
               <e p="AttackCheck.cs" t="Include" />
+              <e p="cornerCheck.cs" t="Include" />
               <e p="jumpOverCheck.cs" t="Include" />
               <e p="PhysicsObject.cs" t="Include" />
               <e p="playerPlataformerController.cs" t="Include" />
@@ -18,7 +19,6 @@
             </e>
           </e>
         </e>
-        <e p="cornerCheck.cs" t="Include" />
         <e p="Game controller" t="Include">
           <e p="GameController.cs" t="Include" />
         </e>

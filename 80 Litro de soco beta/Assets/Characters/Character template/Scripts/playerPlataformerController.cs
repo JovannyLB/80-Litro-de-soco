@@ -11,10 +11,12 @@ public class playerPlataformerController : PhysicsObject{
     // Informações sobre os personagens
     public string characterName;
     public float health;
-
+    [HideInInspector]public bool won;
+    [HideInInspector]public bool lost;
+    
     // Informações sobre movimetação
-    private float jumpTakeOffSpeed = 35;
-    private float jumpTakeOffHorizontal = 10;
+    private float jumpTakeOffSpeed = 45;
+    private float jumpTakeOffHorizontal = 16;
     public float walkingSpeed;
     private float speedTotal;
     [HideInInspector]public bool enableControls = true;
@@ -22,7 +24,7 @@ public class playerPlataformerController : PhysicsObject{
     protected float backTimer = 100;
     protected float frontTimer = 100;
     protected float downTimer = 100;
-    protected bool ableToMove;
+    private bool ableToMove;
 
     private float dashFrameTotal = 10;
     private float dashSpeed = 20;
@@ -38,7 +40,7 @@ public class playerPlataformerController : PhysicsObject{
     private bool currentlyDashing;
     private float dashCooldown;
     private bool canDash;
-    private bool jumping;
+    [HideInInspector]public bool jumping;
 
     [HideInInspector]public bool isBlockingHigh;
     [HideInInspector]public bool isBlockingLow;
@@ -66,7 +68,9 @@ public class playerPlataformerController : PhysicsObject{
     public bool isFlippedSide;
     [HideInInspector]public bool isLeft;
     protected bool hasFlippedSide;
-    public bool inCorner;
+    [HideInInspector]public bool inCorner;
+    [HideInInspector]public bool beingJumpedOver;
+    [HideInInspector]public bool jumpingOver;
     protected bool crouching;
     protected bool currentlyAttacking;
     protected bool standLightPunchCurrently;
@@ -135,7 +139,7 @@ public class playerPlataformerController : PhysicsObject{
         // Vira o personagem
         if (isFlippedSide && !hasFlippedSide){
             transform.position = new Vector3(transform.position.x + 20, transform.position.y, transform.position.z);
-            flipCharacter();
+            flipCharacterLeft();
             hasFlippedSide = true;
         }
 
@@ -188,14 +192,14 @@ public class playerPlataformerController : PhysicsObject{
         }
 
         // Dashes
-        if (dashBackward >= 1 && grounded && !currentlyDashing && !crouching && !currentlyAttacking && canDash){
+        if (dashBackward >= 1 && grounded && !currentlyDashing && !crouching && !currentlyAttacking && canDash && !jumpingOver){
             dashFrames = dashFrameTotal;
             targetVelocity = new Vector2(1, 0) * -dashSpeed;
             dashBackward = 0;
             dashCooldown = dashCooldownTotal;
         }
 
-        if (dashForward >= 1 && grounded && !currentlyDashing && !crouching && !currentlyAttacking && canDash){
+        if (dashForward >= 1 && grounded && !currentlyDashing && !crouching && !currentlyAttacking && canDash && !jumpingOver){
             dashFrames = dashFrameTotal;
             targetVelocity = new Vector2(1, 0) * dashSpeed;
             dashForward = 0;
@@ -234,17 +238,19 @@ public class playerPlataformerController : PhysicsObject{
         }
 
         // Agachar
-        if (moveVRaw < -0.6f && grounded && !currentlyDashing && !beenHitTorso && !beenHitLeg && !beenHitHead){
+        if (moveVRaw < -0.6f && grounded && !currentlyDashing && !beenHitTorso && !beenHitLeg && !beenHitHead && !jumpingOver){
             crouching = true;
             ableToMove = false;
-            targetVelocity = Vector2.zero;
+            if (!beingJumpedOver && !currentlyBlockingGeneral && !currentlyAttacking){
+                targetVelocity = Vector2.zero;
+            }
         }
         else{
             crouching = false;
         }
 
         // Faz o personagem andar
-        if (grounded && !crouching && !currentlyDashing && !currentlyAttacking && !beenHitTorso && !beenHitLeg && !beenHitHead && !currentlyBlockingGeneral && !blockedHigh && !blockedLow){
+        if (grounded && !crouching && !currentlyDashing && !currentlyAttacking && !beenHitTorso && !beenHitLeg && !beenHitHead && !currentlyBlockingGeneral && !blockedHigh && !blockedLow && !beingJumpedOver && !jumpingOver){
             ableToMove = true;
         }
         else{
@@ -258,6 +264,8 @@ public class playerPlataformerController : PhysicsObject{
         // Faz com que as hitboxes sigam o personagem
         hitBoxes.transform.position = transform.position;
         hurtBoxes.transform.position = transform.position;
+        hitBoxes.transform.localScale = new Vector3(transform.localScale.x, hitBoxes.transform.localScale.y, hitBoxes.transform.localScale.z);
+        hurtBoxes.transform.localScale = new Vector3(transform.localScale.x, hurtBoxes.transform.localScale.y, hurtBoxes.transform.localScale.z); 
     }
 
     void KeyCheck(float moveH, float moveV){
@@ -311,6 +319,10 @@ public class playerPlataformerController : PhysicsObject{
     }
 
     protected override void animationUpdate(){
+        // Gameplay
+        animator.SetBool("youWin", won);
+        animator.SetBool("youLose", lost);
+        
         // Movimento
         if (grounded){
             animator.SetFloat("movementSpeed", Math.Abs(targetVelocity.x));
@@ -381,14 +393,14 @@ public class playerPlataformerController : PhysicsObject{
         }
         
         // Blocking
-        if (r2 && !crouching && grounded && !currentlyAttacking && !currentlyDashing){
+        if (r2 && !crouching && grounded && !currentlyAttacking && !currentlyDashing && !jumpingOver){
             isBlockingHigh = true;
         }
         else{
             isBlockingHigh = false;
         }
         
-        if (r2 && crouching && grounded && !currentlyAttacking && !currentlyDashing){
+        if (r2 && crouching && grounded && !currentlyAttacking && !currentlyDashing && !jumpingOver){
             isBlockingLow = true;
         }
         else{
@@ -405,46 +417,44 @@ public class playerPlataformerController : PhysicsObject{
         }
 
         // Light punches
-        if (square && grounded && !crouching && !currentlyAttacking && !currentlyDashing){
+        if (square && grounded && !crouching && !currentlyAttacking && !currentlyDashing && !jumpingOver){
             StandLightPunch();
         }
-        else if (square && grounded && crouching && !currentlyAttacking && !currentlyDashing){
+        else if (square && grounded && crouching && !currentlyAttacking && !currentlyDashing && !jumpingOver){
             CrouchLightPunch();
         }
 
         // Hard punches
-        if (triangle && grounded && !crouching && !currentlyAttacking && !currentlyDashing){
+        if (triangle && grounded && !crouching && !currentlyAttacking && !currentlyDashing && !jumpingOver){
             StandHardPunch();
         }
-        else if (triangle && grounded && crouching && !currentlyAttacking && !currentlyDashing){
+        else if (triangle && grounded && crouching && !currentlyAttacking && !currentlyDashing && !jumpingOver){
             CrouchHardPunch();
         }
 
         // Light kick's
-        if (xButton && grounded && !crouching && !currentlyAttacking && !currentlyDashing){
+        if (xButton && grounded && !crouching && !currentlyAttacking && !currentlyDashing && !jumpingOver){
             StandLightKick();
         }
-        else if (xButton && grounded && crouching && !currentlyAttacking && !currentlyDashing){
+        else if (xButton && grounded && crouching && !currentlyAttacking && !currentlyDashing && !jumpingOver){
             CrouchLightKick();
         }
 
         // Hard kick's
-        if (circle && grounded && !crouching && !currentlyAttacking && !currentlyDashing){
+        if (circle && grounded && !crouching && !currentlyAttacking && !currentlyDashing && !jumpingOver){
             StandHardKick();
         }
-        else if (circle && grounded && crouching && !currentlyAttacking && !currentlyDashing){
+        else if (circle && grounded && crouching && !currentlyAttacking && !currentlyDashing && !jumpingOver){
             CrouchHardKick();
         }
 
         // Jump punch
-        if (square && !grounded && !crouching && !currentlyAttacking && !currentlyDashing ||
-            triangle && !grounded && !crouching && !currentlyAttacking && !currentlyDashing){
+        if (square && !grounded && !crouching && !currentlyAttacking && !currentlyDashing || triangle && !grounded && !crouching && !currentlyAttacking && !currentlyDashing){
             JumpPunch();
         }
 
         // Jump kick
-        if (xButton && !grounded && !crouching && !currentlyAttacking && !currentlyDashing ||
-            circle && !grounded && !crouching && !currentlyAttacking && !currentlyDashing){
+        if (xButton && !grounded && !crouching && !currentlyAttacking && !currentlyDashing || circle && !grounded && !crouching && !currentlyAttacking && !currentlyDashing){
             JumpKick();
         }
     }
@@ -662,10 +672,12 @@ public class playerPlataformerController : PhysicsObject{
         hurtbox[attack].GetComponent<AttackCheck>().IsHittingFalse();
     }
 
-    public void flipCharacter(){
+    public void flipCharacterLeft(){
         transform.localScale = new Vector3(transform.root.localScale.x * -1, transform.root.localScale.y, transform.root.localScale.z);
-        hurtBoxes.transform.localScale = new Vector3(hurtBoxes.transform.localScale.x * -1, hurtBoxes.transform.localScale.y, hurtBoxes.transform.localScale.z); 
-        hitBoxes.transform.localScale = new Vector3(hitBoxes.transform.localScale.x * -1, hitBoxes.transform.localScale.y, hitBoxes.transform.localScale.z); 
     }
 
+    public void flipCharacterRight(){
+        transform.localScale = new Vector3(transform.root.localScale.x * 1, transform.root.localScale.y, transform.root.localScale.z);
+    }
+    
 }
