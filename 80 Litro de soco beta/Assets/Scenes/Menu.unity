@@ -855,6 +855,7 @@ GameObject:
   - component: {fileID: 712792926}
   - component: {fileID: 712792925}
   - component: {fileID: 712792924}
+  - component: {fileID: 712792927}
   m_Layer: 5
   m_Name: ConfigButton
   m_TagString: Untagged
@@ -1008,6 +1009,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 712792922}
   m_CullTransparentMesh: 0
+--- !u!114 &712792927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712792922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eea5533a96aecf943a58911942f60fb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playSelected: 0
 --- !u!1 &730490442
 GameObject:
   m_ObjectHideFlags: 0
@@ -1242,6 +1256,7 @@ GameObject:
   - component: {fileID: 900282259}
   - component: {fileID: 900282258}
   - component: {fileID: 900282257}
+  - component: {fileID: 900282260}
   m_Layer: 5
   m_Name: ExtraButton
   m_TagString: Untagged
@@ -1362,6 +1377,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 900282255}
   m_CullTransparentMesh: 0
+--- !u!114 &900282260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900282255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eea5533a96aecf943a58911942f60fb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playSelected: 0
 --- !u!1 &910585988
 GameObject:
   m_ObjectHideFlags: 0
@@ -1670,6 +1698,7 @@ GameObject:
   - component: {fileID: 1222765948}
   - component: {fileID: 1222765947}
   - component: {fileID: 1222765946}
+  - component: {fileID: 1222765949}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -1766,7 +1795,7 @@ MonoBehaviour:
         m_MethodName: set_firstSelectedGameObject
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1471094291}
+          m_ObjectArgument: {fileID: 712792922}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -1777,7 +1806,7 @@ MonoBehaviour:
         m_MethodName: SetSelectedGameObject
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1471094291}
+          m_ObjectArgument: {fileID: 712792922}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -1823,6 +1852,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1222765944}
   m_CullTransparentMesh: 0
+--- !u!114 &1222765949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1222765944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eea5533a96aecf943a58911942f60fb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playSelected: 0
 --- !u!1 &1233174552
 GameObject:
   m_ObjectHideFlags: 0
@@ -2121,6 +2163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eea5533a96aecf943a58911942f60fb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playSelected: 0
 --- !u!1 &1542350928
 GameObject:
   m_ObjectHideFlags: 0
@@ -3149,6 +3192,7 @@ GameObject:
   - component: {fileID: 2114898935}
   - component: {fileID: 2114898934}
   - component: {fileID: 2114898933}
+  - component: {fileID: 2114898936}
   m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
@@ -3269,6 +3313,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2114898931}
   m_CullTransparentMesh: 0
+--- !u!114 &2114898936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2114898931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eea5533a96aecf943a58911942f60fb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playSelected: 0
 --- !u!1 &2146995908
 GameObject:
   m_ObjectHideFlags: 0
