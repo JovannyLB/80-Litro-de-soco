@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\Jovanny el magnífico\.Rider2019.1\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Jovanny el magnífico\.Rider2019.1\system\resharper-host\local\Transient\ReSharperHost\v191\SolutionCaches\_80 Litro de soco beta.2058396476.00" t="ExcludeRecursive" />
-    <e p="E:\Projetos\Unity\Projetos\80-Litro-de-soco\80 Litro de soco beta" t="IncludeRecursive">
+    <e p="C:\Users\gabri\.Rider2018.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\gabri\.Rider2018.2\system\resharper-host\local\Transient\ReSharperHost\v182\SolutionCaches\_80 Litro de soco beta.1920738944.00" t="ExcludeRecursive" />
+    <e p="C:\Users\gabri\OneDrive\Documentos\GitHub\80-Litro-de-soco\80 Litro de soco beta" t="IncludeRecursive">
       <e p="80 Litro de soco beta.sln" t="IncludeFlat" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
@@ -64,9 +64,12 @@
           </e>
         </e>
       </e>
+      <e p="Library" t="ExcludeRecursive" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="packages" t="ExcludeRecursive" />
-      <e p="Temp\bin" t="ExcludeRecursive" />
+      <e p="Temp" t="ExcludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+      </e>
     </e>
   </component>
 </project>
