@@ -13,9 +13,12 @@
               <e p="Scripts" t="Include">
                 <e p="AttackCheck.cs" t="Include" />
                 <e p="cornerCheck.cs" t="Include" />
+                <e p="dummySpecials.cs" t="Include" />
                 <e p="jumpOverCheck.cs" t="Include" />
                 <e p="PhysicsObject.cs" t="Include" />
                 <e p="playerPlataformerController.cs" t="Include" />
+                <e p="projectileLifeCheck.cs" t="Include" />
+                <e p="projectileSpecialCheck.cs" t="Include" />
                 <e p="rootFollow.cs" t="Include" />
               </e>
             </e>

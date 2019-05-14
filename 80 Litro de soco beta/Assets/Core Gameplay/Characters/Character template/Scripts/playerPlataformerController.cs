@@ -1,38 +1,37 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class playerPlataformerController : PhysicsObject{
     // Informações gerais
 
     [Header("Basic character information")]
-    
+
     // Informações sobre os personagens
     public string characterName;
+
     public float health;
-    [HideInInspector]public bool won;
-    [HideInInspector]public bool lost;
-    
+    [HideInInspector] public bool won;
+    [HideInInspector] public bool lost;
+
     // Informações sobre movimetação
     private float jumpTakeOffSpeed = 45;
     private float jumpTakeOffHorizontal = 16;
     public float walkingSpeed;
     private float speedTotal;
-    [HideInInspector]public bool enableControls = true;
+
+    [HideInInspector] public bool enableControls = true;
+
     // Atributos de dash
-    protected float backTimer = 100;
-    protected float frontTimer = 100;
-    protected float downTimer = 100;
+    protected float backDashTimer = 100;
+    protected float frontDashTimer = 100;
     private bool ableToMove;
 
     private float dashFrameTotal = 10;
     private float dashSpeed = 20;
     private float dashCooldownTotal = 30;
 
-    private bool backTimerBool;
-    private bool frontTimerBool;
-    private bool downTimerBool;
+    private bool backTimerDashBool;
+    private bool frontTimerDashBool;
     private bool canKeyCheck;
     private int dashForward;
     private int dashBackward;
@@ -40,40 +39,52 @@ public class playerPlataformerController : PhysicsObject{
     private bool currentlyDashing;
     private float dashCooldown;
     private bool canDash;
-    [HideInInspector]public bool jumping;
+    [HideInInspector] public bool jumping;
 
-    [HideInInspector]public bool isBlockingHigh;
-    [HideInInspector]public bool isBlockingLow;
+    [HideInInspector] public bool isBlockingHigh;
+    [HideInInspector] public bool isBlockingLow;
     private bool currentlyBlockingGeneral;
 
+    // Checagem de especiais
+    public int upTimerSpecial;
+    public int downTimerSpecial;
+    public int rightTimerSpecial;
+    public int leftTimerSpecial;
+    public int xButtonTimerSpecial;
+    public int squareTimerSpecial;
+    public int triangleTimerSpecial;
+    public int circleTimerSpecial;
+
     // Cotroles
-    protected bool xButton;
-    protected bool square;
-    protected bool circle;
-    protected bool triangle;
+    [HideInInspector]public bool xButton;
+    [HideInInspector]public bool square;
+    [HideInInspector]public bool circle;
+    [HideInInspector]public bool triangle;
     protected bool r2;
     protected float moveHRaw;
     protected float moveVRaw;
-    
+
     [Header("Flips between JoyStick 1 and 2")]
-    
     public bool isPlayer1;
 
     // Animator
     protected Animator animator;
 
     [Header("Flips the chosen character to the other side")]
-    
+
     // Booleans
     public bool isFlippedSide;
-    [HideInInspector]public bool isLeft;
+
+    [HideInInspector] public bool isLeft;
     protected bool hasFlippedSide;
-    [HideInInspector]public bool inCorner;
-    [HideInInspector]public bool beingJumpedOver;
-    [HideInInspector]public bool jumpingOver;
+    [HideInInspector] public bool inCorner;
+    [HideInInspector] public bool beingJumpedOver;
+    [HideInInspector] public bool jumpingOver;
     protected bool crouching;
     protected bool currentlyAttacking;
+    public bool canLightPunch;
     protected bool standLightPunchCurrently;
+    public bool canHardPunch;
     protected bool standHardPunchCurrently;
     protected bool standLightKickCurrently;
     protected bool standHardKickCurrently;
@@ -83,19 +94,26 @@ public class playerPlataformerController : PhysicsObject{
     protected bool crouchHardKickCurrently;
     protected bool jumpingPunchCurrently;
     protected bool jumpingKickCurrently;
+    protected bool lightSpecial1Currently;
+    protected bool lightSpecial2Currently;
+    protected bool lightSpecial3Currently;
+    protected bool hardSpecial1Currently;
+    protected bool hardSpecial2Currently;
+    protected bool hardSpecial3Currently;
     protected int lastHitStun;
     protected int lastHitStunBlock;
     private bool hitStunFreezeAnim;
-    [HideInInspector]public bool beenHitTorso;
-    [HideInInspector]public bool beenHitHead;
-    [HideInInspector]public bool beenHitLeg;
-    [HideInInspector]public bool blockedHigh;
-    [HideInInspector]public bool blockedLow;
+    [HideInInspector] public bool beenHitTorso;
+    [HideInInspector] public bool beenHitHead;
+    [HideInInspector] public bool beenHitLeg;
+    [HideInInspector] public bool blockedHigh;
+    [HideInInspector] public bool blockedLow;
 
     [Header("Hitboxes and hurtboxes")]
-    
+
     // Hurtboxes
     public Collider2D[] hurtbox;
+
     public GameObject hurtBoxes;
     public GameObject hitBoxes;
 
@@ -169,17 +187,13 @@ public class playerPlataformerController : PhysicsObject{
         move.x = moveH;
 
         // Checagem de teclas para especiais
-        KeyCheck(moveHRaw, moveVRaw);
-        if (backTimerBool){
-            backTimer++;
+        KeyCheckDash(moveHRaw, moveVRaw);
+        if (backTimerDashBool){
+            backDashTimer++;
         }
 
-        if (frontTimerBool){
-            frontTimer++;
-        }
-
-        if (downTimerBool){
-            downTimer++;
+        if (frontTimerDashBool){
+            frontDashTimer++;
         }
 
         // Cooldown
@@ -192,14 +206,16 @@ public class playerPlataformerController : PhysicsObject{
         }
 
         // Dashes
-        if (dashBackward >= 1 && grounded && !currentlyDashing && !crouching && !currentlyAttacking && canDash && !jumpingOver){
+        if (dashBackward >= 1 && grounded && !currentlyDashing && !crouching && !currentlyAttacking && canDash &&
+            !jumpingOver){
             dashFrames = dashFrameTotal;
             targetVelocity = new Vector2(1, 0) * -dashSpeed;
             dashBackward = 0;
             dashCooldown = dashCooldownTotal;
         }
 
-        if (dashForward >= 1 && grounded && !currentlyDashing && !crouching && !currentlyAttacking && canDash && !jumpingOver){
+        if (dashForward >= 1 && grounded && !currentlyDashing && !crouching && !currentlyAttacking && canDash &&
+            !jumpingOver){
             dashFrames = dashFrameTotal;
             targetVelocity = new Vector2(1, 0) * dashSpeed;
             dashForward = 0;
@@ -250,13 +266,14 @@ public class playerPlataformerController : PhysicsObject{
         }
 
         // Faz o personagem andar
-        if (grounded && !crouching && !currentlyDashing && !currentlyAttacking && !beenHitTorso && !beenHitLeg && !beenHitHead && !currentlyBlockingGeneral && !blockedHigh && !blockedLow && !beingJumpedOver && !jumpingOver){
+        if (grounded && !crouching && !currentlyDashing && !currentlyAttacking && !beenHitTorso && !beenHitLeg && !beenHitHead && !currentlyBlockingGeneral && !blockedHigh && !blockedLow && !beingJumpedOver &&
+            !jumpingOver){
             ableToMove = true;
         }
         else{
             ableToMove = false;
         }
-        
+
         if (grounded && ableToMove){
             targetVelocity = move * walkingSpeed;
         }
@@ -265,10 +282,11 @@ public class playerPlataformerController : PhysicsObject{
         hitBoxes.transform.position = transform.position;
         hurtBoxes.transform.position = transform.position;
         hitBoxes.transform.localScale = new Vector3(transform.localScale.x, hitBoxes.transform.localScale.y, hitBoxes.transform.localScale.z);
-        hurtBoxes.transform.localScale = new Vector3(transform.localScale.x, hurtBoxes.transform.localScale.y, hurtBoxes.transform.localScale.z); 
+        hurtBoxes.transform.localScale = new Vector3(transform.localScale.x, hurtBoxes.transform.localScale.y, hurtBoxes.transform.localScale.z);
     }
 
-    void KeyCheck(float moveH, float moveV){
+    // Checagem de botões para os dashes
+    void KeyCheckDash(float moveH, float moveV){
         // Checa se o jogador deixou o analogico no neutro antes de repetir o movimento (aplica-se apenas para dash)
         if (moveH > -0.5f && moveH < 0.5f && moveV > -0.5f && moveV < 0.5f){
             canKeyCheck = true;
@@ -279,37 +297,109 @@ public class playerPlataformerController : PhysicsObject{
 
         // Checa o analogico para trás
         if (moveH == -1 && canKeyCheck){
-            if (backTimer < dashWindow && grounded){
+            if (backDashTimer < dashWindow && grounded){
                 dashBackward += 1;
             }
             else{
                 dashBackward = 0;
             }
 
-            backTimer = 0;
-            backTimerBool = true;
+            backDashTimer = 0;
+            backTimerDashBool = true;
             canKeyCheck = false;
         }
 
         // Checa o analogico para frente
         if (moveH == 1 && canKeyCheck){
-            if (frontTimer < dashWindow && grounded){
+            if (frontDashTimer < dashWindow && grounded){
                 dashForward += 1;
             }
             else{
                 dashForward = 0;
             }
 
-            frontTimer = 0;
-            frontTimerBool = true;
+            frontDashTimer = 0;
+            frontTimerDashBool = true;
             canKeyCheck = false;
         }
+    }
 
-        // Checa o analogico para baixo
-        if (moveV == -1 && canKeyCheck){
-            downTimer = 0;
-            downTimerBool = true;
-            canKeyCheck = false;
+    // Checagem de botões para os especiais
+    public void KeyCheckSpecial(float moveH, float moveV){
+        // Direcionais
+        if (downTimerSpecial < 100){
+            downTimerSpecial++;
+        }
+
+        if (upTimerSpecial < 100){
+            upTimerSpecial++;
+        }
+
+        if (rightTimerSpecial < 100){
+            rightTimerSpecial++;
+        }
+
+        if (leftTimerSpecial < 100){
+            leftTimerSpecial++;
+        }
+
+        // Teste baixo
+        if (moveV < -0.6 && moveH < 0.2 && moveH > -0.2){
+            downTimerSpecial = 0;
+        }
+
+        // Teste cima
+        if (moveV > 0.6 && moveH < 0.2 && moveH > -0.2){
+            upTimerSpecial = 0;
+        }
+
+        // Teste direita/esquerda
+        if (moveH > 0.6 && moveV < 0.2 && moveV > -0.2 && isLeft){
+            rightTimerSpecial = 0;
+        }
+        else if (moveH > 0.6 && moveV < 0.2 && moveV > -0.2 && !isLeft){
+            leftTimerSpecial = 0;
+        }
+
+        // Teste esquerda/direita
+        if (moveH < -0.6 && moveV < 0.2 && moveV > -0.2 && isLeft){
+            leftTimerSpecial = 0;
+        }
+        else if (moveH < -0.6 && moveV < 0.2 && moveV > -0.2 && !isLeft){
+            rightTimerSpecial = 0;
+        }
+
+        if (xButtonTimerSpecial < 100){
+            xButtonTimerSpecial++;
+        }
+
+        if (squareTimerSpecial < 100){
+            squareTimerSpecial++;
+        }
+
+        if (circleTimerSpecial < 100){
+            circleTimerSpecial++;
+        }
+
+        if (triangleTimerSpecial < 100){
+            triangleTimerSpecial++;
+        }
+
+        // Botões
+        if (xButton){
+            xButtonTimerSpecial = 0;
+        }
+
+        if (square){
+            squareTimerSpecial = 0;
+        }
+
+        if (circle){
+            circleTimerSpecial = 0;
+        }
+
+        if (triangle){
+            triangleTimerSpecial = 0;
         }
     }
 
@@ -322,7 +412,7 @@ public class playerPlataformerController : PhysicsObject{
         // Gameplay
         animator.SetBool("youWin", won);
         animator.SetBool("youLose", lost);
-        
+
         // Movimento
         if (grounded){
             animator.SetFloat("movementSpeed", Math.Abs(targetVelocity.x));
@@ -334,14 +424,14 @@ public class playerPlataformerController : PhysicsObject{
         animator.SetBool("crouching", crouching);
 
         animator.SetBool("jumping", jumping);
-        
+
         // Blocking
         animator.SetBool("blockingHigh", isBlockingHigh);
         animator.SetBool("blockingLow", isBlockingLow);
-        
+
         animator.SetBool("beenHitBlockHigh", blockedHigh);
         animator.SetBool("beenHitBlockLow", blockedLow);
-        
+
         animator.SetInteger("blockHitStun", lastHitStunBlock);
 
         // Hit stun animation
@@ -370,11 +460,35 @@ public class playerPlataformerController : PhysicsObject{
         animator.SetBool("jumpingPunch", jumpingPunchCurrently);
         // Jump kick
         animator.SetBool("jumpingKick", jumpingKickCurrently);
+        
+        // Specials
+        // Light special 1
+        animator.SetBool("lightSpecial1", lightSpecial1Currently);
+        // Light special 2
+        animator.SetBool("lightSpecial2", lightSpecial2Currently);
+        // Light special 3
+        animator.SetBool("lightSpecial3", lightSpecial3Currently);
+        // Hard special 1
+        animator.SetBool("hardSpecial1", hardSpecial1Currently);
+        // Hard special 2
+        animator.SetBool("hardSpecial2", hardSpecial2Currently);
+        // Hard special 3
+        animator.SetBool("hardSpecial3", hardSpecial3Currently);
     }
 
     // Core gameplay
     protected override void CoreGameplayStart(){
         speedTotal = walkingSpeed;
+
+        upTimerSpecial = 100;
+        downTimerSpecial = 100;
+        rightTimerSpecial = 100;
+        leftTimerSpecial = 100;
+
+        xButtonTimerSpecial = 100;
+        squareTimerSpecial = 100;
+        triangleTimerSpecial = 100;
+        circleTimerSpecial = 100;
     }
 
     protected override void CoreGameplayUpdate(){
@@ -391,7 +505,7 @@ public class playerPlataformerController : PhysicsObject{
             gotHitBlockHighEnd();
             gotHitBlockLowEnd();
         }
-        
+
         // Blocking
         if (r2 && !crouching && grounded && !currentlyAttacking && !currentlyDashing && !jumpingOver){
             isBlockingHigh = true;
@@ -399,7 +513,7 @@ public class playerPlataformerController : PhysicsObject{
         else{
             isBlockingHigh = false;
         }
-        
+
         if (r2 && crouching && grounded && !currentlyAttacking && !currentlyDashing && !jumpingOver){
             isBlockingLow = true;
         }
@@ -415,9 +529,11 @@ public class playerPlataformerController : PhysicsObject{
         else{
             currentlyBlockingGeneral = false;
         }
+        
+        KeyCheckSpecial(moveHRaw, moveVRaw);
 
         // Light punches
-        if (square && grounded && !crouching && !currentlyAttacking && !currentlyDashing && !jumpingOver){
+        if (square && grounded && !crouching && !currentlyAttacking && !currentlyDashing && !jumpingOver && canLightPunch){
             StandLightPunch();
         }
         else if (square && grounded && crouching && !currentlyAttacking && !currentlyDashing && !jumpingOver){
@@ -425,7 +541,7 @@ public class playerPlataformerController : PhysicsObject{
         }
 
         // Hard punches
-        if (triangle && grounded && !crouching && !currentlyAttacking && !currentlyDashing && !jumpingOver){
+        if (triangle && grounded && !crouching && !currentlyAttacking && !currentlyDashing && !jumpingOver && canHardPunch){
             StandHardPunch();
         }
         else if (triangle && grounded && crouching && !currentlyAttacking && !currentlyDashing && !jumpingOver){
@@ -449,12 +565,14 @@ public class playerPlataformerController : PhysicsObject{
         }
 
         // Jump punch
-        if (square && !grounded && !crouching && !currentlyAttacking && !currentlyDashing || triangle && !grounded && !crouching && !currentlyAttacking && !currentlyDashing){
+        if (square && !grounded && !crouching && !currentlyAttacking && !currentlyDashing ||
+            triangle && !grounded && !crouching && !currentlyAttacking && !currentlyDashing){
             JumpPunch();
         }
 
         // Jump kick
-        if (xButton && !grounded && !crouching && !currentlyAttacking && !currentlyDashing || circle && !grounded && !crouching && !currentlyAttacking && !currentlyDashing){
+        if (xButton && !grounded && !crouching && !currentlyAttacking && !currentlyDashing ||
+            circle && !grounded && !crouching && !currentlyAttacking && !currentlyDashing){
             JumpKick();
         }
     }
@@ -581,9 +699,76 @@ public class playerPlataformerController : PhysicsObject{
         CurrentlyJumpAttacking(false);
         jumpingKickCurrently = false;
     }
+    
+    // Specials
+    // Light special 1
+    public void LightSpecial1(){
+        CurrentlyAttacking(true);
+        lightSpecial1Currently = true;
+    }
+
+    public void LightSpecial1Stop(){
+        CurrentlyAttacking(false);
+        lightSpecial1Currently = false;
+    }
+    
+    // Light special 2
+    public void LightSpecial2(){
+        CurrentlyAttacking(true);
+        lightSpecial2Currently = true;
+    }
+
+    public void LightSpecial2Stop(){
+        CurrentlyAttacking(false);
+        lightSpecial2Currently = false;
+    }
+    
+    // Light special 3
+    public void LightSpecial3(){
+        CurrentlyAttacking(true);
+        lightSpecial3Currently = true;
+    }
+
+    public void LightSpecial3Stop(){
+        CurrentlyAttacking(false);
+        lightSpecial3Currently = false;
+    }
+    
+    // Hard special 1
+    public void HardSpecial1(){
+        CurrentlyAttacking(true);
+        hardSpecial1Currently = true;
+    }
+
+    public void HardSpecial1Stop(){
+        CurrentlyAttacking(false);
+        hardSpecial1Currently = false;
+    }
+    
+    // Hard special 2
+    public void HardSpecial2(){
+        CurrentlyAttacking(true);
+        hardSpecial2Currently = true;
+    }
+
+    public void HardSpecial2Stop(){
+        CurrentlyAttacking(false);
+        hardSpecial2Currently = false;
+    }
+    
+    // Hard special 3
+    public void HardSpecial3(){
+        CurrentlyAttacking(true);
+        hardSpecial3Currently = true;
+    }
+
+    public void HardSpecial3Stop(){
+        CurrentlyAttacking(false);
+        hardSpecial3Currently = false;
+    }
 
     // Hit stun animations
-        // Hitstun baseado nas frames totais
+    // Hitstun baseado nas frames totais
     public void addHitStun(int hitStun){
         lastHitStun = hitStun;
     }
@@ -591,7 +776,7 @@ public class playerPlataformerController : PhysicsObject{
     public void addHitStunBlock(int hitStun){
         lastHitStunBlock = hitStun;
     }
-    
+
     public void gotHitTorsoStart(){
         beenHitHead = false;
         beenHitTorso = true;
@@ -635,7 +820,7 @@ public class playerPlataformerController : PhysicsObject{
     public void gotHitBlockHighEnd(){
         blockedHigh = false;
     }
-    
+
     public void gotHitBlockLowStart(){
         blockedLow = true;
     }
@@ -656,8 +841,14 @@ public class playerPlataformerController : PhysicsObject{
         CrouchHardPunchStop();
         CrouchLightKickStop();
         CrouchHardKickStop();
+        LightSpecial1Stop();
+        LightSpecial2Stop();
+        LightSpecial3Stop();
+        HardSpecial1Stop();
+        HardSpecial2Stop();
+        HardSpecial3Stop();
     }
-    
+
     // Controla a vida do personagem
     public void changeHealth(int healthChanged){
         health += healthChanged;
@@ -678,6 +869,13 @@ public class playerPlataformerController : PhysicsObject{
 
     public void flipCharacterRight(){
         transform.localScale = new Vector3(transform.root.localScale.x * 1, transform.root.localScale.y, transform.root.localScale.z);
+    }
+    
+    public bool testeDeSpecial(){
+        if (grounded && !crouching && !currentlyAttacking && !currentlyDashing && !jumpingOver){
+            return true;
+        }
+        return false;
     }
     
 }
