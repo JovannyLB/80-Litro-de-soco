@@ -46,14 +46,14 @@ public class playerPlataformerController : PhysicsObject{
     private bool currentlyBlockingGeneral;
 
     // Checagem de especiais
-    public int upTimerSpecial;
-    public int downTimerSpecial;
-    public int rightTimerSpecial;
-    public int leftTimerSpecial;
-    public int xButtonTimerSpecial;
-    public int squareTimerSpecial;
-    public int triangleTimerSpecial;
-    public int circleTimerSpecial;
+    [HideInInspector]public int upTimerSpecial;
+    [HideInInspector]public int downTimerSpecial;
+    [HideInInspector]public int rightTimerSpecial;
+    [HideInInspector]public int leftTimerSpecial;
+    [HideInInspector]public int xButtonTimerSpecial;
+    [HideInInspector]public int squareTimerSpecial;
+    [HideInInspector]public int triangleTimerSpecial;
+    [HideInInspector]public int circleTimerSpecial;
 
     // Cotroles
     [HideInInspector]public bool xButton;
@@ -82,9 +82,9 @@ public class playerPlataformerController : PhysicsObject{
     [HideInInspector] public bool jumpingOver;
     protected bool crouching;
     protected bool currentlyAttacking;
-    public bool canLightPunch;
+    [HideInInspector]public bool canLightPunch;
     protected bool standLightPunchCurrently;
-    public bool canHardPunch;
+    [HideInInspector]public bool canHardPunch;
     protected bool standHardPunchCurrently;
     protected bool standLightKickCurrently;
     protected bool standHardKickCurrently;
@@ -138,17 +138,11 @@ public class playerPlataformerController : PhysicsObject{
                 r2 = Input.GetKey(KeyCode.Joystick1Button7);
             }
             else{
-                /*xButton = Input.GetKeyDown(KeyCode.Joystick2Button1);
+                xButton = Input.GetKeyDown(KeyCode.Joystick2Button1);
                 square = Input.GetKeyDown(KeyCode.Joystick2Button0);
                 circle = Input.GetKeyDown(KeyCode.Joystick2Button2);
                 triangle = Input.GetKeyDown(KeyCode.Joystick2Button3);
                 r2 = Input.GetKey(KeyCode.Joystick2Button7);
-                */
-                xButton = Input.GetKeyDown(KeyCode.Z);
-                square = Input.GetKeyDown(KeyCode.X);
-                circle = Input.GetKeyDown(KeyCode.C);
-                triangle = Input.GetKeyDown(KeyCode.V);
-                r2 = Input.GetKey(KeyCode.Space);
             }
         }
     }

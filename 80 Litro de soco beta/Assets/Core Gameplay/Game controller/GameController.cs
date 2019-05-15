@@ -100,7 +100,7 @@ public class GameController : MonoBehaviour{
 
     IEnumerator endCondition(){
         yield return new WaitForSeconds(5);
-        SceneManager.LoadScene("Arena");
+        SceneManager.LoadScene("Menu");
     }
 
     void stopPlayer(){
