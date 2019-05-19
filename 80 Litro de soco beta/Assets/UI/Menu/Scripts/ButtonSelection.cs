@@ -3,38 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
+using DG.Tweening;
+using UnityEngine.UIElements;
 
 
 public class ButtonSelection : MonoBehaviour, ISelectHandler, IDeselectHandler// required interface when using the OnSelect method.
 {
-    
-    public bool playSelected;
-
-    public ButtonSelection()
-    {
-        playSelected = false;
-    }
+    private bool playSelected;
     
     public void OnSelect(BaseEventData eventData)
     {
         playSelected = true;
     }
+    
     public void OnDeselect(BaseEventData eventData)
     {
         playSelected = false;
     }
-    
 
-    private void FixedUpdate()
+    public bool getPlaySelected()
     {
-        if (playSelected)
-        {
-            Debug.Log(this.gameObject.name + " selected");
-        }
-        else
-        {
-            Debug.Log(this.gameObject.name + " deselected");
-        }
+        return playSelected;
     }
 }
 
