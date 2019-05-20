@@ -81,14 +81,14 @@ public class GameController : MonoBehaviour{
         var onTopLeft = leftPlayer.transform.root.GetChild(2).GetChild(4).GetComponent<jumpOverCheck>().onTop;
         var onTopRight = rightPlayer.transform.root.GetChild(2).GetChild(4).GetComponent<jumpOverCheck>().onTop;
         
-        if (leftPlayer.transform.position.x > rightPlayer.transform.position.x && flipToggle && !onTopLeft && !onTopRight){
+        if (leftPlayerScript.posX > rightPlayerScript.posX && flipToggle && !onTopLeft && !onTopRight){
             leftPlayerScript.isLeft = false;
             rightPlayerScript.isLeft = true;
             leftPlayerScript.flipCharacterLeft();
             rightPlayerScript.flipCharacterRight();
             flipToggle = false;
         }
-        else if (leftPlayer.transform.position.x < rightPlayer.transform.position.x && !flipToggle && !onTopLeft && !onTopRight){
+        else if (leftPlayerScript.posX < rightPlayerScript.posX && !flipToggle && !onTopLeft && !onTopRight){
             leftPlayerScript.isLeft = true;
             rightPlayerScript.isLeft = false;
             leftPlayerScript.flipCharacterRight();

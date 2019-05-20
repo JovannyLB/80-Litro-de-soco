@@ -12,11 +12,12 @@ public class playerPlataformerController : PhysicsObject{
     public float health;
     [HideInInspector] public bool won;
     [HideInInspector] public bool lost;
+    public Color mainColor;
 
     // Informações sobre movimetação
     private float jumpTakeOffSpeed = 45;
-    private float jumpTakeOffHorizontal = 16;
-    public float walkingSpeed;
+    private float jumpTakeOffHorizontal = 13;
+    [HideInInspector]public float walkingSpeed = 7;
     private float speedTotal;
 
     [HideInInspector] public bool enableControls = true;
@@ -25,6 +26,7 @@ public class playerPlataformerController : PhysicsObject{
     protected float backDashTimer = 100;
     protected float frontDashTimer = 100;
     private bool ableToMove;
+    [HideInInspector]public float posX;
 
     private float dashFrameTotal = 10;
     private float dashSpeed = 20;
@@ -54,6 +56,7 @@ public class playerPlataformerController : PhysicsObject{
     [HideInInspector]public int squareTimerSpecial;
     [HideInInspector]public int triangleTimerSpecial;
     [HideInInspector]public int circleTimerSpecial;
+    private ghostTrail ghost;
 
     // Cotroles
     [HideInInspector]public bool xButton;
@@ -70,10 +73,8 @@ public class playerPlataformerController : PhysicsObject{
     // Animator
     protected Animator animator;
 
-    [Header("Flips the chosen character to the other side")]
-
     // Booleans
-    public bool isFlippedSide;
+    [HideInInspector]public bool isFlippedSide;
 
     [HideInInspector] public bool isLeft;
     protected bool hasFlippedSide;
@@ -159,6 +160,8 @@ public class playerPlataformerController : PhysicsObject{
         float moveH = 0;
         float moveV = 0;
 
+        posX = transform.position.x;
+
         // Transforma analogico em binário (0 ou 1)
         if (moveHRaw > 0){
             moveH = 1;
@@ -200,16 +203,14 @@ public class playerPlataformerController : PhysicsObject{
         }
 
         // Dashes
-        if (dashBackward >= 1 && grounded && !currentlyDashing && !crouching && !currentlyAttacking && canDash &&
-            !jumpingOver){
+        if (dashBackward >= 1 && grounded && !currentlyDashing && !crouching && !currentlyAttacking && canDash && !jumpingOver){
             dashFrames = dashFrameTotal;
             targetVelocity = new Vector2(1, 0) * -dashSpeed;
             dashBackward = 0;
             dashCooldown = dashCooldownTotal;
         }
 
-        if (dashForward >= 1 && grounded && !currentlyDashing && !crouching && !currentlyAttacking && canDash &&
-            !jumpingOver){
+        if (dashForward >= 1 && grounded && !currentlyDashing && !crouching && !currentlyAttacking && canDash && !jumpingOver){
             dashFrames = dashFrameTotal;
             targetVelocity = new Vector2(1, 0) * dashSpeed;
             dashForward = 0;
@@ -217,17 +218,18 @@ public class playerPlataformerController : PhysicsObject{
         }
 
         // Checa os pulos
-        if (moveV > 0.4f && moveH > 0.6f && grounded && ableToMove){
+        if (moveVRaw > 0.4f && moveHRaw > 0.6f && grounded && ableToMove && !jumpingOver){
             dashFrames = 0;
             walkingSpeed = jumpTakeOffHorizontal;
             velocity.y = jumpTakeOffSpeed;
         }
-        else if (moveV > 0.4f && moveH < -0.6f && grounded && ableToMove){
+        else if (moveVRaw > 0.4f && moveHRaw < -0.6f && grounded && ableToMove && !jumpingOver){
             dashFrames = 0;
             walkingSpeed = jumpTakeOffHorizontal;
             velocity.y = jumpTakeOffSpeed;
         }
-        else if (moveV > 0.5f && grounded && ableToMove){
+        else if (moveVRaw > 0.6f && grounded && ableToMove && !jumpingOver){
+            walkingSpeed = 0;
             velocity.y = jumpTakeOffSpeed;
         }
         else{
@@ -400,6 +402,7 @@ public class playerPlataformerController : PhysicsObject{
     // Animação
     protected override void animationStart(){
         animator = GetComponent<Animator>();
+        ghost = GetComponent<ghostTrail>();
     }
 
     protected override void animationUpdate(){
