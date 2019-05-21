@@ -340,28 +340,28 @@ public class playerPlataformerController : PhysicsObject{
         }
 
         // Teste baixo
-        if (moveV < -0.6 && moveH < 0.2 && moveH > -0.2){
+        if (moveV < -0.6 && moveH < 0.3 && moveH > -0.3){
             downTimerSpecial = 0;
         }
 
         // Teste cima
-        if (moveV > 0.6 && moveH < 0.2 && moveH > -0.2){
+        if (moveV > 0.6 && moveH < 0.3 && moveH > -0.3){
             upTimerSpecial = 0;
         }
 
         // Teste direita/esquerda
-        if (moveH > 0.6 && moveV < 0.2 && moveV > -0.2 && isLeft){
+        if (moveH > 0.6 && moveV < 0.3 && moveV > -0.3 && isLeft){
             rightTimerSpecial = 0;
         }
-        else if (moveH > 0.6 && moveV < 0.2 && moveV > -0.2 && !isLeft){
+        else if (moveH > 0.6 && moveV < 0.3 && moveV > -0.3 && !isLeft){
             leftTimerSpecial = 0;
         }
 
         // Teste esquerda/direita
-        if (moveH < -0.6 && moveV < 0.2 && moveV > -0.2 && isLeft){
+        if (moveH < -0.6 && moveV < 0.3 && moveV > -0.3 && isLeft){
             leftTimerSpecial = 0;
         }
-        else if (moveH < -0.6 && moveV < 0.2 && moveV > -0.2 && !isLeft){
+        else if (moveH < -0.6 && moveV < 0.3 && moveV > -0.3 && !isLeft){
             rightTimerSpecial = 0;
         }
 
@@ -407,8 +407,10 @@ public class playerPlataformerController : PhysicsObject{
 
     protected override void animationUpdate(){
         // Gameplay
-        animator.SetBool("youWin", won);
-        animator.SetBool("youLose", lost);
+        if (grounded){
+            animator.SetBool("youWin", won);
+            animator.SetBool("youLose", lost);
+        }
 
         // Movimento
         if (grounded){

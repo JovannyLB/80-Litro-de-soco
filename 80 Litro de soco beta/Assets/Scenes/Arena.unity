@@ -579,7 +579,7 @@ MonoBehaviour:
   graityModified: 10
   grounded: 0
   targetVelocity: {x: 0, y: 0}
-  characterName: Roberto dor nas costas
+  characterName: "Gabriel do p\xE9zin"
   health: 1000
   won: 0
   lost: 0
@@ -3307,7 +3307,7 @@ MonoBehaviour:
   graityModified: 10
   grounded: 0
   targetVelocity: {x: 0, y: 0}
-  characterName: Roberto dor nas costas
+  characterName: Scooby doobert, the second
   health: 1000
   won: 0
   lost: 0

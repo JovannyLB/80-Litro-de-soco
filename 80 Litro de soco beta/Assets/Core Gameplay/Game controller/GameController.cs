@@ -63,6 +63,7 @@ public class GameController : MonoBehaviour{
         uiTexts[3].text = rightPlayerScript.health.ToString();
 
         if (leftPlayerScript.health <= 0){
+            leftPlayerScript.health = 0;
             stopPlayer();
             uiTexts[4].enabled = true;
             uiTexts[4].text = rightPlayerScript.characterName + " wins";
@@ -70,6 +71,7 @@ public class GameController : MonoBehaviour{
             leftPlayerScript.lost = true;
             StartCoroutine(endCondition());
         } else if (rightPlayerScript.health <= 0){
+            rightPlayerScript.health = 0;
             stopPlayer();
             uiTexts[4].enabled = true;
             uiTexts[4].text = leftPlayerScript.characterName + " wins";
@@ -105,8 +107,10 @@ public class GameController : MonoBehaviour{
 
     void stopPlayer(){
         rightPlayerScript.StopAllAttack();
+        rightPlayerScript.targetVelocity = Vector2.zero;
         rightPlayerScript.enableControls = false;
         leftPlayerScript.StopAllAttack();
+        leftPlayerScript.targetVelocity = Vector2.zero;
         leftPlayerScript.enableControls = false;
     }
 }
