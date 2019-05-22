@@ -23,6 +23,17 @@ public class teste : MonoBehaviour
     public GameObject helperAmarelo;
     public GameObject helperVermelho;
 
+    public Image blocoVerde;
+    public Image blocoAzul;
+    public Image blocoAmarelo;
+    public Image blocoVermelho;
+    
+    public Outline blocoVerdeOutline;
+    public Outline blocoAzulOutline;
+    public Outline blocoAmareloOutline;
+    public Outline blocoVermelhoOutline;
+
+
     private Color verdeSel = new Color(50f/255f,255f/255f,50f/255f,1f);
     private Color azulSel = new Color(0f/255f,165f/255f,255f/255f,1f);
     private Color amareloSel = new Color(240f/255f,255f/255f,40f/255f,1f);
@@ -35,6 +46,8 @@ public class teste : MonoBehaviour
     
     private Color branco = new Color(1.0f,1.0f,1.0f,1);
     private Color brancoInv = new Color(1,1,1,0);
+
+    private float tempoFade;
     
     public RectTransform lines;
 
@@ -55,27 +68,33 @@ public class teste : MonoBehaviour
     private float defaultAzul;
     private float defaultAmarelo;
     private float defaultVermelho;
-    
+
 
     private void Start()
     {
-        defaultVerde = verde.GetComponent<RectTransform>().position.x;
-        
-        Debug.Log(defaultVerde);
-        //-6
-        
         outlinesVe = verdeTxt.GetComponents<Outline>();
         outlinesAz = azulTxt.GetComponents<Outline>();
         outlinesAm = amareloTxt.GetComponents<Outline>();
         outlinesVo = vermelhoTxt.GetComponents<Outline>();
         
+        //Inicializacao dos booleans de selecao
         verdeS = false;
         azulS = false;
         amareloS = false;
         vermelhoS = false;
         
+        
+        blocoVerdeOutline.enabled = false;
+        blocoAzulOutline.enabled = false;
+        blocoAmareloOutline.enabled = false;
+        blocoVermelhoOutline.enabled = false;
+        
+        //Tamanho da fonte
         tamanho = verdeTxt.fontSize;
         tamanhoMaior = verdeTxt.fontSize + 20;
+        
+        //Facilitar o ajuste
+        tempoFade = 0f;
     }
 
     private void Update()
@@ -88,27 +107,29 @@ public class teste : MonoBehaviour
             !verdeS)
         {
             //Booleans if selected
+            //Se selecionado so fara esse grande if uma vez
             verdeS = true;
             azulS = false;
             amareloS = false;
             vermelhoS = false;
 
+            //Move o GameObject pai de cada botao
             helperVerde.transform.DOLocalMoveX(200f,0.4f,false);
             helperAzul.transform.DOLocalMoveX(0f,0.4f,false);
             helperAmarelo.transform.DOLocalMoveX(0f,0.4f,false);
             helperVermelho.transform.DOLocalMoveX(0f,0.4f,false);
 
-            /*
-            verde.GetComponent<RectTransform>().DOAnchorPosX(verde.GetComponent<RectTransform>().position.x+ 20, 0.4f, false);
-            */
-            
-            /*
-            verdeTxt.GetComponent<RectTransform>().DOAnchorPosX(100f, 0.4f, false);
-            azulTxt.GetComponent<RectTransform>().DOAnchorPosX(-30, 0.4f, false);
-            amareloTxt.GetComponent<RectTransform>().DOAnchorPosX(-30, 0.4f, false);
-            vermelhoTxt.GetComponent<RectTransform>().DOAnchorPosX(-80, 0.4f, false);
-            */
+            //Cor Bloco
+            blocoVerde.DOFade(0, tempoFade);
+            blocoAzul.DOFade(100, tempoFade);
+            blocoAmarelo.DOFade(100, tempoFade);
+            blocoVermelho.DOFade(100, tempoFade);
 
+            //Outline Bloco
+            blocoVerdeOutline.enabled = true;
+            blocoAzulOutline.enabled = false;
+            blocoAmareloOutline.enabled = false;
+            blocoVermelhoOutline.enabled = false;
             
             //teste
             Debug.Log("verdeS: " + verdeS);
@@ -131,45 +152,15 @@ public class teste : MonoBehaviour
             amareloTxt.fontSize = tamanho;
             vermelhoTxt.fontSize = tamanho;
             
-            outlinesVe[2].enabled = true;
+            //Outlines selecionados
+            outlinesVe[2].enabled = true;//Verde
             outlinesVe[3].enabled = true;
-            
-            outlinesAz[2].enabled = false;
+            outlinesAz[2].enabled = false;//Azul
             outlinesAz[3].enabled = false;
-            
-            outlinesAm[2].enabled = false;
+            outlinesAm[2].enabled = false;//Amarelo
             outlinesAm[3].enabled = false;
-            
-            outlinesVo[2].enabled = false;
+            outlinesVo[2].enabled = false;//Vermelho
             outlinesVo[3].enabled = false;
-            
-            /*
-            outlinesVe[0].enabled = true;
-            outlinesVe[1].enabled = true;
-            outlinesVe[2].enabled = true;
-            outlinesVe[3].enabled = true;
-            
-            outlinesAz[0].enabled = false;
-            outlinesAz[1].enabled = false;
-            outlinesAz[2].enabled = false;
-            outlinesAz[3].enabled = false;
-            
-            outlinesAm[0].enabled = false;
-            outlinesAm[1].enabled = false;
-            outlinesAm[2].enabled = false;
-            outlinesAm[3].enabled = false;
-            
-            outlinesVo[0].enabled = false;
-            outlinesVo[1].enabled = false;
-            outlinesVo[2].enabled = false;
-            outlinesVo[3].enabled = false;
-            */
-
-            //Sets outline
-            /*verdeTxt.GetComponent<Outline>().DOColor(branco, 0.2f);
-            azulTxt.GetComponent<Outline>().DOColor(brancoInv, 0.2f);
-            amareloTxt.GetComponent<Outline>().DOColor(brancoInv, 0.2f);
-            vermelhoTxt.GetComponent<Outline>().DOColor(brancoInv, 0.2f);*/
         }
         else if (!verde.GetComponent<ButtonSelection>().getPlaySelected()   && 
                   azul.GetComponent<ButtonSelection>().getPlaySelected()    && 
@@ -186,6 +177,17 @@ public class teste : MonoBehaviour
             helperAzul.transform.DOLocalMoveX(60f,0.4f,false);
             helperAmarelo.transform.DOLocalMoveX(0f,0.4f,false);
             helperVermelho.transform.DOLocalMoveX(0f,0.4f,false);
+            
+            blocoVerde.DOFade(100, tempoFade);
+            blocoAzul.DOFade(0, tempoFade);
+            blocoAmarelo.DOFade(100, tempoFade);
+            blocoVermelho.DOFade(100, tempoFade);
+            
+            //Outline Bloco
+            blocoVerdeOutline.enabled = false;
+            blocoAzulOutline.enabled = true;
+            blocoAmareloOutline.enabled = false;
+            blocoVermelhoOutline.enabled = false;
             
             /*
             verdeTxt.GetComponent<RectTransform>().DOAnchorPosX(-30f, 0.4f, false);
@@ -270,6 +272,17 @@ public class teste : MonoBehaviour
             helperAmarelo.transform.DOLocalMoveX(85f,0.4f,false);
             helperVermelho.transform.DOLocalMoveX(0f,0.4f,false);
             
+            blocoVerde.DOFade(100, tempoFade);
+            blocoAzul.DOFade(100, tempoFade);
+            blocoAmarelo.DOFade(0, tempoFade);
+            blocoVermelho.DOFade(100, tempoFade);
+            
+            //Outline Bloco
+            blocoVerdeOutline.enabled = false;
+            blocoAzulOutline.enabled = false;
+            blocoAmareloOutline.enabled = true;
+            blocoVermelhoOutline.enabled = false;
+            
             /*
             verdeTxt.GetComponent<RectTransform>().DOAnchorPosX(-30f, 0.4f, false);
             azulTxt.GetComponent<RectTransform>().DOAnchorPosX(-30, 0.4f, false);
@@ -351,6 +364,18 @@ public class teste : MonoBehaviour
             helperAzul.transform.DOLocalMoveX(0f,0.4f,false);
             helperAmarelo.transform.DOLocalMoveX(0f,0.4f,false);
             helperVermelho.transform.DOLocalMoveX(180f,0.4f,false);
+            
+            blocoVerde.DOFade(100, tempoFade);
+            blocoAzul.DOFade(100, tempoFade);
+            blocoAmarelo.DOFade(100, tempoFade);
+            blocoVermelho.DOFade(0, tempoFade);
+            
+            //Outline Bloco
+            blocoVerdeOutline.enabled = false;
+            blocoAzulOutline.enabled = false;
+            blocoAmareloOutline.enabled = false;
+            blocoVermelhoOutline.enabled = true;
+
             
             /*
             verdeTxt.GetComponent<RectTransform>().DOAnchorPosX(-30f, 0.4f, false);

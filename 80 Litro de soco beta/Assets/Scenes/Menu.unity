@@ -242,6 +242,7 @@ GameObject:
   - component: {fileID: 311973913}
   - component: {fileID: 311973915}
   - component: {fileID: 311973914}
+  - component: {fileID: 311973916}
   m_Layer: 5
   m_Name: azulSel
   m_TagString: Untagged
@@ -305,6 +306,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 311973912}
   m_CullTransparentMesh: 0
+--- !u!114 &311973916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 311973912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.8113208, g: 0.8113208, b: 0.8113208, a: 1}
+  m_EffectDistance: {x: 10, y: 10}
+  m_UseGraphicAlpha: 1
 --- !u!1 &378006469
 GameObject:
   m_ObjectHideFlags: 0
@@ -569,6 +585,7 @@ GameObject:
   - component: {fileID: 602869511}
   - component: {fileID: 602869513}
   - component: {fileID: 602869512}
+  - component: {fileID: 602869514}
   m_Layer: 5
   m_Name: vermelhoSel
   m_TagString: Untagged
@@ -632,6 +649,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 602869510}
   m_CullTransparentMesh: 0
+--- !u!114 &602869514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602869510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.8113208, g: 0.8113208, b: 0.8113208, a: 1}
+  m_EffectDistance: {x: 10, y: 10}
+  m_UseGraphicAlpha: 1
 --- !u!1 &712792922
 GameObject:
   m_ObjectHideFlags: 0
@@ -853,7 +885,7 @@ RectTransform:
   - {fileID: 311973913}
   - {fileID: 2146995909}
   m_Father: {fileID: 1853868389}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1324,7 +1356,7 @@ RectTransform:
   - {fileID: 602869511}
   - {fileID: 828079728}
   m_Father: {fileID: 1853868389}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1487,6 +1519,7 @@ GameObject:
   - component: {fileID: 910585989}
   - component: {fileID: 910585991}
   - component: {fileID: 910585990}
+  - component: {fileID: 910585992}
   m_Layer: 5
   m_Name: amareloSel
   m_TagString: Untagged
@@ -1550,6 +1583,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 910585988}
   m_CullTransparentMesh: 0
+--- !u!114 &910585992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910585988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.8113208, g: 0.8113208, b: 0.8113208, a: 1}
+  m_EffectDistance: {x: 10, y: 10}
+  m_UseGraphicAlpha: 1
 --- !u!1 &915508741
 GameObject:
   m_ObjectHideFlags: 0
@@ -1912,6 +1960,14 @@ MonoBehaviour:
   helperAzul: {fileID: 1056709333}
   helperAmarelo: {fileID: 1300717884}
   helperVermelho: {fileID: 378006469}
+  blocoVerde: {fileID: 915508743}
+  blocoAzul: {fileID: 2146995910}
+  blocoAmarelo: {fileID: 556316579}
+  blocoVermelho: {fileID: 828079729}
+  blocoVerdeOutline: {fileID: 1233174556}
+  blocoAzulOutline: {fileID: 311973916}
+  blocoAmareloOutline: {fileID: 910585992}
+  blocoVermelhoOutline: {fileID: 602869514}
   lines: {fileID: 1695844585}
 --- !u!4 &1185571707
 Transform:
@@ -1957,7 +2013,7 @@ RectTransform:
   - {fileID: 910585989}
   - {fileID: 556316578}
   m_Father: {fileID: 1853868389}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2153,6 +2209,7 @@ GameObject:
   - component: {fileID: 1233174553}
   - component: {fileID: 1233174555}
   - component: {fileID: 1233174554}
+  - component: {fileID: 1233174556}
   m_Layer: 5
   m_Name: verdeSel
   m_TagString: Untagged
@@ -2216,6 +2273,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1233174552}
   m_CullTransparentMesh: 0
+--- !u!114 &1233174556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233174552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.8113208, g: 0.8113208, b: 0.8113208, a: 1}
+  m_EffectDistance: {x: 10, y: 10}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1300717884
 GameObject:
   m_ObjectHideFlags: 0
@@ -3128,9 +3200,9 @@ RectTransform:
   - {fileID: 1521648782}
   - {fileID: 1156877285}
   - {fileID: 137377267}
-  - {fileID: 890528040}
   - {fileID: 730490443}
   - {fileID: 1214297843}
+  - {fileID: 890528040}
   - {fileID: 1559115950}
   - {fileID: 1175882399}
   m_Father: {fileID: 0}
