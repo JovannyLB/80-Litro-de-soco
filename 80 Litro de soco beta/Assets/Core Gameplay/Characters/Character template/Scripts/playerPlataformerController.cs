@@ -87,7 +87,9 @@ public class playerPlataformerController : PhysicsObject{
     protected bool standLightPunchCurrently;
     [HideInInspector]public bool canHardPunch;
     protected bool standHardPunchCurrently;
+    [HideInInspector]public bool canLightKick;
     protected bool standLightKickCurrently;
+    [HideInInspector]public bool canHardKick;
     protected bool standHardKickCurrently;
     protected bool crouchLightPunchCurrently;
     protected bool crouchHardPunchCurrently;
@@ -95,12 +97,12 @@ public class playerPlataformerController : PhysicsObject{
     protected bool crouchHardKickCurrently;
     protected bool jumpingPunchCurrently;
     protected bool jumpingKickCurrently;
-    protected bool lightSpecial1Currently;
-    protected bool lightSpecial2Currently;
-    protected bool lightSpecial3Currently;
-    protected bool hardSpecial1Currently;
-    protected bool hardSpecial2Currently;
-    protected bool hardSpecial3Currently;
+    [HideInInspector]public bool lightSpecial1Currently;
+    [HideInInspector]public bool lightSpecial2Currently;
+    [HideInInspector]public bool lightSpecial3Currently;
+    [HideInInspector]public bool hardSpecial1Currently;
+    [HideInInspector]public bool hardSpecial2Currently;
+    [HideInInspector]public bool hardSpecial3Currently;
     protected int lastHitStun;
     protected int lastHitStunBlock;
     private bool hitStunFreezeAnim;
@@ -139,11 +141,17 @@ public class playerPlataformerController : PhysicsObject{
                 r2 = Input.GetKey(KeyCode.Joystick1Button7);
             }
             else{
-                xButton = Input.GetKeyDown(KeyCode.Joystick2Button1);
+                /*xButton = Input.GetKeyDown(KeyCode.Joystick2Button1);
                 square = Input.GetKeyDown(KeyCode.Joystick2Button0);
                 circle = Input.GetKeyDown(KeyCode.Joystick2Button2);
                 triangle = Input.GetKeyDown(KeyCode.Joystick2Button3);
-                r2 = Input.GetKey(KeyCode.Joystick2Button7);
+                r2 = Input.GetKey(KeyCode.Joystick2Button7);*/
+                
+                xButton = Input.GetKeyDown(KeyCode.Z);
+                square = Input.GetKeyDown(KeyCode.X);
+                circle = Input.GetKeyDown(KeyCode.C);
+                triangle = Input.GetKeyDown(KeyCode.V);
+                r2 = Input.GetKey(KeyCode.Space);
             }
         }
     }
@@ -535,7 +543,7 @@ public class playerPlataformerController : PhysicsObject{
         if (square && grounded && !crouching && !currentlyAttacking && !currentlyDashing && !jumpingOver && canLightPunch){
             StandLightPunch();
         }
-        else if (square && grounded && crouching && !currentlyAttacking && !currentlyDashing && !jumpingOver){
+        else if (square && grounded && crouching && !currentlyAttacking && !currentlyDashing && !jumpingOver && canLightPunch){
             CrouchLightPunch();
         }
 
@@ -543,23 +551,23 @@ public class playerPlataformerController : PhysicsObject{
         if (triangle && grounded && !crouching && !currentlyAttacking && !currentlyDashing && !jumpingOver && canHardPunch){
             StandHardPunch();
         }
-        else if (triangle && grounded && crouching && !currentlyAttacking && !currentlyDashing && !jumpingOver){
+        else if (triangle && grounded && crouching && !currentlyAttacking && !currentlyDashing && !jumpingOver && canHardPunch){
             CrouchHardPunch();
         }
 
         // Light kick's
-        if (xButton && grounded && !crouching && !currentlyAttacking && !currentlyDashing && !jumpingOver){
+        if (xButton && grounded && !crouching && !currentlyAttacking && !currentlyDashing && !jumpingOver && canLightKick){
             StandLightKick();
         }
-        else if (xButton && grounded && crouching && !currentlyAttacking && !currentlyDashing && !jumpingOver){
+        else if (xButton && grounded && crouching && !currentlyAttacking && !currentlyDashing && !jumpingOver && canLightKick){
             CrouchLightKick();
         }
 
         // Hard kick's
-        if (circle && grounded && !crouching && !currentlyAttacking && !currentlyDashing && !jumpingOver){
+        if (circle && grounded && !crouching && !currentlyAttacking && !currentlyDashing && !jumpingOver && canHardKick){
             StandHardKick();
         }
-        else if (circle && grounded && crouching && !currentlyAttacking && !currentlyDashing && !jumpingOver){
+        else if (circle && grounded && crouching && !currentlyAttacking && !currentlyDashing && !jumpingOver && canHardKick){
             CrouchHardKick();
         }
 
@@ -871,7 +879,7 @@ public class playerPlataformerController : PhysicsObject{
     }
     
     public bool testeDeSpecial(){
-        if (grounded && !crouching && !currentlyAttacking && !currentlyDashing && !jumpingOver){
+        if (grounded && !currentlyAttacking && !currentlyDashing && !jumpingOver){
             return true;
         }
         return false;

@@ -9,6 +9,7 @@ public class ghostTrail : MonoBehaviour{
     [Header("Prefab chamado 'GhostEffect'")]
     public GameObject ghostPreFab;
     [HideInInspector]public bool makeGhost;
+    private Coroutine countDown;
     
     void Start(){
         ghostDelaySeconds = ghostDelay;
@@ -39,12 +40,12 @@ public class ghostTrail : MonoBehaviour{
 
     void startGhost(){
         makeGhost = true;
-        StartCoroutine(safePoint());
+        countDown = StartCoroutine(safePoint());
     }
 
     void stopGhost(){
         makeGhost = false;
-        StopCoroutine(safePoint());
+        StopCoroutine(countDown);
     }
 
     IEnumerator safePoint(){

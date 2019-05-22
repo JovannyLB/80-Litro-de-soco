@@ -10,7 +10,7 @@ public class PhysicsObject : MonoBehaviour{
 
     protected Vector2 groundNormal;
     protected Rigidbody2D rb2d;
-    protected Vector2 velocity;
+    [HideInInspector]public Vector2 velocity;
     protected ContactFilter2D contactFilter;
     protected RaycastHit2D[] hitBuffer = new RaycastHit2D[16];
     protected List<RaycastHit2D> hitBufferList = new List<RaycastHit2D>(16);

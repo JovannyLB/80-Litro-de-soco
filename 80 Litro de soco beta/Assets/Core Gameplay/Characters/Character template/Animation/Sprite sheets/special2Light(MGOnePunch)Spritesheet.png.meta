@@ -1,7 +1,139 @@
 fileFormatVersion: 2
 guid: 55c1700fff241cb49a310e60e00c374f
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 1595480219149239766
+    second: special2Light(MGOnePunch)Spritesheet_0
+  - first:
+      213: -7244597777313491228
+    second: special2Light(MGOnePunch)Spritesheet_1
+  - first:
+      213: 5341123443808509166
+    second: special2Light(MGOnePunch)Spritesheet_2
+  - first:
+      213: -4601431281964214461
+    second: special2Light(MGOnePunch)Spritesheet_3
+  - first:
+      213: 7454213794091721787
+    second: special2Light(MGOnePunch)Spritesheet_4
+  - first:
+      213: 975433843238902335
+    second: special2Light(MGOnePunch)Spritesheet_5
+  - first:
+      213: -3948917399673995290
+    second: special2Light(MGOnePunch)Spritesheet_6
+  - first:
+      213: 938893172589358376
+    second: special2Light(MGOnePunch)Spritesheet_7
+  - first:
+      213: -2008121068121263597
+    second: special2Light(MGOnePunch)Spritesheet_8
+  - first:
+      213: -5151897167376341238
+    second: special2Light(MGOnePunch)Spritesheet_9
+  - first:
+      213: 7086102175211581119
+    second: special2Light(MGOnePunch)Spritesheet_10
+  - first:
+      213: 428199800871631823
+    second: special2Light(MGOnePunch)Spritesheet_11
+  - first:
+      213: 8055223058527305659
+    second: special2Light(MGOnePunch)Spritesheet_12
+  - first:
+      213: -2022112868083949650
+    second: special2Light(MGOnePunch)Spritesheet_13
+  - first:
+      213: 4533350633920037688
+    second: special2Light(MGOnePunch)Spritesheet_14
+  - first:
+      213: -6321936507505184599
+    second: special2Light(MGOnePunch)Spritesheet_15
+  - first:
+      213: 6153844308288898893
+    second: special2Light(MGOnePunch)Spritesheet_16
+  - first:
+      213: 7138388811677646623
+    second: special2Light(MGOnePunch)Spritesheet_17
+  - first:
+      213: -7844194583907240684
+    second: special2Light(MGOnePunch)Spritesheet_18
+  - first:
+      213: 321178221326501033
+    second: special2Light(MGOnePunch)Spritesheet_19
+  - first:
+      213: 7220111938647819286
+    second: special2Light(MGOnePunch)Spritesheet_20
+  - first:
+      213: 4822601645909116139
+    second: special2Light(MGOnePunch)Spritesheet_21
+  - first:
+      213: -2573715759149235616
+    second: special2Light(MGOnePunch)Spritesheet_22
+  - first:
+      213: 3865720598200143577
+    second: special2Light(MGOnePunch)Spritesheet_23
+  - first:
+      213: -8287518558143586264
+    second: special2Light(MGOnePunch)Spritesheet_24
+  - first:
+      213: -4578138444709306533
+    second: special2Light(MGOnePunch)Spritesheet_25
+  - first:
+      213: -8511807101686529282
+    second: special2Light(MGOnePunch)Spritesheet_26
+  - first:
+      213: -1512642229733045449
+    second: special2Light(MGOnePunch)Spritesheet_27
+  - first:
+      213: -2164128911495695142
+    second: special2Light(MGOnePunch)Spritesheet_28
+  - first:
+      213: 5656817495261794709
+    second: special2Light(MGOnePunch)Spritesheet_29
+  - first:
+      213: -7715746195204428467
+    second: special2Light(MGOnePunch)Spritesheet_30
+  - first:
+      213: 5382096309006475779
+    second: special2Light(MGOnePunch)Spritesheet_31
+  - first:
+      213: 424580614205097988
+    second: special2Light(MGOnePunch)Spritesheet_32
+  - first:
+      213: 3633108975877714960
+    second: special2Light(MGOnePunch)Spritesheet_33
+  - first:
+      213: -3917147939083065368
+    second: special2Light(MGOnePunch)Spritesheet_34
+  - first:
+      213: -8185477013996738983
+    second: special2Light(MGOnePunch)Spritesheet_35
+  - first:
+      213: 851017710653821781
+    second: special2Light(MGOnePunch)Spritesheet_36
+  - first:
+      213: 6035194947256876804
+    second: special2Light(MGOnePunch)Spritesheet_37
+  - first:
+      213: -2849597069693741113
+    second: special2Light(MGOnePunch)Spritesheet_38
+  - first:
+      213: -2387888998751728859
+    second: special2Light(MGOnePunch)Spritesheet_39
+  - first:
+      213: -5844738340912280177
+    second: special2Light(MGOnePunch)Spritesheet_40
+  - first:
+      213: 865353461823924676
+    second: special2Light(MGOnePunch)Spritesheet_41
+  - first:
+      213: -8873323381525697643
+    second: special2Light(MGOnePunch)Spritesheet_42
+  - first:
+      213: 3125722459973503702
+    second: special2Light(MGOnePunch)Spritesheet_43
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -82,7 +214,931 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: special2Light(MGOnePunch)Spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 9000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a59d5d799aa0da459cd3746534bacee
+      internalID: 1595480219149239766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special2Light(MGOnePunch)Spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 1250
+        y: 9000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef79f3d36b7a20243b83e4fd7dba945a
+      internalID: -7244597777313491228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special2Light(MGOnePunch)Spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 9000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62234119486d77c488723d78f1e2589e
+      internalID: 5341123443808509166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special2Light(MGOnePunch)Spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 3750
+        y: 9000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00d60355587f725469831b9aa31094b6
+      internalID: -4601431281964214461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special2Light(MGOnePunch)Spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 5000
+        y: 9000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b987710b83cbe8042bda50a8f8ba6c0d
+      internalID: 7454213794091721787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special2Light(MGOnePunch)Spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 6250
+        y: 9000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58f748ed1dd467f48865126ef4eb4284
+      internalID: 975433843238902335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special2Light(MGOnePunch)Spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 7500
+        y: 9000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2b8c286f76ed3d47aa551ef10382395
+      internalID: -3948917399673995290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special2Light(MGOnePunch)Spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a07fd9fa8971524458d67e96cbb97bf4
+      internalID: 938893172589358376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special2Light(MGOnePunch)Spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 1250
+        y: 7500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfb47394dc29fb743b3165f49057a314
+      internalID: -2008121068121263597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special2Light(MGOnePunch)Spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 7500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36febfa718327234295e49d41eff86ee
+      internalID: -5151897167376341238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special2Light(MGOnePunch)Spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 3750
+        y: 7500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9dbb5aaee12640448daf1da55f9a10d
+      internalID: 7086102175211581119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special2Light(MGOnePunch)Spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 5000
+        y: 7500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5acb75b37fed9244da195fc3974d8107
+      internalID: 428199800871631823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special2Light(MGOnePunch)Spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 6250
+        y: 7500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c3412be3679a28458e01a112ffb86bc
+      internalID: 8055223058527305659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special2Light(MGOnePunch)Spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 7500
+        y: 7500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b231a481d2d253478b1914673870d7b
+      internalID: -2022112868083949650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special2Light(MGOnePunch)Spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebe1586f197ae5f49b1afd0b8b71d85a
+      internalID: 4533350633920037688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special2Light(MGOnePunch)Spritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 1250
+        y: 6000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ab193fc26bbfad47b22a39e440b4f2d
+      internalID: -6321936507505184599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special2Light(MGOnePunch)Spritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 6000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a29827b48383bd40a95ef24eabaf29b
+      internalID: 6153844308288898893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special2Light(MGOnePunch)Spritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 3750
+        y: 6000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83813cfde1b35374b96302291022d744
+      internalID: 7138388811677646623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special2Light(MGOnePunch)Spritesheet_18
+      rect:
+        serializedVersion: 2
+        x: 5000
+        y: 6000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e6eeab35e5576b45be4b12ea9f2fe66
+      internalID: -7844194583907240684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special2Light(MGOnePunch)Spritesheet_19
+      rect:
+        serializedVersion: 2
+        x: 6250
+        y: 6000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7813b6a6b23b81941aa8a63d48a22151
+      internalID: 321178221326501033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special2Light(MGOnePunch)Spritesheet_20
+      rect:
+        serializedVersion: 2
+        x: 7500
+        y: 6000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: feb243624f3c352489e3fe894f42d032
+      internalID: 7220111938647819286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special2Light(MGOnePunch)Spritesheet_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d68b45fa2bc0994aa62943b9e242b55
+      internalID: 4822601645909116139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special2Light(MGOnePunch)Spritesheet_22
+      rect:
+        serializedVersion: 2
+        x: 1250
+        y: 4500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef55845e8f6f86545a78b21d76c7ce54
+      internalID: -2573715759149235616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special2Light(MGOnePunch)Spritesheet_23
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 4500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4ea61d2b5d5ff849a41135ed90b08bf
+      internalID: 3865720598200143577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special2Light(MGOnePunch)Spritesheet_24
+      rect:
+        serializedVersion: 2
+        x: 3750
+        y: 4500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cac9ae061346eeb45bba8ae8738f8ab9
+      internalID: -8287518558143586264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special2Light(MGOnePunch)Spritesheet_25
+      rect:
+        serializedVersion: 2
+        x: 5000
+        y: 4500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4971b2e10b349154fbff52e1b358e987
+      internalID: -4578138444709306533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special2Light(MGOnePunch)Spritesheet_26
+      rect:
+        serializedVersion: 2
+        x: 6250
+        y: 4500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b74f36b33bb7f19498daddd826eed26c
+      internalID: -8511807101686529282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special2Light(MGOnePunch)Spritesheet_27
+      rect:
+        serializedVersion: 2
+        x: 7500
+        y: 4500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a6990139d0339c4993ad5ec1dd47ed2
+      internalID: -1512642229733045449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special2Light(MGOnePunch)Spritesheet_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9ab5b9b51cc35a4f9933a75cbab4ab3
+      internalID: -2164128911495695142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special2Light(MGOnePunch)Spritesheet_29
+      rect:
+        serializedVersion: 2
+        x: 1250
+        y: 3000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdb33f6f9e890b344b9755c2dbd022a6
+      internalID: 5656817495261794709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special2Light(MGOnePunch)Spritesheet_30
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 3000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac9c61b3cca009a4797c26003732cc83
+      internalID: -7715746195204428467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special2Light(MGOnePunch)Spritesheet_31
+      rect:
+        serializedVersion: 2
+        x: 3750
+        y: 3000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2990fe4463bd4984a8f81d3d1681ae6d
+      internalID: 5382096309006475779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special2Light(MGOnePunch)Spritesheet_32
+      rect:
+        serializedVersion: 2
+        x: 5000
+        y: 3000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c77637eeca22574589e8b2c484c1319
+      internalID: 424580614205097988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special2Light(MGOnePunch)Spritesheet_33
+      rect:
+        serializedVersion: 2
+        x: 6250
+        y: 3000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bee6db8ab4f33a4428999f4e5a61ea4a
+      internalID: 3633108975877714960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special2Light(MGOnePunch)Spritesheet_34
+      rect:
+        serializedVersion: 2
+        x: 7500
+        y: 3000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 280f10b8d68e1cc48afc3229a789cc85
+      internalID: -3917147939083065368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special2Light(MGOnePunch)Spritesheet_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 003da0dc42acf83458ffa37b7bc64b1e
+      internalID: -8185477013996738983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special2Light(MGOnePunch)Spritesheet_36
+      rect:
+        serializedVersion: 2
+        x: 1250
+        y: 1500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f8cd1d6254416a4fb222565cde64a58
+      internalID: 851017710653821781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special2Light(MGOnePunch)Spritesheet_37
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 1500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f533359b268508443a6ebdfc9b4923dd
+      internalID: 6035194947256876804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special2Light(MGOnePunch)Spritesheet_38
+      rect:
+        serializedVersion: 2
+        x: 3750
+        y: 1500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27fb83134e26d2a4da767ee35876de9e
+      internalID: -2849597069693741113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special2Light(MGOnePunch)Spritesheet_39
+      rect:
+        serializedVersion: 2
+        x: 5000
+        y: 1500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc41256ee3eb0984a80c79fcc3e33fc5
+      internalID: -2387888998751728859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special2Light(MGOnePunch)Spritesheet_40
+      rect:
+        serializedVersion: 2
+        x: 6250
+        y: 1500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2059d860e07092c4bab79dae5fa65c4d
+      internalID: -5844738340912280177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special2Light(MGOnePunch)Spritesheet_41
+      rect:
+        serializedVersion: 2
+        x: 7500
+        y: 1500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c01fde9df18039489a3a2d4cab18b7e
+      internalID: 865353461823924676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special2Light(MGOnePunch)Spritesheet_42
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81a7188e5b30d3e4ca94a8412640ace1
+      internalID: -8873323381525697643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special2Light(MGOnePunch)Spritesheet_43
+      rect:
+        serializedVersion: 2
+        x: 1250
+        y: 0
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59ab3df9226b4ff428ff9b5cea476a5d
+      internalID: 3125722459973503702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

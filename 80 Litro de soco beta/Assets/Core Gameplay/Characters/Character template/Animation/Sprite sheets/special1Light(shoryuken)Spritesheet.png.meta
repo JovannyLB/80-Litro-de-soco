@@ -1,7 +1,115 @@
 fileFormatVersion: 2
 guid: 02595a931ea756c46845710729727853
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 4782121055028268552
+    second: special1Light(shoryuken)Spritesheet_0
+  - first:
+      213: -2336407379335405813
+    second: special1Light(shoryuken)Spritesheet_1
+  - first:
+      213: 2047929798811633900
+    second: special1Light(shoryuken)Spritesheet_2
+  - first:
+      213: -1378121135547945843
+    second: special1Light(shoryuken)Spritesheet_3
+  - first:
+      213: -6429975189018589704
+    second: special1Light(shoryuken)Spritesheet_4
+  - first:
+      213: 4308703830788980967
+    second: special1Light(shoryuken)Spritesheet_5
+  - first:
+      213: -2756201329313908401
+    second: special1Light(shoryuken)Spritesheet_6
+  - first:
+      213: -1164694204846959290
+    second: special1Light(shoryuken)Spritesheet_7
+  - first:
+      213: 2937687433981974414
+    second: special1Light(shoryuken)Spritesheet_8
+  - first:
+      213: 544684251738460189
+    second: special1Light(shoryuken)Spritesheet_9
+  - first:
+      213: -8921019812953030538
+    second: special1Light(shoryuken)Spritesheet_10
+  - first:
+      213: -3560015971822481595
+    second: special1Light(shoryuken)Spritesheet_11
+  - first:
+      213: 2595136914467136118
+    second: special1Light(shoryuken)Spritesheet_12
+  - first:
+      213: -461022713318718508
+    second: special1Light(shoryuken)Spritesheet_13
+  - first:
+      213: -8151264008629593506
+    second: special1Light(shoryuken)Spritesheet_14
+  - first:
+      213: 5462894830441955142
+    second: special1Light(shoryuken)Spritesheet_15
+  - first:
+      213: 8973678427817202862
+    second: special1Light(shoryuken)Spritesheet_16
+  - first:
+      213: 6738486224167309597
+    second: special1Light(shoryuken)Spritesheet_17
+  - first:
+      213: -640401130814872424
+    second: special1Light(shoryuken)Spritesheet_18
+  - first:
+      213: -8172527704293004613
+    second: special1Light(shoryuken)Spritesheet_19
+  - first:
+      213: 2410613786796266917
+    second: special1Light(shoryuken)Spritesheet_20
+  - first:
+      213: -709247572675768352
+    second: special1Light(shoryuken)Spritesheet_21
+  - first:
+      213: 3698232320646871951
+    second: special1Light(shoryuken)Spritesheet_22
+  - first:
+      213: -6722092925218325919
+    second: special1Light(shoryuken)Spritesheet_23
+  - first:
+      213: -2932448553586636017
+    second: special1Light(shoryuken)Spritesheet_24
+  - first:
+      213: -4093311047062035143
+    second: special1Light(shoryuken)Spritesheet_25
+  - first:
+      213: -1623569969906888311
+    second: special1Light(shoryuken)Spritesheet_26
+  - first:
+      213: 6304854065712109635
+    second: special1Light(shoryuken)Spritesheet_27
+  - first:
+      213: 6108592541758605084
+    second: special1Light(shoryuken)Spritesheet_28
+  - first:
+      213: -3896450007689977592
+    second: special1Light(shoryuken)Spritesheet_29
+  - first:
+      213: 4873148193688041662
+    second: special1Light(shoryuken)Spritesheet_30
+  - first:
+      213: -3000746560552704226
+    second: special1Light(shoryuken)Spritesheet_31
+  - first:
+      213: -5599911304381829638
+    second: special1Light(shoryuken)Spritesheet_32
+  - first:
+      213: 612276058254322465
+    second: special1Light(shoryuken)Spritesheet_33
+  - first:
+      213: 565329625101982024
+    second: special1Light(shoryuken)Spritesheet_34
+  - first:
+      213: -7810353060317607335
+    second: special1Light(shoryuken)Spritesheet_35
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -82,7 +190,763 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: special1Light(shoryuken)Spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2a6a25442c3fe246b4ce28132b14a23
+      internalID: 4782121055028268552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Light(shoryuken)Spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 1250
+        y: 7500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11f24e8bf7bb23d46b0d8708a6b69034
+      internalID: -2336407379335405813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Light(shoryuken)Spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 7500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7732e5dd49ad03499516acceb1d36f2
+      internalID: 2047929798811633900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Light(shoryuken)Spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 3750
+        y: 7500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1adfd936a6bfd5469c94c1d87374dbd
+      internalID: -1378121135547945843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Light(shoryuken)Spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 5000
+        y: 7500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4b14256a0c4ac14d97ac962f4abab7c
+      internalID: -6429975189018589704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Light(shoryuken)Spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 6250
+        y: 7500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95989d9832404e2468f9520c7c30ce49
+      internalID: 4308703830788980967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Light(shoryuken)Spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 242b66c16916f7d47bfb499e5e18beb6
+      internalID: -2756201329313908401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Light(shoryuken)Spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 1250
+        y: 6000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbf189ce88ea62d4cb3508883bfeab69
+      internalID: -1164694204846959290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Light(shoryuken)Spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 6000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e2d3099773e64b4db6008979eb9f1ae
+      internalID: 2937687433981974414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Light(shoryuken)Spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 3750
+        y: 6000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa589627e48465d47af9cc4937179e6d
+      internalID: 544684251738460189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Light(shoryuken)Spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 5000
+        y: 6000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1004a60f8f080e14ba12cd3e2ba92d85
+      internalID: -8921019812953030538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Light(shoryuken)Spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 6250
+        y: 6000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb94beda3298a2e40acc90dfeb14e570
+      internalID: -3560015971822481595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Light(shoryuken)Spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d2434e0bc4402b4082f500e4927e03b
+      internalID: 2595136914467136118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Light(shoryuken)Spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 1250
+        y: 4500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70b25796bd33a67438c72b80e6af5c5d
+      internalID: -461022713318718508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Light(shoryuken)Spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 4500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52480130232638e45bdae97bc1d6423e
+      internalID: -8151264008629593506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Light(shoryuken)Spritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 3750
+        y: 4500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ee6adead9e5c154393e072540b96f37
+      internalID: 5462894830441955142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Light(shoryuken)Spritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 5000
+        y: 4500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afcc54e0946d25a44960da6a6326df5c
+      internalID: 8973678427817202862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Light(shoryuken)Spritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 6250
+        y: 4500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11006e87ed265614f85b10e27943a089
+      internalID: 6738486224167309597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Light(shoryuken)Spritesheet_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdf5204e4ff5b1340a11e0377ae08275
+      internalID: -640401130814872424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Light(shoryuken)Spritesheet_19
+      rect:
+        serializedVersion: 2
+        x: 1250
+        y: 3000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93a09ed1dad87824d89fe9145e6def54
+      internalID: -8172527704293004613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Light(shoryuken)Spritesheet_20
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 3000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6291985db186ee44e80257b70989be4e
+      internalID: 2410613786796266917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Light(shoryuken)Spritesheet_21
+      rect:
+        serializedVersion: 2
+        x: 3750
+        y: 3000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b1b4e45086b3ff4480abc9b663afac8
+      internalID: -709247572675768352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Light(shoryuken)Spritesheet_22
+      rect:
+        serializedVersion: 2
+        x: 5000
+        y: 3000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da5e43f9e350b1c4985daa06231420b2
+      internalID: 3698232320646871951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Light(shoryuken)Spritesheet_23
+      rect:
+        serializedVersion: 2
+        x: 6250
+        y: 3000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94bf6eb4f2d5a5d4b92700c420dbb06d
+      internalID: -6722092925218325919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Light(shoryuken)Spritesheet_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de204ccb87305d247af4e7ba996f2b28
+      internalID: -2932448553586636017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Light(shoryuken)Spritesheet_25
+      rect:
+        serializedVersion: 2
+        x: 1250
+        y: 1500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb0b22eea21830d4aa03571bfe624f8b
+      internalID: -4093311047062035143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Light(shoryuken)Spritesheet_26
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 1500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86d491d3ea84c6846b78a178308e7e92
+      internalID: -1623569969906888311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Light(shoryuken)Spritesheet_27
+      rect:
+        serializedVersion: 2
+        x: 3750
+        y: 1500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 814aa5b110e85cb45ae68d7d59af8213
+      internalID: 6304854065712109635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Light(shoryuken)Spritesheet_28
+      rect:
+        serializedVersion: 2
+        x: 5000
+        y: 1500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba6101421c577604892999b6c390b73f
+      internalID: 6108592541758605084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Light(shoryuken)Spritesheet_29
+      rect:
+        serializedVersion: 2
+        x: 6250
+        y: 1500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ff305796324a4c4cb667dcc8ee60566
+      internalID: -3896450007689977592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Light(shoryuken)Spritesheet_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 324dcf510be80cf40a8e768bd6dcf788
+      internalID: 4873148193688041662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Light(shoryuken)Spritesheet_31
+      rect:
+        serializedVersion: 2
+        x: 1250
+        y: 0
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab6802f63a1fe4c40afd763f454eb373
+      internalID: -3000746560552704226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Light(shoryuken)Spritesheet_32
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 0
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a4e292c4942da347b822c96762da871
+      internalID: -5599911304381829638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Light(shoryuken)Spritesheet_33
+      rect:
+        serializedVersion: 2
+        x: 3750
+        y: 0
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8514ae2adff11c143926ed3c46e1ac79
+      internalID: 612276058254322465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Light(shoryuken)Spritesheet_34
+      rect:
+        serializedVersion: 2
+        x: 5000
+        y: 0
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 563faa20ab94f394d888a1d327907741
+      internalID: 565329625101982024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Light(shoryuken)Spritesheet_35
+      rect:
+        serializedVersion: 2
+        x: 6250
+        y: 0
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3078361ca70c2674e96de49f268f1cc0
+      internalID: -7810353060317607335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

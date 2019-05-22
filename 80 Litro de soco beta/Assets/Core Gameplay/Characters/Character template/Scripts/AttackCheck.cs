@@ -22,6 +22,8 @@ public class AttackCheck : MonoBehaviour{
     public bool overHeadAttack;
     public bool lowAttack;
     private bool attackDefended;
+
+    public ParticleSystem blood;
     
     
     void Start(){
@@ -88,6 +90,9 @@ public class AttackCheck : MonoBehaviour{
                         }
                         attackDefended = true;
                     }
+
+                    Instantiate(blood, otherPlayer.transform.root.GetChild(2).GetChild(1).GetComponent<BoxCollider2D>().transform.position, Quaternion.identity);
+                    
                     break;
                 case "Torso":
                     if (!otherPlayer.isBlockingHigh && !otherPlayer.isBlockingLow){
@@ -162,6 +167,7 @@ public class AttackCheck : MonoBehaviour{
             else{
                 otherPlayer.changeHealth((int) -(damage * 0.1f));
             }
+
 
         }
     }

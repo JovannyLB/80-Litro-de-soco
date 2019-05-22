@@ -1,7 +1,157 @@
 fileFormatVersion: 2
 guid: f157bf48f6b8c1f4c88dc0c4e2caa507
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -8542122304482844932
+    second: special1Hard(shoryuken)Spritesheet_0
+  - first:
+      213: 7983912200446033435
+    second: special1Hard(shoryuken)Spritesheet_1
+  - first:
+      213: -2874193095877419654
+    second: special1Hard(shoryuken)Spritesheet_2
+  - first:
+      213: 1992703876266311441
+    second: special1Hard(shoryuken)Spritesheet_3
+  - first:
+      213: 7535837884467878559
+    second: special1Hard(shoryuken)Spritesheet_4
+  - first:
+      213: 8349908995411097072
+    second: special1Hard(shoryuken)Spritesheet_5
+  - first:
+      213: -8166215943946872210
+    second: special1Hard(shoryuken)Spritesheet_6
+  - first:
+      213: 7814485013077392577
+    second: special1Hard(shoryuken)Spritesheet_7
+  - first:
+      213: 820679937378725554
+    second: special1Hard(shoryuken)Spritesheet_8
+  - first:
+      213: -2411578323571795188
+    second: special1Hard(shoryuken)Spritesheet_9
+  - first:
+      213: 2649795496571381715
+    second: special1Hard(shoryuken)Spritesheet_10
+  - first:
+      213: 778149592762925132
+    second: special1Hard(shoryuken)Spritesheet_11
+  - first:
+      213: 7122752654541258287
+    second: special1Hard(shoryuken)Spritesheet_12
+  - first:
+      213: -7565583373392890195
+    second: special1Hard(shoryuken)Spritesheet_13
+  - first:
+      213: 7477828810561246965
+    second: special1Hard(shoryuken)Spritesheet_14
+  - first:
+      213: -6522744540183075180
+    second: special1Hard(shoryuken)Spritesheet_15
+  - first:
+      213: -2882390195040881528
+    second: special1Hard(shoryuken)Spritesheet_16
+  - first:
+      213: 574730526780618881
+    second: special1Hard(shoryuken)Spritesheet_17
+  - first:
+      213: -2896243574342055827
+    second: special1Hard(shoryuken)Spritesheet_18
+  - first:
+      213: 7941768248188707320
+    second: special1Hard(shoryuken)Spritesheet_19
+  - first:
+      213: -5933340283527307143
+    second: special1Hard(shoryuken)Spritesheet_20
+  - first:
+      213: -8032442305912416019
+    second: special1Hard(shoryuken)Spritesheet_21
+  - first:
+      213: 566563263947265442
+    second: special1Hard(shoryuken)Spritesheet_22
+  - first:
+      213: 4513650187621514656
+    second: special1Hard(shoryuken)Spritesheet_23
+  - first:
+      213: 4913559255883675705
+    second: special1Hard(shoryuken)Spritesheet_24
+  - first:
+      213: 6451387434641804829
+    second: special1Hard(shoryuken)Spritesheet_25
+  - first:
+      213: 5443310282348865314
+    second: special1Hard(shoryuken)Spritesheet_26
+  - first:
+      213: -7574051164914875011
+    second: special1Hard(shoryuken)Spritesheet_27
+  - first:
+      213: 7983449567776196241
+    second: special1Hard(shoryuken)Spritesheet_28
+  - first:
+      213: -3347869204996533334
+    second: special1Hard(shoryuken)Spritesheet_29
+  - first:
+      213: 8592302563078762387
+    second: special1Hard(shoryuken)Spritesheet_30
+  - first:
+      213: -2175442730989472946
+    second: special1Hard(shoryuken)Spritesheet_31
+  - first:
+      213: -3153052894097400981
+    second: special1Hard(shoryuken)Spritesheet_32
+  - first:
+      213: -1606364226598370828
+    second: special1Hard(shoryuken)Spritesheet_33
+  - first:
+      213: 2348885886803022827
+    second: special1Hard(shoryuken)Spritesheet_34
+  - first:
+      213: 788802068820768368
+    second: special1Hard(shoryuken)Spritesheet_35
+  - first:
+      213: -7365621242484282383
+    second: special1Hard(shoryuken)Spritesheet_36
+  - first:
+      213: -3997775713208440918
+    second: special1Hard(shoryuken)Spritesheet_37
+  - first:
+      213: -2168783041349905691
+    second: special1Hard(shoryuken)Spritesheet_38
+  - first:
+      213: 1072639250948930745
+    second: special1Hard(shoryuken)Spritesheet_39
+  - first:
+      213: 3952837481039570880
+    second: special1Hard(shoryuken)Spritesheet_40
+  - first:
+      213: -5275268870948061766
+    second: special1Hard(shoryuken)Spritesheet_41
+  - first:
+      213: 6790165030496342886
+    second: special1Hard(shoryuken)Spritesheet_42
+  - first:
+      213: 5645311518909573040
+    second: special1Hard(shoryuken)Spritesheet_43
+  - first:
+      213: -3371221934145063563
+    second: special1Hard(shoryuken)Spritesheet_44
+  - first:
+      213: -5012446142072827715
+    second: special1Hard(shoryuken)Spritesheet_45
+  - first:
+      213: 3754752187713931803
+    second: special1Hard(shoryuken)Spritesheet_46
+  - first:
+      213: 6887189217606967102
+    second: special1Hard(shoryuken)Spritesheet_47
+  - first:
+      213: 7183090479768857016
+    second: special1Hard(shoryuken)Spritesheet_48
+  - first:
+      213: 182854043074772313
+    second: special1Hard(shoryuken)Spritesheet_49
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -82,7 +232,1057 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: special1Hard(shoryuken)Spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 9000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ec064fc325d02940bf9a2701a261390
+      internalID: -8542122304482844932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Hard(shoryuken)Spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 1250
+        y: 9000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1720e2cbc09fad34aab73d46bde47ee9
+      internalID: 7983912200446033435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Hard(shoryuken)Spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 9000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f3f3983dbf751e40975909abf36aaf6
+      internalID: -2874193095877419654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Hard(shoryuken)Spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 3750
+        y: 9000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c5679ef36d3d17429c64915fc61fbda
+      internalID: 1992703876266311441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Hard(shoryuken)Spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 5000
+        y: 9000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7473e36281e7eae4ea88be0613213947
+      internalID: 7535837884467878559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Hard(shoryuken)Spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 6250
+        y: 9000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e819153cb317d884b85466b9000d0e8c
+      internalID: 8349908995411097072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Hard(shoryuken)Spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 7500
+        y: 9000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb0c3439637dfe449a80f3965cfeb89d
+      internalID: -8166215943946872210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Hard(shoryuken)Spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 8750
+        y: 9000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 044e68db6d12bcd408ac93e3b1cf3836
+      internalID: 7814485013077392577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Hard(shoryuken)Spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d29904e5c2e765b4e9ca5dc21f3017e5
+      internalID: 820679937378725554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Hard(shoryuken)Spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 1250
+        y: 7500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d294ff5d4f553054bb805d6bf8be7cf3
+      internalID: -2411578323571795188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Hard(shoryuken)Spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 7500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77ef968b1fecf474fb813c50eb4b7aa8
+      internalID: 2649795496571381715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Hard(shoryuken)Spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 3750
+        y: 7500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0babed068e83f641b707d8ed754218d
+      internalID: 778149592762925132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Hard(shoryuken)Spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 5000
+        y: 7500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cd4f66785034c043a28dd98986ade40
+      internalID: 7122752654541258287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Hard(shoryuken)Spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 6250
+        y: 7500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 213351eaf164c664fae17b02e51fd76e
+      internalID: -7565583373392890195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Hard(shoryuken)Spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 7500
+        y: 7500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5172cd2202daf9a40ba8d9bc3d87f235
+      internalID: 7477828810561246965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Hard(shoryuken)Spritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 8750
+        y: 7500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fe29781b505daa4a8d14355f587f8de
+      internalID: -6522744540183075180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Hard(shoryuken)Spritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 221ea4333bb185c4fad7d2a4b8645891
+      internalID: -2882390195040881528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Hard(shoryuken)Spritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 1250
+        y: 6000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5209b7ecdd7a68e4a96733cd145ae18d
+      internalID: 574730526780618881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Hard(shoryuken)Spritesheet_18
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 6000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bc68b1e82e6b8544b56e2f687415d7a
+      internalID: -2896243574342055827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Hard(shoryuken)Spritesheet_19
+      rect:
+        serializedVersion: 2
+        x: 3750
+        y: 6000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 018344fa4161dd94d875789f1a578fbc
+      internalID: 7941768248188707320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Hard(shoryuken)Spritesheet_20
+      rect:
+        serializedVersion: 2
+        x: 5000
+        y: 6000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7d4c1a14e0f94d41afb11cb9021a69e
+      internalID: -5933340283527307143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Hard(shoryuken)Spritesheet_21
+      rect:
+        serializedVersion: 2
+        x: 6250
+        y: 6000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e28efae1ca9718b4893c49677cef48d8
+      internalID: -8032442305912416019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Hard(shoryuken)Spritesheet_22
+      rect:
+        serializedVersion: 2
+        x: 7500
+        y: 6000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28b8254355c130747bb7f460e7d501e4
+      internalID: 566563263947265442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Hard(shoryuken)Spritesheet_23
+      rect:
+        serializedVersion: 2
+        x: 8750
+        y: 6000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1edf7bd8972c44a42a5655897b595a57
+      internalID: 4513650187621514656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Hard(shoryuken)Spritesheet_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b488dfababd2801408f44bf123e23ee7
+      internalID: 4913559255883675705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Hard(shoryuken)Spritesheet_25
+      rect:
+        serializedVersion: 2
+        x: 1250
+        y: 4500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac4306f2fa5ee3348b113f2441e0dfdd
+      internalID: 6451387434641804829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Hard(shoryuken)Spritesheet_26
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 4500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9208bde88771904f9852f29858cafb6
+      internalID: 5443310282348865314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Hard(shoryuken)Spritesheet_27
+      rect:
+        serializedVersion: 2
+        x: 3750
+        y: 4500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac798e90729dcb54fb5489b0fdd38b3f
+      internalID: -7574051164914875011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Hard(shoryuken)Spritesheet_28
+      rect:
+        serializedVersion: 2
+        x: 5000
+        y: 4500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca424b7aa3223ad42be9beec3dd242a9
+      internalID: 7983449567776196241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Hard(shoryuken)Spritesheet_29
+      rect:
+        serializedVersion: 2
+        x: 6250
+        y: 4500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc2d36cf234401443946b9151f004acd
+      internalID: -3347869204996533334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Hard(shoryuken)Spritesheet_30
+      rect:
+        serializedVersion: 2
+        x: 7500
+        y: 4500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc545cdb7f61c4543bf77ef7faefc393
+      internalID: 8592302563078762387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Hard(shoryuken)Spritesheet_31
+      rect:
+        serializedVersion: 2
+        x: 8750
+        y: 4500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35a96436ce7f2dd4ebe1a6204e1f5c3c
+      internalID: -2175442730989472946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Hard(shoryuken)Spritesheet_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d9cf784e21449d499fa96f2edb71f64
+      internalID: -3153052894097400981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Hard(shoryuken)Spritesheet_33
+      rect:
+        serializedVersion: 2
+        x: 1250
+        y: 3000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4525d67db6140b46a39189caf75bc4d
+      internalID: -1606364226598370828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Hard(shoryuken)Spritesheet_34
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 3000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1d650e9f062cbc45aada2a3b733315d
+      internalID: 2348885886803022827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Hard(shoryuken)Spritesheet_35
+      rect:
+        serializedVersion: 2
+        x: 3750
+        y: 3000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ab88a8fadadbf34c89cd2b31364adb4
+      internalID: 788802068820768368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Hard(shoryuken)Spritesheet_36
+      rect:
+        serializedVersion: 2
+        x: 5000
+        y: 3000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff6099845fb9a3d459e63955114adbc1
+      internalID: -7365621242484282383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Hard(shoryuken)Spritesheet_37
+      rect:
+        serializedVersion: 2
+        x: 6250
+        y: 3000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88540bc5ccdb71a4787dc1a77652794b
+      internalID: -3997775713208440918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Hard(shoryuken)Spritesheet_38
+      rect:
+        serializedVersion: 2
+        x: 7500
+        y: 3000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24b693b1017788442ad4c6451389ddca
+      internalID: -2168783041349905691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Hard(shoryuken)Spritesheet_39
+      rect:
+        serializedVersion: 2
+        x: 8750
+        y: 3000
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03bf08e77d42b1e4c83447462cb0e4bc
+      internalID: 1072639250948930745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Hard(shoryuken)Spritesheet_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c49c6cb9ab099741951daa63a674376
+      internalID: 3952837481039570880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Hard(shoryuken)Spritesheet_41
+      rect:
+        serializedVersion: 2
+        x: 1250
+        y: 1500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c125b9d2e71a1c3468afe95be93093cc
+      internalID: -5275268870948061766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Hard(shoryuken)Spritesheet_42
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 1500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62dfd0590dee7d84f899b05ae2841949
+      internalID: 6790165030496342886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Hard(shoryuken)Spritesheet_43
+      rect:
+        serializedVersion: 2
+        x: 3750
+        y: 1500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34eed99f91ab9c24595abe6e7f36a769
+      internalID: 5645311518909573040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Hard(shoryuken)Spritesheet_44
+      rect:
+        serializedVersion: 2
+        x: 5000
+        y: 1500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 409690f4872993c4a8b01f56a23663fe
+      internalID: -3371221934145063563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Hard(shoryuken)Spritesheet_45
+      rect:
+        serializedVersion: 2
+        x: 6250
+        y: 1500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 860ce2f6a63f28c4ebf0ec206190bb97
+      internalID: -5012446142072827715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Hard(shoryuken)Spritesheet_46
+      rect:
+        serializedVersion: 2
+        x: 7500
+        y: 1500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61a86e9f33a514c4f8b280ccc91f6cfc
+      internalID: 3754752187713931803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Hard(shoryuken)Spritesheet_47
+      rect:
+        serializedVersion: 2
+        x: 8750
+        y: 1500
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50486223ba2ac4f478312d5ce84c4af8
+      internalID: 6887189217606967102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Hard(shoryuken)Spritesheet_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0869bd53a76246438197db15e6a5f71
+      internalID: 7183090479768857016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: special1Hard(shoryuken)Spritesheet_49
+      rect:
+        serializedVersion: 2
+        x: 1250
+        y: 0
+        width: 1250
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ac6ce517ff8cdf43a6d35066a5b362e
+      internalID: 182854043074772313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
