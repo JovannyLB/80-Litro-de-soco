@@ -10,8 +10,9 @@ public class playerPlataformerController : PhysicsObject{
     public string characterName;
 
     public float health;
-    [HideInInspector] public bool won;
-    [HideInInspector] public bool lost;
+    [HideInInspector]public float maxHealth;
+    [HideInInspector]public bool won;
+    [HideInInspector]public bool lost;
     public Color mainColor;
 
     // Informações sobre movimetação
@@ -486,6 +487,7 @@ public class playerPlataformerController : PhysicsObject{
     // Core gameplay
     protected override void CoreGameplayStart(){
         speedTotal = walkingSpeed;
+        maxHealth = health;
 
         upTimerSpecial = 100;
         downTimerSpecial = 100;

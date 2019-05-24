@@ -9,6 +9,7 @@ public class projectileSpecialCheck : MonoBehaviour{
     public int hitStunFrames;
     public int blockHitStunFrames;
     public int damage;
+    [HideInInspector]public ParticleSystem blood;
     
     public GameObject projectile;
 
@@ -19,6 +20,7 @@ public class projectileSpecialCheck : MonoBehaviour{
         newProjectile.GetComponent<projectileLifeCheck>().hitStunFrames = hitStunFrames;
         newProjectile.GetComponent<projectileLifeCheck>().blockHitStunFrames = blockHitStunFrames;
         newProjectile.GetComponent<projectileLifeCheck>().damage = damage;
+        newProjectile.GetComponent<projectileLifeCheck>().blood = blood;
     }
     
 }

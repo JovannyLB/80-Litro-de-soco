@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -11,15 +13,20 @@ public class GameController : MonoBehaviour{
     protected GameObject rightPlayer;
     protected playerPlataformerController leftPlayerScript;
     protected playerPlataformerController rightPlayerScript;
+    private int leftPlayerCombo;
+    private int rightPlayerCombo;
     private bool isPaused;
 
     protected GameObject[] players;
     private bool flipToggle = true;
 
     public Text[] uiTexts;
+    public Image[] uiImages;
 
     public ParticleSystem[] particles;
-    
+
+    private bool hitStopCurrently;
+
     void Start(){
         players = GameObject.FindGameObjectsWithTag("Player");
 
@@ -42,6 +49,9 @@ public class GameController : MonoBehaviour{
 
         uiTexts[4].enabled = false;
         uiTexts[5].enabled = false;
+
+        uiImages[0].color = leftPlayerScript.mainColor;
+        uiImages[3].color = rightPlayerScript.mainColor;
         
         attachBlood();
     }
@@ -59,39 +69,14 @@ public class GameController : MonoBehaviour{
             uiTexts[5].enabled = true;
         }
         else{
-            Time.timeScale = 1;
             uiTexts[5].enabled = false;
         }
 
-        if (leftPlayerScript.health > 0){
-            uiTexts[2].text = leftPlayerScript.health.ToString();
-        }
-        else{
-            uiTexts[2].text = "0";
+        if (!hitStopCurrently && !isPaused){
+            Time.timeScale = 1;
         }
 
-        if (rightPlayerScript.health > 0){
-            uiTexts[3].text = rightPlayerScript.health.ToString();
-        }
-        else{
-            uiTexts[3].text = "0";
-        }
-
-        if (leftPlayerScript.health <= 0){
-            stopPlayer();
-            uiTexts[4].enabled = true;
-            uiTexts[4].text = rightPlayerScript.characterName + " wins";
-            rightPlayerScript.won = true;
-            leftPlayerScript.lost = true;
-            StartCoroutine(endCondition());
-        } else if (rightPlayerScript.health <= 0){
-            stopPlayer();
-            uiTexts[4].enabled = true;
-            uiTexts[4].text = leftPlayerScript.characterName + " wins";
-            leftPlayerScript.won = true;
-            rightPlayerScript.lost = true;
-            StartCoroutine(endCondition());
-        }
+        
 
         var onTopLeft = leftPlayer.transform.root.GetChild(2).GetChild(4).GetComponent<jumpOverCheck>().onTop;
         var onTopRight = rightPlayer.transform.root.GetChild(2).GetChild(4).GetComponent<jumpOverCheck>().onTop;
@@ -110,6 +95,9 @@ public class GameController : MonoBehaviour{
             rightPlayerScript.flipCharacterLeft();
             flipToggle = true;
         }
+
+        PlayerHealth();
+        comboCounter();
 
     }
 
@@ -132,5 +120,82 @@ public class GameController : MonoBehaviour{
         foreach (AttackCheck attack in bloodyAttacks){
             attack.blood = particles[0];
         }
+
+        projectileSpecialCheck[] bloodyProjctiles = FindObjectsOfType<projectileSpecialCheck>();
+        foreach (projectileSpecialCheck attack in bloodyProjctiles){
+            attack.blood = particles[0];
+        }
     }
+
+    public void CallHitStop(float frames, float time){
+        StartCoroutine(hitStopStart(frames, time));
+    }
+    
+    IEnumerator hitStopStart(float frames, float time){
+        hitStopCurrently = true;
+        Time.timeScale = time;
+        
+        yield return new WaitForSecondsRealtime(frames / 60f);
+
+        Time.timeScale = 1;
+        hitStopCurrently = false;
+    }
+
+    void comboCounter(){
+        if (leftPlayerCombo <= 0){
+            uiTexts[2].enabled = false;
+        }
+        else{
+            uiTexts[2].enabled = true;
+            uiTexts[2].text = leftPlayerCombo.ToString();
+        }
+        
+        if (rightPlayerCombo <= 0){
+            uiTexts[3].enabled = false;
+        }
+        else{
+            uiTexts[3].enabled = true;
+            uiTexts[3].text = rightPlayerCombo.ToString();
+        }
+    }
+
+    void PlayerHealth(){
+        // Left player
+        if (leftPlayerScript.health > 0){
+            uiImages[1].rectTransform.localScale = new Vector3(leftPlayerScript.health / leftPlayerScript.maxHealth, 1, 1);
+            uiImages[2].rectTransform.DOScaleX(uiImages[1].rectTransform.localScale.x, 1);
+        }
+        else{
+            uiImages[1].rectTransform.localScale = new Vector3(0, 1, 1);
+            uiImages[2].rectTransform.DOScaleX(0, 1);
+        }
+
+        // Right player
+        if (rightPlayerScript.health > 0){
+            uiImages[4].rectTransform.localScale = new Vector3(rightPlayerScript.health / rightPlayerScript.maxHealth, 1, 1);
+            uiImages[5].rectTransform.DOScaleX(uiImages[4].rectTransform.localScale.x, 1);
+        }
+        else{
+            uiImages[4].rectTransform.localScale = new Vector3(0, 1, 1);
+            uiImages[5].rectTransform.DOScaleX(0, 1);
+        }
+        
+        // Win condition
+        if (leftPlayerScript.health <= 0){
+            stopPlayer();
+            uiTexts[4].enabled = true;
+            uiTexts[4].text = rightPlayerScript.characterName + " wins";
+            rightPlayerScript.won = true;
+            leftPlayerScript.lost = true;
+            StartCoroutine(endCondition());
+        } else if (rightPlayerScript.health <= 0){
+            stopPlayer();
+            uiTexts[4].enabled = true;
+            uiTexts[4].text = leftPlayerScript.characterName + " wins";
+            leftPlayerScript.won = true;
+            rightPlayerScript.lost = true;
+            StartCoroutine(endCondition());
+        }
+    }
+
 }
