@@ -39,7 +39,12 @@ public class dummySpecials : MonoBehaviour{
         
         if (special1Moving){
             ownPlayer.velocity.y = 100;
-            ownPlayer.targetVelocity = new Vector2(1, 0) * 50;
+            if (ownPlayer.isLeft){
+                ownPlayer.targetVelocity = new Vector2(1, 0) * 50;
+            }
+            else{
+                ownPlayer.targetVelocity = new Vector2(1, 0) * -50;
+            }
         }
 
         if (!ownPlayer.lightSpecial1Currently && !ownPlayer.hardSpecial1Currently){

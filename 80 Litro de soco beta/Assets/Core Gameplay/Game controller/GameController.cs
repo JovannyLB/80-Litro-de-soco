@@ -17,6 +17,8 @@ public class GameController : MonoBehaviour{
     private bool flipToggle = true;
 
     public Text[] uiTexts;
+
+    public ParticleSystem[] particles;
     
     void Start(){
         players = GameObject.FindGameObjectsWithTag("Player");
@@ -40,6 +42,8 @@ public class GameController : MonoBehaviour{
 
         uiTexts[4].enabled = false;
         uiTexts[5].enabled = false;
+        
+        attachBlood();
     }
 
     // Update is called once per frame
@@ -121,5 +125,12 @@ public class GameController : MonoBehaviour{
         leftPlayerScript.StopAllAttack();
         leftPlayerScript.targetVelocity = Vector2.zero;
         leftPlayerScript.enableControls = false;
+    }
+
+    void attachBlood(){
+        AttackCheck[] bloodyAttacks = FindObjectsOfType<AttackCheck>();
+        foreach (AttackCheck attack in bloodyAttacks){
+            attack.blood = particles[0];
+        }
     }
 }

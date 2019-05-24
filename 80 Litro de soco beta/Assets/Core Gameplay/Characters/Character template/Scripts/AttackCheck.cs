@@ -23,7 +23,7 @@ public class AttackCheck : MonoBehaviour{
     public bool lowAttack;
     private bool attackDefended;
 
-    public ParticleSystem blood;
+    [HideInInspector]public ParticleSystem blood;
     
     
     void Start(){
@@ -33,7 +33,7 @@ public class AttackCheck : MonoBehaviour{
     void FixedUpdate(){
         if (pushBackAtual > 0 && transform.root.GetChild(0).GetComponent<playerPlataformerController>().isLeft){
             if (enemy.transform.root.GetChild(0).GetComponent<playerPlataformerController>().inCorner){
-                transform.root.GetChild(0).GetComponent<playerPlataformerController>().targetVelocity = new Vector2(1, 0) * -(pushBackStrengh / 2.5f);
+                transform.root.GetChild(0).GetComponent<playerPlataformerController>().targetVelocity = new Vector2(1, 0) * -(pushBackStrengh / 2.0f);
                 pushBackAtual--;
             }
             else{
@@ -42,7 +42,7 @@ public class AttackCheck : MonoBehaviour{
             }
         } else if (pushBackAtual > 0 && !transform.root.GetChild(0).GetComponent<playerPlataformerController>().isLeft){
             if (enemy.transform.root.GetChild(0).GetComponent<playerPlataformerController>().inCorner){
-                transform.root.GetChild(0).GetComponent<playerPlataformerController>().targetVelocity = new Vector2(1, 0) * (pushBackStrengh / 2.5f);
+                transform.root.GetChild(0).GetComponent<playerPlataformerController>().targetVelocity = new Vector2(1, 0) * (pushBackStrengh / 2.0f);
                 pushBackAtual--;
             }
             else{
@@ -91,7 +91,7 @@ public class AttackCheck : MonoBehaviour{
                         attackDefended = true;
                     }
 
-                    Instantiate(blood, otherPlayer.transform.root.GetChild(2).GetChild(1).GetComponent<BoxCollider2D>().transform.position, Quaternion.identity);
+                    spawnParticle(otherPlayer, 0);
                     
                     break;
                 case "Torso":
@@ -119,6 +119,9 @@ public class AttackCheck : MonoBehaviour{
                         }
                         attackDefended = true;
                     }
+                    
+                    spawnParticle(otherPlayer, 1);
+
                     break;
                 case "Legs":
                     if (!otherPlayer.isBlockingHigh && !otherPlayer.isBlockingLow){
@@ -145,6 +148,9 @@ public class AttackCheck : MonoBehaviour{
                         }
                         attackDefended = true;
                     }
+                    
+                    spawnParticle(otherPlayer, 2);
+
                     break;
                 default:
                     print("Something went wrong");
@@ -187,6 +193,25 @@ public class AttackCheck : MonoBehaviour{
 
     public void setPushBackSelf(){
         pushBackAtualSelf = pushBackTotal;
+    }
+
+    public void spawnParticle(playerPlataformerController otherPlayer, int placeStruck){
+        var currentBlood = Instantiate(blood, otherPlayer.transform.root.GetChild(2).GetChild(placeStruck).GetComponent<BoxCollider2D>().transform.position, Quaternion.identity);
+        currentBlood.transform.localScale = new Vector3(transform.root.GetChild(0).transform.localScale.x, 1, 1);
+        
+        ParticleSystem.ShapeModule editableShape = currentBlood.shape;
+        editableShape.position = new Vector3(Random.Range(-1.0f, 1.0f), 0, Random.Range(-1.0f, 1.0f));
+
+        ParticleSystem.EmissionModule editableCount = currentBlood.emission;
+        editableCount.SetBurst(0, new ParticleSystem.Burst(0, damage / 2));
+
+        ParticleSystem.VelocityOverLifetimeModule editableSpeed = currentBlood.velocityOverLifetime;
+        editableSpeed.speedModifier =  Mathf.Ceil(pushBackStrengh / 12f);
+
+        ParticleSystem.CollisionModule editableBounce = currentBlood.collision;
+        editableBounce.bounce = new ParticleSystem.MinMaxCurve(currentBlood.collision.bounce.constantMin * (pushBackStrengh / 12f) > 0.75f ? 0.75f : currentBlood.collision.bounce.constantMin * (pushBackStrengh / 12f), currentBlood.collision.bounce.constantMax * (pushBackStrengh / 12f) > 1.5f ? 1.5f : currentBlood.collision.bounce.constantMax * (pushBackStrengh / 12f));
+
+
     }
 
 }
