@@ -51,20 +51,35 @@ public class dummySpecials : MonoBehaviour{
             special1Moving = false;
         }
 
+        if (ownPlayer.testeDeSpecialCancel()){
+            threshold = 40;
+        }
+        else{
+            threshold = 10;
+        }
+
         // Special 1
-        if (ownPlayer.downTimerSpecial < threshold && ownPlayer.rightTimerSpecial < threshold && ownPlayer.xButton && ownPlayer.testeDeSpecial()){
+        if (ownPlayer.downTimerSpecial < threshold && ownPlayer.rightTimerSpecial < threshold &&
+            ownPlayer.xButtonTimerSpecial < threshold && (ownPlayer.testeDeSpecial() || ownPlayer.testeDeSpecialCancel()) &&
+            ownPlayer.downTimerSpecial > ownPlayer.xButtonTimerSpecial){
             ownPlayer.StopAllAttack();
             ownPlayer.LightSpecial1();
-        } else if (ownPlayer.downTimerSpecial < threshold && ownPlayer.rightTimerSpecial < threshold && ownPlayer.circle && ownPlayer.testeDeSpecial()){
+        } else if (ownPlayer.downTimerSpecial < threshold && ownPlayer.rightTimerSpecial < threshold &&
+                   ownPlayer.circleTimerSpecial < threshold && (ownPlayer.testeDeSpecial() || ownPlayer.testeDeSpecialCancel()) &&
+                   ownPlayer.downTimerSpecial > ownPlayer.circleTimerSpecial){
             ownPlayer.StopAllAttack();
             ownPlayer.HardSpecial1();
         }
         
         // Special 2
-        if (ownPlayer.leftTimerSpecial < threshold && ownPlayer.rightTimerSpecial < threshold && ownPlayer.square && ownPlayer.testeDeSpecial()){
+        if (ownPlayer.leftTimerSpecial < threshold && ownPlayer.rightTimerSpecial < threshold &&
+            ownPlayer.squareTimerSpecial < threshold && (ownPlayer.testeDeSpecial() || ownPlayer.testeDeSpecialCancel()) &&
+            ownPlayer.leftTimerSpecial > ownPlayer.squareTimerSpecial){
            ownPlayer.StopAllAttack();
            ownPlayer.LightSpecial2();
-       } else if (ownPlayer.leftTimerSpecial < threshold && ownPlayer.rightTimerSpecial < threshold && ownPlayer.triangle && ownPlayer.testeDeSpecial()){
+       } else if (ownPlayer.leftTimerSpecial < threshold && ownPlayer.rightTimerSpecial < threshold &&
+                  ownPlayer.triangleTimerSpecial < threshold && (ownPlayer.testeDeSpecial() || ownPlayer.testeDeSpecialCancel()) &&
+                  ownPlayer.leftTimerSpecial > ownPlayer.triangleTimerSpecial){
            ownPlayer.StopAllAttack();
            ownPlayer.HardSpecial2();
        }
@@ -80,10 +95,14 @@ public class dummySpecials : MonoBehaviour{
         }
 
         // Special 3
-        if (ownPlayer.downTimerSpecial < threshold && ownPlayer.rightTimerSpecial < threshold && ownPlayer.square && ownPlayer.testeDeSpecial()){
+        if (ownPlayer.downTimerSpecial < threshold && ownPlayer.rightTimerSpecial < threshold &&
+            ownPlayer.squareTimerSpecial < threshold && (ownPlayer.testeDeSpecial() || ownPlayer.testeDeSpecialCancel()) &&
+            ownPlayer.downTimerSpecial > ownPlayer.squareTimerSpecial){
             ownPlayer.StopAllAttack();
             ownPlayer.LightSpecial3();
-        } else if (ownPlayer.downTimerSpecial < threshold && ownPlayer.rightTimerSpecial < threshold && ownPlayer.triangle && ownPlayer.testeDeSpecial()){
+        } else if (ownPlayer.downTimerSpecial < threshold && ownPlayer.rightTimerSpecial < threshold &&
+                   ownPlayer.triangleTimerSpecial < threshold && (ownPlayer.testeDeSpecial() || ownPlayer.testeDeSpecialCancel()) &&
+                   ownPlayer.downTimerSpecial > ownPlayer.triangleTimerSpecial){
             ownPlayer.StopAllAttack();
             ownPlayer.HardSpecial3();
         }

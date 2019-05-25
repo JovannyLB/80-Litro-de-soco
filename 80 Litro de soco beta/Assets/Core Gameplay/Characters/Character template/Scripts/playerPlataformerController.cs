@@ -20,6 +20,7 @@ public class playerPlataformerController : PhysicsObject{
     private float jumpTakeOffHorizontal = 13;
     [HideInInspector]public float walkingSpeed = 7;
     private float speedTotal;
+    [HideInInspector]public bool canMoveBack;
 
     [HideInInspector] public bool enableControls = true;
 
@@ -98,20 +99,23 @@ public class playerPlataformerController : PhysicsObject{
     protected bool crouchHardKickCurrently;
     protected bool jumpingPunchCurrently;
     protected bool jumpingKickCurrently;
+    private bool cancelSpecial;
     [HideInInspector]public bool lightSpecial1Currently;
     [HideInInspector]public bool lightSpecial2Currently;
     [HideInInspector]public bool lightSpecial3Currently;
     [HideInInspector]public bool hardSpecial1Currently;
     [HideInInspector]public bool hardSpecial2Currently;
     [HideInInspector]public bool hardSpecial3Currently;
-    protected int lastHitStun;
+    [HideInInspector]public int lastHitStun;
+    [HideInInspector]public int lastHitTaken;
     protected int lastHitStunBlock;
     private bool hitStunFreezeAnim;
-    [HideInInspector] public bool beenHitTorso;
-    [HideInInspector] public bool beenHitHead;
-    [HideInInspector] public bool beenHitLeg;
-    [HideInInspector] public bool blockedHigh;
-    [HideInInspector] public bool blockedLow;
+    [HideInInspector]public bool lastHitHasHit;
+    [HideInInspector]public bool beenHitTorso;
+    [HideInInspector]public bool beenHitHead;
+    [HideInInspector]public bool beenHitLeg;
+    [HideInInspector]public bool blockedHigh;
+    [HideInInspector]public bool blockedLow;
 
     [Header("Hitboxes and hurtboxes")]
 
@@ -281,6 +285,10 @@ public class playerPlataformerController : PhysicsObject{
 
         if (grounded && ableToMove){
             targetVelocity = move * walkingSpeed;
+        }
+
+        if (!canMoveBack && move.x < 0){
+            targetVelocity = Vector2.zero;
         }
 
         // Faz com que as hitboxes sigam o personagem
@@ -574,14 +582,12 @@ public class playerPlataformerController : PhysicsObject{
         }
 
         // Jump punch
-        if (square && !grounded && !crouching && !currentlyAttacking && !currentlyDashing ||
-            triangle && !grounded && !crouching && !currentlyAttacking && !currentlyDashing){
+        if (square && !grounded && !crouching && !currentlyAttacking && !currentlyDashing || triangle && !grounded && !crouching && !currentlyAttacking && !currentlyDashing){
             JumpPunch();
         }
 
         // Jump kick
-        if (xButton && !grounded && !crouching && !currentlyAttacking && !currentlyDashing ||
-            circle && !grounded && !crouching && !currentlyAttacking && !currentlyDashing){
+        if (xButton && !grounded && !crouching && !currentlyAttacking && !currentlyDashing || circle && !grounded && !crouching && !currentlyAttacking && !currentlyDashing){
             JumpKick();
         }
     }
@@ -879,12 +885,34 @@ public class playerPlataformerController : PhysicsObject{
     public void flipCharacterRight(){
         transform.localScale = new Vector3(transform.root.localScale.x * 1, transform.root.localScale.y, transform.root.localScale.z);
     }
-    
+
+    public void CancelSpecialStart(){
+        if (lastHitHasHit){
+            cancelSpecial = true;
+        }
+        else{
+            cancelSpecial = false;
+        }
+    }
+
+    public void CancelSpecialStop(){
+        cancelSpecial = false;
+        lastHitHasHit = false;
+    }
+
     public bool testeDeSpecial(){
         if (grounded && !currentlyAttacking && !currentlyDashing && !jumpingOver){
             return true;
         }
         return false;
     }
+
+    public bool testeDeSpecialCancel(){
+        if (grounded && cancelSpecial && currentlyAttacking && !currentlyDashing && !jumpingOver){
+            return true;
+        }
+        return false;
+    }
     
 }
+

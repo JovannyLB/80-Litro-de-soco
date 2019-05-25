@@ -8,7 +8,6 @@ public class projectileLifeCheck : MonoBehaviour{
     [HideInInspector]public int hitStunFrames;
     [HideInInspector]public int blockHitStunFrames;
     [HideInInspector]public int damage;
-    [HideInInspector]public ParticleSystem blood;
 
     private bool attackDefended;
 
@@ -48,9 +47,6 @@ public class projectileLifeCheck : MonoBehaviour{
                             otherPlayer.gotHitBlockLowStart();
                         }
                         attackDefended = true;
-                        
-                        spawnParticle(otherPlayer, 0);
-                        
                     }
                     break;
                 case "Torso":
@@ -66,8 +62,6 @@ public class projectileLifeCheck : MonoBehaviour{
                             otherPlayer.gotHitBlockLowStart();
                         }
                         attackDefended = true;
-                        
-                        spawnParticle(otherPlayer, 1);
                     }
                     break;
                 case "Legs":
@@ -83,9 +77,6 @@ public class projectileLifeCheck : MonoBehaviour{
                             otherPlayer.gotHitBlockLowStart();
                         }
                         attackDefended = true;
-                        
-                        spawnParticle(otherPlayer, 2);
-
                     }
                     break;
                 default:
@@ -97,6 +88,7 @@ public class projectileLifeCheck : MonoBehaviour{
                 otherPlayer.addHitStunBlock(blockHitStunFrames);
             }
             else{
+                otherPlayer.lastHitTaken = hitStunFrames;
                 otherPlayer.addHitStun(hitStunFrames);
             }
             
@@ -110,23 +102,6 @@ public class projectileLifeCheck : MonoBehaviour{
             
             Destroy(gameObject);
         }
-    }
-    
-    public void spawnParticle(playerPlataformerController otherPlayer, int placeStruck){
-        var currentBlood = Instantiate(blood, otherPlayer.transform.root.GetChild(2).GetChild(placeStruck).GetComponent<BoxCollider2D>().transform.position, Quaternion.identity);
-        currentBlood.transform.localScale = new Vector3(transform.root.GetChild(0).transform.localScale.x, 1, 1);
-        
-        ParticleSystem.ShapeModule editableShape = currentBlood.shape;
-        editableShape.position = new Vector3(Random.Range(-1.0f, 1.0f), 0, Random.Range(-1.0f, 1.0f));
-
-        ParticleSystem.EmissionModule editableCount = currentBlood.emission;
-        editableCount.SetBurst(0, new ParticleSystem.Burst(0, damage / 2));
-
-        ParticleSystem.VelocityOverLifetimeModule editableSpeed = currentBlood.velocityOverLifetime;
-        editableSpeed.speedModifier =  Mathf.Ceil(damage / 12f);
-
-        ParticleSystem.CollisionModule editableBounce = currentBlood.collision;
-        editableBounce.bounce = new ParticleSystem.MinMaxCurve(currentBlood.collision.bounce.constantMin * (damage / 12f) > 0.75f ? 0.75f : currentBlood.collision.bounce.constantMin * (damage / 12f), currentBlood.collision.bounce.constantMax * (damage / 12f) > 1.5f ? 1.5f : currentBlood.collision.bounce.constantMax * (damage / 12f));
     }
     
 }

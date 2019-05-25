@@ -161,10 +161,12 @@ public class AttackCheck : MonoBehaviour{
                 otherPlayer.addHitStunBlock(blockHitStunFrames);
             }
             else{
+                otherPlayer.lastHitTaken = hitStunFrames;
                 otherPlayer.addHitStun(hitStunFrames);
             }
             
             hasHit = true;
+            transform.root.GetChild(0).GetComponent<playerPlataformerController>().lastHitHasHit = true;
             enemy = other.gameObject;
 
             if (!attackDefended){
@@ -174,7 +176,7 @@ public class AttackCheck : MonoBehaviour{
                 otherPlayer.changeHealth((int) -(damage * 0.1f));
             }
 
-            FindObjectOfType<GameController>().CallHitStop(damage / 4f, 0.05f);
+            FindObjectOfType<GameController>().CallHitStop(damage / 8f, 0.05f);
 
         }
     }
@@ -208,9 +210,6 @@ public class AttackCheck : MonoBehaviour{
 
         ParticleSystem.VelocityOverLifetimeModule editableSpeed = currentBlood.velocityOverLifetime;
         editableSpeed.speedModifier =  Mathf.Ceil(pushBackStrengh / 12f);
-
-        ParticleSystem.CollisionModule editableBounce = currentBlood.collision;
-        editableBounce.bounce = new ParticleSystem.MinMaxCurve(currentBlood.collision.bounce.constantMin * (pushBackStrengh / 12f) > 0.75f ? 0.75f : currentBlood.collision.bounce.constantMin * (pushBackStrengh / 12f), currentBlood.collision.bounce.constantMax * (pushBackStrengh / 12f) > 1.5f ? 1.5f : currentBlood.collision.bounce.constantMax * (pushBackStrengh / 12f));
     }
 
 }
