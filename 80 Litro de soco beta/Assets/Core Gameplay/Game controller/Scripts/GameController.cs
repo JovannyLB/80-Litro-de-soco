@@ -29,8 +29,10 @@ public class GameController : MonoBehaviour{
     public ParticleSystem[] particles;
 
     private bool hitStopCurrently;
+    private bool doneCameraEffect;
 
     void Start(){
+        // Arrumas os player
         players = GameObject.FindGameObjectsWithTag("Player");
 
         foreach (GameObject player in players){
@@ -42,50 +44,68 @@ public class GameController : MonoBehaviour{
             }
         }
 
+        // Acha a camera
         camera = GameObject.FindWithTag("MainCamera");
         
+        // Pega os scripts dos players
         leftPlayerScript = leftPlayer.transform.root.GetChild(0).GetComponent<playerPlataformerController>();
         rightPlayerScript = rightPlayer.transform.root.GetChild(0).GetComponent<playerPlataformerController>();
 
+        // Vira os personagens
         rightPlayerScript.isFlippedSide = true;
         leftPlayerScript.isLeft = true;
 
+        // Coloca os nomes
         uiTexts[0].text = leftPlayerScript.characterName;
         uiTexts[1].text = rightPlayerScript.characterName;
 
+        // Desativa pause e vitória
         uiTexts[4].enabled = false;
         uiTexts[5].enabled = false;
 
+        // Colocam a cor
         uiImages[0].color = leftPlayerScript.mainColor;
         uiImages[3].color = rightPlayerScript.mainColor;
         
-        attachBlood();
+        // Coloca o sangue nos prefabs
+        AttachBlood();
     }
 
     // Update is called once per frame
     void Update(){
+        // Camera
         CameraControl();
         
+        // Pausa o jogo
         if (Input.GetKeyDown(KeyCode.JoystickButton9) && !isPaused){
             isPaused = true;
         } else if (Input.GetKeyDown(KeyCode.JoystickButton9) && isPaused){
             isPaused = false;
         }
 
+        // Pausa o jogo
         if (isPaused){
             Time.timeScale = 0;
+            leftPlayer.GetComponent<Animator>().speed = 0;
+            rightPlayer.GetComponent<Animator>().speed = 0;
+            leftPlayerScript.enableControls = false;
+            rightPlayerScript.enableControls = false;
             uiTexts[5].enabled = true;
         }
         else{
+            leftPlayerScript.enableControls = true;
+            rightPlayerScript.enableControls = true;
             uiTexts[5].enabled = false;
         }
 
         if (!hitStopCurrently && !isPaused){
             Time.timeScale = 1;
+            leftPlayer.GetComponent<Animator>().speed = 1;
+            rightPlayer.GetComponent<Animator>().speed = 1;
         }
 
         
-
+        // Checa a troca de lados
         var onTopLeft = leftPlayer.transform.root.GetChild(2).GetChild(4).GetComponent<jumpOverCheck>().onTop;
         var onTopRight = rightPlayer.transform.root.GetChild(2).GetChild(4).GetComponent<jumpOverCheck>().onTop;
         
@@ -103,18 +123,20 @@ public class GameController : MonoBehaviour{
             rightPlayerScript.flipCharacterLeft();
             flipToggle = true;
         }
-
+    
+        // Cuida da vida
         PlayerHealth();
-        comboCounter();
-
+        
+        // Cuida do contador de combo
+        ComboCounter();
     }
 
-    IEnumerator endCondition(){
+    IEnumerator EndCondition(){
         yield return new WaitForSeconds(5);
         SceneManager.LoadScene("Menu");
     }
 
-    void stopPlayer(){
+    void StopPlayer(){
         rightPlayerScript.StopAllAttack();
         rightPlayerScript.targetVelocity = Vector2.zero;
         rightPlayerScript.enableControls = false;
@@ -123,7 +145,7 @@ public class GameController : MonoBehaviour{
         leftPlayerScript.enableControls = false;
     }
 
-    void attachBlood(){
+    void AttachBlood(){
         AttackCheck[] bloodyAttacks = FindObjectsOfType<AttackCheck>();
         foreach (AttackCheck attack in bloodyAttacks){
             attack.blood = particles[0];
@@ -131,23 +153,27 @@ public class GameController : MonoBehaviour{
     }
 
     public void CallHitStop(float frames, float time){
-        StartCoroutine(hitStopStart(frames, time));
+        StartCoroutine(HitStopStart(frames, time));
     }
     
-    IEnumerator hitStopStart(float frames, float time){
+    IEnumerator HitStopStart(float frames, float time){
+        // Para o tempo
         hitStopCurrently = true;
         Time.timeScale = time;
         
+        // Espera por frames
         yield return new WaitForSecondsRealtime(frames / 60f);
 
+        // Volta o tempo
         Time.timeScale = 1;
         hitStopCurrently = false;
         
+        // Volta as animações
         leftPlayer.GetComponent<Animator>().speed = 1;
         rightPlayer.GetComponent<Animator>().speed = 1;
     }
 
-    void comboCounter(){
+    void ComboCounter(){
         // Right player
         if (leftPlayerScript.lastHitStun <= 0){
             rightPlayerCombo = 0;
@@ -204,35 +230,61 @@ public class GameController : MonoBehaviour{
 
         // Win condition
         if (leftPlayerScript.health <= 0){
-            leftPlayer.GetComponent<Animator>().speed = 0;
-            rightPlayer.GetComponent<Animator>().speed = 0;
-            StartCoroutine(hitStopStart(60f, 0.05f));
-            stopPlayer();
-            uiTexts[4].enabled = true;
-            uiTexts[4].text = rightPlayerScript.characterName + " wins";
-            rightPlayerScript.won = true;
-            leftPlayerScript.lost = true;
-            
-            StartCoroutine(endCondition());
+            PlayerVictory(leftPlayerScript, rightPlayerScript);
         } else if (rightPlayerScript.health <= 0){
-            leftPlayer.GetComponent<Animator>().speed = 0;
-            rightPlayer.GetComponent<Animator>().speed = 0;
-            StartCoroutine(hitStopStart(60f, 0.05f));
-            stopPlayer();
-            uiTexts[4].enabled = true;
-            uiTexts[4].text = leftPlayerScript.characterName + " wins";
-            leftPlayerScript.won = true;
-            rightPlayerScript.lost = true;
-            
-            StartCoroutine(endCondition());
+            PlayerVictory(rightPlayerScript, leftPlayerScript);
         }
     }
 
+    void PlayerVictory(playerPlataformerController losingPlayerScript, playerPlataformerController winningPlayerScript){
+        // Congela a nimação
+        leftPlayer.GetComponent<Animator>().speed = 0;
+        rightPlayer.GetComponent<Animator>().speed = 0;
+            
+        // Faz o efeito final
+        if (!GetComponent<PostProcessing>().doneEffect){
+            GetComponent<PostProcessing>().DeathVignette(true);
+        }
+        else{
+            GetComponent<PostProcessing>().DeathVignette(false);
+        }
+
+        // Faz o efeito final da camera
+        if (!doneCameraEffect){
+            GameObject.FindWithTag("MainCamera").transform.DOMoveY(((leftPlayer.transform.position.y + rightPlayer.transform.position.y) / 2) + 2, 0.1f).OnComplete(() => { doneCameraEffect = true; });
+            if (losingPlayerScript.isLeft){
+                GameObject.FindWithTag("MainCamera").transform.DORotate(new Vector3(0, 0, 5), 0.1f);
+            }
+            else{
+                GameObject.FindWithTag("MainCamera").transform.DORotate(new Vector3(0, 0, -5), 0.1f);
+            }
+        }
+        else{
+            GameObject.FindWithTag("MainCamera").transform.DOMoveY(0, 0.1f);
+            GameObject.FindWithTag("MainCamera").transform.DORotate(new Vector3(0, 0, 0), 0.1f).OnComplete(() => {
+                winningPlayerScript.won = true;
+                losingPlayerScript.lost = true;
+                StopPlayer();
+            });
+        }
+
+        // Da o hitstop longo
+        StartCoroutine(HitStopStart(120f, 0.05f));
+        uiTexts[4].enabled = true;
+        uiTexts[4].text = winningPlayerScript.characterName + " wins";
+            
+        // Termina o jogo
+        StartCoroutine(EndCondition());
+    }
+
     void CameraControl(){
+        // Faz a camera ficar entre os dois personages
         camera.transform.position = new Vector3((leftPlayer.transform.position.x + rightPlayer.transform.position.x) / 2, camera.transform.position.y, camera.transform.position.z);
         
+        // Pega a difereça dos dois players
         float diffPos = Math.Abs(leftPlayer.transform.position.x - rightPlayer.transform.position.x);
         
+        // Se a difereça for maior que 30 a camera muda de tamanho
         if (diffPos >= 30){
             camera.GetComponent<Camera>().orthographicSize = diffPos / 3f;
         }
@@ -240,7 +292,8 @@ public class GameController : MonoBehaviour{
             camera.GetComponent<Camera>().orthographicSize = 10;
         }
 
-        if (diffPos >= 50){
+        // Se a diferença for maior ou igual a 40 o personagem não pode ir mais para trás
+        if (diffPos >= 40){
             leftPlayerScript.canMoveBack = false;
             rightPlayerScript.canMoveBack = false;
         }

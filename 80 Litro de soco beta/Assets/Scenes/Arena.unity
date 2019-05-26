@@ -5811,6 +5811,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98100e4c8b0c5c74ca8abc053a131ecc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doneEffect: 0
 --- !u!1 &2090357895
 GameObject:
   m_ObjectHideFlags: 0
@@ -6114,6 +6115,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FlipY
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1712995528996494941, guid: 30dd731600fe0c54a897eb5efb395e4f,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1712995528996494941, guid: 30dd731600fe0c54a897eb5efb395e4f,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30dd731600fe0c54a897eb5efb395e4f, type: 3}
