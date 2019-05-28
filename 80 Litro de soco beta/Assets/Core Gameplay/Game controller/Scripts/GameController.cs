@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections;
+using System.Linq;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class GameController : MonoBehaviour{
 
@@ -18,20 +20,34 @@ public class GameController : MonoBehaviour{
     private int rightPlayerCombo;
     private bool isPaused;
 
+    private bool gameRunning;
+    private int rounds = 1;
+
     protected GameObject[] players;
     private bool flipToggle = true;
     private GameObject camera;
 
     public GameObject[] arenas;
+    public bool currentlyBGO;
     public Text[] uiTexts;
     public Image[] uiImages;
+    public GameObject[] spawnPoints;
 
     public ParticleSystem[] particles;
 
     private bool hitStopCurrently;
+    
     private bool doneCameraEffect;
+    private float alpha;
+    public bool introDone;
 
     void Start(){
+        // Coloca o mapa
+        Instantiate(arenas[0]);
+        
+        arenas[0].GetComponent<ArenaScript>().SpawnInteractable(spawnPoints[2].transform.position);
+        arenas[0].GetComponent<ArenaScript>().SpawnInteractable(spawnPoints[3].transform.position);
+        
         // Arrumas os player
         players = GameObject.FindGameObjectsWithTag("Player");
 
@@ -44,6 +60,10 @@ public class GameController : MonoBehaviour{
             }
         }
 
+        leftPlayer.transform.position = spawnPoints[0].transform.position;
+        rightPlayer.transform.position = spawnPoints[1].transform.position;
+        
+        
         // Acha a camera
         camera = GameObject.FindWithTag("MainCamera");
         
@@ -52,8 +72,11 @@ public class GameController : MonoBehaviour{
         rightPlayerScript = rightPlayer.transform.root.GetChild(0).GetComponent<playerPlataformerController>();
 
         // Vira os personagens
-        rightPlayerScript.isFlippedSide = true;
+        rightPlayerScript.isLeft = false;
         leftPlayerScript.isLeft = true;
+        
+        rightPlayerScript.flipCharacterLeft();
+        leftPlayerScript.flipCharacterRight();
 
         // Coloca os nomes
         uiTexts[0].text = leftPlayerScript.characterName;
@@ -63,18 +86,52 @@ public class GameController : MonoBehaviour{
         uiTexts[4].enabled = false;
         uiTexts[5].enabled = false;
 
+        uiTexts[6].gameObject.SetActive(false);
+        uiTexts[7].gameObject.SetActive(false);
+        uiTexts[8].gameObject.SetActive(false);
+        uiTexts[9].gameObject.SetActive(false);
+
         // Colocam a cor
         uiImages[0].color = leftPlayerScript.mainColor;
+        uiTexts[0].color = leftPlayerScript.mainColor;
+        uiTexts[2].color = leftPlayerScript.mainColor;
+        
+        uiTexts[1].color = rightPlayerScript.mainColor;
+        uiTexts[3].color = rightPlayerScript.mainColor;
         uiImages[3].color = rightPlayerScript.mainColor;
         
+        transform.GetChild(2).GetComponent<SpriteRenderer>().color = Color.black;
+
         // Coloca o sangue nos prefabs
         AttachBlood();
+
+        StartCoroutine(StartCondition());
+
+        /*// Start settings
+        camera.GetComponent<Camera>().orthographicSize = 15;
+        foreach (var text in uiTexts){
+            text.GetComponent<CanvasRenderer>().SetAlpha(0);
+        }
+        foreach (var images in uiImages){
+            images.GetComponent<CanvasRenderer>().SetAlpha(0);
+        }
+        uiImages[2].rectTransform.localScale = new Vector3(0, uiImages[2].rectTransform.localScale.y, uiImages[2].rectTransform.localScale.z);
+        uiImages[1].rectTransform.localScale = new Vector3(0, uiImages[1].rectTransform.localScale.y, uiImages[1].rectTransform.localScale.z);
+        
+        uiImages[5].rectTransform.localScale = new Vector3(0, uiImages[5].rectTransform.localScale.y, uiImages[5].rectTransform.localScale.z);
+        uiImages[4].rectTransform.localScale = new Vector3(0, uiImages[4].rectTransform.localScale.y, uiImages[4].rectTransform.localScale.z);*/
     }
 
     // Update is called once per frame
     void Update(){
+        // Cuida da vida
+        PlayerHealth();
+        
         // Camera
         CameraControl();
+        
+        // BGOs do mapa
+        MapaBGO();
         
         // Pausa o jogo
         if (Input.GetKeyDown(KeyCode.JoystickButton9) && !isPaused){
@@ -123,26 +180,73 @@ public class GameController : MonoBehaviour{
             rightPlayerScript.flipCharacterLeft();
             flipToggle = true;
         }
-    
-        // Cuida da vida
-        PlayerHealth();
         
         // Cuida do contador de combo
         ComboCounter();
+        
+        // Seleciona as coisas que acontecem quando o jogo roda
+        if (gameRunning && !isPaused){
+            // Controle
+            leftPlayerScript.enableControls = true;
+            rightPlayerScript.enableControls = true;
+        }
+        else{
+            leftPlayerScript.enableControls = false;
+            rightPlayerScript.enableControls = false;
+        }
+
+        leftPlayerScript.gameRunning = gameRunning;
+        rightPlayerScript.gameRunning = gameRunning;
+
+        /*if (!introDone){
+            DOTween.To(() => GameObject.FindWithTag("MainCamera").GetComponent<Camera>().orthographicSize, x => GameObject.FindWithTag("MainCamera").GetComponent<Camera>().orthographicSize = x, 10f, 2f);
+            DOTween.To(() => alpha, x => alpha = x, 1f, 2f);
+            
+            uiImages[2].rectTransform.DOScaleX(1, 2).SetDelay(2);
+            uiImages[5].rectTransform.DOScaleX(1, 2).SetDelay(2);
+            uiImages[1].rectTransform.DOScaleX(1, 2).SetDelay(2);
+            uiImages[4].rectTransform.DOScaleX(1, 2).SetDelay(2);
+            
+            foreach (var text in uiTexts){
+                text.GetComponent<CanvasRenderer>().SetAlpha(alpha);
+            }
+            foreach (var images in uiImages){
+                images.GetComponent<CanvasRenderer>().SetAlpha(alpha);
+            }
+            StartCoroutine(StartCondition());
+        }*/
     }
 
     IEnumerator EndCondition(){
         yield return new WaitForSeconds(5);
+        FadeOut();
+        yield return new WaitForSeconds(1);
         SceneManager.LoadScene("Menu");
     }
 
-    void StopPlayer(){
-        rightPlayerScript.StopAllAttack();
-        rightPlayerScript.targetVelocity = Vector2.zero;
-        rightPlayerScript.enableControls = false;
-        leftPlayerScript.StopAllAttack();
-        leftPlayerScript.targetVelocity = Vector2.zero;
-        leftPlayerScript.enableControls = false;
+    IEnumerator StartCondition(){
+        FadeIn();
+        yield return new WaitForSeconds(1);
+        uiTexts[4].enabled = true;
+        uiTexts[4].text = "Round " + rounds;
+        yield return new WaitForSeconds(1);
+        uiTexts[4].enabled = false;
+        yield return new WaitForSeconds(0.5f);
+        uiTexts[4].enabled = true;
+        gameRunning = true;
+        uiTexts[4].text = "FIGHT!";
+        yield return new WaitForSeconds(0.5f);
+        uiTexts[4].enabled = false;
+/*
+        introDone = true;
+        gameRunning = true;
+*/
+    }
+
+    void StopPlayer(playerPlataformerController player){
+        player.StopAllAttack();
+        player.targetVelocity = Vector2.zero;
+        player.StopInput();
     }
 
     void AttachBlood(){
@@ -160,7 +264,7 @@ public class GameController : MonoBehaviour{
         // Para o tempo
         hitStopCurrently = true;
         Time.timeScale = time;
-        
+
         // Espera por frames
         yield return new WaitForSecondsRealtime(frames / 60f);
 
@@ -182,12 +286,12 @@ public class GameController : MonoBehaviour{
             rightPlayerCombo++;
         }
 
-        if (leftPlayerCombo <= 0){
+        if (leftPlayerCombo <= 1){
             uiTexts[2].enabled = false;
         }
         else{
             uiTexts[2].enabled = true;
-            uiTexts[2].text = leftPlayerCombo.ToString();
+            uiTexts[2].text = leftPlayerCombo + " HITS!";
         }
         
         // Left player
@@ -198,92 +302,183 @@ public class GameController : MonoBehaviour{
             leftPlayerCombo++;
         }
         
-        if (rightPlayerCombo <= 0){
+        if (rightPlayerCombo <= 1){
             uiTexts[3].enabled = false;
         }
         else{
             uiTexts[3].enabled = true;
-            uiTexts[3].text = rightPlayerCombo.ToString();
+            uiTexts[3].text = rightPlayerCombo + " HITS!";
         }
     }
 
     void PlayerHealth(){
         // Left player
-        if (leftPlayerScript.health > 0){
-            uiImages[1].rectTransform.localScale = new Vector3(leftPlayerScript.health / leftPlayerScript.maxHealth, 1, 1);
-            uiImages[2].rectTransform.DOScaleX(uiImages[1].rectTransform.localScale.x, 1);
-        }
-        else{
-            uiImages[1].rectTransform.localScale = new Vector3(0, 1, 1);
-            uiImages[2].rectTransform.DOScaleX(0, 1);
-        }
+            if (leftPlayerScript.health > 0){
+                uiImages[1].rectTransform.localScale = new Vector3(leftPlayerScript.health / leftPlayerScript.maxHealth, 1, 1);
+                uiImages[2].rectTransform.DOScaleX(uiImages[1].rectTransform.localScale.x, 1);
+            }
+            else{
+                uiImages[1].rectTransform.localScale = new Vector3(0, 1, 1);
+                uiImages[2].rectTransform.DOScaleX(0, 1);
+            }
 
-        // Right player
-        if (rightPlayerScript.health > 0){
-            uiImages[4].rectTransform.localScale = new Vector3(rightPlayerScript.health / rightPlayerScript.maxHealth, 1, 1);
-            uiImages[5].rectTransform.DOScaleX(uiImages[4].rectTransform.localScale.x, 1);
-        }
-        else{
-            uiImages[4].rectTransform.localScale = new Vector3(0, 1, 1);
-            uiImages[5].rectTransform.DOScaleX(0, 1);
-        }
-
-        // Win condition
-        if (leftPlayerScript.health <= 0){
-            PlayerVictory(leftPlayerScript, rightPlayerScript);
-        } else if (rightPlayerScript.health <= 0){
-            PlayerVictory(rightPlayerScript, leftPlayerScript);
-        }
+            // Right player
+            if (rightPlayerScript.health > 0){
+                uiImages[4].rectTransform.localScale = new Vector3(rightPlayerScript.health / rightPlayerScript.maxHealth, 1, 1);
+                uiImages[5].rectTransform.DOScaleX(uiImages[4].rectTransform.localScale.x, 1);
+            }
+            else{
+                uiImages[4].rectTransform.localScale = new Vector3(0, 1, 1);
+                uiImages[5].rectTransform.DOScaleX(0, 1);
+            }
+            
+            // Rounds condition
+            if (leftPlayerScript.health <= 0 && rightPlayerScript.roundsWon == 0){
+                PlayerVictoryRound(leftPlayerScript, rightPlayerScript);
+            }
+            else if (rightPlayerScript.health <= 0 && leftPlayerScript.roundsWon == 0){
+                PlayerVictoryRound(rightPlayerScript, leftPlayerScript);
+            } 
+            
+            // Win condition
+            else if (leftPlayerScript.health <= 0 && rightPlayerScript.roundsWon >= 1){
+                PlayerVictory(leftPlayerScript, rightPlayerScript);
+            }
+            else if (rightPlayerScript.health <= 0 && leftPlayerScript.roundsWon >= 1){
+                PlayerVictory(rightPlayerScript, leftPlayerScript);
+            }
+        
     }
 
+    private bool roundCount = true;
+
+    private void RoundUp(playerPlataformerController winner){
+        if (roundCount){
+            winner.roundsWon++;
+            roundCount = false;
+        }
+    }
+    
     void PlayerVictory(playerPlataformerController losingPlayerScript, playerPlataformerController winningPlayerScript){
-        // Congela a nimação
-        leftPlayer.GetComponent<Animator>().speed = 0;
-        rightPlayer.GetComponent<Animator>().speed = 0;
-            
-        // Faz o efeito final
+        // Fecha os comandos
+        gameRunning = false;
+        
+        // Faz o efeito final e congela a animação
         if (!GetComponent<PostProcessing>().doneEffect){
             GetComponent<PostProcessing>().DeathVignette(true);
         }
         else{
             GetComponent<PostProcessing>().DeathVignette(false);
         }
-
+        
+        print(leftPlayerScript.GetComponent<Animator>().speed);
+        
         // Faz o efeito final da camera
         if (!doneCameraEffect){
-            GameObject.FindWithTag("MainCamera").transform.DOMoveY(((leftPlayer.transform.position.y + rightPlayer.transform.position.y) / 2) + 2, 0.1f).OnComplete(() => { doneCameraEffect = true; });
+            GameObject.FindWithTag("MainCamera").transform.DOMove(new Vector3(losingPlayerScript.transform.position.x , ((leftPlayer.transform.position.y + rightPlayer.transform.position.y) / 2) + 2, GameObject.FindWithTag("MainCamera").transform.position.z),  GetComponent<PostProcessing>().startSpeed).OnComplete(() => { 
+                doneCameraEffect = true;
+                leftPlayer.GetComponent<Animator>().speed = 0;
+                rightPlayer.GetComponent<Animator>().speed = 0;
+                StartCoroutine(HitStopStart(120f, 0.05f));
+            });
             if (losingPlayerScript.isLeft){
-                GameObject.FindWithTag("MainCamera").transform.DORotate(new Vector3(0, 0, 5), 0.1f);
+                GameObject.FindWithTag("MainCamera").transform.DORotate(new Vector3(0, 0, 5),  GetComponent<PostProcessing>().startSpeed);
             }
             else{
-                GameObject.FindWithTag("MainCamera").transform.DORotate(new Vector3(0, 0, -5), 0.1f);
+                GameObject.FindWithTag("MainCamera").transform.DORotate(new Vector3(0, 0, -5),  GetComponent<PostProcessing>().startSpeed);
             }
         }
         else{
-            GameObject.FindWithTag("MainCamera").transform.DOMoveY(0, 0.1f);
-            GameObject.FindWithTag("MainCamera").transform.DORotate(new Vector3(0, 0, 0), 0.1f).OnComplete(() => {
-                winningPlayerScript.won = true;
-                losingPlayerScript.lost = true;
-                StopPlayer();
-            });
+            GameObject.FindWithTag("MainCamera").transform.DOMove(new Vector3((leftPlayer.transform.position.x + rightPlayer.transform.position.x) / 2, 0f, camera.transform.position.z),  1f).SetDelay(0.1f);
+            GameObject.FindWithTag("MainCamera").transform.DORotate(new Vector3(0, 0, 0), 1f).OnPlay(() => {
+                if (winningPlayerScript.roundsWon == 1){
+                    RoundUp(winningPlayerScript);
+                }
+
+                if (leftPlayerScript.roundsWon == 2){
+                    uiTexts[7].gameObject.SetActive(true);
+                }
+                if (rightPlayerScript.roundsWon == 2){
+                    uiTexts[9].gameObject.SetActive(true);
+                }
+                
+                if (winningPlayerScript.grounded && !winningPlayerScript.currentlyAttacking){
+                    StopPlayer(winningPlayerScript);
+                    winningPlayerScript.won = true;
+                }
+
+                if (losingPlayerScript.grounded && !losingPlayerScript.currentlyAttacking){
+                    StopPlayer(losingPlayerScript);
+                    losingPlayerScript.lost = true;
+                }
+                
+            }).SetDelay(0.1f);
         }
 
         // Da o hitstop longo
-        StartCoroutine(HitStopStart(120f, 0.05f));
         uiTexts[4].enabled = true;
         uiTexts[4].text = winningPlayerScript.characterName + " wins";
-            
+        
         // Termina o jogo
         StartCoroutine(EndCondition());
     }
 
-    void CameraControl(){
+    private bool coroutineRound = true;
+    
+    void PlayerVictoryRound(playerPlataformerController losingPlayerScript, playerPlataformerController winningPlayerScript){
+        // Fecha os comandos
+        gameRunning = false;
+
+        if (winningPlayerScript.grounded && !winningPlayerScript.currentlyAttacking){
+            StopPlayer(winningPlayerScript);
+            winningPlayerScript.won = true;
+        }
+
+        if (losingPlayerScript.grounded && !losingPlayerScript.currentlyAttacking){
+            StopPlayer(losingPlayerScript);
+            losingPlayerScript.lost = true;
+        }
+
+        if (coroutineRound){
+            StartCoroutine(RestartRound(winningPlayerScript));
+            coroutineRound = false;
+        }
+    }
+
+    IEnumerator RestartRound(playerPlataformerController winner){
+        
+        yield return new WaitForSeconds(1);
+        
+        FadeOut();
+        
+        yield return new WaitForSeconds(1);
+        
+        leftPlayerScript.won = false;
+        leftPlayerScript.lost = false;
+
+        rightPlayerScript.won = false;
+        rightPlayerScript.lost = false;
+
+        rounds++;
+
+        leftPlayerScript.health = leftPlayerScript.maxHealth;
+        rightPlayerScript.health = rightPlayerScript.maxHealth;
+        
+        leftPlayer.transform.position = spawnPoints[0].transform.position;
+        rightPlayer.transform.position = spawnPoints[1].transform.position;
+        
+        rightPlayerScript.isLeft = false;
+        leftPlayerScript.isLeft = true;
+
+        rightPlayerScript.flipCharacterLeft();
+        leftPlayerScript.flipCharacterRight();
+
         // Faz a camera ficar entre os dois personages
         camera.transform.position = new Vector3((leftPlayer.transform.position.x + rightPlayer.transform.position.x) / 2, camera.transform.position.y, camera.transform.position.z);
-        
+
         // Pega a difereça dos dois players
         float diffPos = Math.Abs(leftPlayer.transform.position.x - rightPlayer.transform.position.x);
-        
+
         // Se a difereça for maior que 30 a camera muda de tamanho
         if (diffPos >= 30){
             camera.GetComponent<Camera>().orthographicSize = diffPos / 3f;
@@ -291,16 +486,108 @@ public class GameController : MonoBehaviour{
         else{
             camera.GetComponent<Camera>().orthographicSize = 10;
         }
-
-        // Se a diferença for maior ou igual a 40 o personagem não pode ir mais para trás
-        if (diffPos >= 40){
-            leftPlayerScript.canMoveBack = false;
-            rightPlayerScript.canMoveBack = false;
+        
+        yield return new WaitForSeconds(1);
+        
+        RoundUp(winner);
+        if (leftPlayerScript.roundsWon == 1){
+            uiTexts[6].gameObject.SetActive(true);
         }
-        else{
-            leftPlayerScript.canMoveBack = true;
-            rightPlayerScript.canMoveBack = true;
+        
+        if (rightPlayerScript.roundsWon == 1){
+            uiTexts[8].gameObject.SetActive(true);
+        }
+
+        FadeIn();
+        
+        yield return new WaitForSeconds(1);
+        
+        uiTexts[4].enabled = true;
+        uiTexts[4].text = "Round " + rounds;
+        
+        yield return new WaitForSeconds(1);
+        
+        uiTexts[4].enabled = false;
+        
+        yield return new WaitForSeconds(0.5f);
+        
+        coroutineRound = true;
+        roundCount = true;
+        uiTexts[4].enabled = true;
+        gameRunning = true;
+        uiTexts[4].text = "FIGHT!";
+        
+        yield return new WaitForSeconds(0.5f);
+        
+        uiTexts[4].enabled = false;
+    }
+
+    private void FadeIn(){
+        transform.GetChild(2).GetComponent<SpriteRenderer>().DOColor(Color.clear, 1).OnComplete(() => {
+            transform.GetChild(2).GetComponent<SpriteRenderer>().color = Color.clear;
+        }).OnPlay(() => {
+            transform.GetChild(2).GetComponent<SpriteRenderer>().color = Color.black;
+        });
+    }
+
+    private void FadeOut(){
+        transform.GetChild(2).GetComponent<SpriteRenderer>().DOColor(Color.black, 1).OnPlay(() => {
+            transform.GetChild(2).GetComponent<SpriteRenderer>().color = Color.clear;
+        }).OnComplete(() => {
+            transform.GetChild(2).GetComponent<SpriteRenderer>().color = Color.black;
+        });
+    }
+
+    void CameraControl(){
+        if (gameRunning){
+            // Faz a camera ficar entre os dois personages
+            camera.transform.position = new Vector3((leftPlayer.transform.position.x + rightPlayer.transform.position.x) / 2, camera.transform.position.y, camera.transform.position.z);
+
+            // Pega a difereça dos dois players
+            float diffPos = Math.Abs(leftPlayer.transform.position.x - rightPlayer.transform.position.x);
+
+            // Se a difereça for maior que 30 a camera muda de tamanho
+            if (diffPos >= 30){
+                camera.GetComponent<Camera>().orthographicSize = diffPos / 3f;
+            }
+            else{
+                camera.GetComponent<Camera>().orthographicSize = 10;
+            }
+
+            // Se a diferença for maior ou igual a 40 o personagem não pode ir mais para trás
+            if (diffPos >= 40){
+                leftPlayerScript.canMoveBack = false;
+                rightPlayerScript.canMoveBack = false;
+            }
+            else{
+                leftPlayerScript.canMoveBack = true;
+                rightPlayerScript.canMoveBack = true;
+            }
         }
 
     }
+
+    private void MapaBGO(){
+        if (!currentlyBGO){
+            var chanceGeral = Random.Range(0, 501);
+
+            if (chanceGeral == 1){
+
+                var chanceLado = Random.Range(0, 2);
+
+                if (chanceLado == 0){
+                    arenas[0].GetComponent<ArenaScript>().SpawnBGO(spawnPoints[4].transform.position);
+                    currentlyBGO = true;
+                }
+                else{
+                    arenas[0].GetComponent<ArenaScript>().SpawnBGO(spawnPoints[5].transform.position);
+                    currentlyBGO = true;
+                }
+
+            }
+            
+        }
+
+    }
+
 }

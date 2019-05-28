@@ -176,8 +176,12 @@ public class AttackCheck : MonoBehaviour{
                 otherPlayer.changeHealth((int) -(damage * 0.1f));
             }
 
-            FindObjectOfType<GameController>().CallHitStop(damage / 8f, 0.05f);
-
+            if (transform.root.GetChild(0).GetComponent<playerPlataformerController>().roundsWon == 0){
+                FindObjectOfType<GameController>().CallHitStop(damage / 8f, 0.05f);
+            } else if (damage < otherPlayer.health){
+                FindObjectOfType<GameController>().CallHitStop(damage / 8f, 0.05f);
+            }
+            
         }
     }
 

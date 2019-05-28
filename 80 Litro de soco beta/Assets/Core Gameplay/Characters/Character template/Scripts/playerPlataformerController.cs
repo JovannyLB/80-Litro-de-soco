@@ -12,7 +12,9 @@ public class playerPlataformerController : PhysicsObject{
     public float health;
     [HideInInspector]public float maxHealth;
     [HideInInspector]public bool won;
+    [HideInInspector]public int roundsWon;
     [HideInInspector]public bool lost;
+    [HideInInspector]public bool gameRunning;
     public Color mainColor;
 
     // Informações sobre movimetação
@@ -58,7 +60,6 @@ public class playerPlataformerController : PhysicsObject{
     [HideInInspector]public int squareTimerSpecial;
     [HideInInspector]public int triangleTimerSpecial;
     [HideInInspector]public int circleTimerSpecial;
-    private ghostTrail ghost;
 
     // Cotroles
     [HideInInspector]public bool xButton;
@@ -76,15 +77,12 @@ public class playerPlataformerController : PhysicsObject{
     protected Animator animator;
 
     // Booleans
-    [HideInInspector]public bool isFlippedSide;
-
-    [HideInInspector] public bool isLeft;
-    protected bool hasFlippedSide;
-    [HideInInspector] public bool inCorner;
-    [HideInInspector] public bool beingJumpedOver;
-    [HideInInspector] public bool jumpingOver;
+    [HideInInspector]public bool isLeft;
+    [HideInInspector]public bool inCorner;
+    [HideInInspector]public bool beingJumpedOver;
+    [HideInInspector]public bool jumpingOver;
     protected bool crouching;
-    protected bool currentlyAttacking;
+    [HideInInspector]public bool currentlyAttacking;
     [HideInInspector]public bool canLightPunch;
     protected bool standLightPunchCurrently;
     [HideInInspector]public bool canHardPunch;
@@ -161,14 +159,12 @@ public class playerPlataformerController : PhysicsObject{
         }
     }
 
-    protected override void ComputeVelocity(){
-        // Vira o personagem
-        if (isFlippedSide && !hasFlippedSide){
-            transform.position = new Vector3(transform.position.x + 20, transform.position.y, transform.position.z);
-            flipCharacterLeft();
-            hasFlippedSide = true;
-        }
+    public void StopInput(){
+        moveHRaw = 0;
+        moveVRaw = 0;
+    }
 
+    protected override void ComputeVelocity(){
         // Pega as inputs do controle
         float moveH = 0;
         float moveV = 0;
@@ -263,14 +259,14 @@ public class playerPlataformerController : PhysicsObject{
         }
 
         // Agachar
-        if (moveVRaw < -0.6f && grounded && !currentlyDashing && !beenHitTorso && !beenHitLeg && !beenHitHead && !jumpingOver){
+        if (moveVRaw < -0.6f && grounded && !currentlyDashing && !beenHitTorso && !beenHitLeg && !beenHitHead && !jumpingOver && !(standHardKickCurrently || standLightKickCurrently || standHardPunchCurrently || standLightPunchCurrently)){
             crouching = true;
             ableToMove = false;
             if (!beingJumpedOver && !currentlyBlockingGeneral && !currentlyAttacking){
                 targetVelocity = Vector2.zero;
             }
         }
-        else{
+        else if(!(crouchHardKickCurrently || crouchHardPunchCurrently || crouchLightKickCurrently || crouchLightPunchCurrently)){
             crouching = false;
         }
 
@@ -419,7 +415,6 @@ public class playerPlataformerController : PhysicsObject{
     // Animação
     protected override void animationStart(){
         animator = GetComponent<Animator>();
-        ghost = GetComponent<ghostTrail>();
     }
 
     protected override void animationUpdate(){
@@ -428,6 +423,8 @@ public class playerPlataformerController : PhysicsObject{
             animator.SetBool("youWin", won);
             animator.SetBool("youLose", lost);
         }
+        
+        animator.SetBool("gameRunning", gameRunning);
 
         // Movimento
         if (grounded){
@@ -522,6 +519,9 @@ public class playerPlataformerController : PhysicsObject{
             gotHitBlockHighEnd();
             gotHitBlockLowEnd();
         }
+        
+        // Prevenção de bugs
+        BugPrevention();
 
         // Blocking
         if (r2 && !crouching && grounded && !currentlyAttacking && !currentlyDashing && !jumpingOver){
@@ -913,6 +913,20 @@ public class playerPlataformerController : PhysicsObject{
         }
         return false;
     }
-    
+
+    private void BugPrevention(){
+        if (grounded && (jumpingKickCurrently || jumpingPunchCurrently)){
+            StopAllAttack();
+        }
+
+        if (crouching && (standHardKickCurrently || standLightKickCurrently || standHardPunchCurrently || standLightPunchCurrently)){
+            StopAllAttack();
+        }
+
+        if (!crouching & (crouchHardKickCurrently || crouchHardPunchCurrently || crouchLightKickCurrently || crouchLightPunchCurrently)){
+            StopAllAttack();
+        }
+    }
+
 }
 
