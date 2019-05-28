@@ -29,7 +29,7 @@ public class AttackCheck : MonoBehaviour{
     void Start(){
         ownPlayer1 = transform.root.GetChild(0).GetComponent<playerPlataformerController>().isPlayer1;
     }
-
+    
     void FixedUpdate(){
         if (pushBackAtual > 0 && transform.root.GetChild(0).GetComponent<playerPlataformerController>().isLeft){
             if (enemy.transform.root.GetChild(0).GetComponent<playerPlataformerController>().inCorner){

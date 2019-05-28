@@ -24,13 +24,14 @@ public class playerPlataformerController : PhysicsObject{
     private float speedTotal;
     [HideInInspector]public bool canMoveBack;
 
-    [HideInInspector] public bool enableControls = true;
+    [HideInInspector]public bool enableControls;
 
     // Atributos de dash
     protected float backDashTimer = 100;
     protected float frontDashTimer = 100;
     private bool ableToMove;
     [HideInInspector]public float posX;
+    [HideInInspector]public float posY;
 
     private float dashFrameTotal = 10;
     private float dashSpeed = 20;
@@ -74,7 +75,7 @@ public class playerPlataformerController : PhysicsObject{
     public bool isPlayer1;
 
     // Animator
-    protected Animator animator;
+    [HideInInspector]public Animator animator;
 
     // Booleans
     [HideInInspector]public bool isLeft;
@@ -127,12 +128,12 @@ public class playerPlataformerController : PhysicsObject{
         if (enableControls){
             // Analógico
             if (isPlayer1){
-                moveHRaw = Input.GetAxisRaw("Horizontal");
-                moveVRaw = Input.GetAxisRaw("Vertical");
+                moveHRaw = Input.GetAxisRaw("Horizontal") + Input.GetAxisRaw("HorizontalDpad");
+                moveVRaw = Input.GetAxisRaw("Vertical") + Input.GetAxisRaw("VerticalDpad");
             }
             else{
-                moveHRaw = Input.GetAxisRaw("Horizontal2");
-                moveVRaw = Input.GetAxisRaw("Vertical2");
+                moveHRaw = Input.GetAxisRaw("Horizontal2") + Input.GetAxisRaw("Horizontal2Dpad");
+                moveVRaw = Input.GetAxisRaw("Vertical2") + Input.GetAxisRaw("Vertical2Dpad");
             }
 
             // Botões
@@ -144,19 +145,19 @@ public class playerPlataformerController : PhysicsObject{
                 r2 = Input.GetKey(KeyCode.Joystick1Button7);
             }
             else{
-                /*xButton = Input.GetKeyDown(KeyCode.Joystick2Button1);
+                xButton = Input.GetKeyDown(KeyCode.Joystick2Button1);
                 square = Input.GetKeyDown(KeyCode.Joystick2Button0);
                 circle = Input.GetKeyDown(KeyCode.Joystick2Button2);
                 triangle = Input.GetKeyDown(KeyCode.Joystick2Button3);
-                r2 = Input.GetKey(KeyCode.Joystick2Button7);*/
-                
-                xButton = Input.GetKeyDown(KeyCode.Z);
-                square = Input.GetKeyDown(KeyCode.X);
-                circle = Input.GetKeyDown(KeyCode.C);
-                triangle = Input.GetKeyDown(KeyCode.V);
-                r2 = Input.GetKey(KeyCode.Space);
+                r2 = Input.GetKey(KeyCode.Joystick2Button7);
             }
         }
+
+        if (!enableControls){
+            moveHRaw = 0;
+            moveVRaw = 0;
+        }
+
     }
 
     public void StopInput(){
@@ -170,6 +171,7 @@ public class playerPlataformerController : PhysicsObject{
         float moveV = 0;
 
         posX = transform.position.x;
+        posY = transform.position.y;
 
         // Transforma analogico em binário (0 ou 1)
         if (moveHRaw > 0){
@@ -283,8 +285,13 @@ public class playerPlataformerController : PhysicsObject{
             targetVelocity = move * walkingSpeed;
         }
 
-        if (!canMoveBack && move.x < 0){
-            targetVelocity = Vector2.zero;
+        if (!canMoveBack){
+            if (isLeft && move.x < 0){
+                targetVelocity = Vector2.zero;
+            }
+            else if(!isLeft && move.x > 0){
+                targetVelocity = Vector2.zero;
+            }
         }
 
         // Faz com que as hitboxes sigam o personagem
@@ -926,6 +933,10 @@ public class playerPlataformerController : PhysicsObject{
         if (!crouching & (crouchHardKickCurrently || crouchHardPunchCurrently || crouchLightKickCurrently || crouchLightPunchCurrently)){
             StopAllAttack();
         }
+    }
+
+    public void MoveTo(Vector3 position){
+        transform.position = position;
     }
 
 }

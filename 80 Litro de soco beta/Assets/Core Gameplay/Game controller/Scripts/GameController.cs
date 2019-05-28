@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections;
-using System.Linq;
 using DG.Tweening;
 using UnityEngine;
-using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -25,7 +23,7 @@ public class GameController : MonoBehaviour{
 
     protected GameObject[] players;
     private bool flipToggle = true;
-    private GameObject camera;
+    private GameObject sceneCamera;
 
     public GameObject[] arenas;
     public bool currentlyBGO;
@@ -41,12 +39,18 @@ public class GameController : MonoBehaviour{
     private float alpha;
     public bool introDone;
 
+    private float totalTime = 60;
+    private float timeLeft;
+
     void Start(){
         // Coloca o mapa
         Instantiate(arenas[0]);
         
         arenas[0].GetComponent<ArenaScript>().SpawnInteractable(spawnPoints[2].transform.position);
         arenas[0].GetComponent<ArenaScript>().SpawnInteractable(spawnPoints[3].transform.position);
+
+        timeLeft = totalTime;
+        uiTexts[10].text = timeLeft.ToString();
         
         // Arrumas os player
         players = GameObject.FindGameObjectsWithTag("Player");
@@ -59,17 +63,16 @@ public class GameController : MonoBehaviour{
                 rightPlayer = player;
             }
         }
-
-        leftPlayer.transform.position = spawnPoints[0].transform.position;
-        rightPlayer.transform.position = spawnPoints[1].transform.position;
-        
         
         // Acha a camera
-        camera = GameObject.FindWithTag("MainCamera");
+        sceneCamera = GameObject.FindWithTag("MainCamera");
         
         // Pega os scripts dos players
         leftPlayerScript = leftPlayer.transform.root.GetChild(0).GetComponent<playerPlataformerController>();
         rightPlayerScript = rightPlayer.transform.root.GetChild(0).GetComponent<playerPlataformerController>();
+        
+        leftPlayerScript.MoveTo(spawnPoints[0].transform.position);
+        rightPlayerScript.MoveTo(spawnPoints[1].transform.position);
 
         // Vira os personagens
         rightPlayerScript.isLeft = false;
@@ -90,6 +93,9 @@ public class GameController : MonoBehaviour{
         uiTexts[7].gameObject.SetActive(false);
         uiTexts[8].gameObject.SetActive(false);
         uiTexts[9].gameObject.SetActive(false);
+        
+        uiTexts[2].gameObject.SetActive(false);
+        uiTexts[3].gameObject.SetActive(false);
 
         // Colocam a cor
         uiImages[0].color = leftPlayerScript.mainColor;
@@ -143,22 +149,20 @@ public class GameController : MonoBehaviour{
         // Pausa o jogo
         if (isPaused){
             Time.timeScale = 0;
-            leftPlayer.GetComponent<Animator>().speed = 0;
-            rightPlayer.GetComponent<Animator>().speed = 0;
+            leftPlayerScript.animator.speed = 0;
+            rightPlayerScript.animator.speed = 0;
             leftPlayerScript.enableControls = false;
             rightPlayerScript.enableControls = false;
             uiTexts[5].enabled = true;
         }
         else{
-            leftPlayerScript.enableControls = true;
-            rightPlayerScript.enableControls = true;
             uiTexts[5].enabled = false;
         }
-
+        
         if (!hitStopCurrently && !isPaused){
             Time.timeScale = 1;
-            leftPlayer.GetComponent<Animator>().speed = 1;
-            rightPlayer.GetComponent<Animator>().speed = 1;
+            leftPlayerScript.animator.speed = 1;
+            rightPlayerScript.animator.speed = 1;
         }
 
         
@@ -189,6 +193,13 @@ public class GameController : MonoBehaviour{
             // Controle
             leftPlayerScript.enableControls = true;
             rightPlayerScript.enableControls = true;
+            timeLeft -= Time.deltaTime;
+            if (timeLeft > 0){
+                uiTexts[10].text = timeLeft.ToString("0");
+            }
+            else{
+                uiTexts[10].text = 0.ToString("0");
+            }
         }
         else{
             leftPlayerScript.enableControls = false;
@@ -273,8 +284,8 @@ public class GameController : MonoBehaviour{
         hitStopCurrently = false;
         
         // Volta as animações
-        leftPlayer.GetComponent<Animator>().speed = 1;
-        rightPlayer.GetComponent<Animator>().speed = 1;
+        leftPlayerScript.animator.speed = 1;
+        rightPlayerScript.animator.speed = 1;
     }
 
     void ComboCounter(){
@@ -282,15 +293,15 @@ public class GameController : MonoBehaviour{
         if (leftPlayerScript.lastHitStun <= 0){
             rightPlayerCombo = 0;
         }
-        else if (leftPlayerScript.lastHitStun == leftPlayerScript.lastHitTaken){
+        else if (leftPlayerScript.lastHitStun == leftPlayerScript.lastHitTaken - 1){
             rightPlayerCombo++;
         }
 
         if (leftPlayerCombo <= 1){
-            uiTexts[2].enabled = false;
+            uiTexts[2].gameObject.SetActive(false);
         }
         else{
-            uiTexts[2].enabled = true;
+            uiTexts[2].gameObject.SetActive(true);
             uiTexts[2].text = leftPlayerCombo + " HITS!";
         }
         
@@ -298,19 +309,22 @@ public class GameController : MonoBehaviour{
         if (rightPlayerScript.lastHitStun <= 0){
             leftPlayerCombo = 0;
         }
-        else if (rightPlayerScript.lastHitStun == rightPlayerScript.lastHitTaken){
+        else if (rightPlayerScript.lastHitStun == rightPlayerScript.lastHitTaken - 1){
             leftPlayerCombo++;
         }
         
         if (rightPlayerCombo <= 1){
-            uiTexts[3].enabled = false;
+            uiTexts[3].gameObject.SetActive(false);
         }
         else{
-            uiTexts[3].enabled = true;
+            uiTexts[3].gameObject.SetActive(true);
             uiTexts[3].text = rightPlayerCombo + " HITS!";
         }
     }
 
+    private bool winningChance = true;
+    private bool winningChanceGame = true;
+    
     void PlayerHealth(){
         // Left player
             if (leftPlayerScript.health > 0){
@@ -333,19 +347,43 @@ public class GameController : MonoBehaviour{
             }
             
             // Rounds condition
-            if (leftPlayerScript.health <= 0 && rightPlayerScript.roundsWon == 0){
+            if ((leftPlayerScript.health <= 0 && rightPlayerScript.roundsWon == 0) || (timeLeft <= 0 && leftPlayerScript.health < rightPlayerScript.health && rightPlayerScript.roundsWon == 0)){
                 PlayerVictoryRound(leftPlayerScript, rightPlayerScript);
             }
-            else if (rightPlayerScript.health <= 0 && leftPlayerScript.roundsWon == 0){
+            else if ((rightPlayerScript.health <= 0 && leftPlayerScript.roundsWon == 0) || (timeLeft <= 0 && rightPlayerScript.health < leftPlayerScript.health && leftPlayerScript.roundsWon == 0)){
                 PlayerVictoryRound(rightPlayerScript, leftPlayerScript);
-            } 
+            }
+            else if (timeLeft <= 0 && rightPlayerScript.health == leftPlayerScript.health && rightPlayerScript.roundsWon == 0 && leftPlayerScript.roundsWon == 0){
+                var chance = Random.Range(0, 2);
+                if (chance == 0 && winningChance){
+                    PlayerVictoryRound(leftPlayerScript, rightPlayerScript);
+                    winningChance = false;
+                }
+                else if (chance == 1 && winningChance){
+                    PlayerVictoryRound(rightPlayerScript, leftPlayerScript);
+                    winningChance = false;
+                }
+            }
             
             // Win condition
-            else if (leftPlayerScript.health <= 0 && rightPlayerScript.roundsWon >= 1){
+            else if (leftPlayerScript.health <= 0 && rightPlayerScript.roundsWon >= 1 || (timeLeft <= 0 && leftPlayerScript.health < rightPlayerScript.health && rightPlayerScript.roundsWon >= 1)){
                 PlayerVictory(leftPlayerScript, rightPlayerScript);
             }
-            else if (rightPlayerScript.health <= 0 && leftPlayerScript.roundsWon >= 1){
+            else if (rightPlayerScript.health <= 0 && leftPlayerScript.roundsWon >= 1 || (timeLeft <= 0 && rightPlayerScript.health < leftPlayerScript.health && leftPlayerScript.roundsWon >= 1)){
                 PlayerVictory(rightPlayerScript, leftPlayerScript);
+            }
+            else if (timeLeft <= 0 && rightPlayerScript.health == leftPlayerScript.health){
+                if (rightPlayerScript.roundsWon > leftPlayerScript.roundsWon){
+                    PlayerVictory(leftPlayerScript, rightPlayerScript);
+                }
+                else if (rightPlayerScript.roundsWon < leftPlayerScript.roundsWon){
+                    PlayerVictory(rightPlayerScript, leftPlayerScript);
+                }
+                else{
+                    rightPlayerScript.health = 1;
+                    leftPlayerScript.health = 1;
+                    uiTexts[10].color = Color.red;
+                }
             }
         
     }
@@ -370,15 +408,13 @@ public class GameController : MonoBehaviour{
         else{
             GetComponent<PostProcessing>().DeathVignette(false);
         }
-        
-        print(leftPlayerScript.GetComponent<Animator>().speed);
-        
+
         // Faz o efeito final da camera
         if (!doneCameraEffect){
-            GameObject.FindWithTag("MainCamera").transform.DOMove(new Vector3(losingPlayerScript.transform.position.x , ((leftPlayer.transform.position.y + rightPlayer.transform.position.y) / 2) + 2, GameObject.FindWithTag("MainCamera").transform.position.z),  GetComponent<PostProcessing>().startSpeed).OnComplete(() => { 
+            GameObject.FindWithTag("MainCamera").transform.DOMove(new Vector3(losingPlayerScript.posX , ((leftPlayerScript.posY + rightPlayerScript.posY) / 2) + 2, GameObject.FindWithTag("MainCamera").transform.position.z),  GetComponent<PostProcessing>().startSpeed).OnComplete(() => { 
                 doneCameraEffect = true;
-                leftPlayer.GetComponent<Animator>().speed = 0;
-                rightPlayer.GetComponent<Animator>().speed = 0;
+                leftPlayerScript.animator.speed = 0;
+                rightPlayerScript.animator.speed = 0;
                 StartCoroutine(HitStopStart(120f, 0.05f));
             });
             if (losingPlayerScript.isLeft){
@@ -389,7 +425,7 @@ public class GameController : MonoBehaviour{
             }
         }
         else{
-            GameObject.FindWithTag("MainCamera").transform.DOMove(new Vector3((leftPlayer.transform.position.x + rightPlayer.transform.position.x) / 2, 0f, camera.transform.position.z),  1f).SetDelay(0.1f);
+            GameObject.FindWithTag("MainCamera").transform.DOMove(new Vector3((leftPlayerScript.posX + rightPlayerScript.posX) / 2, 0f, sceneCamera.transform.position.z),  1f).SetDelay(0.1f);
             GameObject.FindWithTag("MainCamera").transform.DORotate(new Vector3(0, 0, 0), 1f).OnPlay(() => {
                 if (winningPlayerScript.roundsWon == 1){
                     RoundUp(winningPlayerScript);
@@ -452,6 +488,11 @@ public class GameController : MonoBehaviour{
         FadeOut();
         
         yield return new WaitForSeconds(1);
+
+        winningChance = true;
+        
+        timeLeft = totalTime;
+        uiTexts[10].text = timeLeft.ToString("0");
         
         leftPlayerScript.won = false;
         leftPlayerScript.lost = false;
@@ -464,8 +505,8 @@ public class GameController : MonoBehaviour{
         leftPlayerScript.health = leftPlayerScript.maxHealth;
         rightPlayerScript.health = rightPlayerScript.maxHealth;
         
-        leftPlayer.transform.position = spawnPoints[0].transform.position;
-        rightPlayer.transform.position = spawnPoints[1].transform.position;
+        leftPlayerScript.MoveTo(spawnPoints[0].transform.position);
+        rightPlayerScript.MoveTo(spawnPoints[1].transform.position);
         
         rightPlayerScript.isLeft = false;
         leftPlayerScript.isLeft = true;
@@ -474,17 +515,17 @@ public class GameController : MonoBehaviour{
         leftPlayerScript.flipCharacterRight();
 
         // Faz a camera ficar entre os dois personages
-        camera.transform.position = new Vector3((leftPlayer.transform.position.x + rightPlayer.transform.position.x) / 2, camera.transform.position.y, camera.transform.position.z);
+        sceneCamera.transform.position = new Vector3(0, sceneCamera.transform.position.y, sceneCamera.transform.position.z);
 
         // Pega a difereça dos dois players
-        float diffPos = Math.Abs(leftPlayer.transform.position.x - rightPlayer.transform.position.x);
+        float diffPos = Math.Abs(leftPlayerScript.posX - rightPlayerScript.posX);
 
         // Se a difereça for maior que 30 a camera muda de tamanho
         if (diffPos >= 30){
-            camera.GetComponent<Camera>().orthographicSize = diffPos / 3f;
+            sceneCamera.GetComponent<Camera>().orthographicSize = diffPos / 3f;
         }
         else{
-            camera.GetComponent<Camera>().orthographicSize = 10;
+            sceneCamera.GetComponent<Camera>().orthographicSize = 10;
         }
         
         yield return new WaitForSeconds(1);
@@ -541,17 +582,17 @@ public class GameController : MonoBehaviour{
     void CameraControl(){
         if (gameRunning){
             // Faz a camera ficar entre os dois personages
-            camera.transform.position = new Vector3((leftPlayer.transform.position.x + rightPlayer.transform.position.x) / 2, camera.transform.position.y, camera.transform.position.z);
+            sceneCamera.transform.position = new Vector3((leftPlayerScript.posX + rightPlayerScript.posX) / 2, sceneCamera.transform.position.y, sceneCamera.transform.position.z);
 
             // Pega a difereça dos dois players
-            float diffPos = Math.Abs(leftPlayer.transform.position.x - rightPlayer.transform.position.x);
+            float diffPos = Math.Abs(leftPlayerScript.posX - rightPlayerScript.posX);
 
             // Se a difereça for maior que 30 a camera muda de tamanho
             if (diffPos >= 30){
-                camera.GetComponent<Camera>().orthographicSize = diffPos / 3f;
+                sceneCamera.GetComponent<Camera>().orthographicSize = diffPos / 3f;
             }
             else{
-                camera.GetComponent<Camera>().orthographicSize = 10;
+                sceneCamera.GetComponent<Camera>().orthographicSize = 10;
             }
 
             // Se a diferença for maior ou igual a 40 o personagem não pode ir mais para trás
@@ -583,11 +624,8 @@ public class GameController : MonoBehaviour{
                     arenas[0].GetComponent<ArenaScript>().SpawnBGO(spawnPoints[5].transform.position);
                     currentlyBGO = true;
                 }
-
             }
-            
         }
-
     }
 
 }
