@@ -24,6 +24,7 @@ public class AttackCheck : MonoBehaviour{
     private bool attackDefended;
 
     [HideInInspector]public ParticleSystem blood;
+    [HideInInspector]public ParticleSystem hitSplash;
     
     
     void Start(){
@@ -58,6 +59,10 @@ public class AttackCheck : MonoBehaviour{
             transform.root.GetChild(0).GetComponent<playerPlataformerController>().targetVelocity = new Vector2(1, 0) * (pushBackStrengh / 2.5f);
             pushBackAtualSelf--;
         }
+
+        if (!transform.root.GetChild(0).GetComponent<playerPlataformerController>().currentlyAttacking){
+            isHitting = false;
+        }
     }
 
     private void OnTriggerStay2D(Collider2D other){
@@ -69,14 +74,17 @@ public class AttackCheck : MonoBehaviour{
                     if (!otherPlayer.isBlockingHigh && !otherPlayer.isBlockingLow){
                         otherPlayer.gotHitHeadStart();
                         setPushBack();
+                        spawnParticle(otherPlayer, 0);
                         attackDefended = false;
                     } else if (otherPlayer.isBlockingLow && overHeadAttack){
                         otherPlayer.gotHitHeadStart();
                         setPushBack();
+                        spawnParticle(otherPlayer, 0);
                         attackDefended = false;
                     } else if (otherPlayer.isBlockingHigh && lowAttack){
                         otherPlayer.gotHitHeadStart();
                         setPushBack();
+                        spawnParticle(otherPlayer, 0);
                         attackDefended = false;
                     }
                     else{
@@ -91,21 +99,22 @@ public class AttackCheck : MonoBehaviour{
                         attackDefended = true;
                     }
 
-                    spawnParticle(otherPlayer, 0);
-                    
                     break;
                 case "Torso":
                     if (!otherPlayer.isBlockingHigh && !otherPlayer.isBlockingLow){
                         otherPlayer.gotHitTorsoStart();
                         setPushBack();
+                        spawnParticle(otherPlayer, 1);
                         attackDefended = false;
                     } else if (otherPlayer.isBlockingLow && overHeadAttack){
                         otherPlayer.gotHitTorsoStart();
                         setPushBack();
+                        spawnParticle(otherPlayer, 1);
                         attackDefended = false;
                     } else if (otherPlayer.isBlockingHigh && lowAttack){
                         otherPlayer.gotHitTorsoStart();
                         setPushBack();
+                        spawnParticle(otherPlayer, 1);
                         attackDefended = false;
                     }
                     else{
@@ -119,22 +128,23 @@ public class AttackCheck : MonoBehaviour{
                         }
                         attackDefended = true;
                     }
-                    
-                    spawnParticle(otherPlayer, 1);
 
                     break;
                 case "Legs":
                     if (!otherPlayer.isBlockingHigh && !otherPlayer.isBlockingLow){
                         otherPlayer.gotHitLegStart();
                         setPushBack();
+                        spawnParticle(otherPlayer, 2);
                         attackDefended = false;
                     } else if (otherPlayer.isBlockingLow && overHeadAttack){
                         otherPlayer.gotHitLegStart();
                         setPushBack();
+                        spawnParticle(otherPlayer, 2);
                         attackDefended = false;
                     } else if (otherPlayer.isBlockingHigh && lowAttack){
                         otherPlayer.gotHitLegStart();
                         setPushBack();
+                        spawnParticle(otherPlayer, 2);
                         attackDefended = false;
                     }
                     else{
@@ -148,8 +158,6 @@ public class AttackCheck : MonoBehaviour{
                         }
                         attackDefended = true;
                     }
-                    
-                    spawnParticle(otherPlayer, 2);
 
                     break;
                 default:
@@ -167,6 +175,7 @@ public class AttackCheck : MonoBehaviour{
             
             hasHit = true;
             transform.root.GetChild(0).GetComponent<playerPlataformerController>().lastHitHasHit = true;
+            transform.root.GetChild(0).GetComponent<playerPlataformerController>().targetVelocity = Vector2.zero;
             enemy = other.gameObject;
 
             if (!attackDefended){
@@ -214,6 +223,16 @@ public class AttackCheck : MonoBehaviour{
 
         ParticleSystem.VelocityOverLifetimeModule editableSpeed = currentBlood.velocityOverLifetime;
         editableSpeed.speedModifier =  Mathf.Ceil(pushBackStrengh / 12f);
+
+        if (placeStruck == 0){
+            Instantiate(hitSplash, new Vector3(otherPlayer.transform.position.x, otherPlayer.transform.position.y + 4f, 0), Quaternion.identity);
+        }
+        else if (placeStruck == 1){
+            Instantiate(hitSplash, new Vector3(otherPlayer.transform.position.x, otherPlayer.transform.position.y + 2f, 0), Quaternion.identity);
+        }
+        else{
+            Instantiate(hitSplash, new Vector3(otherPlayer.transform.position.x, otherPlayer.transform.position.y - 1.5f, 0), Quaternion.identity);
+        }
     }
 
 }

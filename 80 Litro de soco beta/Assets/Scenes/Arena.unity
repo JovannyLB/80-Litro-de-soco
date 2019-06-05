@@ -197,6 +197,7 @@ MonoBehaviour:
   overHeadAttack: 0
   lowAttack: 1
   blood: {fileID: 0}
+  hitSplash: {fileID: 0}
 --- !u!1 &21492255
 GameObject:
   m_ObjectHideFlags: 0
@@ -382,6 +383,7 @@ MonoBehaviour:
   overHeadAttack: 0
   lowAttack: 1
   blood: {fileID: 0}
+  hitSplash: {fileID: 0}
 --- !u!61 &99447694
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -459,6 +461,7 @@ MonoBehaviour:
   overHeadAttack: 0
   lowAttack: 0
   blood: {fileID: 0}
+  hitSplash: {fileID: 0}
 --- !u!61 &123216139
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -817,6 +820,7 @@ MonoBehaviour:
   grounded: 0
   targetVelocity: {x: 0, y: 0}
   velocity: {x: 0, y: 0}
+  onTopP: 0
   characterName: Chico Lopes
   health: 1000
   maxHealth: 0
@@ -825,7 +829,7 @@ MonoBehaviour:
   lost: 0
   gameRunning: 0
   mainColor: {r: 0, g: 0.167027, b: 1, a: 1}
-  walkingSpeed: 7
+  walkingSpeed: 10
   canMoveBack: 0
   enableControls: 1
   posX: 0
@@ -864,12 +868,15 @@ MonoBehaviour:
   hardSpecial3Currently: 0
   lastHitStun: 0
   lastHitTaken: 0
+  liveProjectile: 0
   lastHitHasHit: 0
   beenHitTorso: 0
   beenHitHead: 0
   beenHitLeg: 0
   blockedHigh: 0
   blockedLow: 0
+  block: {fileID: 0}
+  blockSplash: {fileID: 0}
   hurtbox:
   - {fileID: 1485644761}
   - {fileID: 1842744879}
@@ -993,6 +1000,7 @@ MonoBehaviour:
   overHeadAttack: 0
   lowAttack: 0
   blood: {fileID: 0}
+  hitSplash: {fileID: 0}
 --- !u!61 &260552380
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1181,6 +1189,7 @@ MonoBehaviour:
   overHeadAttack: 0
   lowAttack: 0
   blood: {fileID: 0}
+  hitSplash: {fileID: 0}
 --- !u!61 &287285565
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1376,6 +1385,7 @@ MonoBehaviour:
   grounded: 0
   targetVelocity: {x: 0, y: 0}
   velocity: {x: 0, y: 0}
+  onTopP: 0
   characterName: Joaquim Famoso
   health: 1000
   maxHealth: 0
@@ -1423,12 +1433,15 @@ MonoBehaviour:
   hardSpecial3Currently: 0
   lastHitStun: 0
   lastHitTaken: 0
+  liveProjectile: 0
   lastHitHasHit: 0
   beenHitTorso: 0
   beenHitHead: 0
   beenHitLeg: 0
   blockedHigh: 0
   blockedLow: 0
+  block: {fileID: 0}
+  blockSplash: {fileID: 0}
   hurtbox:
   - {fileID: 1583335839}
   - {fileID: 123216139}
@@ -1886,6 +1899,7 @@ MonoBehaviour:
   overHeadAttack: 1
   lowAttack: 0
   blood: {fileID: 0}
+  hitSplash: {fileID: 0}
 --- !u!61 &446927290
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2033,6 +2047,7 @@ MonoBehaviour:
   overHeadAttack: 0
   lowAttack: 1
   blood: {fileID: 0}
+  hitSplash: {fileID: 0}
 --- !u!61 &477514357
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2333,6 +2348,7 @@ MonoBehaviour:
   overHeadAttack: 0
   lowAttack: 1
   blood: {fileID: 0}
+  hitSplash: {fileID: 0}
 --- !u!61 &562909902
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2521,6 +2537,7 @@ MonoBehaviour:
   overHeadAttack: 0
   lowAttack: 0
   blood: {fileID: 0}
+  hitSplash: {fileID: 0}
 --- !u!61 &591797872
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3021,6 +3038,7 @@ MonoBehaviour:
   overHeadAttack: 0
   lowAttack: 0
   blood: {fileID: 0}
+  hitSplash: {fileID: 0}
 --- !u!1 &772489536
 GameObject:
   m_ObjectHideFlags: 0
@@ -3246,6 +3264,7 @@ MonoBehaviour:
   overHeadAttack: 0
   lowAttack: 0
   blood: {fileID: 0}
+  hitSplash: {fileID: 0}
 --- !u!61 &849567380
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3503,6 +3522,7 @@ MonoBehaviour:
   overHeadAttack: 0
   lowAttack: 0
   blood: {fileID: 0}
+  hitSplash: {fileID: 0}
 --- !u!61 &949411858
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3650,6 +3670,7 @@ MonoBehaviour:
   overHeadAttack: 1
   lowAttack: 0
   blood: {fileID: 0}
+  hitSplash: {fileID: 0}
 --- !u!61 &994763669
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3776,6 +3797,7 @@ MonoBehaviour:
   overHeadAttack: 0
   lowAttack: 0
   blood: {fileID: 0}
+  hitSplash: {fileID: 0}
 --- !u!61 &1060520865
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3886,6 +3908,7 @@ MonoBehaviour:
   overHeadAttack: 1
   lowAttack: 0
   blood: {fileID: 0}
+  hitSplash: {fileID: 0}
 --- !u!61 &1072531213
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3989,6 +4012,7 @@ MonoBehaviour:
   overHeadAttack: 0
   lowAttack: 0
   blood: {fileID: 0}
+  hitSplash: {fileID: 0}
 --- !u!1 &1154965886
 GameObject:
   m_ObjectHideFlags: 0
@@ -4520,6 +4544,7 @@ MonoBehaviour:
   overHeadAttack: 0
   lowAttack: 0
   blood: {fileID: 0}
+  hitSplash: {fileID: 0}
 --- !u!1 &1516050325
 GameObject:
   m_ObjectHideFlags: 0
@@ -4571,6 +4596,7 @@ MonoBehaviour:
   overHeadAttack: 0
   lowAttack: 1
   blood: {fileID: 0}
+  hitSplash: {fileID: 0}
 --- !u!61 &1516050328
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4905,6 +4931,7 @@ MonoBehaviour:
   overHeadAttack: 0
   lowAttack: 0
   blood: {fileID: 0}
+  hitSplash: {fileID: 0}
 --- !u!61 &1583335839
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5399,6 +5426,7 @@ MonoBehaviour:
   overHeadAttack: 1
   lowAttack: 0
   blood: {fileID: 0}
+  hitSplash: {fileID: 0}
 --- !u!61 &1684849136
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5601,6 +5629,7 @@ MonoBehaviour:
   overHeadAttack: 0
   lowAttack: 1
   blood: {fileID: 0}
+  hitSplash: {fileID: 0}
 --- !u!61 &1740270840
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5678,6 +5707,7 @@ MonoBehaviour:
   overHeadAttack: 0
   lowAttack: 0
   blood: {fileID: 0}
+  hitSplash: {fileID: 0}
 --- !u!61 &1745548638
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5890,6 +5920,7 @@ MonoBehaviour:
   overHeadAttack: 0
   lowAttack: 0
   blood: {fileID: 0}
+  hitSplash: {fileID: 0}
 --- !u!1 &1848232019
 GameObject:
   m_ObjectHideFlags: 0
@@ -6127,6 +6158,36 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!1 &1970672112
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1970672113}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1970672113
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970672112}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -10.08, y: -6.69, z: -232}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1994412994
 GameObject:
   m_ObjectHideFlags: 0
@@ -6178,6 +6239,7 @@ MonoBehaviour:
   overHeadAttack: 0
   lowAttack: 0
   blood: {fileID: 0}
+  hitSplash: {fileID: 0}
 --- !u!61 &1994412997
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6255,6 +6317,7 @@ MonoBehaviour:
   overHeadAttack: 0
   lowAttack: 0
   blood: {fileID: 0}
+  hitSplash: {fileID: 0}
 --- !u!61 &2007093783
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6358,6 +6421,7 @@ MonoBehaviour:
   overHeadAttack: 0
   lowAttack: 1
   blood: {fileID: 0}
+  hitSplash: {fileID: 0}
 --- !u!1 &2055483807
 GameObject:
   m_ObjectHideFlags: 0
@@ -6514,6 +6578,7 @@ MonoBehaviour:
   overHeadAttack: 0
   lowAttack: 0
   blood: {fileID: 0}
+  hitSplash: {fileID: 0}
 --- !u!1 &2074335800
 GameObject:
   m_ObjectHideFlags: 0
@@ -6576,6 +6641,9 @@ MonoBehaviour:
   - {fileID: 1698366240}
   particles:
   - {fileID: 5944951978419553840, guid: e49ec32e313b8474caa6c75e3261c524, type: 3}
+  - {fileID: 6730292963984573682, guid: c633fadbb9f0fb6418c08d59861e60c0, type: 3}
+  - {fileID: 1771600121316546893, guid: aed8733f7424d2947964ee5327688837, type: 3}
+  - {fileID: 2222337543966431393, guid: c28bd9cac65c847438d835e26145f400, type: 3}
   introDone: 0
 --- !u!4 &2074335802
 Transform:
@@ -6827,6 +6895,7 @@ MonoBehaviour:
   overHeadAttack: 0
   lowAttack: 1
   blood: {fileID: 0}
+  hitSplash: {fileID: 0}
 --- !u!61 &2146910491
 BoxCollider2D:
   m_ObjectHideFlags: 0

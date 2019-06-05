@@ -11,7 +11,7 @@ public class projectileSpecialCheck : MonoBehaviour{
     public int damage;
     
     public GameObject projectile;
-
+    
     public void instantiateProjectile(){
         var newProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
         newProjectile.GetComponent<projectileLifeCheck>().ownPlayerScript = transform.root.GetChild(0).GetComponent<playerPlataformerController>();

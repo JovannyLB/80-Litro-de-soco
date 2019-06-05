@@ -20,7 +20,7 @@ public class playerPlataformerController : PhysicsObject{
     // Informações sobre movimetação
     private float jumpTakeOffSpeed = 45;
     private float jumpTakeOffHorizontal = 13;
-    [HideInInspector]public float walkingSpeed = 7;
+    [HideInInspector]public float walkingSpeed = 10;
     private float speedTotal;
     [HideInInspector]public bool canMoveBack;
 
@@ -46,10 +46,10 @@ public class playerPlataformerController : PhysicsObject{
     private bool currentlyDashing;
     private float dashCooldown;
     private bool canDash;
-    [HideInInspector] public bool jumping;
+    [HideInInspector]public bool jumping;
 
-    [HideInInspector] public bool isBlockingHigh;
-    [HideInInspector] public bool isBlockingLow;
+    [HideInInspector]public bool isBlockingHigh;
+    [HideInInspector]public bool isBlockingLow;
     private bool currentlyBlockingGeneral;
 
     // Checagem de especiais
@@ -98,6 +98,7 @@ public class playerPlataformerController : PhysicsObject{
     protected bool crouchHardKickCurrently;
     protected bool jumpingPunchCurrently;
     protected bool jumpingKickCurrently;
+    protected bool canJumpAttack;
     private bool cancelSpecial;
     [HideInInspector]public bool lightSpecial1Currently;
     [HideInInspector]public bool lightSpecial2Currently;
@@ -109,12 +110,16 @@ public class playerPlataformerController : PhysicsObject{
     [HideInInspector]public int lastHitTaken;
     protected int lastHitStunBlock;
     private bool hitStunFreezeAnim;
+    [HideInInspector]public bool liveProjectile;
     [HideInInspector]public bool lastHitHasHit;
     [HideInInspector]public bool beenHitTorso;
     [HideInInspector]public bool beenHitHead;
     [HideInInspector]public bool beenHitLeg;
     [HideInInspector]public bool blockedHigh;
     [HideInInspector]public bool blockedLow;
+    
+    [HideInInspector]public ParticleSystem block;
+    [HideInInspector]public ParticleSystem blockSplash;
 
     [Header("Hitboxes and hurtboxes")]
 
@@ -149,7 +154,8 @@ public class playerPlataformerController : PhysicsObject{
                 square = Input.GetKeyDown(KeyCode.Joystick2Button0);
                 circle = Input.GetKeyDown(KeyCode.Joystick2Button2);
                 triangle = Input.GetKeyDown(KeyCode.Joystick2Button3);
-                r2 = Input.GetKey(KeyCode.Joystick2Button7);
+//                r2 = Input.GetKey(KeyCode.Joystick2Button7);
+                r2 = Input.GetKey(KeyCode.Space);
             }
         }
 
@@ -526,7 +532,12 @@ public class playerPlataformerController : PhysicsObject{
             gotHitBlockHighEnd();
             gotHitBlockLowEnd();
         }
-        
+
+        // Um ataque aerio
+        if (grounded){
+            canJumpAttack = true;
+        }
+
         // Prevenção de bugs
         BugPrevention();
 
@@ -557,45 +568,47 @@ public class playerPlataformerController : PhysicsObject{
         KeyCheckSpecial(moveHRaw, moveVRaw);
 
         // Light punches
-        if (square && grounded && !crouching && !currentlyAttacking && !currentlyDashing && !jumpingOver && canLightPunch){
+        if (square && grounded && !crouching && !currentlyAttacking && !currentlyDashing && !jumpingOver && canLightPunch && !currentlyBlockingGeneral){
             StandLightPunch();
         }
-        else if (square && grounded && crouching && !currentlyAttacking && !currentlyDashing && !jumpingOver && canLightPunch){
+        else if (square && grounded && crouching && !currentlyAttacking && !currentlyDashing && !jumpingOver && canLightPunch && !currentlyBlockingGeneral){
             CrouchLightPunch();
         }
 
         // Hard punches
-        if (triangle && grounded && !crouching && !currentlyAttacking && !currentlyDashing && !jumpingOver && canHardPunch){
+        if (triangle && grounded && !crouching && !currentlyAttacking && !currentlyDashing && !jumpingOver && canHardPunch && !currentlyBlockingGeneral){
             StandHardPunch();
         }
-        else if (triangle && grounded && crouching && !currentlyAttacking && !currentlyDashing && !jumpingOver && canHardPunch){
+        else if (triangle && grounded && crouching && !currentlyAttacking && !currentlyDashing && !jumpingOver && canHardPunch && !currentlyBlockingGeneral){
             CrouchHardPunch();
         }
 
         // Light kick's
-        if (xButton && grounded && !crouching && !currentlyAttacking && !currentlyDashing && !jumpingOver && canLightKick){
+        if (xButton && grounded && !crouching && !currentlyAttacking && !currentlyDashing && !jumpingOver && canLightKick && !currentlyBlockingGeneral){
             StandLightKick();
         }
-        else if (xButton && grounded && crouching && !currentlyAttacking && !currentlyDashing && !jumpingOver && canLightKick){
+        else if (xButton && grounded && crouching && !currentlyAttacking && !currentlyDashing && !jumpingOver && canLightKick && !currentlyBlockingGeneral){
             CrouchLightKick();
         }
 
         // Hard kick's
-        if (circle && grounded && !crouching && !currentlyAttacking && !currentlyDashing && !jumpingOver && canHardKick){
+        if (circle && grounded && !crouching && !currentlyAttacking && !currentlyDashing && !jumpingOver && canHardKick && !currentlyBlockingGeneral){
             StandHardKick();
         }
-        else if (circle && grounded && crouching && !currentlyAttacking && !currentlyDashing && !jumpingOver && canHardKick){
+        else if (circle && grounded && crouching && !currentlyAttacking && !currentlyDashing && !jumpingOver && canHardKick && !currentlyBlockingGeneral){
             CrouchHardKick();
         }
 
         // Jump punch
-        if (square && !grounded && !crouching && !currentlyAttacking && !currentlyDashing || triangle && !grounded && !crouching && !currentlyAttacking && !currentlyDashing){
+        if (square && !grounded && !crouching && !currentlyAttacking && !currentlyDashing && canJumpAttack || triangle && !grounded && !crouching && !currentlyAttacking && !currentlyDashing && canJumpAttack){
             JumpPunch();
+            canJumpAttack = false;
         }
 
         // Jump kick
-        if (xButton && !grounded && !crouching && !currentlyAttacking && !currentlyDashing || circle && !grounded && !crouching && !currentlyAttacking && !currentlyDashing){
+        if (xButton && !grounded && !crouching && !currentlyAttacking && !currentlyDashing && canJumpAttack || circle && !grounded && !crouching && !currentlyAttacking && !currentlyDashing && canJumpAttack){
             JumpKick();
+            canJumpAttack = false;
         }
     }
 
@@ -837,6 +850,7 @@ public class playerPlataformerController : PhysicsObject{
 
     public void gotHitBlockHighStart(){
         blockedHigh = true;
+        SpawnParticle(isLeft, true);
     }
 
     public void gotHitBlockHighEnd(){
@@ -844,11 +858,36 @@ public class playerPlataformerController : PhysicsObject{
     }
 
     public void gotHitBlockLowStart(){
+        SpawnParticle(isLeft, false);
         blockedLow = true;
+        
     }
 
     public void gotHitBlockLowEnd(){
         blockedLow = false;
+    }
+
+    private void SpawnParticle(bool side, bool high){
+        if (high){
+            if (side){
+                Instantiate(block, new Vector3(transform.position.x + 1, transform.position.y + 3f, 0), Quaternion.Euler(-180, 60, 0));
+                Instantiate(blockSplash, new Vector3(transform.position.x + 1, transform.position.y + 3f, 0), Quaternion.identity);
+            }
+            else{
+                Instantiate(block, new Vector3(transform.position.x - 1, transform.position.y + 3f, 0), Quaternion.Euler(-180, -60, 0));
+                Instantiate(blockSplash, new Vector3(transform.position.x - 1, transform.position.y + 3f, 0), Quaternion.identity);
+            }
+        }
+        else if (!high){
+            if (side){
+                Instantiate(block, new Vector3(transform.position.x + 1, transform.position.y + 1.75f, 0), Quaternion.Euler(-180, 60, 0));
+                Instantiate(blockSplash, new Vector3(transform.position.x + 1, transform.position.y + 1.75f, 0), Quaternion.identity);
+            }
+            else{
+                Instantiate(block, new Vector3(transform.position.x - 1, transform.position.y + 1.75f, 0), Quaternion.Euler(-180, -60, 0));
+                Instantiate(blockSplash, new Vector3(transform.position.x - 1, transform.position.y + 1.75f, 0), Quaternion.identity);
+            }
+        }
     }
 
     // Para todos ataques atuais

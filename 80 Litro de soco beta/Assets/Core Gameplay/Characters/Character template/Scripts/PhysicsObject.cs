@@ -18,6 +18,8 @@ public class PhysicsObject : MonoBehaviour{
     protected const float minMoveDistance = 0.001f;
     protected const float shellRadius = 0.01f;
 
+    [HideInInspector]public bool onTopP;
+
     void OnEnable(){
         rb2d = GetComponent<Rigidbody2D>();
     }
@@ -89,7 +91,7 @@ public class PhysicsObject : MonoBehaviour{
 
             for (int i = 0; i < hitBufferList.Count; i++){
                 Vector2 currentNormal = hitBufferList[i].normal;
-                if (currentNormal.y > minGroundNormalY){
+                if (currentNormal.y > minGroundNormalY && !onTopP){
                     grounded = true;
                     if (yMovement){
                         groundNormal = currentNormal;

@@ -10,6 +10,8 @@ public class jumpOverCheck : MonoBehaviour{
     private GameObject enemy;
 
     private void FixedUpdate(){
+        transform.root.GetChild(0).GetComponent<playerPlataformerController>().onTopP = onTop;
+        
         if (onTop){
             enemy.GetComponent<playerPlataformerController>().beingJumpedOver = true;
             transform.root.GetChild(0).GetComponent<playerPlataformerController>().jumpingOver = true;
@@ -30,6 +32,11 @@ public class jumpOverCheck : MonoBehaviour{
                     enemy.GetComponent<playerPlataformerController>().targetVelocity = new Vector2(1, 0) * 20;
                 }
             }
+
+            if (enemy.GetComponent<playerPlataformerController>().beingJumpedOver && enemy.GetComponent<playerPlataformerController>().currentlyAttacking){
+                enemy.GetComponent<playerPlataformerController>().targetVelocity = Vector2.zero;
+            }
+
         }
         else if (enemy != null){
             enemy.GetComponent<playerPlataformerController>().beingJumpedOver = false;

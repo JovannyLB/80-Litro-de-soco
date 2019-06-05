@@ -26,7 +26,7 @@ public class GameController : MonoBehaviour{
     private GameObject sceneCamera;
 
     public GameObject[] arenas;
-    public bool currentlyBGO;
+    [HideInInspector]public bool currentlyBGO;
     public Text[] uiTexts;
     public Image[] uiImages;
     public GameObject[] spawnPoints;
@@ -39,7 +39,7 @@ public class GameController : MonoBehaviour{
     private float alpha;
     public bool introDone;
 
-    private float totalTime = 60;
+    private float totalTime = 99;
     private float timeLeft;
 
     void Start(){
@@ -109,7 +109,7 @@ public class GameController : MonoBehaviour{
         transform.GetChild(2).GetComponent<SpriteRenderer>().color = Color.black;
 
         // Coloca o sangue nos prefabs
-        AttachBlood();
+        AttachParticles();
 
         StartCoroutine(StartCondition());
 
@@ -170,14 +170,14 @@ public class GameController : MonoBehaviour{
         var onTopLeft = leftPlayer.transform.root.GetChild(2).GetChild(4).GetComponent<jumpOverCheck>().onTop;
         var onTopRight = rightPlayer.transform.root.GetChild(2).GetChild(4).GetComponent<jumpOverCheck>().onTop;
         
-        if (leftPlayerScript.posX > rightPlayerScript.posX && flipToggle && !onTopLeft && !onTopRight){
+        if (leftPlayerScript.posX > rightPlayerScript.posX && flipToggle && !onTopLeft && !onTopRight && !leftPlayerScript.currentlyAttacking && !rightPlayerScript.currentlyAttacking){
             leftPlayerScript.isLeft = false;
             rightPlayerScript.isLeft = true;
             leftPlayerScript.flipCharacterLeft();
             rightPlayerScript.flipCharacterRight();
             flipToggle = false;
         }
-        else if (leftPlayerScript.posX < rightPlayerScript.posX && !flipToggle && !onTopLeft && !onTopRight){
+        else if (leftPlayerScript.posX < rightPlayerScript.posX && !flipToggle && !onTopLeft && !onTopRight && !leftPlayerScript.currentlyAttacking && !rightPlayerScript.currentlyAttacking){
             leftPlayerScript.isLeft = true;
             rightPlayerScript.isLeft = false;
             leftPlayerScript.flipCharacterRight();
@@ -260,11 +260,18 @@ public class GameController : MonoBehaviour{
         player.StopInput();
     }
 
-    void AttachBlood(){
+    void AttachParticles(){
         AttackCheck[] bloodyAttacks = FindObjectsOfType<AttackCheck>();
         foreach (AttackCheck attack in bloodyAttacks){
             attack.blood = particles[0];
+            attack.hitSplash = particles[2];
         }
+
+        leftPlayerScript.block = particles[1];
+        leftPlayerScript.blockSplash = particles[3];
+        
+        rightPlayerScript.block = particles[1];
+        rightPlayerScript.blockSplash = particles[3];
     }
 
     public void CallHitStop(float frames, float time){

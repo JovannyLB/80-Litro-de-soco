@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3043834187789865668}
   - component: {fileID: 2113511702162321146}
   - component: {fileID: 3527559022743771146}
-  m_Layer: 12
+  m_Layer: 17
   m_Name: projectileDummyHard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 8713924492008690815}
   m_BodyType: 1
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0

@@ -97,12 +97,12 @@ public class dummySpecials : MonoBehaviour{
         // Special 3
         if (ownPlayer.downTimerSpecial < threshold && ownPlayer.rightTimerSpecial < threshold &&
             ownPlayer.squareTimerSpecial < threshold && (ownPlayer.testeDeSpecial() || ownPlayer.testeDeSpecialCancel()) &&
-            ownPlayer.downTimerSpecial > ownPlayer.squareTimerSpecial){
+            ownPlayer.downTimerSpecial > ownPlayer.squareTimerSpecial && !ownPlayer.liveProjectile){
             ownPlayer.StopAllAttack();
             ownPlayer.LightSpecial3();
         } else if (ownPlayer.downTimerSpecial < threshold && ownPlayer.rightTimerSpecial < threshold &&
                    ownPlayer.triangleTimerSpecial < threshold && (ownPlayer.testeDeSpecial() || ownPlayer.testeDeSpecialCancel()) &&
-                   ownPlayer.downTimerSpecial > ownPlayer.triangleTimerSpecial){
+                   ownPlayer.downTimerSpecial > ownPlayer.triangleTimerSpecial && !ownPlayer.liveProjectile){
             ownPlayer.StopAllAttack();
             ownPlayer.HardSpecial3();
         }

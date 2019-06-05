@@ -36,6 +36,11 @@ public class ghostTrail : MonoBehaviour{
                 ghostDelaySeconds = ghostDelay;
             }
         }
+
+        if (GetComponent<playerPlataformerController>().lastHitStun > 0 || !GetComponent<playerPlataformerController>().currentlyAttacking){
+            makeGhost = false;
+        }
+        
     }
 
     void startGhost(){
