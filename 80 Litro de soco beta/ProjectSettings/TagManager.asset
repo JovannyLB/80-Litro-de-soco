@@ -9,6 +9,7 @@ TagManager:
   - Torso
   - Legs
   - Wall
+  - Mensageiro
   layers:
   - Default
   - TransparentFX

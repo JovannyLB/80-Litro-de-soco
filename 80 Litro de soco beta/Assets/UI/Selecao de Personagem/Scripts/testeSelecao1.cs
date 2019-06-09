@@ -7,7 +7,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class testeSelecao : MonoBehaviour
+public class testeSelecao1 : MonoBehaviour
 {
 
     public GameObject personagem0;
@@ -19,19 +19,12 @@ public class testeSelecao : MonoBehaviour
     public GameObject helper4;
     public GameObject helper5;
     public GameObject helper6;
-
-    public GameObject botaoReady;
-    
-    public int playerControlling;
-    
-    public bool playerReady;
-
-
-    private int playerSelected;
     
     private List<GameObject> arrayPersonagens;
     private List<GameObject> arrayPersonagensTela;
     private List<GameObject> arrayHelpers;
+
+    public bool playerReady;
 
     private int j;
     private bool waiting;
@@ -39,19 +32,18 @@ public class testeSelecao : MonoBehaviour
     //Wait
     WaitForSecondsRealtime waitForSecondsRealtime;
 
-    public testeSelecao()
+    public testeSelecao1()
     {
         arrayHelpers = new List<GameObject>();
         arrayPersonagens = new List<GameObject>();
         arrayPersonagensTela = new List<GameObject>(6);
         waiting = false;
-        playerControlling = this.playerControlling;
     }
 
     private void Start()
     {
         playerReady = false;
-        playerSelected = 0;
+        
         //Funcionando mas fora do teste atual
         arrayHelpers.Add(helper0);
         arrayHelpers.Add(helper1);
@@ -73,10 +65,6 @@ public class testeSelecao : MonoBehaviour
 
         j = 0;
 
-        for (int i = 0; i < arrayPersonagens.Count; i++)
-        {
-            arrayPersonagens[i].GetComponent<IndexTest>().setNumeroPersonagem(i);
-        }
 
         for (int i = 0; arrayPersonagensTela[6] == null; i++)
         {
@@ -130,79 +118,29 @@ public class testeSelecao : MonoBehaviour
 
     private void Update()
     {
-        if (playerControlling == 1)
+        if (Input.GetKeyDown(KeyCode.S) && !waiting)
         {
-            if (!playerReady)
-            {
-                if (Input.GetKeyDown(KeyCode.DownArrow) && !waiting)
-                {
-                    waiting = true;
-                    OnDownPressed();
-                    MovingBetweenHelpers(false);
-                    StartCoroutine(DoWaitTest());
-                }
-
-                else if (Input.GetKeyDown(KeyCode.UpArrow) && !waiting)
-                {
-                    waiting = true;
-                    OnUpPressed();
-                    MovingBetweenHelpers(true);
-                    StartCoroutine(DoWaitTest());
-                }
-            }
-
-            arrayPersonagensTela[3].GetComponent<Button>().Select();
-    
-            if (Input.GetKeyDown(KeyCode.KeypadEnter) && !playerReady)
-            {
-                botaoReady.GetComponent<Image>().DOColor(new Color(0, 255, 0), 1);
-                playerSelected = arrayPersonagensTela[3].GetComponent<IndexTest>().GetNumeroPersonagem();
-                playerReady = !playerReady;
-                Debug.Log("ENTER APERTADO");
-            }
-            else if (Input.GetKeyDown(KeyCode.KeypadEnter) && playerReady)
-            {
-                botaoReady.GetComponent<Image>().DOColor(new Color(255, 87, 76), 1);
-                playerReady = !playerReady;
-                Debug.Log("ENTER APERTADO");
-            }
+            waiting = true;
+            OnDownPressed();
+            MovingBetweenHelpers(false);
+            StartCoroutine(DoWaitTest());
         }
         
-        if (playerControlling == 2)
+        else if (Input.GetKeyDown(KeyCode.W) && !waiting)
         {
-            if(!playerReady){
-                if (Input.GetKeyDown(KeyCode.S) && !waiting)
-                {
-                    waiting = true;
-                    OnDownPressed();
-                    MovingBetweenHelpers(false);
-                    StartCoroutine(DoWaitTest());
-                }
-    
-                else if (Input.GetKeyDown(KeyCode.W) && !waiting)
-                {
-                    waiting = true;
-                    OnUpPressed();
-                    MovingBetweenHelpers(true);
-                    StartCoroutine(DoWaitTest());
-                }
-            }
-            arrayPersonagensTela[3].GetComponent<Button>().Select();
-    
-            if (Input.GetKeyDown(KeyCode.Z) && !playerReady)
-            {
-                botaoReady.GetComponent<Image>().DOColor(new Color(0, 255, 0), 1);
-                playerReady = !playerReady;
-                Debug.Log("ENTER APERTADO");
-            }
-            else if (Input.GetKeyDown(KeyCode.Z) && playerReady)
-            {
-                botaoReady.GetComponent<Image>().DOColor(new Color(255, 87, 76), 1);
-                playerReady = !playerReady;
-                Debug.Log("ENTER APERTADO");
-            }
+            waiting = true;
+            OnUpPressed();
+            MovingBetweenHelpers(true);
+            StartCoroutine(DoWaitTest());
         }
+        
+        arrayPersonagensTela[3].GetComponent<Button>().Select();
 
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            playerReady = !playerReady;
+            Debug.Log("ENTER APERTADO");
+        }
 
     }
 
@@ -400,10 +338,5 @@ public class testeSelecao : MonoBehaviour
        
         yield return (new WaitForSeconds(0.25f));
         waiting = false;
-    }
-
-    public int GetPlayerSelected()
-    {
-        return playerSelected;
     }
 }
