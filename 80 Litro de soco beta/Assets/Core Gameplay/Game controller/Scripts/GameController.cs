@@ -171,14 +171,14 @@ public class GameController : MonoBehaviour{
         var onTopLeft = leftPlayer.transform.root.GetChild(2).GetChild(4).GetComponent<jumpOverCheck>().onTop;
         var onTopRight = rightPlayer.transform.root.GetChild(2).GetChild(4).GetComponent<jumpOverCheck>().onTop;
         
-        if (leftPlayerScript.posX > rightPlayerScript.posX && flipToggle && !onTopLeft && !onTopRight && !leftPlayerScript.currentlyAttacking && !rightPlayerScript.currentlyAttacking){
+        if (leftPlayerScript.posX > rightPlayerScript.posX && flipToggle && !onTopLeft && !onTopRight && !leftPlayerScript.currentlyAttacking && !rightPlayerScript.currentlyAttacking && leftPlayerScript.grounded && rightPlayerScript.grounded){
             leftPlayerScript.isLeft = false;
             rightPlayerScript.isLeft = true;
             leftPlayerScript.flipCharacterLeft();
             rightPlayerScript.flipCharacterRight();
             flipToggle = false;
         }
-        else if (leftPlayerScript.posX < rightPlayerScript.posX && !flipToggle && !onTopLeft && !onTopRight && !leftPlayerScript.currentlyAttacking && !rightPlayerScript.currentlyAttacking){
+        else if (leftPlayerScript.posX < rightPlayerScript.posX && !flipToggle && !onTopLeft && !onTopRight && !leftPlayerScript.currentlyAttacking && !rightPlayerScript.currentlyAttacking && leftPlayerScript.grounded && rightPlayerScript.grounded){
             leftPlayerScript.isLeft = true;
             rightPlayerScript.isLeft = false;
             leftPlayerScript.flipCharacterRight();
@@ -209,6 +209,16 @@ public class GameController : MonoBehaviour{
 
         leftPlayerScript.gameRunning = gameRunning;
         rightPlayerScript.gameRunning = gameRunning;
+
+        if (leftPlayerScript.jumpingOver || leftPlayerScript.beingJumpedOver){
+            leftPlayerScript.enableControls = false;
+            leftPlayerScript.StopInput();
+        }
+        
+        if (rightPlayerScript.jumpingOver || rightPlayerScript.beingJumpedOver){
+            rightPlayerScript.enableControls = false;
+            rightPlayerScript.StopInput();
+        }
 
         /*if (!introDone){
             DOTween.To(() => GameObject.FindWithTag("MainCamera").GetComponent<Camera>().orthographicSize, x => GameObject.FindWithTag("MainCamera").GetComponent<Camera>().orthographicSize = x, 10f, 2f);

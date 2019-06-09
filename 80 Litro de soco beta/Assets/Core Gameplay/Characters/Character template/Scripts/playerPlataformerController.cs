@@ -291,6 +291,30 @@ public class playerPlataformerController : PhysicsObject{
             targetVelocity = move * walkingSpeed;
         }
 
+        if (posX <= -46 && isLeft){
+            canMoveBack = false;
+        } else if (posX >= 46 && !isLeft){
+            canMoveBack = false;
+        } else{
+            canMoveBack = true;
+        }
+
+        if (posX <= -47 && isLeft){
+            transform.position = new Vector3(-46, posY);
+            targetVelocity = Vector2.zero;
+        } else if (posX >= 47 && !isLeft){
+            transform.position = new Vector3(46, posY);
+            targetVelocity = Vector2.zero;
+        }
+//
+//        if (beingJumpedOver && !inCorner){
+//            targetVelocity = Vector2.zero;
+//        }
+//        else if (beingJumpedOver && inCorner){
+//            targetVelocity = new Vector2(1, 0) * 60;
+//            ableToMove = false;
+//        }
+        
         if (!canMoveBack){
             if (isLeft && move.x < 0){
                 targetVelocity = Vector2.zero;
