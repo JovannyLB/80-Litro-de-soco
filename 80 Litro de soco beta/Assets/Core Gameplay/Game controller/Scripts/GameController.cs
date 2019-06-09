@@ -21,7 +21,9 @@ public class GameController : MonoBehaviour{
     private bool gameRunning;
     private int rounds = 1;
 
-    protected GameObject[] players;
+    public int leftPlayerChosen;
+    public int rightPlayerChosen;
+    public GameObject[] players;
     private bool flipToggle = true;
     private GameObject sceneCamera;
 
@@ -53,16 +55,15 @@ public class GameController : MonoBehaviour{
         uiTexts[10].text = timeLeft.ToString();
         
         // Arrumas os player
-        players = GameObject.FindGameObjectsWithTag("Player");
+        var leftPlayerPreFab = Instantiate(players[leftPlayerChosen]);
+        leftPlayer = leftPlayerPreFab.transform.GetChild(0).gameObject;
+        leftPlayerScript = leftPlayerPreFab.transform.GetChild(0).GetComponent<playerPlataformerController>();
+        leftPlayerScript.isPlayer1 = true;
 
-        foreach (GameObject player in players){
-            if (player.transform.root.GetChild(0).GetComponent<playerPlataformerController>().isPlayer1){
-                leftPlayer = player;
-            }
-            else{
-                rightPlayer = player;
-            }
-        }
+        var rightPlayerPreFab = Instantiate(players[rightPlayerChosen]);
+        rightPlayer = rightPlayerPreFab.transform.GetChild(0).gameObject;
+        rightPlayerScript = rightPlayerPreFab.transform.GetChild(0).GetComponent<playerPlataformerController>();
+        rightPlayerScript.isPlayer1 = false;
         
         // Acha a camera
         sceneCamera = GameObject.FindWithTag("MainCamera");
@@ -267,6 +268,11 @@ public class GameController : MonoBehaviour{
             attack.hitSplash = particles[2];
         }
 
+        projectileSpecialCheck[] projectileAttacks = FindObjectsOfType<projectileSpecialCheck>();
+        foreach (projectileSpecialCheck attack in projectileAttacks){
+            attack.blood = particles[0];
+        }
+        
         leftPlayerScript.block = particles[1];
         leftPlayerScript.blockSplash = particles[3];
         
@@ -522,7 +528,7 @@ public class GameController : MonoBehaviour{
         leftPlayerScript.flipCharacterRight();
 
         // Faz a camera ficar entre os dois personages
-        sceneCamera.transform.position = new Vector3(0, sceneCamera.transform.position.y, sceneCamera.transform.position.z);
+        sceneCamera.transform.position = new Vector3((leftPlayer.transform.position.x + rightPlayer.transform.position.x) / 2, sceneCamera.transform.position.y, sceneCamera.transform.position.z);
 
         // Pega a difereça dos dois players
         float diffPos = Math.Abs(leftPlayerScript.posX - rightPlayerScript.posX);

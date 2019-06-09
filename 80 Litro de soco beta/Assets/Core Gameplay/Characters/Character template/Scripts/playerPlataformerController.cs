@@ -33,8 +33,8 @@ public class playerPlataformerController : PhysicsObject{
     [HideInInspector]public float posX;
     [HideInInspector]public float posY;
 
-    private float dashFrameTotal = 10;
-    private float dashSpeed = 20;
+    private float dashFrameTotal = 5;
+    private float dashSpeed = 30;
     private float dashCooldownTotal = 30;
 
     private bool backTimerDashBool;
@@ -84,6 +84,7 @@ public class playerPlataformerController : PhysicsObject{
     [HideInInspector]public bool jumpingOver;
     protected bool crouching;
     [HideInInspector]public bool currentlyAttacking;
+    private bool currentlyAttackingSpecial;
     [HideInInspector]public bool canLightPunch;
     protected bool standLightPunchCurrently;
     [HideInInspector]public bool canHardPunch;
@@ -143,19 +144,18 @@ public class playerPlataformerController : PhysicsObject{
 
             // Botões
             if (isPlayer1){
-                xButton = Input.GetKeyDown(KeyCode.Joystick1Button1);
-                square = Input.GetKeyDown(KeyCode.Joystick1Button0);
-                circle = Input.GetKeyDown(KeyCode.Joystick1Button2);
-                triangle = Input.GetKeyDown(KeyCode.Joystick1Button3);
-                r2 = Input.GetKey(KeyCode.Joystick1Button7);
+                xButton = Input.GetKeyDown(KeyCode.Joystick1Button1) || Input.GetKeyDown(KeyCode.G);
+                square = Input.GetKeyDown(KeyCode.Joystick1Button0) || Input.GetKeyDown(KeyCode.F);
+                circle = Input.GetKeyDown(KeyCode.Joystick1Button2) || Input.GetKeyDown(KeyCode.Y);
+                triangle = Input.GetKeyDown(KeyCode.Joystick1Button3) || Input.GetKeyDown(KeyCode.T);
+                r2 = Input.GetKey(KeyCode.Joystick1Button7) || Input.GetKey(KeyCode.Space);
             }
             else{
-                xButton = Input.GetKeyDown(KeyCode.Joystick2Button1);
-                square = Input.GetKeyDown(KeyCode.Joystick2Button0);
-                circle = Input.GetKeyDown(KeyCode.Joystick2Button2);
-                triangle = Input.GetKeyDown(KeyCode.Joystick2Button3);
-//                r2 = Input.GetKey(KeyCode.Joystick2Button7);
-                r2 = Input.GetKey(KeyCode.Space);
+                xButton = Input.GetKeyDown(KeyCode.Joystick2Button1) || Input.GetKeyDown(KeyCode.Keypad5);
+                square = Input.GetKeyDown(KeyCode.Joystick2Button0) || Input.GetKeyDown(KeyCode.Keypad4);
+                circle = Input.GetKeyDown(KeyCode.Joystick2Button2) || Input.GetKeyDown(KeyCode.Keypad9);
+                triangle = Input.GetKeyDown(KeyCode.Joystick2Button3) || Input.GetKeyDown(KeyCode.Keypad8);
+                r2 = Input.GetKey(KeyCode.Joystick2Button7) || Input.GetKey(KeyCode.Keypad0);
             }
         }
 
@@ -739,66 +739,78 @@ public class playerPlataformerController : PhysicsObject{
     // Light special 1
     public void LightSpecial1(){
         CurrentlyAttacking(true);
+        currentlyAttackingSpecial = true;
         lightSpecial1Currently = true;
     }
 
     public void LightSpecial1Stop(){
         CurrentlyAttacking(false);
+        currentlyAttackingSpecial = false;
         lightSpecial1Currently = false;
     }
     
     // Light special 2
     public void LightSpecial2(){
         CurrentlyAttacking(true);
+        currentlyAttackingSpecial = true;
         lightSpecial2Currently = true;
     }
 
     public void LightSpecial2Stop(){
         CurrentlyAttacking(false);
+        currentlyAttackingSpecial = false;
         lightSpecial2Currently = false;
     }
     
     // Light special 3
     public void LightSpecial3(){
         CurrentlyAttacking(true);
+        currentlyAttackingSpecial = true;
         lightSpecial3Currently = true;
     }
 
     public void LightSpecial3Stop(){
         CurrentlyAttacking(false);
+        currentlyAttackingSpecial = false;
         lightSpecial3Currently = false;
     }
     
     // Hard special 1
     public void HardSpecial1(){
         CurrentlyAttacking(true);
+        currentlyAttackingSpecial = true;
         hardSpecial1Currently = true;
     }
 
     public void HardSpecial1Stop(){
         CurrentlyAttacking(false);
+        currentlyAttackingSpecial = false;
         hardSpecial1Currently = false;
     }
     
     // Hard special 2
     public void HardSpecial2(){
         CurrentlyAttacking(true);
+        currentlyAttackingSpecial = true;
         hardSpecial2Currently = true;
     }
 
     public void HardSpecial2Stop(){
         CurrentlyAttacking(false);
+        currentlyAttackingSpecial = false;
         hardSpecial2Currently = false;
     }
     
     // Hard special 3
     public void HardSpecial3(){
         CurrentlyAttacking(true);
+        currentlyAttackingSpecial = true;
         hardSpecial3Currently = true;
     }
 
     public void HardSpecial3Stop(){
         CurrentlyAttacking(false);
+        currentlyAttackingSpecial = false;
         hardSpecial3Currently = false;
     }
 
@@ -954,7 +966,7 @@ public class playerPlataformerController : PhysicsObject{
     }
 
     public bool testeDeSpecialCancel(){
-        if (grounded && cancelSpecial && currentlyAttacking && !currentlyDashing && !jumpingOver){
+        if (grounded && cancelSpecial && currentlyAttacking && !currentlyAttackingSpecial && !currentlyDashing && !jumpingOver){
             return true;
         }
         return false;

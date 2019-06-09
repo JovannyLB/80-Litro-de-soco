@@ -11,6 +11,8 @@ public class projectileSpecialCheck : MonoBehaviour{
     public int damage;
     
     public GameObject projectile;
+
+    [HideInInspector] public ParticleSystem blood;
     
     public void instantiateProjectile(){
         var newProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
@@ -19,6 +21,7 @@ public class projectileSpecialCheck : MonoBehaviour{
         newProjectile.GetComponent<projectileLifeCheck>().hitStunFrames = hitStunFrames;
         newProjectile.GetComponent<projectileLifeCheck>().blockHitStunFrames = blockHitStunFrames;
         newProjectile.GetComponent<projectileLifeCheck>().damage = damage;
+        newProjectile.GetComponent<projectileLifeCheck>().blood = blood;
     }
     
 }

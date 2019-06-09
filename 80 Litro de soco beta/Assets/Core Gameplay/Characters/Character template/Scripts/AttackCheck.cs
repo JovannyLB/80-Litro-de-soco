@@ -169,6 +169,7 @@ public class AttackCheck : MonoBehaviour{
                 otherPlayer.addHitStunBlock(blockHitStunFrames);
             }
             else{
+//                otherPlayer.StopAllAttack();
                 otherPlayer.lastHitTaken = hitStunFrames;
                 otherPlayer.addHitStun(hitStunFrames);
             }

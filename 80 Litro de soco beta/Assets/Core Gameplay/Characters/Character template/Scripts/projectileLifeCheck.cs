@@ -12,6 +12,12 @@ public class projectileLifeCheck : MonoBehaviour{
     private bool goingLeft;
     private bool attackDefended;
 
+    [Header("Particle effect")] 
+    public Color mainColor;
+    public ParticleSystem projectileDeath;
+    
+    [HideInInspector]public ParticleSystem blood;
+
     private Rigidbody2D rb2d;
     [HideInInspector]public playerPlataformerController ownPlayerScript;
 
@@ -26,7 +32,13 @@ public class projectileLifeCheck : MonoBehaviour{
         else{
             goingLeft = true;
         }
-        
+
+        var partcile = transform.GetChild(0).GetComponent<ParticleSystem>();
+
+        ParticleSystem.MainModule mainModule = partcile.main;
+
+        mainModule.startColor = mainColor;
+
     }
 
     void Update(){
@@ -108,6 +120,8 @@ public class projectileLifeCheck : MonoBehaviour{
                     otherPlayer.addHitStunBlock(blockHitStunFrames);
                 }
                 else{
+                    SpawnBlood();
+//                    otherPlayer.StopAllAttack();
                     otherPlayer.lastHitTaken = hitStunFrames;
                     otherPlayer.addHitStun(hitStunFrames);
                 }
@@ -120,6 +134,7 @@ public class projectileLifeCheck : MonoBehaviour{
                     otherPlayer.changeHealth((int) -(damage * 0.1f));
                 }
 
+                SpawnDeathParticle();
                 Destroy(gameObject);
                 ownPlayerScript.liveProjectile = false;
                 
@@ -127,10 +142,40 @@ public class projectileLifeCheck : MonoBehaviour{
             
         }
         else if (other.GetComponent<projectileLifeCheck>()){
+            SpawnDeathParticle();
             Destroy(gameObject);
             ownPlayerScript.liveProjectile = false;
         }
 
     }
-    
+
+    private void SpawnDeathParticle(){
+        var deathParticle = Instantiate(projectileDeath, transform.position, Quaternion.identity);
+
+        ParticleSystem.MainModule deathColor = deathParticle.main;
+
+        deathColor.startColor = mainColor;
+
+        if (!goingLeft){
+            deathParticle.transform.localScale = new Vector3(1, 1, 1);
+        }
+        else{
+            deathParticle.transform.localScale = new Vector3(-1, 1, 1);
+        }
+
+    }
+
+    private void SpawnBlood(){
+        if (!goingLeft){
+            var bloodParticle = Instantiate(blood, new Vector3(transform.position.x + 2.5f, transform.position.y), Quaternion.identity);
+            
+            bloodParticle.transform.localScale = new Vector3(1, 1, 1);
+        }
+        else{
+            var bloodParticle = Instantiate(blood, new Vector3(transform.position.x - 2.5f, transform.position.y), Quaternion.identity);
+            
+            bloodParticle.transform.localScale = new Vector3(-1, 1, 1);
+        }
+    }
+
 }
