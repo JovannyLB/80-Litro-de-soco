@@ -16,6 +16,7 @@ public class playerPlataformerController : PhysicsObject{
     [HideInInspector]public bool lost;
     [HideInInspector]public bool gameRunning;
     public Color mainColor;
+    [HideInInspector]public GameController gameController;
 
     // Informações sobre movimetação
     private float jumpTakeOffSpeed = 45;
@@ -61,6 +62,8 @@ public class playerPlataformerController : PhysicsObject{
     [HideInInspector]public int squareTimerSpecial;
     [HideInInspector]public int triangleTimerSpecial;
     [HideInInspector]public int circleTimerSpecial;
+    [HideInInspector]public int l1TimerSuper;
+    [HideInInspector]public int l2TimerSuper;
 
     // Cotroles
     [HideInInspector]public bool xButton;
@@ -68,6 +71,8 @@ public class playerPlataformerController : PhysicsObject{
     [HideInInspector]public bool circle;
     [HideInInspector]public bool triangle;
     protected bool r2;
+    [HideInInspector]public bool l1;
+    [HideInInspector]public bool l2;
     protected float moveHRaw;
     protected float moveVRaw;
 
@@ -107,6 +112,7 @@ public class playerPlataformerController : PhysicsObject{
     [HideInInspector]public bool hardSpecial1Currently;
     [HideInInspector]public bool hardSpecial2Currently;
     [HideInInspector]public bool hardSpecial3Currently;
+    [HideInInspector]public bool superCurrently;
     [HideInInspector]public int lastHitStun;
     [HideInInspector]public int lastHitTaken;
     protected int lastHitStunBlock;
@@ -118,6 +124,8 @@ public class playerPlataformerController : PhysicsObject{
     [HideInInspector]public bool beenHitLeg;
     [HideInInspector]public bool blockedHigh;
     [HideInInspector]public bool blockedLow;
+
+    [HideInInspector]public bool hitStunPause;
     
     [HideInInspector]public ParticleSystem block;
     [HideInInspector]public ParticleSystem blockSplash;
@@ -149,6 +157,8 @@ public class playerPlataformerController : PhysicsObject{
                 circle = Input.GetKeyDown(KeyCode.Joystick1Button2) || Input.GetKeyDown(KeyCode.Y);
                 triangle = Input.GetKeyDown(KeyCode.Joystick1Button3) || Input.GetKeyDown(KeyCode.T);
                 r2 = Input.GetKey(KeyCode.Joystick1Button7) || Input.GetKey(KeyCode.Space);
+                l1 = Input.GetKeyDown(KeyCode.Joystick1Button4) || Input.GetKey(KeyCode.Alpha6);
+                l2 = Input.GetKeyDown(KeyCode.Joystick1Button6) || Input.GetKey(KeyCode.Alpha7);
             }
             else{
                 xButton = Input.GetKeyDown(KeyCode.Joystick2Button1) || Input.GetKeyDown(KeyCode.Keypad5);
@@ -156,6 +166,8 @@ public class playerPlataformerController : PhysicsObject{
                 circle = Input.GetKeyDown(KeyCode.Joystick2Button2) || Input.GetKeyDown(KeyCode.Keypad9);
                 triangle = Input.GetKeyDown(KeyCode.Joystick2Button3) || Input.GetKeyDown(KeyCode.Keypad8);
                 r2 = Input.GetKey(KeyCode.Joystick2Button7) || Input.GetKey(KeyCode.Keypad0);
+                l1 = Input.GetKeyDown(KeyCode.Joystick2Button4) || Input.GetKey(KeyCode.KeypadMultiply);
+                l2 = Input.GetKeyDown(KeyCode.Joystick2Button6) || Input.GetKey(KeyCode.KeypadMinus);
             }
         }
 
@@ -295,9 +307,9 @@ public class playerPlataformerController : PhysicsObject{
             canMoveBack = false;
         } else if (posX >= 46 && !isLeft){
             canMoveBack = false;
-        } else{
+        } /*else{
             canMoveBack = true;
-        }
+        }*/
 
         if (posX <= -47 && isLeft){
             transform.position = new Vector3(-46, posY);
@@ -306,7 +318,7 @@ public class playerPlataformerController : PhysicsObject{
             transform.position = new Vector3(46, posY);
             targetVelocity = Vector2.zero;
         }
-//
+
 //        if (beingJumpedOver && !inCorner){
 //            targetVelocity = Vector2.zero;
 //        }
@@ -431,6 +443,14 @@ public class playerPlataformerController : PhysicsObject{
             triangleTimerSpecial++;
         }
 
+        if (l1TimerSuper < 100){
+            l1TimerSuper++;
+        }
+
+        if (l2TimerSuper < 100){
+            l2TimerSuper++;
+        }
+
         // Botões
         if (xButton){
             xButtonTimerSpecial = 0;
@@ -447,6 +467,15 @@ public class playerPlataformerController : PhysicsObject{
         if (triangle){
             triangleTimerSpecial = 0;
         }
+        
+        if (l1){
+            l1TimerSuper = 0;
+        }
+
+        if (l2){
+            l2TimerSuper = 0;
+        }
+        
     }
 
     // Animação
@@ -524,6 +553,9 @@ public class playerPlataformerController : PhysicsObject{
         animator.SetBool("hardSpecial2", hardSpecial2Currently);
         // Hard special 3
         animator.SetBool("hardSpecial3", hardSpecial3Currently);
+        
+        // Super
+        animator.SetBool("super", superCurrently);
     }
 
     // Core gameplay
@@ -540,15 +572,17 @@ public class playerPlataformerController : PhysicsObject{
         squareTimerSpecial = 100;
         triangleTimerSpecial = 100;
         circleTimerSpecial = 100;
+        l1TimerSuper = 100;
+        l2TimerSuper = 100;
     }
 
     protected override void CoreGameplayUpdate(){
         // Cria o sistema de hitstun modular
-        if (lastHitStun > 0){
+        if (lastHitStun > 0 && !hitStunPause){
             lastHitStun--;
         }
 
-        if (lastHitStunBlock > 0){
+        if (lastHitStunBlock > 0 && !hitStunPause){
             lastHitStunBlock--;
         }
 
@@ -838,6 +872,20 @@ public class playerPlataformerController : PhysicsObject{
         hardSpecial3Currently = false;
     }
 
+    public void Super(){
+        CurrentlyAttacking(true);
+        superCurrently = true;
+    }
+
+    public void SuperStop(){
+        CurrentlyAttacking(false);
+        superCurrently = false;
+    }
+
+    public void SuperEffect(){
+        gameController.TDEEffect(this);
+    }
+
     // Hit stun animations
     // Hitstun baseado nas frames totais
     public void addHitStun(int hitStun){
@@ -944,6 +992,7 @@ public class playerPlataformerController : PhysicsObject{
         HardSpecial1Stop();
         HardSpecial2Stop();
         HardSpecial3Stop();
+        SuperStop();
     }
 
     // Controla a vida do personagem

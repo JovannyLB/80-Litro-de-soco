@@ -15,7 +15,9 @@ public class GameController : MonoBehaviour{
     protected playerPlataformerController leftPlayerScript;
     protected playerPlataformerController rightPlayerScript;
     private int leftPlayerCombo;
+    private int leftPlayerMaxCombo;
     private int rightPlayerCombo;
+    private int rightPlayerMaxCombo;
     private bool isPaused;
 
     private bool gameRunning;
@@ -36,6 +38,7 @@ public class GameController : MonoBehaviour{
     public ParticleSystem[] particles;
 
     private bool hitStopCurrently;
+    private bool timeFreeze;
     
     private bool doneCameraEffect;
     private float alpha;
@@ -43,6 +46,8 @@ public class GameController : MonoBehaviour{
 
     private float totalTime = 99;
     private float timeLeft;
+
+    private Coroutine hitStopCoroutine;
 
     void Start(){
         // Coloca o mapa
@@ -59,11 +64,13 @@ public class GameController : MonoBehaviour{
         leftPlayer = leftPlayerPreFab.transform.GetChild(0).gameObject;
         leftPlayerScript = leftPlayerPreFab.transform.GetChild(0).GetComponent<playerPlataformerController>();
         leftPlayerScript.isPlayer1 = true;
+        leftPlayerScript.gameController = this;
 
         var rightPlayerPreFab = Instantiate(players[rightPlayerChosen]);
         rightPlayer = rightPlayerPreFab.transform.GetChild(0).gameObject;
         rightPlayerScript = rightPlayerPreFab.transform.GetChild(0).GetComponent<playerPlataformerController>();
         rightPlayerScript.isPlayer1 = false;
+        rightPlayerScript.gameController = this;
         
         // Acha a camera
         sceneCamera = GameObject.FindWithTag("MainCamera");
@@ -147,6 +154,10 @@ public class GameController : MonoBehaviour{
             isPaused = false;
         }
 
+        if (Input.GetKeyDown(KeyCode.Backspace)){
+            TDEEffect(rightPlayerScript);
+        }
+
         // Pausa o jogo
         if (isPaused){
             Time.timeScale = 0;
@@ -160,7 +171,7 @@ public class GameController : MonoBehaviour{
             uiTexts[5].enabled = false;
         }
         
-        if (!hitStopCurrently && !isPaused){
+        if (!hitStopCurrently && !isPaused && !timeFreeze){
             Time.timeScale = 1;
             leftPlayerScript.animator.speed = 1;
             rightPlayerScript.animator.speed = 1;
@@ -170,22 +181,40 @@ public class GameController : MonoBehaviour{
         // Checa a troca de lados
         var onTopLeft = leftPlayer.transform.root.GetChild(2).GetChild(4).GetComponent<jumpOverCheck>().onTop;
         var onTopRight = rightPlayer.transform.root.GetChild(2).GetChild(4).GetComponent<jumpOverCheck>().onTop;
-        
-        if (leftPlayerScript.posX > rightPlayerScript.posX && flipToggle && !onTopLeft && !onTopRight && !leftPlayerScript.currentlyAttacking && !rightPlayerScript.currentlyAttacking && leftPlayerScript.grounded && rightPlayerScript.grounded){
-            leftPlayerScript.isLeft = false;
-            rightPlayerScript.isLeft = true;
-            leftPlayerScript.flipCharacterLeft();
-            rightPlayerScript.flipCharacterRight();
-            flipToggle = false;
+
+        if (leftPlayerScript.inCorner || rightPlayerScript.inCorner){
+            if (leftPlayerScript.posX > rightPlayerScript.posX && flipToggle && !onTopLeft && !onTopRight && !leftPlayerScript.currentlyAttacking && !rightPlayerScript.currentlyAttacking && leftPlayerScript.grounded && rightPlayerScript.grounded){
+                leftPlayerScript.isLeft = false;
+                rightPlayerScript.isLeft = true;
+                leftPlayerScript.flipCharacterLeft();
+                rightPlayerScript.flipCharacterRight();
+                flipToggle = false;
+            }
+            else if (leftPlayerScript.posX < rightPlayerScript.posX && !flipToggle && !onTopLeft && !onTopRight && !leftPlayerScript.currentlyAttacking && !rightPlayerScript.currentlyAttacking && leftPlayerScript.grounded && rightPlayerScript.grounded){
+                leftPlayerScript.isLeft = true;
+                rightPlayerScript.isLeft = false;
+                leftPlayerScript.flipCharacterRight();
+                rightPlayerScript.flipCharacterLeft();
+                flipToggle = true;
+            }
         }
-        else if (leftPlayerScript.posX < rightPlayerScript.posX && !flipToggle && !onTopLeft && !onTopRight && !leftPlayerScript.currentlyAttacking && !rightPlayerScript.currentlyAttacking && leftPlayerScript.grounded && rightPlayerScript.grounded){
-            leftPlayerScript.isLeft = true;
-            rightPlayerScript.isLeft = false;
-            leftPlayerScript.flipCharacterRight();
-            rightPlayerScript.flipCharacterLeft();
-            flipToggle = true;
+        else{
+            if (leftPlayerScript.posX > rightPlayerScript.posX && flipToggle && !onTopLeft && !onTopRight && !leftPlayerScript.currentlyAttacking && !rightPlayerScript.currentlyAttacking){
+                leftPlayerScript.isLeft = false;
+                rightPlayerScript.isLeft = true;
+                leftPlayerScript.flipCharacterLeft();
+                rightPlayerScript.flipCharacterRight();
+                flipToggle = false;
+            }
+            else if (leftPlayerScript.posX < rightPlayerScript.posX && !flipToggle && !onTopLeft && !onTopRight && !leftPlayerScript.currentlyAttacking && !rightPlayerScript.currentlyAttacking){
+                leftPlayerScript.isLeft = true;
+                rightPlayerScript.isLeft = false;
+                leftPlayerScript.flipCharacterRight();
+                rightPlayerScript.flipCharacterLeft();
+                flipToggle = true;
+            }
         }
-        
+
         // Cuida do contador de combo
         ComboCounter();
         
@@ -291,7 +320,7 @@ public class GameController : MonoBehaviour{
     }
 
     public void CallHitStop(float frames, float time){
-        StartCoroutine(HitStopStart(frames, time));
+        hitStopCoroutine = StartCoroutine(HitStopStart(frames, time));
     }
     
     IEnumerator HitStopStart(float frames, float time){
@@ -311,6 +340,9 @@ public class GameController : MonoBehaviour{
         rightPlayerScript.animator.speed = 1;
     }
 
+    private bool comboFadeDoneLeft;
+    private bool comboFadeDoneRight;
+    
     void ComboCounter(){
         // Right player
         if (leftPlayerScript.lastHitStun <= 0){
@@ -321,11 +353,17 @@ public class GameController : MonoBehaviour{
         }
 
         if (leftPlayerCombo <= 1){
-            uiTexts[2].gameObject.SetActive(false);
+            if (!comboFadeDoneLeft){
+                StartCoroutine(FadeCombo(uiTexts[2], leftPlayerMaxCombo));
+                comboFadeDoneLeft = true;
+            }
         }
         else{
             uiTexts[2].gameObject.SetActive(true);
+            DOTween.To(() => uiTexts[2].color, x => uiTexts[2].color = x, leftPlayerScript.mainColor, 0.5f);
             uiTexts[2].text = leftPlayerCombo + " HITS!";
+            leftPlayerMaxCombo = leftPlayerCombo;
+            comboFadeDoneLeft = false;
         }
         
         // Left player
@@ -337,12 +375,28 @@ public class GameController : MonoBehaviour{
         }
         
         if (rightPlayerCombo <= 1){
-            uiTexts[3].gameObject.SetActive(false);
+            if (!comboFadeDoneRight){
+                StartCoroutine(FadeCombo(uiTexts[3], rightPlayerMaxCombo));
+                comboFadeDoneRight = true;
+            }
         }
         else{
             uiTexts[3].gameObject.SetActive(true);
+            DOTween.To(() => uiTexts[3].color, x => uiTexts[3].color = x, rightPlayerScript.mainColor, 0.5f);
             uiTexts[3].text = rightPlayerCombo + " HITS!";
+            rightPlayerMaxCombo = rightPlayerCombo;
+            comboFadeDoneRight = false;
         }
+    }
+
+    IEnumerator FadeCombo(Text text, int maxCombo){
+        text.text = maxCombo + " HITS!";
+        
+        yield return new WaitForSeconds(1f);
+        
+        DOTween.To(() => text.color, x => text.color = x, Color.clear, 0.5f).OnComplete(() => {
+            text.gameObject.SetActive(false);
+        });
     }
 
     private bool winningChance = true;
@@ -649,6 +703,144 @@ public class GameController : MonoBehaviour{
                 }
             }
         }
+    }
+
+    private bool velocityCheck;
+    
+    public void TDEEffect(playerPlataformerController player){
+        // Start
+        gameRunning = false;
+        timeFreeze = true;
+        
+        leftPlayerScript.animator.speed = 0;
+        rightPlayerScript.animator.speed = 0;
+
+        var particle1 = Instantiate(particles[4], new Vector3(player.transform.position.x, player.transform.position.y + 2.5f), Quaternion.identity);
+        var particle2 = Instantiate(particles[5], new Vector3(player.transform.position.x, player.transform.position.y + 2.5f), Quaternion.identity);
+
+        ParticleSystem.MainModule color1 = particle1.main;
+        ParticleSystem.MainModule color2 = particle2.main;
+
+        color1.startColor = player.mainColor;
+        color2.startColor = player.mainColor;
+        
+        Vector2 leftTargetV = Vector2.zero;
+        Vector2 leftV = Vector2.zero;
+        
+        Vector2 rightTargetV = Vector2.zero;
+        Vector2 rightV = Vector2.zero;
+
+        if (leftPlayerScript.lastHitStun > 0){
+            leftPlayerScript.hitStunPause = true;
+            leftPlayerScript.targetVelocity = Vector2.zero;
+            leftPlayerScript.velocity = Vector2.zero;
+        }
+
+        if (rightPlayerScript.lastHitStun > 0){
+            rightPlayerScript.hitStunPause = true;
+            rightPlayerScript.targetVelocity = Vector2.zero;
+            rightPlayerScript.velocity = Vector2.zero;
+        }
+
+        if (leftPlayerScript.jumping && rightPlayerScript.jumping){
+            if (!velocityCheck){
+                leftTargetV = leftPlayerScript.targetVelocity;
+                leftV = leftPlayerScript.velocity;
+
+                rightTargetV = rightPlayerScript.targetVelocity;
+                rightV = rightPlayerScript.velocity;
+
+                leftPlayerScript.targetVelocity = Vector2.zero;
+                leftPlayerScript.velocity = Vector2.zero;
+                rightPlayerScript.targetVelocity = Vector2.zero;
+                rightPlayerScript.velocity = Vector2.zero;
+
+                velocityCheck = true;
+            }
+
+            leftPlayerScript.graityModified = 0f;
+            rightPlayerScript.graityModified = 0f;
+        } else if (leftPlayerScript.jumping){
+            if (!velocityCheck){
+                leftTargetV = leftPlayerScript.targetVelocity;
+                leftV = leftPlayerScript.velocity;
+
+                leftPlayerScript.targetVelocity = Vector2.zero;
+                leftPlayerScript.velocity = Vector2.zero;
+
+                velocityCheck = true;
+            }
+
+            leftPlayerScript.graityModified = 0f;
+        } else if (rightPlayerScript.jumping){
+            if (!velocityCheck){
+                rightTargetV = rightPlayerScript.targetVelocity;
+                rightV = rightPlayerScript.velocity;
+
+                rightPlayerScript.targetVelocity = Vector2.zero;
+                rightPlayerScript.velocity = Vector2.zero;
+
+                velocityCheck = true;
+            }
+
+            rightPlayerScript.graityModified = 0f;
+        }
+
+        sceneCamera.transform.DOMove(new Vector3(player.transform.position.x, player.transform.position.y + 5, sceneCamera.transform.position.z), 0.5f);
+        
+        transform.GetChild(3).GetComponent<SpriteRenderer>().DOColor(Color.black, 0.25f).OnPlay(() => {
+            transform.GetChild(3).GetComponent<SpriteRenderer>().color = Color.clear;
+        }).OnComplete(() => {
+            transform.GetChild(3).GetComponent<SpriteRenderer>().color = Color.black;
+        });
+        
+        
+        // Finish
+        sceneCamera.transform.DOMove(new Vector3((leftPlayerScript.posX + rightPlayerScript.posX) / 2, sceneCamera.transform.position.y, sceneCamera.transform.position.z), 0.5f).SetDelay(1f).OnComplete(() => {
+            gameRunning = true;
+            timeFreeze = false;
+            
+            leftPlayerScript.animator.speed = 1;
+            rightPlayerScript.animator.speed = 1;
+
+            if (leftPlayerScript.lastHitStun > 0){
+                leftPlayerScript.hitStunPause = false;
+            }
+
+            if (rightPlayerScript.lastHitStun > 0){
+                rightPlayerScript.hitStunPause = false;
+            }
+            
+            if (leftPlayerScript.jumping && rightPlayerScript.jumping){
+                leftPlayerScript.targetVelocity = leftTargetV;
+                leftPlayerScript.velocity = leftV;
+
+                rightPlayerScript.targetVelocity = rightTargetV;
+                rightPlayerScript.velocity = rightV;
+
+                leftPlayerScript.graityModified = 10f;
+                rightPlayerScript.graityModified = 10f;
+            } else if (leftPlayerScript.jumping){
+                leftPlayerScript.targetVelocity = leftTargetV;
+                leftPlayerScript.velocity = leftV;
+
+                leftPlayerScript.graityModified = 10f;
+            } else if (rightPlayerScript.jumping){
+                rightPlayerScript.targetVelocity = rightTargetV;
+                rightPlayerScript.velocity = rightV;
+
+                rightPlayerScript.graityModified = 10f;
+            }
+
+            velocityCheck = false;
+        });
+        
+        transform.GetChild(3).GetComponent<SpriteRenderer>().DOColor(Color.clear, 0.25f).OnComplete(() => {
+            transform.GetChild(3).GetComponent<SpriteRenderer>().color = Color.clear;
+        }).OnPlay(() => {
+            transform.GetChild(3).GetComponent<SpriteRenderer>().color = Color.black;
+        }).SetDelay(1f);
+
     }
 
 }

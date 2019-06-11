@@ -41,7 +41,8 @@ public class AttackCheck : MonoBehaviour{
                 enemy.transform.root.GetChild(0).GetComponent<playerPlataformerController>().targetVelocity = new Vector2(1, 0) * pushBackStrengh;
                 pushBackAtual--;
             }
-        } else if (pushBackAtual > 0 && !transform.root.GetChild(0).GetComponent<playerPlataformerController>().isLeft){
+        }
+        else if (pushBackAtual > 0 && !transform.root.GetChild(0).GetComponent<playerPlataformerController>().isLeft){
             if (enemy.transform.root.GetChild(0).GetComponent<playerPlataformerController>().inCorner){
                 transform.root.GetChild(0).GetComponent<playerPlataformerController>().targetVelocity = new Vector2(1, 0) * (pushBackStrengh / 2.0f);
                 pushBackAtual--;

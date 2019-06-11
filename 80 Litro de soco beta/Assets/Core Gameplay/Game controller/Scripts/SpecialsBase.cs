@@ -12,6 +12,7 @@ public class SpecialsBase : MonoBehaviour
 
     public GameObject[] lightSpecials;
     public GameObject[] hardSpecials;
+    public GameObject super;
     
     void Start() {
         ownPlayer = transform.root.GetChild(0).GetComponent<playerPlataformerController>();
@@ -49,6 +50,7 @@ public class SpecialsBase : MonoBehaviour
         Special1();
         Special2();
         Special3();
+        Super();
     }
 
     protected virtual void Special1(){
@@ -58,6 +60,9 @@ public class SpecialsBase : MonoBehaviour
     }
     
     protected virtual void Special3(){
+    }
+
+    protected virtual void Super(){
     }
 
     protected virtual void EspecialUpdate(){

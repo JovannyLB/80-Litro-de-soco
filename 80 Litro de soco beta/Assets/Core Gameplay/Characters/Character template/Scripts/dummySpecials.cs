@@ -79,6 +79,14 @@ public class dummySpecials : SpecialsBase{
         }
     }
 
+    protected override void Super(){
+        // Super
+        if (ownPlayer.l1TimerSuper < threshold && ownPlayer.l2TimerSuper < threshold && (ownPlayer.testeDeSpecial() || ownPlayer.testeDeSpecialCancel())){
+            ownPlayer.StopAllAttack();
+            ownPlayer.Super();
+        }
+    }
+
     public void special1MovementStart(){
         ownPlayer.targetVelocity = Vector2.zero;
         special1Moving = true;
