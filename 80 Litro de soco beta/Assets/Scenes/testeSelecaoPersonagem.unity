@@ -151,6 +151,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   personagem0: {fileID: 1199901670545828024, guid: 788c9c01d28b99a468ff2936a8df7cb9,
     type: 3}
+  personagem1: {fileID: 1199901670545828024, guid: 33e852cda72640e4b93d43460c7d9780,
+    type: 3}
   helper0: {fileID: 1153237631}
   helper1: {fileID: 1950506919}
   helper2: {fileID: 1505730516}
@@ -966,6 +968,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   personagem0: {fileID: 1199901670545828024, guid: 788c9c01d28b99a468ff2936a8df7cb9,
+    type: 3}
+  personagem1: {fileID: 1199901670545828024, guid: 33e852cda72640e4b93d43460c7d9780,
     type: 3}
   helper0: {fileID: 1449315563}
   helper1: {fileID: 639315957}

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -39,6 +40,7 @@ public class projectileLifeCheck : MonoBehaviour{
 
         mainModule.startColor = mainColor;
 
+        Destroy(gameObject, 2);
     }
 
     void Update(){
@@ -49,12 +51,11 @@ public class projectileLifeCheck : MonoBehaviour{
             rb2d.velocity = new Vector2(-speed, 0);
         }
 
-        Destroy(gameObject, 5);
     }
 
     private void OnTriggerStay2D(Collider2D other){
         
-        if (!other.GetComponent<projectileLifeCheck>()){
+        if (!other.GetComponent<projectileLifeCheck>() && other.gameObject.layer == 11){
             
             var otherPlayer = other.transform.root.GetChild(0).GetComponent<playerPlataformerController>();
 
@@ -178,4 +179,7 @@ public class projectileLifeCheck : MonoBehaviour{
         }
     }
 
+    private void OnDestroy(){
+        ownPlayerScript.liveProjectile = false;
+    }
 }

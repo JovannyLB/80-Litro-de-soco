@@ -280,6 +280,8 @@ MonoBehaviour:
   characterName: Dummy
   health: 1000
   maxHealth: 0
+  specialBar: 0
+  maxBar: 900
   won: 0
   roundsWon: 0
   lost: 0
@@ -470,6 +472,8 @@ MonoBehaviour:
   blockHitStunFrames: 19
   pushBackStrengh: 16
   damage: 90
+  specialGainOnHit: 80
+  specialGainOnWhiff: 0
   overHeadAttack: 0
   lowAttack: 0
   blood: {fileID: 0}
@@ -548,6 +552,8 @@ MonoBehaviour:
   blockHitStunFrames: 12
   pushBackStrengh: 16
   damage: 100
+  specialGainOnHit: 80
+  specialGainOnWhiff: 0
   overHeadAttack: 0
   lowAttack: 1
   blood: {fileID: 0}
@@ -626,6 +632,8 @@ MonoBehaviour:
   blockHitStunFrames: 9
   pushBackStrengh: 12
   damage: 30
+  specialGainOnHit: 40
+  specialGainOnWhiff: 0
   overHeadAttack: 0
   lowAttack: 1
   blood: {fileID: 0}
@@ -754,6 +762,8 @@ MonoBehaviour:
   blockHitStunFrames: 12
   pushBackStrengh: 16
   damage: 100
+  specialGainOnHit: 0
+  specialGainOnWhiff: 0
   overHeadAttack: 0
   lowAttack: 0
   blood: {fileID: 0}
@@ -832,6 +842,8 @@ MonoBehaviour:
   blockHitStunFrames: 21
   pushBackStrengh: 16
   damage: 100
+  specialGainOnHit: 80
+  specialGainOnWhiff: 0
   overHeadAttack: 0
   lowAttack: 0
   blood: {fileID: 0}
@@ -881,7 +893,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 3.0596828, y: 1.1762092}
+  m_Offset: {x: 3.1398163, y: 0.8483984}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -892,7 +904,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.617426, y: 1.4339852}
+  m_Size: {x: 4.777693, y: 2.089607}
   m_EdgeRadius: 0
 --- !u!114 &3614345076940005252
 MonoBehaviour:
@@ -910,6 +922,8 @@ MonoBehaviour:
   blockHitStunFrames: 12
   pushBackStrengh: 20
   damage: 70
+  specialGainOnHit: 80
+  specialGainOnWhiff: 0
   overHeadAttack: 1
   lowAttack: 0
   blood: {fileID: 0}
@@ -1059,6 +1073,8 @@ MonoBehaviour:
   blockHitStunFrames: 17
   pushBackStrengh: 16
   damage: 100
+  specialGainOnHit: 0
+  specialGainOnWhiff: 0
   overHeadAttack: 0
   lowAttack: 0
   blood: {fileID: 0}
@@ -1261,6 +1277,8 @@ MonoBehaviour:
   blockHitStunFrames: 9
   pushBackStrengh: 12
   damage: 30
+  specialGainOnHit: 40
+  specialGainOnWhiff: 0
   overHeadAttack: 0
   lowAttack: 0
   blood: {fileID: 0}
@@ -1453,6 +1471,8 @@ MonoBehaviour:
   blockHitStunFrames: 6
   pushBackStrengh: 12
   damage: 20
+  specialGainOnHit: 40
+  specialGainOnWhiff: 0
   overHeadAttack: 0
   lowAttack: 1
   blood: {fileID: 0}
@@ -1531,6 +1551,8 @@ MonoBehaviour:
   blockHitStunFrames: 16
   pushBackStrengh: 16
   damage: 70
+  specialGainOnHit: 80
+  specialGainOnWhiff: 20
   overHeadAttack: 0
   lowAttack: 0
   blood: {fileID: 0}
@@ -1609,6 +1631,8 @@ MonoBehaviour:
   blockHitStunFrames: 10
   pushBackStrengh: 12
   damage: 40
+  specialGainOnHit: 40
+  specialGainOnWhiff: 0
   overHeadAttack: 0
   lowAttack: 0
   blood: {fileID: 0}
@@ -1766,6 +1790,8 @@ MonoBehaviour:
   blockHitStunFrames: 20
   pushBackStrengh: 16
   damage: 80
+  specialGainOnHit: 80
+  specialGainOnWhiff: 10
   overHeadAttack: 0
   lowAttack: 0
   blood: {fileID: 0}
@@ -1815,7 +1841,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 3.8384688, y: 1.1871904}
+  m_Offset: {x: 4.010274, y: 0.7153569}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1826,7 +1852,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.059854, y: 1.0606248}
+  m_Size: {x: 3.4034634, y: 2.004292}
   m_EdgeRadius: 0
 --- !u!114 &3614345078330818047
 MonoBehaviour:
@@ -1844,6 +1870,8 @@ MonoBehaviour:
   blockHitStunFrames: 12
   pushBackStrengh: 20
   damage: 70
+  specialGainOnHit: 80
+  specialGainOnWhiff: 0
   overHeadAttack: 1
   lowAttack: 0
   blood: {fileID: 0}
@@ -1922,6 +1950,8 @@ MonoBehaviour:
   blockHitStunFrames: 15
   pushBackStrengh: 16
   damage: 90
+  specialGainOnHit: 80
+  specialGainOnWhiff: 0
   overHeadAttack: 0
   lowAttack: 1
   blood: {fileID: 0}
@@ -2079,6 +2109,8 @@ MonoBehaviour:
   blockHitStunFrames: 17
   pushBackStrengh: 20
   damage: 300
+  specialGainOnHit: 0
+  specialGainOnWhiff: 0
   overHeadAttack: 0
   lowAttack: 0
   blood: {fileID: 0}

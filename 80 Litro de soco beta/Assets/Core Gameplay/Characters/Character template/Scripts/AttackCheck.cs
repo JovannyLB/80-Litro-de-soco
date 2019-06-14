@@ -14,6 +14,8 @@ public class AttackCheck : MonoBehaviour{
     public int blockHitStunFrames;
     public int pushBackStrengh = 12;
     public int damage;
+    public float specialGainOnHit;
+    public float specialGainOnWhiff;
     private int pushBackTotal = 1;
     private int pushBackAtual;
     private int pushBackAtualSelf;
@@ -173,8 +175,9 @@ public class AttackCheck : MonoBehaviour{
 //                otherPlayer.StopAllAttack();
                 otherPlayer.lastHitTaken = hitStunFrames;
                 otherPlayer.addHitStun(hitStunFrames);
+                transform.root.GetChild(0).GetComponent<playerPlataformerController>().specialBar += specialGainOnHit;
             }
-            
+
             hasHit = true;
             transform.root.GetChild(0).GetComponent<playerPlataformerController>().lastHitHasHit = true;
             transform.root.GetChild(0).GetComponent<playerPlataformerController>().targetVelocity = Vector2.zero;

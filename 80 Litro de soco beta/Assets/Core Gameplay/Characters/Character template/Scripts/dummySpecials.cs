@@ -33,9 +33,10 @@ public class dummySpecials : SpecialsBase{
             ownPlayer.LightSpecial1();
         } else if (ownPlayer.downTimerSpecial < threshold && ownPlayer.rightTimerSpecial < threshold &&
                    ownPlayer.circleTimerSpecial < threshold && (ownPlayer.testeDeSpecial() || ownPlayer.testeDeSpecialCancel()) &&
-                   ownPlayer.downTimerSpecial > ownPlayer.circleTimerSpecial){
+                   ownPlayer.downTimerSpecial > ownPlayer.circleTimerSpecial && ownPlayer.specialBar >= 300){
             ownPlayer.StopAllAttack();
             ownPlayer.HardSpecial1();
+            ownPlayer.specialBar -= 300;
         }
     }
     
@@ -48,9 +49,10 @@ public class dummySpecials : SpecialsBase{
             ownPlayer.LightSpecial2();
         } else if (ownPlayer.leftTimerSpecial < threshold && ownPlayer.rightTimerSpecial < threshold &&
                    ownPlayer.triangleTimerSpecial < threshold && (ownPlayer.testeDeSpecial() || ownPlayer.testeDeSpecialCancel()) &&
-                   ownPlayer.leftTimerSpecial > ownPlayer.triangleTimerSpecial){
+                   ownPlayer.leftTimerSpecial > ownPlayer.triangleTimerSpecial && ownPlayer.specialBar >= 300){
             ownPlayer.StopAllAttack();
             ownPlayer.HardSpecial2();
+            ownPlayer.specialBar -= 300;
         }
 
         if (special2Moving && ownPlayer.isLeft){
@@ -73,17 +75,19 @@ public class dummySpecials : SpecialsBase{
             ownPlayer.LightSpecial3();
         } else if (ownPlayer.downTimerSpecial < threshold && ownPlayer.rightTimerSpecial < threshold &&
                    ownPlayer.triangleTimerSpecial < threshold && (ownPlayer.testeDeSpecial() || ownPlayer.testeDeSpecialCancel()) &&
-                   ownPlayer.downTimerSpecial > ownPlayer.triangleTimerSpecial && !ownPlayer.liveProjectile){
+                   ownPlayer.downTimerSpecial > ownPlayer.triangleTimerSpecial && !ownPlayer.liveProjectile && ownPlayer.specialBar >= 300){
             ownPlayer.StopAllAttack();
             ownPlayer.HardSpecial3();
+            ownPlayer.specialBar -= 300;
         }
     }
 
     protected override void Super(){
         // Super
-        if (ownPlayer.l1TimerSuper < threshold && ownPlayer.l2TimerSuper < threshold && (ownPlayer.testeDeSpecial() || ownPlayer.testeDeSpecialCancel())){
+        if (ownPlayer.l1TimerSuper < threshold && ownPlayer.l2TimerSuper < threshold && (ownPlayer.testeDeSpecial() || ownPlayer.testeDeSpecialCancel()) && ownPlayer.specialBar >= 900){
             ownPlayer.StopAllAttack();
             ownPlayer.Super();
+            ownPlayer.specialBar -= 900;
         }
     }
 

@@ -11,6 +11,7 @@ public class testeSelecao : MonoBehaviour
 {
 
     public GameObject personagem0;
+    public GameObject personagem1;
 
     public GameObject helper0;
     public GameObject helper1;
@@ -35,6 +36,10 @@ public class testeSelecao : MonoBehaviour
 
     private int j;
     private bool waiting;
+    
+    protected float moveVRawLeft;
+    
+    protected float moveVRawRight;
     
     //Wait
     WaitForSecondsRealtime waitForSecondsRealtime;
@@ -62,6 +67,7 @@ public class testeSelecao : MonoBehaviour
         arrayHelpers.Add(helper6);
 
         arrayPersonagens.Add(personagem0);
+        arrayPersonagens.Add(personagem1);
         
         arrayPersonagensTela.Add(null);
         arrayPersonagensTela.Add(null);
@@ -73,10 +79,11 @@ public class testeSelecao : MonoBehaviour
 
         j = 0;
 
-        for (int i = 0; i < arrayPersonagens.Count; i++)
-        {
-            arrayPersonagens[i].GetComponent<IndexTest>().setNumeroPersonagem(i);
-        }
+        
+
+        print(arrayPersonagens[0].GetComponent<IndexTest>().GetNumeroPersonagem());
+        print(arrayPersonagens[1].GetComponent<IndexTest>().GetNumeroPersonagem());
+
 
         for (int i = 0; arrayPersonagensTela[6] == null; i++)
         {
@@ -126,15 +133,23 @@ public class testeSelecao : MonoBehaviour
             }
         }
 
+        for (int i = 0; i < arrayPersonagensTela.Count; i++){
+            arrayPersonagensTela[i].transform.SetParent(arrayHelpers[i].transform);
+            MovingBetweenHelpers(false);
+        }
     }
 
     private void Update()
     {
+        
+        moveVRawLeft = Input.GetAxisRaw("Vertical") + Input.GetAxisRaw("VerticalDpad");
+        moveVRawRight = Input.GetAxisRaw("Vertical2") + Input.GetAxisRaw("Vertical2Dpad");
+        
         if (playerControlling == 1)
         {
             if (!playerReady)
             {
-                if (Input.GetKeyDown(KeyCode.DownArrow) && !waiting)
+                if ((Input.GetKeyDown(KeyCode.S) || moveVRawLeft > 0.5f) && !waiting)
                 {
                     waiting = true;
                     OnDownPressed();
@@ -142,7 +157,7 @@ public class testeSelecao : MonoBehaviour
                     StartCoroutine(DoWaitTest());
                 }
 
-                else if (Input.GetKeyDown(KeyCode.UpArrow) && !waiting)
+                else if ((Input.GetKeyDown(KeyCode.W) || moveVRawLeft < -0.5f) && !waiting)
                 {
                     waiting = true;
                     OnUpPressed();
@@ -151,18 +166,19 @@ public class testeSelecao : MonoBehaviour
                 }
             }
 
-            arrayPersonagensTela[3].GetComponent<Button>().Select();
     
-            if (Input.GetKeyDown(KeyCode.KeypadEnter) && !playerReady)
+            if ((Input.GetKeyDown(KeyCode.Joystick1Button1) || Input.GetKeyDown(KeyCode.G)) && !playerReady)
             {
-                botaoReady.GetComponent<Image>().DOColor(new Color(0, 255, 0), 1);
+                print(arrayPersonagensTela[3].GetComponent<IndexTest>().GetNumeroPersonagem());
+                botaoReady.GetComponent<Image>().DOColor(new Color(0, 1, 0), 1);
                 playerSelected = arrayPersonagensTela[3].GetComponent<IndexTest>().GetNumeroPersonagem();
                 playerReady = !playerReady;
                 Debug.Log("ENTER APERTADO");
             }
-            else if (Input.GetKeyDown(KeyCode.KeypadEnter) && playerReady)
+            else if ((Input.GetKeyDown(KeyCode.Joystick1Button1) || Input.GetKeyDown(KeyCode.G)) && playerReady)
             {
-                botaoReady.GetComponent<Image>().DOColor(new Color(255, 87, 76), 1);
+                botaoReady.GetComponent<Image>().DOColor(new Color(255/255, 87/255, 76/255), 1);
+                playerSelected = 0;
                 playerReady = !playerReady;
                 Debug.Log("ENTER APERTADO");
             }
@@ -171,7 +187,7 @@ public class testeSelecao : MonoBehaviour
         if (playerControlling == 2)
         {
             if(!playerReady){
-                if (Input.GetKeyDown(KeyCode.S) && !waiting)
+                if ((Input.GetKeyDown(KeyCode.DownArrow) || moveVRawRight > 0.5f) && !waiting)
                 {
                     waiting = true;
                     OnDownPressed();
@@ -179,7 +195,7 @@ public class testeSelecao : MonoBehaviour
                     StartCoroutine(DoWaitTest());
                 }
     
-                else if (Input.GetKeyDown(KeyCode.W) && !waiting)
+                else if ((Input.GetKeyDown(KeyCode.UpArrow) || moveVRawRight < -0.5f) && !waiting)
                 {
                     waiting = true;
                     OnUpPressed();
@@ -187,17 +203,18 @@ public class testeSelecao : MonoBehaviour
                     StartCoroutine(DoWaitTest());
                 }
             }
-            arrayPersonagensTela[3].GetComponent<Button>().Select();
     
-            if (Input.GetKeyDown(KeyCode.Z) && !playerReady)
+            if ((Input.GetKeyDown(KeyCode.Joystick2Button1) || Input.GetKeyDown(KeyCode.Keypad5)) && !playerReady)
             {
-                botaoReady.GetComponent<Image>().DOColor(new Color(0, 255, 0), 1);
+                botaoReady.GetComponent<Image>().DOColor(new Color(0, 1, 0), 1);
+                playerSelected = arrayPersonagensTela[3].GetComponent<IndexTest>().GetNumeroPersonagem();
                 playerReady = !playerReady;
                 Debug.Log("ENTER APERTADO");
             }
-            else if (Input.GetKeyDown(KeyCode.Z) && playerReady)
+            else if ((Input.GetKeyDown(KeyCode.Joystick2Button1) || Input.GetKeyDown(KeyCode.Keypad5)) && playerReady)
             {
-                botaoReady.GetComponent<Image>().DOColor(new Color(255, 87, 76), 1);
+                botaoReady.GetComponent<Image>().DOColor(new Color(255/255, 87/255, 76/255), 1);
+                playerSelected = 0;
                 playerReady = !playerReady;
                 Debug.Log("ENTER APERTADO");
             }

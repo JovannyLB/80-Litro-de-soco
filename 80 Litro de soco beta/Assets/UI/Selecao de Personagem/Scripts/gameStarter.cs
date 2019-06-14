@@ -20,20 +20,19 @@ public class gameStarter : MonoBehaviour
     {
         
         if (eventController0.GetComponent<testeSelecao>().playerReady && 
-            eventController1.GetComponent<testeSelecao>().playerReady)
-        {
-            mensageiro.SetLeftPlayerIndex(1);
-            mensageiro.SetRightPlayerIndex(1);
-            /*mensageiro.SetLeftPlayerIndex(eventController0.GetComponent<testeSelecao>().GetPlayerSelected());
-            mensageiro.SetRightPlayerIndex(eventController1.GetComponent<testeSelecao>().GetPlayerSelected());*/
+            eventController1.GetComponent<testeSelecao>().playerReady){
+            mensageiro.SetLeftPlayerIndex(eventController0.GetComponent<testeSelecao>().GetPlayerSelected());
+            mensageiro.SetRightPlayerIndex(eventController1.GetComponent<testeSelecao>().GetPlayerSelected());
+            
             StartCoroutine(DoWaitTest());
         }
     }
     
     IEnumerator DoWaitTest()
     {
-       
+        print(eventController0.GetComponent<testeSelecao>().GetPlayerSelected());
+        print(eventController1.GetComponent<testeSelecao>().GetPlayerSelected());
         yield return (new WaitForSeconds(1f));
-        SceneManager.LoadScene(1, LoadSceneMode.Single);
+        SceneManager.LoadScene(2, LoadSceneMode.Single);
     }
 }

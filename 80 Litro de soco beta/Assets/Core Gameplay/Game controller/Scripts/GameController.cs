@@ -23,8 +23,8 @@ public class GameController : MonoBehaviour{
     private bool gameRunning;
     private int rounds = 1;
 
-    public int leftPlayerChosen;
-    public int rightPlayerChosen;
+    private int leftPlayerChosen;
+    private int rightPlayerChosen;
     public GameObject[] players;
     private bool flipToggle = true;
     private GameObject sceneCamera;
@@ -60,6 +60,9 @@ public class GameController : MonoBehaviour{
         uiTexts[10].text = timeLeft.ToString();
         
         // Arrumas os player
+        leftPlayerChosen = Mensageiro.leftPlayerIndex;
+        rightPlayerChosen = Mensageiro.rightPlayerIndex;
+        
         var leftPlayerPreFab = Instantiate(players[leftPlayerChosen]);
         leftPlayer = leftPlayerPreFab.transform.GetChild(0).gameObject;
         leftPlayerScript = leftPlayerPreFab.transform.GetChild(0).GetComponent<playerPlataformerController>();
@@ -109,10 +112,13 @@ public class GameController : MonoBehaviour{
         uiImages[0].color = leftPlayerScript.mainColor;
         uiTexts[0].color = leftPlayerScript.mainColor;
         uiTexts[2].color = leftPlayerScript.mainColor;
+        uiImages[6].color = leftPlayerScript.mainColor;
         
         uiTexts[1].color = rightPlayerScript.mainColor;
         uiTexts[3].color = rightPlayerScript.mainColor;
         uiImages[3].color = rightPlayerScript.mainColor;
+        uiImages[10].color = rightPlayerScript.mainColor;
+
         
         transform.GetChild(2).GetComponent<SpriteRenderer>().color = Color.black;
 
@@ -140,6 +146,8 @@ public class GameController : MonoBehaviour{
     void Update(){
         // Cuida da vida
         PlayerHealth();
+        
+        PlayerBar();
         
         // Camera
         CameraControl();
@@ -463,6 +471,97 @@ public class GameController : MonoBehaviour{
                 }
             }
         
+    }
+
+    private void PlayerBar(){
+        // Left player
+        if (leftPlayerScript.specialBar > leftPlayerScript.maxBar){
+            leftPlayerScript.specialBar = 900;
+        }
+
+        if (leftPlayerScript.specialBar <= 300){
+            uiImages[7].rectTransform.localScale = new Vector3(leftPlayerScript.specialBar / (leftPlayerScript.maxBar / 3), 1, 1);
+            uiImages[7].color = new Color(0, 255, 0, 0.5f);
+            
+            uiImages[8].rectTransform.localScale = new Vector3(0, 1, 1);
+            uiImages[8].color = new Color(0, 255, 0, 0.5f);
+            
+            uiImages[9].rectTransform.localScale = new Vector3(0, 1, 1);
+            uiImages[9].color = new Color(0, 255, 0, 0.5f);
+        } else if (leftPlayerScript.specialBar <= 600){
+            uiImages[7].rectTransform.localScale = new Vector3(1, 1, 1);
+            uiImages[7].color = Color.green;
+            
+            uiImages[8].rectTransform.localScale = new Vector3((leftPlayerScript.specialBar - 300) / (leftPlayerScript.maxBar / 3), 1, 1);
+            uiImages[8].color = new Color(0, 255, 0, 0.5f);
+            
+            uiImages[9].rectTransform.localScale = new Vector3(0, 1, 1);
+            uiImages[9].color = new Color(0, 255, 0, 0.5f);
+        } else if (leftPlayerScript.specialBar < 900){
+            uiImages[7].rectTransform.localScale = new Vector3(1, 1, 1);
+            uiImages[7].color = Color.green;
+            
+            uiImages[8].rectTransform.localScale = new Vector3(1, 1, 1);
+            uiImages[8].color = Color.green;
+            
+            uiImages[9].rectTransform.localScale = new Vector3((leftPlayerScript.specialBar - 600) / (leftPlayerScript.maxBar / 3), 1, 1);
+            uiImages[9].color = new Color(0, 255, 0, 0.5f);
+        }
+        else if(leftPlayerScript.specialBar == 900){
+            uiImages[7].rectTransform.localScale = new Vector3(1, 1, 1);
+            uiImages[7].color = Color.green;
+            
+            uiImages[8].rectTransform.localScale = new Vector3(1, 1, 1);
+            uiImages[8].color = Color.green;
+            
+            uiImages[9].rectTransform.localScale = new Vector3(1, 1, 1);
+            uiImages[9].color = Color.green;
+        }
+
+
+        // Right player
+        if (rightPlayerScript.specialBar > rightPlayerScript.maxBar){
+            rightPlayerScript.specialBar = 900;
+        }
+        
+        if (rightPlayerScript.specialBar <= 300){
+            uiImages[13].rectTransform.localScale = new Vector3(rightPlayerScript.specialBar / (rightPlayerScript.maxBar / 3), 1, 1);
+            uiImages[13].color = new Color(0, 255, 0, 0.5f);
+            
+            uiImages[12].rectTransform.localScale = new Vector3(0, 1, 1);
+            uiImages[12].color = new Color(0, 255, 0, 0.5f);
+            
+            uiImages[11].rectTransform.localScale = new Vector3(0, 1, 1);
+            uiImages[11].color = new Color(0, 255, 0, 0.5f);
+        } else if (rightPlayerScript.specialBar <= 600){
+            uiImages[13].rectTransform.localScale = new Vector3(1, 1, 1);
+            uiImages[13].color = Color.green;
+            
+            uiImages[12].rectTransform.localScale = new Vector3((rightPlayerScript.specialBar - 300) / (rightPlayerScript.maxBar / 3), 1, 1);
+            uiImages[12].color = new Color(0, 255, 0, 0.5f);
+            
+            uiImages[11].rectTransform.localScale = new Vector3(0, 1, 1);
+            uiImages[11].color = new Color(0, 255, 0, 0.5f);
+        } else if (rightPlayerScript.specialBar < 900){
+            uiImages[13].rectTransform.localScale = new Vector3(1, 1, 1);
+            uiImages[13].color = Color.green;
+            
+            uiImages[12].rectTransform.localScale = new Vector3(1, 1, 1);
+            uiImages[12].color = Color.green;
+            
+            uiImages[11].rectTransform.localScale = new Vector3((rightPlayerScript.specialBar - 600) / (rightPlayerScript.maxBar / 3), 1, 1);
+            uiImages[11].color = new Color(0, 255, 0, 0.5f);
+        }
+        else if(rightPlayerScript.specialBar == 900){
+            uiImages[13].rectTransform.localScale = new Vector3(1, 1, 1);
+            uiImages[13].color = Color.green;
+            
+            uiImages[12].rectTransform.localScale = new Vector3(1, 1, 1);
+            uiImages[12].color = Color.green;
+            
+            uiImages[11].rectTransform.localScale = new Vector3(1, 1, 1);
+            uiImages[11].color = Color.green;
+        }
     }
 
     private bool roundCount = true;

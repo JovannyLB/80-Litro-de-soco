@@ -11,7 +11,7 @@ public class IndexTest : MonoBehaviour, ISelectHandler
     private bool selected;
     private int index;
     private Button botao;
-    private int numeroPersonagem;
+    public int numeroPersonagem;
 
     public int GetNumeroPersonagem()
     {

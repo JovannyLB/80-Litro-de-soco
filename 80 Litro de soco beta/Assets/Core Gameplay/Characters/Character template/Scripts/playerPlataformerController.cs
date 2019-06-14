@@ -11,6 +11,8 @@ public class playerPlataformerController : PhysicsObject{
 
     public float health;
     [HideInInspector]public float maxHealth;
+    public float specialBar;
+    [HideInInspector]public float maxBar = 900f;
     [HideInInspector]public bool won;
     [HideInInspector]public int roundsWon;
     [HideInInspector]public bool lost;
