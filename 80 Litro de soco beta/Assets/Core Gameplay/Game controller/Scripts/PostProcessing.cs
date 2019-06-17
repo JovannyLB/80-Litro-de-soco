@@ -13,6 +13,8 @@ public class PostProcessing : MonoBehaviour{
     private LensDistortion lensDistortion;
     private float lensDistortionIntensity;
 
+    private Grain grain;
+
     private float cameraIntensity = 10;
 
     public bool doneEffect;
@@ -25,6 +27,11 @@ public class PostProcessing : MonoBehaviour{
         volume.profile.TryGetSettings(out vignette);
         volume.profile.TryGetSettings(out chromaticAberration);
         volume.profile.TryGetSettings(out lensDistortion);
+        volume.profile.TryGetSettings(out grain);
+    }
+
+    void Update(){
+        grain.enabled.value = GameController.mode16bit;
     }
 
     public void DeathVignette(bool death){

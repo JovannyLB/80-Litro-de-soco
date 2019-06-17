@@ -9,6 +9,9 @@ public class projectileLifeCheck : MonoBehaviour{
     [HideInInspector]public int hitStunFrames;
     [HideInInspector]public int blockHitStunFrames;
     [HideInInspector]public int damage;
+    [HideInInspector]public int specialGainOnHit;
+    [HideInInspector]public int specialGainOnWhiff;
+    [HideInInspector]public bool isHard;
 
     private bool goingLeft;
     private bool attackDefended;
@@ -39,8 +42,14 @@ public class projectileLifeCheck : MonoBehaviour{
         ParticleSystem.MainModule mainModule = partcile.main;
 
         mainModule.startColor = mainColor;
-
+        
+        ownPlayerScript.specialBar += specialGainOnWhiff;
+        
         Destroy(gameObject, 2);
+
+        if (isHard){
+            GetComponent<projectileGhost>().StartGhost();
+        }
     }
 
     void Update(){
@@ -116,6 +125,10 @@ public class projectileLifeCheck : MonoBehaviour{
                         print("Something went wrong");
                         break;
                 }
+                
+                if (damage > otherPlayer.health && ownPlayerScript.roundsWon == 1){
+                    AudioManager.StartEcho(true);
+                }
 
                 if (attackDefended){
                     otherPlayer.addHitStunBlock(blockHitStunFrames);
@@ -130,10 +143,14 @@ public class projectileLifeCheck : MonoBehaviour{
 
                 if (!attackDefended){
                     otherPlayer.changeHealth(-damage);
+                    ownPlayerScript.specialBar += specialGainOnWhiff;
                 }
                 else{
                     otherPlayer.changeHealth((int) -(damage * 0.1f));
+                    ownPlayerScript.specialBar += specialGainOnHit;
                 }
+                
+                AudioHit(!attackDefended);
 
                 SpawnDeathParticle();
                 Destroy(gameObject);
@@ -181,5 +198,14 @@ public class projectileLifeCheck : MonoBehaviour{
 
     private void OnDestroy(){
         ownPlayerScript.liveProjectile = false;
+    }
+    
+    private void AudioHit(bool hit){
+            if (hit){
+                AudioManager.PlayHardHit(true);
+            }
+            else{
+                AudioManager.PlayHardHit(false);
+            }
     }
 }

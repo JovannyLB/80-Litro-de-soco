@@ -37,8 +37,14 @@ public class GameController : MonoBehaviour{
 
     public ParticleSystem[] particles;
 
+    private AudioSource audioSource;
+    public AudioClip[] narratorLines;
+    public AudioClip[] narratorLines16bit;
+
     private bool hitStopCurrently;
     private bool timeFreeze;
+
+    public static bool mode16bit;
     
     private bool doneCameraEffect;
     private float alpha;
@@ -58,6 +64,8 @@ public class GameController : MonoBehaviour{
 
         timeLeft = totalTime;
         uiTexts[10].text = timeLeft.ToString();
+
+        audioSource = GetComponent<AudioSource>();
         
         // Arrumas os player
         leftPlayerChosen = Mensageiro.leftPlayerIndex;
@@ -154,7 +162,14 @@ public class GameController : MonoBehaviour{
         
         // BGOs do mapa
         MapaBGO();
-        
+
+        if (Input.GetKeyDown(KeyCode.Escape) && mode16bit){
+            mode16bit = false;
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape) && !mode16bit){
+            mode16bit = true;
+        }
+
         // Pausa o jogo
         if (Input.GetKeyDown(KeyCode.JoystickButton9) && !isPaused){
             isPaused = true;
@@ -279,6 +294,7 @@ public class GameController : MonoBehaviour{
     IEnumerator EndCondition(){
         yield return new WaitForSeconds(5);
         FadeOut();
+        AudioManager.StartEcho(false);
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene("Menu");
     }
@@ -287,12 +303,14 @@ public class GameController : MonoBehaviour{
         FadeIn();
         yield return new WaitForSeconds(1);
         uiTexts[4].enabled = true;
+        PlaySound(mode16bit ? narratorLines16bit[1] : narratorLines[1]);
         uiTexts[4].text = "Round " + rounds;
         yield return new WaitForSeconds(1);
         uiTexts[4].enabled = false;
         yield return new WaitForSeconds(0.5f);
         uiTexts[4].enabled = true;
         gameRunning = true;
+        PlaySound(mode16bit ? narratorLines16bit[0] : narratorLines[0]);
         uiTexts[4].text = "FIGHT!";
         yield return new WaitForSeconds(0.5f);
         uiTexts[4].enabled = false;
@@ -409,26 +427,35 @@ public class GameController : MonoBehaviour{
 
     private bool winningChance = true;
     private bool winningChanceGame = true;
+    private bool suddenDeath;
     
     void PlayerHealth(){
         // Left player
             if (leftPlayerScript.health > 0){
                 uiImages[1].rectTransform.localScale = new Vector3(leftPlayerScript.health / leftPlayerScript.maxHealth, 1, 1);
-                uiImages[2].rectTransform.DOScaleX(uiImages[1].rectTransform.localScale.x, 1);
+                if (leftPlayerScript.lastHitStun <= 0){
+                    uiImages[2].rectTransform.DOScaleX(uiImages[1].rectTransform.localScale.x, 1);
+                }
             }
             else{
                 uiImages[1].rectTransform.localScale = new Vector3(0, 1, 1);
-                uiImages[2].rectTransform.DOScaleX(0, 1);
+                if (leftPlayerScript.lastHitStun <= 0){
+                    uiImages[2].rectTransform.DOScaleX(0, 1);
+                }
             }
 
             // Right player
             if (rightPlayerScript.health > 0){
                 uiImages[4].rectTransform.localScale = new Vector3(rightPlayerScript.health / rightPlayerScript.maxHealth, 1, 1);
-                uiImages[5].rectTransform.DOScaleX(uiImages[4].rectTransform.localScale.x, 1);
+                if (rightPlayerScript.lastHitStun <= 0){
+                    uiImages[5].rectTransform.DOScaleX(uiImages[4].rectTransform.localScale.x, 1);
+                }
             }
             else{
                 uiImages[4].rectTransform.localScale = new Vector3(0, 1, 1);
-                uiImages[5].rectTransform.DOScaleX(0, 1);
+                if (rightPlayerScript.lastHitStun <= 0){
+                    uiImages[5].rectTransform.DOScaleX(0, 1);
+                }
             }
             
             // Rounds condition
@@ -465,6 +492,10 @@ public class GameController : MonoBehaviour{
                     PlayerVictory(rightPlayerScript, leftPlayerScript);
                 }
                 else{
+                    if (!suddenDeath){
+                        PlaySound(mode16bit ? narratorLines16bit[5] : narratorLines[5]);
+                        suddenDeath = true;
+                    }
                     rightPlayerScript.health = 1;
                     leftPlayerScript.health = 1;
                     uiTexts[10].color = Color.red;
@@ -479,24 +510,24 @@ public class GameController : MonoBehaviour{
             leftPlayerScript.specialBar = 900;
         }
 
-        if (leftPlayerScript.specialBar <= 300){
+        if (leftPlayerScript.specialBar < 300){
             uiImages[7].rectTransform.localScale = new Vector3(leftPlayerScript.specialBar / (leftPlayerScript.maxBar / 3), 1, 1);
-            uiImages[7].color = new Color(0, 255, 0, 0.5f);
+            uiImages[7].color = new Color(0, 1, 0, 0.5f);
             
             uiImages[8].rectTransform.localScale = new Vector3(0, 1, 1);
-            uiImages[8].color = new Color(0, 255, 0, 0.5f);
+            uiImages[8].color = new Color(0, 1, 0, 0.5f);
             
             uiImages[9].rectTransform.localScale = new Vector3(0, 1, 1);
-            uiImages[9].color = new Color(0, 255, 0, 0.5f);
-        } else if (leftPlayerScript.specialBar <= 600){
+            uiImages[9].color = new Color(0, 1, 0, 0.5f);
+        } else if (leftPlayerScript.specialBar < 600){
             uiImages[7].rectTransform.localScale = new Vector3(1, 1, 1);
             uiImages[7].color = Color.green;
             
             uiImages[8].rectTransform.localScale = new Vector3((leftPlayerScript.specialBar - 300) / (leftPlayerScript.maxBar / 3), 1, 1);
-            uiImages[8].color = new Color(0, 255, 0, 0.5f);
+            uiImages[8].color = new Color(0, 1, 0, 0.5f);
             
             uiImages[9].rectTransform.localScale = new Vector3(0, 1, 1);
-            uiImages[9].color = new Color(0, 255, 0, 0.5f);
+            uiImages[9].color = new Color(0, 1, 0, 0.5f);
         } else if (leftPlayerScript.specialBar < 900){
             uiImages[7].rectTransform.localScale = new Vector3(1, 1, 1);
             uiImages[7].color = Color.green;
@@ -505,7 +536,7 @@ public class GameController : MonoBehaviour{
             uiImages[8].color = Color.green;
             
             uiImages[9].rectTransform.localScale = new Vector3((leftPlayerScript.specialBar - 600) / (leftPlayerScript.maxBar / 3), 1, 1);
-            uiImages[9].color = new Color(0, 255, 0, 0.5f);
+            uiImages[9].color = new Color(0, 1, 0, 0.5f);
         }
         else if(leftPlayerScript.specialBar == 900){
             uiImages[7].rectTransform.localScale = new Vector3(1, 1, 1);
@@ -524,24 +555,24 @@ public class GameController : MonoBehaviour{
             rightPlayerScript.specialBar = 900;
         }
         
-        if (rightPlayerScript.specialBar <= 300){
+        if (rightPlayerScript.specialBar < 300){
             uiImages[13].rectTransform.localScale = new Vector3(rightPlayerScript.specialBar / (rightPlayerScript.maxBar / 3), 1, 1);
-            uiImages[13].color = new Color(0, 255, 0, 0.5f);
+            uiImages[13].color = new Color(0, 1, 0, 0.5f);
             
             uiImages[12].rectTransform.localScale = new Vector3(0, 1, 1);
-            uiImages[12].color = new Color(0, 255, 0, 0.5f);
+            uiImages[12].color = new Color(0, 1, 0, 0.5f);
             
             uiImages[11].rectTransform.localScale = new Vector3(0, 1, 1);
-            uiImages[11].color = new Color(0, 255, 0, 0.5f);
-        } else if (rightPlayerScript.specialBar <= 600){
+            uiImages[11].color = new Color(0, 1, 0, 0.5f);
+        } else if (rightPlayerScript.specialBar < 600){
             uiImages[13].rectTransform.localScale = new Vector3(1, 1, 1);
             uiImages[13].color = Color.green;
             
             uiImages[12].rectTransform.localScale = new Vector3((rightPlayerScript.specialBar - 300) / (rightPlayerScript.maxBar / 3), 1, 1);
-            uiImages[12].color = new Color(0, 255, 0, 0.5f);
+            uiImages[12].color = new Color(0, 1, 0, 0.5f);
             
             uiImages[11].rectTransform.localScale = new Vector3(0, 1, 1);
-            uiImages[11].color = new Color(0, 255, 0, 0.5f);
+            uiImages[11].color = new Color(0, 1, 0, 0.5f);
         } else if (rightPlayerScript.specialBar < 900){
             uiImages[13].rectTransform.localScale = new Vector3(1, 1, 1);
             uiImages[13].color = Color.green;
@@ -550,7 +581,7 @@ public class GameController : MonoBehaviour{
             uiImages[12].color = Color.green;
             
             uiImages[11].rectTransform.localScale = new Vector3((rightPlayerScript.specialBar - 600) / (rightPlayerScript.maxBar / 3), 1, 1);
-            uiImages[11].color = new Color(0, 255, 0, 0.5f);
+            uiImages[11].color = new Color(0, 1, 0, 0.5f);
         }
         else if(rightPlayerScript.specialBar == 900){
             uiImages[13].rectTransform.localScale = new Vector3(1, 1, 1);
@@ -623,6 +654,8 @@ public class GameController : MonoBehaviour{
                     StopPlayer(losingPlayerScript);
                     losingPlayerScript.lost = true;
                 }
+                
+                PlayWinningQuote(winningPlayerScript);
                 
             }).SetDelay(0.1f);
         }
@@ -721,7 +754,14 @@ public class GameController : MonoBehaviour{
         
         uiTexts[4].enabled = true;
         uiTexts[4].text = "Round " + rounds;
-        
+        if (rounds == 1){
+            PlaySound(mode16bit ? narratorLines16bit[1] : narratorLines[1]);
+        } else if (rounds == 2){
+            PlaySound(mode16bit ? narratorLines16bit[2] : narratorLines[2]);
+        } else if (rounds == 3){
+            PlaySound(mode16bit ? narratorLines16bit[3] : narratorLines[3]);
+        }
+
         yield return new WaitForSeconds(1);
         
         uiTexts[4].enabled = false;
@@ -732,6 +772,7 @@ public class GameController : MonoBehaviour{
         roundCount = true;
         uiTexts[4].enabled = true;
         gameRunning = true;
+        PlaySound(mode16bit ? narratorLines16bit[0] : narratorLines[0]);
         uiTexts[4].text = "FIGHT!";
         
         yield return new WaitForSeconds(0.5f);
@@ -940,6 +981,23 @@ public class GameController : MonoBehaviour{
             transform.GetChild(3).GetComponent<SpriteRenderer>().color = Color.black;
         }).SetDelay(1f);
 
+    }
+    
+    public void PlaySound(AudioClip sound){
+        audioSource.volume = Random.Range(0.8f, 1);
+        audioSource.pitch = Random.Range(0.9f, 1.1f);
+        audioSource.PlayOneShot(sound);
+    }
+
+    private bool narratorLine;
+    
+    public void PlayWinningQuote(playerPlataformerController winningPlayer){
+        if (!narratorLine){
+            PlaySound(mode16bit ? winningPlayer.narrator16bit : winningPlayer.narrator);
+            audioSource.clip = mode16bit ? narratorLines16bit[4] : narratorLines[4];
+            audioSource.PlayDelayed(mode16bit ? winningPlayer.narrator16bit.length + 0.25f : winningPlayer.narrator.length + 0.25f);
+            narratorLine = true;
+        } 
     }
 
 }
