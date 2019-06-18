@@ -148,7 +148,7 @@ Transform:
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 153676751}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &91639443
 GameObject:
@@ -179,14 +179,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c26875f545f81b440934f2453472fd97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  arrayPersonagens:
+  - {fileID: 1199901670545828024, guid: 788c9c01d28b99a468ff2936a8df7cb9, type: 3}
+  - {fileID: 1199901670545828024, guid: 33e852cda72640e4b93d43460c7d9780, type: 3}
+  - {fileID: 1199901670545828024, guid: 9c1e1e6da123151489bfed57e3a3ade8, type: 3}
   personagensPreviews:
   - {fileID: 2430611607556630423, guid: 50851b688067e0c46a68dfc245bf4aa8, type: 3}
   - {fileID: 6793316930197530957, guid: 77efb7629f73efb42afb2afd372e7b63, type: 3}
+  - {fileID: 6793316930197530957, guid: b23bf1a675ed58a40b3887f747df9f1d, type: 3}
   previewMask: {fileID: 51116130}
-  personagem0: {fileID: 1199901670545828024, guid: 788c9c01d28b99a468ff2936a8df7cb9,
-    type: 3}
-  personagem1: {fileID: 1199901670545828024, guid: 33e852cda72640e4b93d43460c7d9780,
-    type: 3}
+  previewTvMask: {fileID: 869102099}
   helper0: {fileID: 1153237631}
   helper1: {fileID: 1950506919}
   helper2: {fileID: 1505730516}
@@ -241,6 +243,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 869102100}
   - {fileID: 51116131}
   m_Father: {fileID: 1007374126}
   m_RootOrder: 2
@@ -610,6 +613,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &869102099
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 869102100}
+  m_Layer: 5
+  m_Name: maskTvHelper2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &869102100
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 869102099}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 180, y: -200, z: 0}
+  m_LocalScale: {x: -1.2, y: 1.2, z: 1.2}
+  m_Children: []
+  m_Father: {fileID: 153676751}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &872368423
 GameObject:
@@ -1001,14 +1034,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c26875f545f81b440934f2453472fd97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  arrayPersonagens:
+  - {fileID: 1199901670545828024, guid: 788c9c01d28b99a468ff2936a8df7cb9, type: 3}
+  - {fileID: 1199901670545828024, guid: 33e852cda72640e4b93d43460c7d9780, type: 3}
+  - {fileID: 1199901670545828024, guid: 9c1e1e6da123151489bfed57e3a3ade8, type: 3}
   personagensPreviews:
   - {fileID: 2430611607556630423, guid: 50851b688067e0c46a68dfc245bf4aa8, type: 3}
   - {fileID: 6793316930197530957, guid: 77efb7629f73efb42afb2afd372e7b63, type: 3}
+  - {fileID: 6793316930197530957, guid: b23bf1a675ed58a40b3887f747df9f1d, type: 3}
   previewMask: {fileID: 1913858134}
-  personagem0: {fileID: 1199901670545828024, guid: 788c9c01d28b99a468ff2936a8df7cb9,
-    type: 3}
-  personagem1: {fileID: 1199901670545828024, guid: 33e852cda72640e4b93d43460c7d9780,
-    type: 3}
+  previewTvMask: {fileID: 2081291141}
   helper0: {fileID: 1449315563}
   helper1: {fileID: 639315957}
   helper2: {fileID: 728824456}
@@ -1171,6 +1206,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 2081291142}
   - {fileID: 1913858135}
   m_Father: {fileID: 1007374126}
   m_RootOrder: 1
@@ -1580,7 +1616,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1436684757}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1939447532
 GameObject:
@@ -1671,4 +1707,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 394630399}
   m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2081291141
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2081291142}
+  m_Layer: 5
+  m_Name: maskTvHelper1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2081291142
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081291141}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -180, y: -200, z: 0}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_Children: []
+  m_Father: {fileID: 1436684757}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

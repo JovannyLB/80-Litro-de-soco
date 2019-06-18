@@ -10,12 +10,14 @@ using UnityEngine.UI;
 public class testeSelecao : MonoBehaviour
 {
 
+    public List<GameObject> arrayPersonagens;
     public List<GameObject> personagensPreviews;
     public GameObject previewMask;
+    public GameObject previewTvMask;
+    
     private GameObject previewOn;
+    private GameObject preview;
 
-    public GameObject personagem0;
-    public GameObject personagem1;
 
     public GameObject helper0;
     public GameObject helper1;
@@ -34,7 +36,8 @@ public class testeSelecao : MonoBehaviour
 
     private int playerSelected;
     
-    private List<GameObject> arrayPersonagens;
+    
+    
     private List<GameObject> arrayPersonagensTela;
     private List<GameObject> arrayHelpers;
 
@@ -51,7 +54,6 @@ public class testeSelecao : MonoBehaviour
     public testeSelecao()
     {
         arrayHelpers = new List<GameObject>();
-        arrayPersonagens = new List<GameObject>();
         arrayPersonagensTela = new List<GameObject>(6);
         waiting = false;
         playerControlling = this.playerControlling;
@@ -72,8 +74,8 @@ public class testeSelecao : MonoBehaviour
         arrayHelpers.Add(helper5);
         arrayHelpers.Add(helper6);
 
-        arrayPersonagens.Add(personagem0);
-        arrayPersonagens.Add(personagem1);
+//        arrayPersonagens.Add(personagem0);
+//        arrayPersonagens.Add(personagem1);
         
         arrayPersonagensTela.Add(null);
         arrayPersonagensTela.Add(null);
@@ -83,12 +85,12 @@ public class testeSelecao : MonoBehaviour
         arrayPersonagensTela.Add(null);
         arrayPersonagensTela.Add(null);
 
+        for (int i = 0; i < arrayPersonagens.Count; i++)
+        {
+            arrayPersonagens[i].GetComponent<IndexTest>().setNumeroPersonagem(i);
+        }
+
         j = 0;
-
-        print(arrayPersonagens[0].GetComponent<IndexTest>().GetNumeroPersonagem());
-        print(arrayPersonagens[1].GetComponent<IndexTest>().GetNumeroPersonagem());
-
-
         for (int i = 0; arrayPersonagensTela[6] == null; i++)
         {
             try
@@ -100,10 +102,7 @@ public class testeSelecao : MonoBehaviour
                     new Quaternion(0f,0f,0f,0f),
                     arrayHelpers[i].transform);
                 
-                arrayPersonagensTela[i].GetComponent<IndexTest>().SetIndex(j);
-                //Provavelmente n aparece no inspetor pois o codigo nao esta no update, 
-                //mas o index é sim alterado como comprova o debug.log
-                //Debug.Log("INDEX: "+arrayPersonagensTela[i].GetComponent<IndexTest>().index);
+//                arrayPersonagensTela[i].GetComponent<IndexTest>().SetIndex(j);
                 
                 //Reseta a posicao
                 arrayPersonagensTela[i].GetComponent<RectTransform>().localPosition = new Vector3(
@@ -141,6 +140,9 @@ public class testeSelecao : MonoBehaviour
             arrayPersonagensTela[i].transform.SetParent(arrayHelpers[i].transform);
             MovingBetweenHelpers(false);
         }
+        
+        
+        updatePreview();
     }
 
     private void Update()
@@ -153,15 +155,15 @@ public class testeSelecao : MonoBehaviour
         {
             if (!playerReady)
             {
-                if ((Input.GetKeyDown(KeyCode.S) || moveVRawLeft > 0.5f) && !waiting){
-                    waiting = true;
-                    OnDownPressed();
-                    MovingBetweenHelpers(false);
-                    StartCoroutine(DoWaitTest());
-                } else if ((Input.GetKeyDown(KeyCode.W) || moveVRawLeft < -0.5f) && !waiting){
+                if (( moveVRawLeft > 0.5f) && !waiting){
                     waiting = true;
                     OnUpPressed();
                     MovingBetweenHelpers(true);
+                    StartCoroutine(DoWaitTest());
+                } else if (( moveVRawLeft < -0.5f) && !waiting){
+                    waiting = true;
+                    OnDownPressed();
+                    MovingBetweenHelpers(false);
                     StartCoroutine(DoWaitTest());
                 }
             }
@@ -188,19 +190,19 @@ public class testeSelecao : MonoBehaviour
         if (playerControlling == 2)
         {
             if(!playerReady){
-                if ((Input.GetKeyDown(KeyCode.DownArrow) || moveVRawRight > 0.5f) && !waiting)
-                {
-                    waiting = true;
-                    OnDownPressed();
-                    MovingBetweenHelpers(false);
-                    StartCoroutine(DoWaitTest());
-                }
-    
-                else if ((Input.GetKeyDown(KeyCode.UpArrow) || moveVRawRight < -0.5f) && !waiting)
+                if ((moveVRawRight > 0.5f) && !waiting)
                 {
                     waiting = true;
                     OnUpPressed();
                     MovingBetweenHelpers(true);
+                    StartCoroutine(DoWaitTest());
+                }
+    
+                else if ((moveVRawRight < -0.5f) && !waiting)
+                {
+                    waiting = true;
+                    OnDownPressed();
+                    MovingBetweenHelpers(false);
                     StartCoroutine(DoWaitTest());
                 }
             }
@@ -223,12 +225,13 @@ public class testeSelecao : MonoBehaviour
             }
         }
 
-
+        updateBanner();
     }
 
     private void OnDownPressed()
     {
         Debug.Log("BaixoPressionado");
+
 
         for (int i = 0; i < arrayPersonagensTela.Count; i++)
         {
@@ -270,14 +273,19 @@ public class testeSelecao : MonoBehaviour
                     );
                     
                     arrayPersonagensTela[0].GetComponent<IndexTest>().SetIndex(objeto);
-                    //Instantiate dentro de Insert nao funciona
+
+                    
+
                 }
                 catch (Exception e2)
                 {
                 }
             }
         }
+
+        updatePreview();
     }
+
     
     private void OnUpPressed()
     {
@@ -326,6 +334,22 @@ public class testeSelecao : MonoBehaviour
                 catch (Exception e2)
                 {
                 }
+            }
+        }
+        updatePreview();
+    }
+
+    public void updateBanner()
+    {
+        for (int i = 0; i < arrayPersonagensTela.Count; i++)
+        {
+            if (i != 3)
+            {
+                arrayPersonagensTela[i].GetComponent<Image>().DOFade(0.7f, 0.35f);
+            }
+            else
+            {
+                arrayPersonagensTela[i].GetComponent<Image>().DOFade(1f, 0.35f);
             }
         }
     }
@@ -417,24 +441,13 @@ public class testeSelecao : MonoBehaviour
 
     public void spawnPreview(int index)
     {
-        if (playerControlling == 1)
-        {
-            previewOn = Instantiate(
-                personagensPreviews[index].gameObject,
-                new Vector3(-100f, 0f, 0f),
-                new Quaternion(0f, 0f, 0f, 0f),
-                previewMask.transform
-            );
-        }
-        else if (playerControlling == 2)
-        {
-            previewOn = Instantiate(
-                personagensPreviews[index].gameObject,
-                new Vector3(-100f, 0f, 0f),
-                new Quaternion(0f, 0f, 0f, 0f),
-                previewMask.transform
-            );
-        }
+        print(index);
+        previewOn = Instantiate(
+             personagensPreviews[index].gameObject,
+             new Vector3(-100f, 0f, 0f),
+             new Quaternion(0f, 0f, 0f, 0f),
+             previewMask.transform
+         );
         
         previewOn.GetComponent<RectTransform>().localPosition = new Vector3(-500, 0f, 0f);
         previewOn.GetComponent<RectTransform>().DOLocalMove(
@@ -442,11 +455,6 @@ public class testeSelecao : MonoBehaviour
             0.5f, 
             false
         );
-
-        //.oncomplete(()=>{})
-//        previewMask.GetComponent<Transform>().DOLocalMove(new Vector3(500f, 0f, 0f), 0.25f, false).OnComplete(() => {
-//            previewOn.GetComponent<RectTransform>().localPosition = Vector3.zero;
-//        });
     }
 
     public void clearPreview()
@@ -459,6 +467,43 @@ public class testeSelecao : MonoBehaviour
         {
             Destroy(previewOn);
         });
+    }
+    
+    public void updatePreview()
+    {
+        if (preview)
+        {
+            preview.GetComponent<Image>().DOFade(0f, 0.15f).OnComplete(() =>
+            {
+                Destroy(preview);
+                createPreview();
+            });
+        }
+        
+        if (!preview)
+        {
+            createPreview();
+        }
+    }
+    
+    
+    public void createPreview()
+    {
+        preview = Instantiate(
+            personagensPreviews[arrayPersonagensTela[3].GetComponent<IndexTest>().GetNumeroPersonagem()].gameObject,
+            new Vector3(0f, 0f, 0f),
+            new Quaternion(0f, 0f, 0f, 0f),
+            previewTvMask.transform
+        );
+        preview.GetComponent<Image>().color = new Vector4(
+            preview.GetComponent<Image>().color.r,
+            preview.GetComponent<Image>().color.g,
+            preview.GetComponent<Image>().color.b,
+            0f
+        );
+        preview.GetComponent<RectTransform>().localPosition = new Vector2(0f, 0f);
+
+        preview.GetComponent<Image>().DOFade(0.4f, 0.5f);
     }
     
     IEnumerator DoWaitTest()
