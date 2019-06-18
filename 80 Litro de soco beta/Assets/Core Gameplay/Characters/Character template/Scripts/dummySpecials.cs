@@ -84,9 +84,10 @@ public class dummySpecials : SpecialsBase{
 
     protected override void Super(){
         // Super
-        if (ownPlayer.l1TimerSuper < threshold && ownPlayer.l2TimerSuper < threshold && (ownPlayer.testeDeSpecial() || ownPlayer.testeDeSpecialCancel()) && ownPlayer.specialBar >= 900){
+        if (ownPlayer.l1TimerSuper < threshold && ownPlayer.l2TimerSuper < threshold && (ownPlayer.testeDeSpecial() || ownPlayer.testeDeSuperCancel()) && ownPlayer.specialBar >= 900){
             ownPlayer.StopAllAttack();
             ownPlayer.Super();
+            AudioManager.PlaySuper();
             ownPlayer.specialBar -= 900;
         }
     }

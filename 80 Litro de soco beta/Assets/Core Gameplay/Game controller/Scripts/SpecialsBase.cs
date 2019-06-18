@@ -38,7 +38,7 @@ public class SpecialsBase : MonoBehaviour
         }
         
         // Ajuda os ataques cancelaveis
-        if (ownPlayer.testeDeSpecialCancel()){
+        if (ownPlayer.testeDeSpecialCancel() || ownPlayer.testeDeSuperCancel()){
             threshold = 40;
         }
         else{

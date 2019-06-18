@@ -153,16 +153,12 @@ public class testeSelecao : MonoBehaviour
         {
             if (!playerReady)
             {
-                if ((Input.GetKeyDown(KeyCode.S) || moveVRawLeft > 0.5f) && !waiting)
-                {
+                if ((Input.GetKeyDown(KeyCode.S) || moveVRawLeft > 0.5f) && !waiting){
                     waiting = true;
                     OnDownPressed();
                     MovingBetweenHelpers(false);
                     StartCoroutine(DoWaitTest());
-                }
-
-                else if ((Input.GetKeyDown(KeyCode.W) || moveVRawLeft < -0.5f) && !waiting)
-                {
+                } else if ((Input.GetKeyDown(KeyCode.W) || moveVRawLeft < -0.5f) && !waiting){
                     waiting = true;
                     OnUpPressed();
                     MovingBetweenHelpers(true);

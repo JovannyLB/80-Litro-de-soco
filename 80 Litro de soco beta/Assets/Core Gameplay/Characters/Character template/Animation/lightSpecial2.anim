@@ -240,14 +240,14 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: startGhost
+    functionName: special2MovementStart
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0
-    functionName: special2MovementStart
+    functionName: CancelSuperStop
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -274,8 +274,8 @@ AnimationClip:
     floatParameter: 0
     intParameter: 10
     messageOptions: 0
-  - time: 0.71666664
-    functionName: stopGhost
+  - time: 0.36666667
+    functionName: CancelSuperStart
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

@@ -18,6 +18,8 @@ public class playerPlataformerController : PhysicsObject{
     [HideInInspector]public bool lost;
     [HideInInspector]public bool gameRunning;
     public Color mainColor;
+    public AudioClip narrator;
+    public AudioClip narrator16bit;
     [HideInInspector]public GameController gameController;
 
     // Informações sobre movimetação
@@ -32,7 +34,7 @@ public class playerPlataformerController : PhysicsObject{
     // Atributos de dash
     protected float backDashTimer = 100;
     protected float frontDashTimer = 100;
-    private bool ableToMove;
+    [HideInInspector]public bool ableToMove;
     [HideInInspector]public float posX;
     [HideInInspector]public float posY;
 
@@ -75,8 +77,8 @@ public class playerPlataformerController : PhysicsObject{
     protected bool r2;
     [HideInInspector]public bool l1;
     [HideInInspector]public bool l2;
-    protected float moveHRaw;
-    protected float moveVRaw;
+    [HideInInspector]public float moveHRaw;
+    [HideInInspector]public float moveVRaw;
 
     [Header("Flips between JoyStick 1 and 2")]
     public bool isPlayer1;
@@ -108,6 +110,7 @@ public class playerPlataformerController : PhysicsObject{
     protected bool jumpingKickCurrently;
     protected bool canJumpAttack;
     private bool cancelSpecial;
+    private bool cancelSuper;
     [HideInInspector]public bool lightSpecial1Currently;
     [HideInInspector]public bool lightSpecial2Currently;
     [HideInInspector]public bool lightSpecial3Currently;
@@ -139,6 +142,8 @@ public class playerPlataformerController : PhysicsObject{
 
     public GameObject hurtBoxes;
     public GameObject hitBoxes;
+
+    private PlayerAudio audioManager;
 
     protected override void Controls(){
         if (enableControls){
@@ -343,6 +348,7 @@ public class playerPlataformerController : PhysicsObject{
         hurtBoxes.transform.position = transform.position;
         hitBoxes.transform.localScale = new Vector3(transform.localScale.x, hitBoxes.transform.localScale.y, hitBoxes.transform.localScale.z);
         hurtBoxes.transform.localScale = new Vector3(transform.localScale.x, hurtBoxes.transform.localScale.y, hurtBoxes.transform.localScale.z);
+        transform.root.GetChild(3).position = new Vector3(transform.position.x, transform.root.GetChild(3).position.y);
     }
 
     // Checagem de botões para os dashes
@@ -562,6 +568,8 @@ public class playerPlataformerController : PhysicsObject{
 
     // Core gameplay
     protected override void CoreGameplayStart(){
+        audioManager = GetComponent<PlayerAudio>();
+        
         speedTotal = walkingSpeed;
         maxHealth = health;
 
@@ -687,6 +695,7 @@ public class playerPlataformerController : PhysicsObject{
 
     // Stand light punch
     protected void StandLightPunch(){
+        audioManager.PlayAttackSound();
         CurrentlyAttacking(true);
         standLightPunchCurrently = true;
     }
@@ -698,6 +707,7 @@ public class playerPlataformerController : PhysicsObject{
 
     // Stand hard punch
     protected void StandHardPunch(){
+        audioManager.PlayAttackSound();
         CurrentlyAttacking(true);
         standHardPunchCurrently = true;
     }
@@ -709,6 +719,7 @@ public class playerPlataformerController : PhysicsObject{
 
     // Stand light kick
     protected void StandLightKick(){
+        audioManager.PlayAttackSound();
         CurrentlyAttacking(true);
         standLightKickCurrently = true;
     }
@@ -720,6 +731,7 @@ public class playerPlataformerController : PhysicsObject{
 
     // Stand hard kick
     protected void StandHardKick(){
+        audioManager.PlayAttackSound();
         CurrentlyAttacking(true);
         standHardKickCurrently = true;
     }
@@ -731,6 +743,7 @@ public class playerPlataformerController : PhysicsObject{
 
     // Crouch light punch
     protected void CrouchLightPunch(){
+        audioManager.PlayAttackSound();
         CurrentlyAttacking(true);
         crouchLightPunchCurrently = true;
     }
@@ -742,6 +755,7 @@ public class playerPlataformerController : PhysicsObject{
 
     // Crouch hard punch
     protected void CrouchHardPunch(){
+        audioManager.PlayAttackSound();
         CurrentlyAttacking(true);
         crouchHardPunchCurrently = true;
     }
@@ -753,6 +767,7 @@ public class playerPlataformerController : PhysicsObject{
 
     // Crouch light kick
     protected void CrouchLightKick(){
+        audioManager.PlayAttackSound();
         CurrentlyAttacking(true);
         crouchLightKickCurrently = true;
     }
@@ -764,6 +779,7 @@ public class playerPlataformerController : PhysicsObject{
 
     // Crouch hard kick
     protected void CrouchHardKick(){
+        audioManager.PlayAttackSound();
         CurrentlyAttacking(true);
         crouchHardKickCurrently = true;
     }
@@ -775,6 +791,7 @@ public class playerPlataformerController : PhysicsObject{
 
     // Jump punch
     protected void JumpPunch(){
+        audioManager.PlayAttackSound();
         CurrentlyJumpAttacking(true);
         jumpingPunchCurrently = true;
     }
@@ -786,6 +803,7 @@ public class playerPlataformerController : PhysicsObject{
 
     // Jump kick
     protected void JumpKick(){
+        audioManager.PlayAttackSound();
         CurrentlyJumpAttacking(true);
         jumpingKickCurrently = true;
     }
@@ -798,6 +816,7 @@ public class playerPlataformerController : PhysicsObject{
     // Specials
     // Light special 1
     public void LightSpecial1(){
+        audioManager.PlayAttackSound();
         CurrentlyAttacking(true);
         currentlyAttackingSpecial = true;
         lightSpecial1Currently = true;
@@ -811,6 +830,7 @@ public class playerPlataformerController : PhysicsObject{
     
     // Light special 2
     public void LightSpecial2(){
+        audioManager.PlayAttackSound();
         CurrentlyAttacking(true);
         currentlyAttackingSpecial = true;
         lightSpecial2Currently = true;
@@ -824,6 +844,7 @@ public class playerPlataformerController : PhysicsObject{
     
     // Light special 3
     public void LightSpecial3(){
+        audioManager.PlayAttackSound();
         CurrentlyAttacking(true);
         currentlyAttackingSpecial = true;
         lightSpecial3Currently = true;
@@ -837,6 +858,7 @@ public class playerPlataformerController : PhysicsObject{
     
     // Hard special 1
     public void HardSpecial1(){
+        audioManager.PlayAttackSound();
         CurrentlyAttacking(true);
         currentlyAttackingSpecial = true;
         hardSpecial1Currently = true;
@@ -850,6 +872,7 @@ public class playerPlataformerController : PhysicsObject{
     
     // Hard special 2
     public void HardSpecial2(){
+        audioManager.PlayAttackSound();
         CurrentlyAttacking(true);
         currentlyAttackingSpecial = true;
         hardSpecial2Currently = true;
@@ -863,6 +886,7 @@ public class playerPlataformerController : PhysicsObject{
     
     // Hard special 3
     public void HardSpecial3(){
+        audioManager.PlayAttackSound();
         CurrentlyAttacking(true);
         currentlyAttackingSpecial = true;
         hardSpecial3Currently = true;
@@ -899,6 +923,7 @@ public class playerPlataformerController : PhysicsObject{
     }
 
     public void gotHitTorsoStart(){
+        audioManager.PlayHurtSound();
         beenHitHead = false;
         beenHitTorso = true;
         beenHitLeg = false;
@@ -911,6 +936,7 @@ public class playerPlataformerController : PhysicsObject{
     }
 
     public void gotHitHeadStart(){
+        audioManager.PlayHurtSound();
         beenHitHead = true;
         beenHitTorso = false;
         beenHitLeg = false;
@@ -923,6 +949,7 @@ public class playerPlataformerController : PhysicsObject{
     }
 
     public void gotHitLegStart(){
+        audioManager.PlayHurtSound();
         beenHitHead = false;
         beenHitTorso = false;
         beenHitLeg = true;
@@ -978,6 +1005,9 @@ public class playerPlataformerController : PhysicsObject{
 
     // Para todos ataques atuais
     public void StopAllAttack(){
+        foreach (Collider2D attack in hurtbox){
+            attack.GetComponent<AttackCheck>().IsHittingFalse();
+        }
         JumpPunchStop();
         JumpKickStop();
         StandLightPunchStop();
@@ -1018,6 +1048,20 @@ public class playerPlataformerController : PhysicsObject{
     public void flipCharacterRight(){
         transform.localScale = new Vector3(transform.root.localScale.x * 1, transform.root.localScale.y, transform.root.localScale.z);
     }
+    
+    public void CancelSuperStart(){
+        if (lastHitHasHit){
+            cancelSuper = true;
+        }
+        else{
+            cancelSuper = false;
+        }
+    }
+
+    public void CancelSuperStop(){
+        cancelSuper = false;
+        cancelSuper = false;
+    }
 
     public void CancelSpecialStart(){
         if (lastHitHasHit){
@@ -1041,7 +1085,14 @@ public class playerPlataformerController : PhysicsObject{
     }
 
     public bool testeDeSpecialCancel(){
-        if (grounded && cancelSpecial && currentlyAttacking && !currentlyAttackingSpecial && !currentlyDashing && !jumpingOver){
+        if (grounded && cancelSpecial && currentlyAttacking && !currentlyAttackingSpecial && !superCurrently && !currentlyDashing && !jumpingOver){
+            return true;
+        }
+        return false;
+    }
+
+    public bool testeDeSuperCancel(){
+        if (grounded && cancelSuper && currentlyAttacking && currentlyAttackingSpecial && !superCurrently && !currentlyDashing && !jumpingOver || grounded && cancelSpecial && currentlyAttacking && !superCurrently && !currentlyAttackingSpecial && !currentlyDashing && !jumpingOver){
             return true;
         }
         return false;

@@ -9,6 +9,9 @@ public class projectileSpecialCheck : MonoBehaviour{
     public int hitStunFrames;
     public int blockHitStunFrames;
     public int damage;
+    public int specialGainOnHit;
+    public int specialGainOnWhiff;
+    public bool isHard;
     
     public GameObject projectile;
 
@@ -22,6 +25,9 @@ public class projectileSpecialCheck : MonoBehaviour{
         newProjectile.GetComponent<projectileLifeCheck>().blockHitStunFrames = blockHitStunFrames;
         newProjectile.GetComponent<projectileLifeCheck>().damage = damage;
         newProjectile.GetComponent<projectileLifeCheck>().blood = blood;
+        newProjectile.GetComponent<projectileLifeCheck>().specialGainOnHit = specialGainOnHit;
+        newProjectile.GetComponent<projectileLifeCheck>().specialGainOnWhiff = specialGainOnWhiff;
+        newProjectile.GetComponent<projectileLifeCheck>().isHard = isHard;
     }
     
 }

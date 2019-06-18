@@ -20,7 +20,8 @@ public class AttackCheck : MonoBehaviour{
     private int pushBackAtual;
     private int pushBackAtualSelf;
 
-    [Header("Attack type")]
+    [Header("Attack type")] 
+    public bool hardHit;
     public bool overHeadAttack;
     public bool lowAttack;
     private bool attackDefended;
@@ -36,7 +37,7 @@ public class AttackCheck : MonoBehaviour{
     void FixedUpdate(){
         if (pushBackAtual > 0 && transform.root.GetChild(0).GetComponent<playerPlataformerController>().isLeft){
             if (enemy.transform.root.GetChild(0).GetComponent<playerPlataformerController>().inCorner){
-                transform.root.GetChild(0).GetComponent<playerPlataformerController>().targetVelocity = new Vector2(1, 0) * -(pushBackStrengh / 2.0f);
+                transform.root.GetChild(0).GetComponent<playerPlataformerController>().targetVelocity = new Vector2(1, 0) * -pushBackStrengh;
                 pushBackAtual--;
             }
             else{
@@ -46,7 +47,7 @@ public class AttackCheck : MonoBehaviour{
         }
         else if (pushBackAtual > 0 && !transform.root.GetChild(0).GetComponent<playerPlataformerController>().isLeft){
             if (enemy.transform.root.GetChild(0).GetComponent<playerPlataformerController>().inCorner){
-                transform.root.GetChild(0).GetComponent<playerPlataformerController>().targetVelocity = new Vector2(1, 0) * (pushBackStrengh / 2.0f);
+                transform.root.GetChild(0).GetComponent<playerPlataformerController>().targetVelocity = new Vector2(1, 0) * pushBackStrengh;
                 pushBackAtual--;
             }
             else{
@@ -168,14 +169,19 @@ public class AttackCheck : MonoBehaviour{
                     break;
             }
 
+            if (damage > otherPlayer.health && transform.root.GetChild(0).GetComponent<playerPlataformerController>().roundsWon == 1){
+                AudioManager.StartEcho(true);
+            }
+
             if (attackDefended){
                 otherPlayer.addHitStunBlock(blockHitStunFrames);
+                transform.root.GetChild(0).GetComponent<playerPlataformerController>().specialBar += specialGainOnWhiff;
             }
             else{
 //                otherPlayer.StopAllAttack();
                 otherPlayer.lastHitTaken = hitStunFrames;
                 otherPlayer.addHitStun(hitStunFrames);
-                transform.root.GetChild(0).GetComponent<playerPlataformerController>().specialBar += specialGainOnHit;
+                transform.root.GetChild(0).GetComponent<playerPlataformerController>().specialBar += specialGainOnHit - specialGainOnWhiff;
             }
 
             hasHit = true;
@@ -189,6 +195,8 @@ public class AttackCheck : MonoBehaviour{
             else{
                 otherPlayer.changeHealth((int) -(damage * 0.1f));
             }
+            
+            AudioHit(!attackDefended);
 
             if (transform.root.GetChild(0).GetComponent<playerPlataformerController>().roundsWon == 0){
                 FindObjectOfType<GameController>().CallHitStop(damage / 8f, 0.05f);
@@ -200,6 +208,8 @@ public class AttackCheck : MonoBehaviour{
     }
 
     public void IsHittingTrue(){
+        AudioManager.PlayWhiff();
+        transform.root.GetChild(0).GetComponent<playerPlataformerController>().specialBar += specialGainOnWhiff;
         isHitting = true;
     }
 
@@ -237,6 +247,25 @@ public class AttackCheck : MonoBehaviour{
         }
         else{
             Instantiate(hitSplash, new Vector3(otherPlayer.transform.position.x, otherPlayer.transform.position.y - 1.5f, 0), Quaternion.identity);
+        }
+    }
+
+    private void AudioHit(bool hit){
+        if (hardHit){
+            if (hit){
+                AudioManager.PlayHardHit(true);
+            }
+            else{
+                AudioManager.PlayHardHit(false);
+            }
+        }
+        else{
+            if (hit){
+                AudioManager.PlayWeakHit(true);
+            }
+            else{
+                AudioManager.PlayWeakHit(false);
+            }
         }
     }
 
