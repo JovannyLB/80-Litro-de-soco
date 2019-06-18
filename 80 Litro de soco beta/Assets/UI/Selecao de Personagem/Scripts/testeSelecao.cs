@@ -10,6 +10,10 @@ using UnityEngine.UI;
 public class testeSelecao : MonoBehaviour
 {
 
+    public List<GameObject> personagensPreviews;
+    public GameObject previewMask;
+    private GameObject previewOn;
+
     public GameObject personagem0;
     public GameObject personagem1;
 
@@ -55,6 +59,8 @@ public class testeSelecao : MonoBehaviour
 
     private void Start()
     {
+        botaoReady.GetComponent<Image>().DOColor(new Color(255/255, 87/255, 76/255), 1);
+        
         playerReady = false;
         playerSelected = 0;
         //Funcionando mas fora do teste atual
@@ -78,8 +84,6 @@ public class testeSelecao : MonoBehaviour
         arrayPersonagensTela.Add(null);
 
         j = 0;
-
-        
 
         print(arrayPersonagens[0].GetComponent<IndexTest>().GetNumeroPersonagem());
         print(arrayPersonagens[1].GetComponent<IndexTest>().GetNumeroPersonagem());
@@ -169,14 +173,15 @@ public class testeSelecao : MonoBehaviour
     
             if ((Input.GetKeyDown(KeyCode.Joystick1Button1) || Input.GetKeyDown(KeyCode.G)) && !playerReady)
             {
-                print(arrayPersonagensTela[3].GetComponent<IndexTest>().GetNumeroPersonagem());
                 botaoReady.GetComponent<Image>().DOColor(new Color(0, 1, 0), 1);
                 playerSelected = arrayPersonagensTela[3].GetComponent<IndexTest>().GetNumeroPersonagem();
                 playerReady = !playerReady;
+                spawnPreview(playerSelected);
                 Debug.Log("ENTER APERTADO");
             }
             else if ((Input.GetKeyDown(KeyCode.Joystick1Button1) || Input.GetKeyDown(KeyCode.G)) && playerReady)
             {
+                clearPreview();
                 botaoReady.GetComponent<Image>().DOColor(new Color(255/255, 87/255, 76/255), 1);
                 playerSelected = 0;
                 playerReady = !playerReady;
@@ -209,10 +214,12 @@ public class testeSelecao : MonoBehaviour
                 botaoReady.GetComponent<Image>().DOColor(new Color(0, 1, 0), 1);
                 playerSelected = arrayPersonagensTela[3].GetComponent<IndexTest>().GetNumeroPersonagem();
                 playerReady = !playerReady;
+                spawnPreview(playerSelected);
                 Debug.Log("ENTER APERTADO");
             }
             else if ((Input.GetKeyDown(KeyCode.Joystick2Button1) || Input.GetKeyDown(KeyCode.Keypad5)) && playerReady)
             {
+                clearPreview();
                 botaoReady.GetComponent<Image>().DOColor(new Color(255/255, 87/255, 76/255), 1);
                 playerSelected = 0;
                 playerReady = !playerReady;
@@ -410,6 +417,52 @@ public class testeSelecao : MonoBehaviour
             
             
         }
+    }
+
+    public void spawnPreview(int index)
+    {
+        if (playerControlling == 1)
+        {
+            previewOn = Instantiate(
+                personagensPreviews[index].gameObject,
+                new Vector3(-100f, 0f, 0f),
+                new Quaternion(0f, 0f, 0f, 0f),
+                previewMask.transform
+            );
+        }
+        else if (playerControlling == 2)
+        {
+            previewOn = Instantiate(
+                personagensPreviews[index].gameObject,
+                new Vector3(-100f, 0f, 0f),
+                new Quaternion(0f, 0f, 0f, 0f),
+                previewMask.transform
+            );
+        }
+        
+        previewOn.GetComponent<RectTransform>().localPosition = new Vector3(-500, 0f, 0f);
+        previewOn.GetComponent<RectTransform>().DOLocalMove(
+            new Vector3(0f, 0f, 0f), 
+            0.5f, 
+            false
+        );
+
+        //.oncomplete(()=>{})
+//        previewMask.GetComponent<Transform>().DOLocalMove(new Vector3(500f, 0f, 0f), 0.25f, false).OnComplete(() => {
+//            previewOn.GetComponent<RectTransform>().localPosition = Vector3.zero;
+//        });
+    }
+
+    public void clearPreview()
+    {
+        previewOn.GetComponent<RectTransform>().DOLocalMove(
+            new Vector3(500f, 0f, 0f), 
+            0.5f, 
+            false
+        ).OnComplete(() =>
+        {
+            Destroy(previewOn);
+        });
     }
     
     IEnumerator DoWaitTest()
