@@ -57,10 +57,10 @@ public class GameController : MonoBehaviour{
 
     void Start(){
         // Coloca o mapa
-        Instantiate(arenas[0]);
+        var arenaAtual = Instantiate(arenas[Random.Range(0, arenas.Length)]);
         
-        arenas[0].GetComponent<ArenaScript>().SpawnInteractable(spawnPoints[2].transform.position);
-        arenas[0].GetComponent<ArenaScript>().SpawnInteractable(spawnPoints[3].transform.position);
+        arenaAtual.GetComponent<ArenaScript>().SpawnInteractable(spawnPoints[2].transform.position);
+        arenaAtual.GetComponent<ArenaScript>().SpawnInteractable(spawnPoints[3].transform.position);
 
         timeLeft = totalTime;
         uiTexts[10].text = timeLeft.ToString();
@@ -168,6 +168,10 @@ public class GameController : MonoBehaviour{
         }
         else if (Input.GetKeyDown(KeyCode.Escape) && !mode16bit){
             mode16bit = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.JoystickButton8)){
+            Instantiate(players[3]);
         }
 
         // Pausa o jogo

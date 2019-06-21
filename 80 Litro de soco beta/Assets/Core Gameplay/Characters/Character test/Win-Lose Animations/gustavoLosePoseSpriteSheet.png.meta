@@ -1,0 +1,2080 @@
+fileFormatVersion: 2
+guid: f850812e3638b8549b36f997d539c80d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8287458113308209996
+    second: gustavoLosePoseSpriteSheet_0
+  - first:
+      213: 6419244322100181997
+    second: gustavoLosePoseSpriteSheet_1
+  - first:
+      213: 6885128902482012135
+    second: gustavoLosePoseSpriteSheet_2
+  - first:
+      213: -3912390873653160357
+    second: gustavoLosePoseSpriteSheet_3
+  - first:
+      213: -738892567508738743
+    second: gustavoLosePoseSpriteSheet_4
+  - first:
+      213: 1364305550001448318
+    second: gustavoLosePoseSpriteSheet_5
+  - first:
+      213: -9075529104911654947
+    second: gustavoLosePoseSpriteSheet_6
+  - first:
+      213: 3226499580274247537
+    second: gustavoLosePoseSpriteSheet_7
+  - first:
+      213: 7645774246983562015
+    second: gustavoLosePoseSpriteSheet_8
+  - first:
+      213: -104673845995262401
+    second: gustavoLosePoseSpriteSheet_9
+  - first:
+      213: 855405503855386816
+    second: gustavoLosePoseSpriteSheet_10
+  - first:
+      213: 3274667522220279367
+    second: gustavoLosePoseSpriteSheet_11
+  - first:
+      213: 1748817762697250583
+    second: gustavoLosePoseSpriteSheet_12
+  - first:
+      213: -8771116369019318306
+    second: gustavoLosePoseSpriteSheet_13
+  - first:
+      213: 814027145365647680
+    second: gustavoLosePoseSpriteSheet_14
+  - first:
+      213: -3839386852647356597
+    second: gustavoLosePoseSpriteSheet_15
+  - first:
+      213: 8041415072287937628
+    second: gustavoLosePoseSpriteSheet_16
+  - first:
+      213: -3203040906237737075
+    second: gustavoLosePoseSpriteSheet_17
+  - first:
+      213: -2217814897300722283
+    second: gustavoLosePoseSpriteSheet_18
+  - first:
+      213: -8274509250228955419
+    second: gustavoLosePoseSpriteSheet_19
+  - first:
+      213: 1626122883569625023
+    second: gustavoLosePoseSpriteSheet_20
+  - first:
+      213: 3027241385659881424
+    second: gustavoLosePoseSpriteSheet_21
+  - first:
+      213: 6270254636249865289
+    second: gustavoLosePoseSpriteSheet_22
+  - first:
+      213: -7593560963664414779
+    second: gustavoLosePoseSpriteSheet_23
+  - first:
+      213: -2894153637809193319
+    second: gustavoLosePoseSpriteSheet_24
+  - first:
+      213: 4056510130332830226
+    second: gustavoLosePoseSpriteSheet_25
+  - first:
+      213: 6662639537836205348
+    second: gustavoLosePoseSpriteSheet_26
+  - first:
+      213: 1500265251559405072
+    second: gustavoLosePoseSpriteSheet_27
+  - first:
+      213: 5430450269326993022
+    second: gustavoLosePoseSpriteSheet_28
+  - first:
+      213: -6888459789160004414
+    second: gustavoLosePoseSpriteSheet_29
+  - first:
+      213: 2391013103047120928
+    second: gustavoLosePoseSpriteSheet_30
+  - first:
+      213: 1783093872988461687
+    second: gustavoLosePoseSpriteSheet_31
+  - first:
+      213: 7669872549914040093
+    second: gustavoLosePoseSpriteSheet_32
+  - first:
+      213: -1392782935565747148
+    second: gustavoLosePoseSpriteSheet_33
+  - first:
+      213: 1176350812881046910
+    second: gustavoLosePoseSpriteSheet_34
+  - first:
+      213: 3329298311946443055
+    second: gustavoLosePoseSpriteSheet_35
+  - first:
+      213: -4056825811595120306
+    second: gustavoLosePoseSpriteSheet_36
+  - first:
+      213: 2388409847674832203
+    second: gustavoLosePoseSpriteSheet_37
+  - first:
+      213: 650259929624257083
+    second: gustavoLosePoseSpriteSheet_38
+  - first:
+      213: 6500502838800854761
+    second: gustavoLosePoseSpriteSheet_39
+  - first:
+      213: 8319865696178172454
+    second: gustavoLosePoseSpriteSheet_40
+  - first:
+      213: 2254422412801879927
+    second: gustavoLosePoseSpriteSheet_41
+  - first:
+      213: -7532516602620365593
+    second: gustavoLosePoseSpriteSheet_42
+  - first:
+      213: -7801257264382999821
+    second: gustavoLosePoseSpriteSheet_43
+  - first:
+      213: -1190767147875391535
+    second: gustavoLosePoseSpriteSheet_44
+  - first:
+      213: 6236129931083550792
+    second: gustavoLosePoseSpriteSheet_45
+  - first:
+      213: 1075174108193358768
+    second: gustavoLosePoseSpriteSheet_46
+  - first:
+      213: 6296112244339133900
+    second: gustavoLosePoseSpriteSheet_47
+  - first:
+      213: -2456143000530695102
+    second: gustavoLosePoseSpriteSheet_48
+  - first:
+      213: 5787242116254749499
+    second: gustavoLosePoseSpriteSheet_49
+  - first:
+      213: -7933521629518486854
+    second: gustavoLosePoseSpriteSheet_50
+  - first:
+      213: 2439067035937173613
+    second: gustavoLosePoseSpriteSheet_51
+  - first:
+      213: -8593062466467214039
+    second: gustavoLosePoseSpriteSheet_52
+  - first:
+      213: 4077651453553337556
+    second: gustavoLosePoseSpriteSheet_53
+  - first:
+      213: 8269058575681860760
+    second: gustavoLosePoseSpriteSheet_54
+  - first:
+      213: 6277394410205791696
+    second: gustavoLosePoseSpriteSheet_55
+  - first:
+      213: -2074798905014556851
+    second: gustavoLosePoseSpriteSheet_56
+  - first:
+      213: -282980070213040668
+    second: gustavoLosePoseSpriteSheet_57
+  - first:
+      213: -4489093115598010189
+    second: gustavoLosePoseSpriteSheet_58
+  - first:
+      213: -6977861974846408627
+    second: gustavoLosePoseSpriteSheet_59
+  - first:
+      213: 4149979522119152927
+    second: gustavoLosePoseSpriteSheet_60
+  - first:
+      213: 3797542280809387586
+    second: gustavoLosePoseSpriteSheet_61
+  - first:
+      213: 8050343263356669799
+    second: gustavoLosePoseSpriteSheet_62
+  - first:
+      213: 66333768195286615
+    second: gustavoLosePoseSpriteSheet_63
+  - first:
+      213: -4247391877571694101
+    second: gustavoLosePoseSpriteSheet_64
+  - first:
+      213: 7892606532672660342
+    second: gustavoLosePoseSpriteSheet_65
+  - first:
+      213: -4124121284862948716
+    second: gustavoLosePoseSpriteSheet_66
+  - first:
+      213: -7364762107680599749
+    second: gustavoLosePoseSpriteSheet_67
+  - first:
+      213: -4440032837587465491
+    second: gustavoLosePoseSpriteSheet_68
+  - first:
+      213: 5606324831307040755
+    second: gustavoLosePoseSpriteSheet_69
+  - first:
+      213: -549866750897057335
+    second: gustavoLosePoseSpriteSheet_70
+  - first:
+      213: -7077141535894510914
+    second: gustavoLosePoseSpriteSheet_71
+  - first:
+      213: -5525790884051555002
+    second: gustavoLosePoseSpriteSheet_72
+  - first:
+      213: 8654008554851447669
+    second: gustavoLosePoseSpriteSheet_73
+  - first:
+      213: -6203685772087615676
+    second: gustavoLosePoseSpriteSheet_74
+  - first:
+      213: 5274996216469811177
+    second: gustavoLosePoseSpriteSheet_75
+  - first:
+      213: 3055347837884201645
+    second: gustavoLosePoseSpriteSheet_76
+  - first:
+      213: -4125060918032120220
+    second: gustavoLosePoseSpriteSheet_77
+  - first:
+      213: -635990238344157424
+    second: gustavoLosePoseSpriteSheet_78
+  - first:
+      213: 397760597853586946
+    second: gustavoLosePoseSpriteSheet_79
+  - first:
+      213: 433794468437531766
+    second: gustavoLosePoseSpriteSheet_80
+  - first:
+      213: -8331226333353999426
+    second: gustavoLosePoseSpriteSheet_81
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6480
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cef2652ef738cfa4aaba585397818dae
+      internalID: 8287458113308209996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 6480
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0f1a6c531b4164478a430f2b3afaffc
+      internalID: 6419244322100181997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 6480
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b345cdd003988f54992529e510960f09
+      internalID: 6885128902482012135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 6480
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ab13217e1c527a40b7d62950658096e
+      internalID: -3912390873653160357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 6480
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d298c52e085c674091f9e3494b45c8d
+      internalID: -738892567508738743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 6400
+        y: 6480
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c19e4d42f1da4684f8de3a17e3c7664c
+      internalID: 1364305550001448318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 7680
+        y: 6480
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f749105c77cb8b54f99f459f1c78f33f
+      internalID: -9075529104911654947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_7
+      rect:
+        serializedVersion: 2
+        x: 8960
+        y: 6480
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b3c63e73f01a7f4283d4c5063fb0c52
+      internalID: 3226499580274247537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_8
+      rect:
+        serializedVersion: 2
+        x: 10240
+        y: 6480
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f7aba2133ad9f743aecf539dc149ce7
+      internalID: 7645774246983562015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5760
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a240a134014173340bdce902e178ce13
+      internalID: -104673845995262401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_10
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 5760
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34ee1a213d66f1d4490435970ee9be94
+      internalID: 855405503855386816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_11
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 5760
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b4c4806c217c8e479b14043b8794b5a
+      internalID: 3274667522220279367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_12
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 5760
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 061cdf322f8004b45bc099d28d13636b
+      internalID: 1748817762697250583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_13
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 5760
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c61770aca464cb40900e2c04f6b34f5
+      internalID: -8771116369019318306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_14
+      rect:
+        serializedVersion: 2
+        x: 6400
+        y: 5760
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb57caa5cc0b46241a2d27fe03b3c964
+      internalID: 814027145365647680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_15
+      rect:
+        serializedVersion: 2
+        x: 7680
+        y: 5760
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c3c211628a4b77458ece64f8ec3a65e
+      internalID: -3839386852647356597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_16
+      rect:
+        serializedVersion: 2
+        x: 8960
+        y: 5760
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f91c4fb3d7c3d884f88b25710e83c8ec
+      internalID: 8041415072287937628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_17
+      rect:
+        serializedVersion: 2
+        x: 10240
+        y: 5760
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1930a7c1d89568443aba86da0416e5b5
+      internalID: -3203040906237737075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5040
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a5ac5d0815c13b4a8e7dabea08685a5
+      internalID: -2217814897300722283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_19
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 5040
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5cab3c7cd9134847908f1c930dbfd02
+      internalID: -8274509250228955419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_20
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 5040
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c62fd8d97e8f8f46a4664cf51332229
+      internalID: 1626122883569625023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_21
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 5040
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2993cca280e66ed4da6514ba6b2d6d98
+      internalID: 3027241385659881424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_22
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 5040
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e31af3e55fb8fee43b25ce3d3a0ca6b0
+      internalID: 6270254636249865289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_23
+      rect:
+        serializedVersion: 2
+        x: 6400
+        y: 5040
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee07d70bb3f787748a38b971a319a804
+      internalID: -7593560963664414779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_24
+      rect:
+        serializedVersion: 2
+        x: 7680
+        y: 5040
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cb077fc975baa74dbee96bd9881c8fb
+      internalID: -2894153637809193319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_25
+      rect:
+        serializedVersion: 2
+        x: 8960
+        y: 5040
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bda82adf9d12e284aa1c3e3f17eccdeb
+      internalID: 4056510130332830226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_26
+      rect:
+        serializedVersion: 2
+        x: 10240
+        y: 5040
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed0ea2a295534a14d87902c14ada645e
+      internalID: 6662639537836205348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4320
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af5c4e7ec01af644c81756c8ce267d9a
+      internalID: 1500265251559405072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_28
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 4320
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf7a186eb8e2ebd4cb1ef66bb7524c80
+      internalID: 5430450269326993022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_29
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 4320
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cc68edc678390847aa5388b3913f343
+      internalID: -6888459789160004414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_30
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 4320
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 456088a1314a2514f823e82afb655df5
+      internalID: 2391013103047120928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_31
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 4320
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 248450358ab346b47bc49f9b61f54294
+      internalID: 1783093872988461687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_32
+      rect:
+        serializedVersion: 2
+        x: 6400
+        y: 4320
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4b0607c40fffb54a95dc17e33c78e38
+      internalID: 7669872549914040093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_33
+      rect:
+        serializedVersion: 2
+        x: 7680
+        y: 4320
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a423e338bb642146b9d37c109a4bade
+      internalID: -1392782935565747148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_34
+      rect:
+        serializedVersion: 2
+        x: 8960
+        y: 4320
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ec90acf4b04c844998b561a23367431
+      internalID: 1176350812881046910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_35
+      rect:
+        serializedVersion: 2
+        x: 10240
+        y: 4320
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcbd94c1bdeec6d4489a0ea98deed7c7
+      internalID: 3329298311946443055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3600
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f7a43c8fd744654181badfa11a01986
+      internalID: -4056825811595120306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_37
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 3600
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc2c98f0643d337418c908835fc66a88
+      internalID: 2388409847674832203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_38
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 3600
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bef89b6f68cf6e48b93122a9f9bb065
+      internalID: 650259929624257083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_39
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 3600
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae9d62ea7efc3754f9b928435fbe7174
+      internalID: 6500502838800854761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_40
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 3600
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a419f519af6afb40a185fb495ef122c
+      internalID: 8319865696178172454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_41
+      rect:
+        serializedVersion: 2
+        x: 6400
+        y: 3600
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a66b109ba53fc014bb5b4a2cb4bf93e7
+      internalID: 2254422412801879927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_42
+      rect:
+        serializedVersion: 2
+        x: 7680
+        y: 3600
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d22a231f3d776494cbfe07b80a646f85
+      internalID: -7532516602620365593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_43
+      rect:
+        serializedVersion: 2
+        x: 8960
+        y: 3600
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c392b484b663f90459d1d0379d393fc4
+      internalID: -7801257264382999821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_44
+      rect:
+        serializedVersion: 2
+        x: 10240
+        y: 3600
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96649571d613d0e4c9919cc7c10d9339
+      internalID: -1190767147875391535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_45
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2880
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e84cf0bfa4b4b3448f7bb2e6b7bb9ed
+      internalID: 6236129931083550792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_46
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 2880
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0192d7fb6cd14c841bba9254768a2393
+      internalID: 1075174108193358768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_47
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 2880
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be44141e7e188b0468bcead48a2f8316
+      internalID: 6296112244339133900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_48
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 2880
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f4f155c1589901458ca17347c2d742a
+      internalID: -2456143000530695102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_49
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 2880
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9db21c3dbaad2f24bb16771865d09558
+      internalID: 5787242116254749499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_50
+      rect:
+        serializedVersion: 2
+        x: 6400
+        y: 2880
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5de11f9e27bac94f81d2152a83d6a79
+      internalID: -7933521629518486854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_51
+      rect:
+        serializedVersion: 2
+        x: 7680
+        y: 2880
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da8951e16d1b5344ab85bb7f8ad190ad
+      internalID: 2439067035937173613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_52
+      rect:
+        serializedVersion: 2
+        x: 8960
+        y: 2880
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 194157ee571419046b657706fb6874e9
+      internalID: -8593062466467214039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_53
+      rect:
+        serializedVersion: 2
+        x: 10240
+        y: 2880
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b72d47b1d2f1bf409374b525d4b02f4
+      internalID: 4077651453553337556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_54
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2160
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 043c249b1b730f946b4e612fe87c417f
+      internalID: 8269058575681860760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_55
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 2160
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb7601fcc31825e4f9887aa48f72ebe5
+      internalID: 6277394410205791696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_56
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 2160
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a193ee5dc8604e040b237bd994f11622
+      internalID: -2074798905014556851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_57
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 2160
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29648f6e89bd93144a7ddcd7b75c7052
+      internalID: -282980070213040668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_58
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 2160
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f09a529ea1d0b6e45a244330580dc152
+      internalID: -4489093115598010189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_59
+      rect:
+        serializedVersion: 2
+        x: 6400
+        y: 2160
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff127d521feb17245b849d2193b92942
+      internalID: -6977861974846408627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_60
+      rect:
+        serializedVersion: 2
+        x: 7680
+        y: 2160
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7c27cc375884404cb5011351df98bc7
+      internalID: 4149979522119152927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_61
+      rect:
+        serializedVersion: 2
+        x: 8960
+        y: 2160
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 407cc77f63fa096449456403f6a7b37b
+      internalID: 3797542280809387586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_62
+      rect:
+        serializedVersion: 2
+        x: 10240
+        y: 2160
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdcbfd087f4d0b54e8115ca55e95d736
+      internalID: 8050343263356669799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_63
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1440
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42d57e8920938d64594859bdd1cfb60b
+      internalID: 66333768195286615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_64
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1440
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fbb148bc7fffdc4087201e72f02ef54
+      internalID: -4247391877571694101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_65
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 1440
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 562f0d21bb542d649a1853dab5bfc99e
+      internalID: 7892606532672660342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_66
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 1440
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6a10997178f14a45a5ae06d3313e62a
+      internalID: -4124121284862948716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_67
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 1440
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb252eba92122b94fb18460c2dafe5f3
+      internalID: -7364762107680599749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_68
+      rect:
+        serializedVersion: 2
+        x: 6400
+        y: 1440
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04eb14bfc58d0e040bdc7578126f85ab
+      internalID: -4440032837587465491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_69
+      rect:
+        serializedVersion: 2
+        x: 7680
+        y: 1440
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bffb24c5ea26b1f458a45bfd72a524e1
+      internalID: 5606324831307040755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_70
+      rect:
+        serializedVersion: 2
+        x: 8960
+        y: 1440
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ed34a50c842b5f4f943dbe170906e9d
+      internalID: -549866750897057335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_71
+      rect:
+        serializedVersion: 2
+        x: 10240
+        y: 1440
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36f40f08ad783b74092f365162b8788c
+      internalID: -7077141535894510914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_72
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 720
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 733255a69edb2df4fb3d352b06908fa4
+      internalID: -5525790884051555002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_73
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 720
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f3ed4b1bce77f444bb04e0423b5f462
+      internalID: 8654008554851447669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_74
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 720
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1eabdea9c0517ef40838f3ab094ffd63
+      internalID: -6203685772087615676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_75
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 720
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1083c6b67c070fb4b9fe925c29873fda
+      internalID: 5274996216469811177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_76
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 720
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af30ff2a1caf3f94b8fc5496c5451772
+      internalID: 3055347837884201645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_77
+      rect:
+        serializedVersion: 2
+        x: 6400
+        y: 720
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1165525c57c876e4c990b3a5d328cf87
+      internalID: -4125060918032120220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_78
+      rect:
+        serializedVersion: 2
+        x: 7680
+        y: 720
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 477f8f129e4c4ab4fb02998d3b387aa7
+      internalID: -635990238344157424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_79
+      rect:
+        serializedVersion: 2
+        x: 8960
+        y: 720
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8691e23feb5ef845a078eec6b61f649
+      internalID: 397760597853586946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_80
+      rect:
+        serializedVersion: 2
+        x: 10240
+        y: 720
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dba52604a81f1ff4cae67e10a9ff9659
+      internalID: 433794468437531766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoLosePoseSpriteSheet_81
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 540fd30065b430041b09580e9ff8d847
+      internalID: -8331226333353999426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 8a5361d3f3fd3a7499fea8674ec487c4
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

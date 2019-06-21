@@ -4036,11 +4036,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   players:
-  - {fileID: 4731289080004585992, guid: 85b7eff26f712f84c8f2b5c88149df78, type: 3}
+  - {fileID: 4731289080004585992, guid: fd7b00d6bf07f094e8e94c7a84feb1f5, type: 3}
   - {fileID: 4731289080004585992, guid: 7e4ce59079ff7c449a3793be6c5f1366, type: 3}
   - {fileID: 4731289080004585992, guid: 85b7eff26f712f84c8f2b5c88149df78, type: 3}
+  - {fileID: 2085970560244456937, guid: 2360c535bd6caa145b340a1c9230430e, type: 3}
   arenas:
   - {fileID: 7414516889867158369, guid: fab9049131db1784587ae3eb7aa33352, type: 3}
+  - {fileID: 7414516889867158369, guid: e60a17f39973af146b922cf858536cb2, type: 3}
+  - {fileID: 7414516889867158369, guid: 2016864659e8f5d46886571fa6049628, type: 3}
+  - {fileID: 7414516889867158369, guid: 6e5375e195cb4914bb55243c87134df5, type: 3}
   currentlyBGO: 0
   uiTexts:
   - {fileID: 1266769996}

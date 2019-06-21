@@ -9,10 +9,10 @@ public class BGOScript : MonoBehaviour{
     void Start(){
         if (transform.position.x < 0){
             isLeft = true;
+            GetComponent<SpriteRenderer>().flipX = true;
         }
         else{
             isLeft = false;
-            GetComponent<SpriteRenderer>().flipX = true;
         }
     }
 

@@ -42,7 +42,7 @@ public class projectileLifeCheck : MonoBehaviour{
         ParticleSystem.MainModule mainModule = partcile.main;
 
         mainModule.startColor = mainColor;
-        
+
         ownPlayerScript.specialBar += specialGainOnWhiff;
         
         Destroy(gameObject, 2);

@@ -1,0 +1,2632 @@
+fileFormatVersion: 2
+guid: 88d749b6332bad94dbeaae40788176bb
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1213674423721263034
+    second: gustavoWinPoseSpriteSheet_0
+  - first:
+      213: 2613980445852765783
+    second: gustavoWinPoseSpriteSheet_1
+  - first:
+      213: -8347378880613851949
+    second: gustavoWinPoseSpriteSheet_2
+  - first:
+      213: 6304113125659669305
+    second: gustavoWinPoseSpriteSheet_3
+  - first:
+      213: -5012378304907486396
+    second: gustavoWinPoseSpriteSheet_4
+  - first:
+      213: 5075848442510576855
+    second: gustavoWinPoseSpriteSheet_5
+  - first:
+      213: 8629137183811630586
+    second: gustavoWinPoseSpriteSheet_6
+  - first:
+      213: 4229837687754190977
+    second: gustavoWinPoseSpriteSheet_7
+  - first:
+      213: 7310181369510270602
+    second: gustavoWinPoseSpriteSheet_8
+  - first:
+      213: -4787825455656780763
+    second: gustavoWinPoseSpriteSheet_9
+  - first:
+      213: -400402348891396831
+    second: gustavoWinPoseSpriteSheet_10
+  - first:
+      213: 4030338481495272490
+    second: gustavoWinPoseSpriteSheet_11
+  - first:
+      213: -6859387109603436714
+    second: gustavoWinPoseSpriteSheet_12
+  - first:
+      213: -627616229795226132
+    second: gustavoWinPoseSpriteSheet_13
+  - first:
+      213: -8151390812664457591
+    second: gustavoWinPoseSpriteSheet_14
+  - first:
+      213: 2786770639997486536
+    second: gustavoWinPoseSpriteSheet_15
+  - first:
+      213: -7288168004638667674
+    second: gustavoWinPoseSpriteSheet_16
+  - first:
+      213: 3786722328776435269
+    second: gustavoWinPoseSpriteSheet_17
+  - first:
+      213: 1470852826238303504
+    second: gustavoWinPoseSpriteSheet_18
+  - first:
+      213: 4501275288902537189
+    second: gustavoWinPoseSpriteSheet_19
+  - first:
+      213: 372993092622253206
+    second: gustavoWinPoseSpriteSheet_20
+  - first:
+      213: -5537070636429729649
+    second: gustavoWinPoseSpriteSheet_21
+  - first:
+      213: -3117719496287704662
+    second: gustavoWinPoseSpriteSheet_22
+  - first:
+      213: -3297317652190494606
+    second: gustavoWinPoseSpriteSheet_23
+  - first:
+      213: -556268896505155471
+    second: gustavoWinPoseSpriteSheet_24
+  - first:
+      213: -3536637786317728744
+    second: gustavoWinPoseSpriteSheet_25
+  - first:
+      213: 4413844119119893313
+    second: gustavoWinPoseSpriteSheet_26
+  - first:
+      213: -7621002412465909121
+    second: gustavoWinPoseSpriteSheet_27
+  - first:
+      213: 1845954062329964735
+    second: gustavoWinPoseSpriteSheet_28
+  - first:
+      213: -1719186066240658336
+    second: gustavoWinPoseSpriteSheet_29
+  - first:
+      213: 4448623342298747040
+    second: gustavoWinPoseSpriteSheet_30
+  - first:
+      213: -1740089743875464419
+    second: gustavoWinPoseSpriteSheet_31
+  - first:
+      213: -6795504289893562975
+    second: gustavoWinPoseSpriteSheet_32
+  - first:
+      213: -5552137434207803220
+    second: gustavoWinPoseSpriteSheet_33
+  - first:
+      213: -98575045352419032
+    second: gustavoWinPoseSpriteSheet_34
+  - first:
+      213: -605413049937871956
+    second: gustavoWinPoseSpriteSheet_35
+  - first:
+      213: -3082695439801512898
+    second: gustavoWinPoseSpriteSheet_36
+  - first:
+      213: 1777184828169687832
+    second: gustavoWinPoseSpriteSheet_37
+  - first:
+      213: 4707414346148504326
+    second: gustavoWinPoseSpriteSheet_38
+  - first:
+      213: 6143864069490280716
+    second: gustavoWinPoseSpriteSheet_39
+  - first:
+      213: -158469762458174608
+    second: gustavoWinPoseSpriteSheet_40
+  - first:
+      213: -6478696312927104528
+    second: gustavoWinPoseSpriteSheet_41
+  - first:
+      213: 4600111556656003861
+    second: gustavoWinPoseSpriteSheet_42
+  - first:
+      213: -1999644890303170807
+    second: gustavoWinPoseSpriteSheet_43
+  - first:
+      213: 8983279300185473833
+    second: gustavoWinPoseSpriteSheet_44
+  - first:
+      213: -5714197440540463555
+    second: gustavoWinPoseSpriteSheet_45
+  - first:
+      213: 8074996325574656952
+    second: gustavoWinPoseSpriteSheet_46
+  - first:
+      213: -7761767555364935142
+    second: gustavoWinPoseSpriteSheet_47
+  - first:
+      213: 8417886218758044551
+    second: gustavoWinPoseSpriteSheet_48
+  - first:
+      213: 6917360948559327242
+    second: gustavoWinPoseSpriteSheet_49
+  - first:
+      213: -466080911153476827
+    second: gustavoWinPoseSpriteSheet_50
+  - first:
+      213: -1607240246461726644
+    second: gustavoWinPoseSpriteSheet_51
+  - first:
+      213: 4378531584171592596
+    second: gustavoWinPoseSpriteSheet_52
+  - first:
+      213: -880521230176336124
+    second: gustavoWinPoseSpriteSheet_53
+  - first:
+      213: 2049019273700293983
+    second: gustavoWinPoseSpriteSheet_54
+  - first:
+      213: -6912160730979536161
+    second: gustavoWinPoseSpriteSheet_55
+  - first:
+      213: -7396014932100407101
+    second: gustavoWinPoseSpriteSheet_56
+  - first:
+      213: 1208213550963945405
+    second: gustavoWinPoseSpriteSheet_57
+  - first:
+      213: -3915209162443129803
+    second: gustavoWinPoseSpriteSheet_58
+  - first:
+      213: -6241869546282652200
+    second: gustavoWinPoseSpriteSheet_59
+  - first:
+      213: -316430248265289836
+    second: gustavoWinPoseSpriteSheet_60
+  - first:
+      213: 7173262678180667811
+    second: gustavoWinPoseSpriteSheet_61
+  - first:
+      213: 3088047946129783357
+    second: gustavoWinPoseSpriteSheet_62
+  - first:
+      213: -1452392615146594753
+    second: gustavoWinPoseSpriteSheet_63
+  - first:
+      213: -1738325420668900601
+    second: gustavoWinPoseSpriteSheet_64
+  - first:
+      213: 8687836174079274566
+    second: gustavoWinPoseSpriteSheet_65
+  - first:
+      213: -9203319516033497985
+    second: gustavoWinPoseSpriteSheet_66
+  - first:
+      213: 712606793900349718
+    second: gustavoWinPoseSpriteSheet_67
+  - first:
+      213: -7336403817783012417
+    second: gustavoWinPoseSpriteSheet_68
+  - first:
+      213: 6231503883911423159
+    second: gustavoWinPoseSpriteSheet_69
+  - first:
+      213: -4957812140356361480
+    second: gustavoWinPoseSpriteSheet_70
+  - first:
+      213: -8814332525075077516
+    second: gustavoWinPoseSpriteSheet_71
+  - first:
+      213: -7080472157248476741
+    second: gustavoWinPoseSpriteSheet_72
+  - first:
+      213: -1646082470057710080
+    second: gustavoWinPoseSpriteSheet_73
+  - first:
+      213: 5342818560716850784
+    second: gustavoWinPoseSpriteSheet_74
+  - first:
+      213: 6046180574358203904
+    second: gustavoWinPoseSpriteSheet_75
+  - first:
+      213: -8299443763655816919
+    second: gustavoWinPoseSpriteSheet_76
+  - first:
+      213: 8850378702035826662
+    second: gustavoWinPoseSpriteSheet_77
+  - first:
+      213: -1868940527583019153
+    second: gustavoWinPoseSpriteSheet_78
+  - first:
+      213: 9085214647371682770
+    second: gustavoWinPoseSpriteSheet_79
+  - first:
+      213: 8113989682093842150
+    second: gustavoWinPoseSpriteSheet_80
+  - first:
+      213: -4750298213112370264
+    second: gustavoWinPoseSpriteSheet_81
+  - first:
+      213: -8055381372570105332
+    second: gustavoWinPoseSpriteSheet_82
+  - first:
+      213: 455640595715687222
+    second: gustavoWinPoseSpriteSheet_83
+  - first:
+      213: 31078172547610844
+    second: gustavoWinPoseSpriteSheet_84
+  - first:
+      213: 8694209320260553144
+    second: gustavoWinPoseSpriteSheet_85
+  - first:
+      213: -6517829746964697536
+    second: gustavoWinPoseSpriteSheet_86
+  - first:
+      213: -2106095731114190357
+    second: gustavoWinPoseSpriteSheet_87
+  - first:
+      213: -8657626147591104467
+    second: gustavoWinPoseSpriteSheet_88
+  - first:
+      213: 2826724134225949553
+    second: gustavoWinPoseSpriteSheet_89
+  - first:
+      213: 7265970740599161622
+    second: gustavoWinPoseSpriteSheet_90
+  - first:
+      213: 7930020670152113274
+    second: gustavoWinPoseSpriteSheet_91
+  - first:
+      213: -7104470984996369209
+    second: gustavoWinPoseSpriteSheet_92
+  - first:
+      213: 4428120429366431206
+    second: gustavoWinPoseSpriteSheet_93
+  - first:
+      213: -2261328053135104125
+    second: gustavoWinPoseSpriteSheet_94
+  - first:
+      213: -4035680009651626767
+    second: gustavoWinPoseSpriteSheet_95
+  - first:
+      213: -4775279940079065725
+    second: gustavoWinPoseSpriteSheet_96
+  - first:
+      213: 1293579977613414908
+    second: gustavoWinPoseSpriteSheet_97
+  - first:
+      213: -4431746281245256569
+    second: gustavoWinPoseSpriteSheet_98
+  - first:
+      213: 4353361021821892679
+    second: gustavoWinPoseSpriteSheet_99
+  - first:
+      213: 3514076873239201686
+    second: gustavoWinPoseSpriteSheet_100
+  - first:
+      213: 5426854514727103047
+    second: gustavoWinPoseSpriteSheet_101
+  - first:
+      213: 6007828816693976223
+    second: gustavoWinPoseSpriteSheet_102
+  - first:
+      213: -4075196306357135351
+    second: gustavoWinPoseSpriteSheet_103
+  - first:
+      213: 464806074820823431
+    second: gustavoWinPoseSpriteSheet_104
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7200
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e006750a6d35cce4ab6d8069c73e20ef
+      internalID: -1213674423721263034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 7200
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e82ce1c39461c0944bc1c129ec5336ff
+      internalID: 2613980445852765783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 7200
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 351f9623e4a6eaf4d8fc878df5976352
+      internalID: -8347378880613851949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 7200
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 432305dfe6fe85f499ceacf0bc23cfed
+      internalID: 6304113125659669305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 7200
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6c3d22ad3585da46b75c479b48532f3
+      internalID: -5012378304907486396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 6400
+        y: 7200
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abc275b388ccd1c4a9583658cb9ef6c1
+      internalID: 5075848442510576855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 7680
+        y: 7200
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 216141d172c0a7a47942b075d7808fc9
+      internalID: 8629137183811630586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_7
+      rect:
+        serializedVersion: 2
+        x: 8960
+        y: 7200
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16fa77db47415ab44aa89d8c05d1c43f
+      internalID: 4229837687754190977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_8
+      rect:
+        serializedVersion: 2
+        x: 10240
+        y: 7200
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7541e23378e3d4c4d928d01fa8c0a942
+      internalID: 7310181369510270602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_9
+      rect:
+        serializedVersion: 2
+        x: 11520
+        y: 7200
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 710ca8b121a5f83408a88b709342dd2b
+      internalID: -4787825455656780763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6480
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92e9da5db046ec14b936f51a6e8e5362
+      internalID: -400402348891396831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_11
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 6480
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17eb01dbb8ac06844a862a761977a78c
+      internalID: 4030338481495272490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_12
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 6480
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc53f6723b319794095e3db838ce9eee
+      internalID: -6859387109603436714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_13
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 6480
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8fa2f6c1749f1c46aecc256c3459895
+      internalID: -627616229795226132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_14
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 6480
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d102f7e639999e4488573aca2f9ae365
+      internalID: -8151390812664457591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_15
+      rect:
+        serializedVersion: 2
+        x: 6400
+        y: 6480
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64783f48dc537e54896c52ce9bb607c1
+      internalID: 2786770639997486536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_16
+      rect:
+        serializedVersion: 2
+        x: 7680
+        y: 6480
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65bc49256b4a88e47b142e81e88187ba
+      internalID: -7288168004638667674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_17
+      rect:
+        serializedVersion: 2
+        x: 8960
+        y: 6480
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dae7c1d924729c0479b379d1ac265a92
+      internalID: 3786722328776435269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_18
+      rect:
+        serializedVersion: 2
+        x: 10240
+        y: 6480
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cad772e3340b9c4489758f007093be51
+      internalID: 1470852826238303504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_19
+      rect:
+        serializedVersion: 2
+        x: 11520
+        y: 6480
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61d2e2ebafb200b479fa2257489922e7
+      internalID: 4501275288902537189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5760
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38021f479ea58754ebe7f156d3229908
+      internalID: 372993092622253206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_21
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 5760
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8dda3132773da824fb9a441ec603de0b
+      internalID: -5537070636429729649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_22
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 5760
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0517956f994df548b89453912e866cb
+      internalID: -3117719496287704662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_23
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 5760
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2627d9cbb68a6694181f0e5f4599c717
+      internalID: -3297317652190494606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_24
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 5760
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 268aa97facad4884c8adaa45cd7252b1
+      internalID: -556268896505155471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_25
+      rect:
+        serializedVersion: 2
+        x: 6400
+        y: 5760
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8233307269e54844a9d9968136c56b2
+      internalID: -3536637786317728744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_26
+      rect:
+        serializedVersion: 2
+        x: 7680
+        y: 5760
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23e22da8c3b8a434dacd616447c30ade
+      internalID: 4413844119119893313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_27
+      rect:
+        serializedVersion: 2
+        x: 8960
+        y: 5760
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a25c0e58c8efc3d49bf8516333fd6db9
+      internalID: -7621002412465909121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_28
+      rect:
+        serializedVersion: 2
+        x: 10240
+        y: 5760
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15d976789da3b9d44a08e5b01122e3e2
+      internalID: 1845954062329964735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_29
+      rect:
+        serializedVersion: 2
+        x: 11520
+        y: 5760
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fe4b7fc6df1b844c9e878d5a552b621
+      internalID: -1719186066240658336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5040
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f262620a85c980548938e376f24372d1
+      internalID: 4448623342298747040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_31
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 5040
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94500e6149701474db8995b2ed9524c3
+      internalID: -1740089743875464419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_32
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 5040
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62598dde2cd35a845b4d242fc4e350e3
+      internalID: -6795504289893562975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_33
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 5040
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fed61dd3ddf9a4d489b16e11d1f9c12f
+      internalID: -5552137434207803220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_34
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 5040
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c47bb6a2eef5d6546b6bd42bf7442af9
+      internalID: -98575045352419032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_35
+      rect:
+        serializedVersion: 2
+        x: 6400
+        y: 5040
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89fab4638f6f98244a8ca78342694e9e
+      internalID: -605413049937871956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_36
+      rect:
+        serializedVersion: 2
+        x: 7680
+        y: 5040
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fd4405e323aeb74bba92c929a60b8d0
+      internalID: -3082695439801512898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_37
+      rect:
+        serializedVersion: 2
+        x: 8960
+        y: 5040
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dfbd4c6d68356a439153fc406740964
+      internalID: 1777184828169687832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_38
+      rect:
+        serializedVersion: 2
+        x: 10240
+        y: 5040
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 482f7ba7b1d354a43bfeea1932cccabc
+      internalID: 4707414346148504326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_39
+      rect:
+        serializedVersion: 2
+        x: 11520
+        y: 5040
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0532d90e2d1b6b24196f87c4b1db85ca
+      internalID: 6143864069490280716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4320
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 311385683077b664a9f387097c7aa967
+      internalID: -158469762458174608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_41
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 4320
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ab30802043793142b7995894e4be0f2
+      internalID: -6478696312927104528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_42
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 4320
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a58301b198b5aa94da586db4033da36e
+      internalID: 4600111556656003861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_43
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 4320
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b8b2914e597ac7418d5e4a6bc767414
+      internalID: -1999644890303170807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_44
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 4320
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd2d9d3f6ed9883448d70a1e9adb4f76
+      internalID: 8983279300185473833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_45
+      rect:
+        serializedVersion: 2
+        x: 6400
+        y: 4320
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df2a2a6421fd3794788a6a98db711983
+      internalID: -5714197440540463555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_46
+      rect:
+        serializedVersion: 2
+        x: 7680
+        y: 4320
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4a9095d22ea65343a291f6f9b62b6b9
+      internalID: 8074996325574656952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_47
+      rect:
+        serializedVersion: 2
+        x: 8960
+        y: 4320
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81b2cb5070ca73a459b49beef80c983d
+      internalID: -7761767555364935142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_48
+      rect:
+        serializedVersion: 2
+        x: 10240
+        y: 4320
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bf3c1c0a5ef0f94994d0a3331f7c491
+      internalID: 8417886218758044551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_49
+      rect:
+        serializedVersion: 2
+        x: 11520
+        y: 4320
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e27b488171a77748872e8f448f3485b
+      internalID: 6917360948559327242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3600
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e82535aa46de8d44913d87defe5d271
+      internalID: -466080911153476827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_51
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 3600
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e3032ee07eaeb94196232afb47dab37
+      internalID: -1607240246461726644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_52
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 3600
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6810a0c27564f4e41913294019c77125
+      internalID: 4378531584171592596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_53
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 3600
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 120d6220e55a3fa46bfdbc999413da55
+      internalID: -880521230176336124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_54
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 3600
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e84ce9e98ffc2aa4299d692f0928adf9
+      internalID: 2049019273700293983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_55
+      rect:
+        serializedVersion: 2
+        x: 6400
+        y: 3600
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a3090685b8fb24448754e4678aedd47
+      internalID: -6912160730979536161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_56
+      rect:
+        serializedVersion: 2
+        x: 7680
+        y: 3600
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b53519318a811a149973551f283ccb6b
+      internalID: -7396014932100407101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_57
+      rect:
+        serializedVersion: 2
+        x: 8960
+        y: 3600
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9980af63176b8047a8d9c242fa8c742
+      internalID: 1208213550963945405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_58
+      rect:
+        serializedVersion: 2
+        x: 10240
+        y: 3600
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8117015b21bd9e740bd9d0d652a25b9d
+      internalID: -3915209162443129803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_59
+      rect:
+        serializedVersion: 2
+        x: 11520
+        y: 3600
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f31259c70af82ac439c30997a0a84b6e
+      internalID: -6241869546282652200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2880
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da9bc102ab05cde42bfd4c2528415039
+      internalID: -316430248265289836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_61
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 2880
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b69a8fdb9a2cdf947b7d9383caea1395
+      internalID: 7173262678180667811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_62
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 2880
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c219922c2299d041a3dd399b007299c
+      internalID: 3088047946129783357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_63
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 2880
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6878cd2c42572114aa584e338763d6eb
+      internalID: -1452392615146594753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_64
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 2880
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c445a8a529c591c4a96667b746d5b12c
+      internalID: -1738325420668900601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_65
+      rect:
+        serializedVersion: 2
+        x: 6400
+        y: 2880
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d972018739d8f83478c0a4e4b75537a3
+      internalID: 8687836174079274566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_66
+      rect:
+        serializedVersion: 2
+        x: 7680
+        y: 2880
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f286d7255701a104c93910c804f2a8d3
+      internalID: -9203319516033497985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_67
+      rect:
+        serializedVersion: 2
+        x: 8960
+        y: 2880
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83e47f87d59c20745a9aebc57ae77811
+      internalID: 712606793900349718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_68
+      rect:
+        serializedVersion: 2
+        x: 10240
+        y: 2880
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da3dcf3a7a143294a9700f77376ef518
+      internalID: -7336403817783012417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_69
+      rect:
+        serializedVersion: 2
+        x: 11520
+        y: 2880
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3299820233e2c643808ac87198e3878
+      internalID: 6231503883911423159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_70
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2160
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 143c5bf2fc6fb0e4bb630772835c0c45
+      internalID: -4957812140356361480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_71
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 2160
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa4dffd879ac6f942a5540406d471e8d
+      internalID: -8814332525075077516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_72
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 2160
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0be5253a70d1015449fe2bf39eaea2b8
+      internalID: -7080472157248476741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_73
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 2160
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 949785f783ad67d429f3aa559632f1e7
+      internalID: -1646082470057710080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_74
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 2160
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7928361ea88a4f64fad8760e39879c3f
+      internalID: 5342818560716850784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_75
+      rect:
+        serializedVersion: 2
+        x: 6400
+        y: 2160
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b03f3ff135df32242b93e6fb19fa9aaa
+      internalID: 6046180574358203904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_76
+      rect:
+        serializedVersion: 2
+        x: 7680
+        y: 2160
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91f1ba2dd4c06b3469e10b7c7cfdbe1e
+      internalID: -8299443763655816919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_77
+      rect:
+        serializedVersion: 2
+        x: 8960
+        y: 2160
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd8059bcb94e39b42937e017b019c3f9
+      internalID: 8850378702035826662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_78
+      rect:
+        serializedVersion: 2
+        x: 10240
+        y: 2160
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63cda73ebecfa774e90ce97f87ac4dce
+      internalID: -1868940527583019153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_79
+      rect:
+        serializedVersion: 2
+        x: 11520
+        y: 2160
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 859f3d793565f3747ba835794bdc3328
+      internalID: 9085214647371682770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_80
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1440
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4202f3ab0ac365e40a1dcd0ac72f5b50
+      internalID: 8113989682093842150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_81
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1440
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d844466125057e428858d727c35fcc0
+      internalID: -4750298213112370264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_82
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 1440
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f96915b6ccc765d45b8dea8c7ee98396
+      internalID: -8055381372570105332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_83
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 1440
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d48bbc12a037ccc46bbfad0d4b5c8baf
+      internalID: 455640595715687222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_84
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 1440
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60fededc9638f37489e49ed2ce674c9c
+      internalID: 31078172547610844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_85
+      rect:
+        serializedVersion: 2
+        x: 6400
+        y: 1440
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e474c43c7e30ff94ea476b6bd62f0341
+      internalID: 8694209320260553144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_86
+      rect:
+        serializedVersion: 2
+        x: 7680
+        y: 1440
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 987ff6b4bfaf5d347b83f137e8153c09
+      internalID: -6517829746964697536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_87
+      rect:
+        serializedVersion: 2
+        x: 8960
+        y: 1440
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6dcfbd32c690d842b0e089c163e106f
+      internalID: -2106095731114190357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_88
+      rect:
+        serializedVersion: 2
+        x: 10240
+        y: 1440
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a627c1d8ecaa1b84eafe1be2543c7757
+      internalID: -8657626147591104467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_89
+      rect:
+        serializedVersion: 2
+        x: 11520
+        y: 1440
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5db1ea3d1cc54d44f94865055c181276
+      internalID: 2826724134225949553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_90
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 720
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d94c4afa3f993484bbf1b34562ab274d
+      internalID: 7265970740599161622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_91
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 720
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed726ec665d8e8248ab7a2a6a8b9c3cd
+      internalID: 7930020670152113274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_92
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 720
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4201f94f6ebc5f7488eff56c554603c2
+      internalID: -7104470984996369209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_93
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 720
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 904d4fbae21eeba45b5bb547186297ea
+      internalID: 4428120429366431206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_94
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 720
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4258169d1a990345816920f9271255d
+      internalID: -2261328053135104125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_95
+      rect:
+        serializedVersion: 2
+        x: 6400
+        y: 720
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9da9b96c9b51e44580abda783859c7d
+      internalID: -4035680009651626767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_96
+      rect:
+        serializedVersion: 2
+        x: 7680
+        y: 720
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa09e9d520a933943871c6e369311ea5
+      internalID: -4775279940079065725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_97
+      rect:
+        serializedVersion: 2
+        x: 8960
+        y: 720
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d57053b72edf8a8489eeb8cf08608bbb
+      internalID: 1293579977613414908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_98
+      rect:
+        serializedVersion: 2
+        x: 10240
+        y: 720
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8553636216922214bb8fb37248897080
+      internalID: -4431746281245256569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_99
+      rect:
+        serializedVersion: 2
+        x: 11520
+        y: 720
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18c3c38f7a9c9f94cbf17db1dbc06434
+      internalID: 4353361021821892679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_100
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f18553c916df83e41b41711d905f8024
+      internalID: 3514076873239201686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_101
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45734e2926a7deb49a08d669eb017bee
+      internalID: 5426854514727103047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_102
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 0
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38cba016e5bc4a543911da07fe23786b
+      internalID: 6007828816693976223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_103
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 0
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edf8fa8a373c8074b9a6a00ca6e548aa
+      internalID: -4075196306357135351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gustavoWinPoseSpriteSheet_104
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 0
+        width: 1280
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e9c23337c8fdec4a91be4981a71c761
+      internalID: 464806074820823431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 259e116aaa033f54d86173f2c2a987c8
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

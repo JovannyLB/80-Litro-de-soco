@@ -28,15 +28,21 @@ AnimationClip:
     - time: 0.05
       value: {fileID: 21300010, guid: ac6364271424b7244be4127cc86621c9, type: 3}
     - time: 0.06666667
-      value: {fileID: 21300000, guid: c2952b3c1c444ff40bfdb9b0eeb24446, type: 3}
+      value: {fileID: 21300006, guid: ac6364271424b7244be4127cc86621c9, type: 3}
+    - time: 0.083333336
+      value: {fileID: 21300000, guid: 102061cced048b449807492bc54abc21, type: 3}
+    - time: 0.1
+      value: {fileID: 21300008, guid: 102061cced048b449807492bc54abc21, type: 3}
+    - time: 0.11666667
+      value: {fileID: 21300018, guid: 102061cced048b449807492bc54abc21, type: 3}
     - time: 0.33333334
-      value: {fileID: 21300010, guid: ac6364271424b7244be4127cc86621c9, type: 3}
+      value: {fileID: 21300012, guid: 102061cced048b449807492bc54abc21, type: 3}
     - time: 0.35
-      value: {fileID: 21300008, guid: ac6364271424b7244be4127cc86621c9, type: 3}
+      value: {fileID: 21300006, guid: 102061cced048b449807492bc54abc21, type: 3}
     - time: 0.36666667
-      value: {fileID: 21300004, guid: ac6364271424b7244be4127cc86621c9, type: 3}
+      value: {fileID: 21300002, guid: 102061cced048b449807492bc54abc21, type: 3}
     - time: 0.38333333
-      value: {fileID: 21300000, guid: ac6364271424b7244be4127cc86621c9, type: 3}
+      value: {fileID: 21300000, guid: 102061cced048b449807492bc54abc21, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -60,11 +66,14 @@ AnimationClip:
     - {fileID: 21300004, guid: ac6364271424b7244be4127cc86621c9, type: 3}
     - {fileID: 21300008, guid: ac6364271424b7244be4127cc86621c9, type: 3}
     - {fileID: 21300010, guid: ac6364271424b7244be4127cc86621c9, type: 3}
-    - {fileID: 21300000, guid: c2952b3c1c444ff40bfdb9b0eeb24446, type: 3}
-    - {fileID: 21300010, guid: ac6364271424b7244be4127cc86621c9, type: 3}
-    - {fileID: 21300008, guid: ac6364271424b7244be4127cc86621c9, type: 3}
-    - {fileID: 21300004, guid: ac6364271424b7244be4127cc86621c9, type: 3}
-    - {fileID: 21300000, guid: ac6364271424b7244be4127cc86621c9, type: 3}
+    - {fileID: 21300006, guid: ac6364271424b7244be4127cc86621c9, type: 3}
+    - {fileID: 21300000, guid: 102061cced048b449807492bc54abc21, type: 3}
+    - {fileID: 21300008, guid: 102061cced048b449807492bc54abc21, type: 3}
+    - {fileID: 21300018, guid: 102061cced048b449807492bc54abc21, type: 3}
+    - {fileID: 21300012, guid: 102061cced048b449807492bc54abc21, type: 3}
+    - {fileID: 21300006, guid: 102061cced048b449807492bc54abc21, type: 3}
+    - {fileID: 21300002, guid: 102061cced048b449807492bc54abc21, type: 3}
+    - {fileID: 21300000, guid: 102061cced048b449807492bc54abc21, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -97,21 +106,21 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.06666667
+  - time: 0.05
     functionName: SuperEffect
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.1
+  - time: 0.11666667
     functionName: ActiveFrameStart
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 14
     messageOptions: 0
-  - time: 0.31666666
+  - time: 0.2
     functionName: ActiveFrameStop
     data: 
     objectReferenceParameter: {fileID: 0}
